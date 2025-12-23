@@ -1,0 +1,140 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-21T17:29:06.398Z",
+    "createdAt": "2025-12-21T17:27:18.859Z",
+    "versionId": "3e13e26d-4ad5-43ca-9140-61713caad10f",
+    "workflowId": "rWCBcWDXBlVMFipc",
+    "nodes": [
+      {
+        "parameters": {
+          "formId": "A7K61k"
+        },
+        "type": "n8n-nodes-tallyforms.tallyTrigger",
+        "typeVersion": 2,
+        "position": [
+          0,
+          0
+        ],
+        "id": "41b0a8b7-eb3a-4375-a09d-84312659c7f6",
+        "name": "Tally Trigger",
+        "webhookId": "f47612b6-71b7-48f3-b467-f088e27596b8",
+        "credentials": {
+          "tallyApi": {
+            "id": "Y8WEyi7Syt62TGG0",
+            "name": "bio_1"
+          }
+        }
+      }
+    ],
+    "connections": {},
+    "authors": "Bioenglish Lat",
+    "name": "Version 3e13e26d",
+    "description": ""
+  },
+  "activeVersionId": "3e13e26d-4ad5-43ca-9140-61713caad10f",
+  "connections": {},
+  "createdAt": "2025-12-21T17:27:18.859Z",
+  "id": "rWCBcWDXBlVMFipc",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Formulario - Cobranzas",
+  "nodes": [
+    {
+      "parameters": {
+        "formId": "A7K61k"
+      },
+      "type": "n8n-nodes-tallyforms.tallyTrigger",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "41b0a8b7-eb3a-4375-a09d-84312659c7f6",
+      "name": "Tally Trigger",
+      "webhookId": "f47612b6-71b7-48f3-b467-f088e27596b8",
+      "credentials": {
+        "tallyApi": {
+          "id": "Y8WEyi7Syt62TGG0",
+          "name": "bio_1"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Tally Trigger": [
+      {
+        "json": {
+          "id": "q4QZprk",
+          "formId": "A7K61k",
+          "formName": "Bioenglish - renovacion",
+          "respondentId": "aQ2LWD2",
+          "createdAt": "2025-12-21T17:29:19.000Z",
+          "question_zqjAMq": {
+            "label": "Nombre del estudiante\n",
+            "value": "a",
+            "type": "INPUT_TEXT"
+          },
+          "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
+            "label": "nombre_estudiante",
+            "value": null,
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_d6Eo0A": {
+            "label": "Celular del estudiante\n",
+            "value": "+51994512678",
+            "type": "INPUT_PHONE_NUMBER"
+          },
+          "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
+            "label": "celular_estudiante",
+            "value": null,
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_5zbY9d": {
+            "label": "Edad del estudiante (indica sólo el número)",
+            "value": 12,
+            "type": "INPUT_NUMBER"
+          },
+          "question_YQPbGd": {
+            "label": "Comprobante de pago\n",
+            "value": "https://storage.tally.so/private/Imagen-de-WhatsApp-2025-11-28-a-las-00.42.24_b93bc08c.jpg?id=oKy74V&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im9LeTc0ViIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NjMzODE1OX0.f7RuEsihSFmmZnIRf6PXcz9t1aTJXiU5Ul1rXrBdMJc&signature=efbd0eab24f1e0e8e873c46af77a3581bf9da1c5fe6b643f83355942eb1783f4",
+            "type": "FILE_UPLOAD"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-21T17:27:18.859Z",
+      "createdAt": "2025-12-21T17:27:18.859Z",
+      "role": "workflow:owner",
+      "workflowId": "rWCBcWDXBlVMFipc",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": {
+    "node:Tally Trigger": {
+      "webhookId": "mVPjjN"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-22T05:05:18.354Z",
+  "versionId": "3e13e26d-4ad5-43ca-9140-61713caad10f"
+}
