@@ -1,0 +1,3059 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-22T00:00:25.105Z",
+    "createdAt": "2025-12-22T00:00:23.102Z",
+    "versionId": "71e3980c-bd26-480e-8446-c5cb3543d8d5",
+    "workflowId": "UqJsZfAhJHkWNxvT",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -16,
+          -144
+        ],
+        "id": "dd54194c-b150-4c1d-b50c-e0eafb629e4c",
+        "name": "Webhook",
+        "webhookId": "faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f"
+      },
+      {
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "url_de_renovacion_largo"
+              },
+              {
+                "name": "id_registro_cliente"
+              },
+              {
+                "name": "tipo"
+              },
+              {
+                "name": "id_link_short_io"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          0,
+          128
+        ],
+        "id": "c6d20ef4-b843-4dfe-9eb3-d8bf14a64a01",
+        "name": "When Executed by Another Workflow"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "id_registro_clientes",
+                "value": "={{ $json.body.recordId }}",
+                "type": "string"
+              },
+              {
+                "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
+                "name": "url_renovacion",
+                "value": "={{ $json.body.url_renovacion }}",
+                "type": "string"
+              },
+              {
+                "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
+                "name": "tipo",
+                "value": "={{ $json.body.tipo }}",
+                "type": "string"
+              },
+              {
+                "id": "8e67a55f-7e3e-4226-af8b-adf7bbfcc6b0",
+                "name": "id_link_short_io",
+                "value": "={{ $json.body.id_link_short_io }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          304,
+          -144
+        ],
+        "id": "51911006-86c9-4d9c-afbf-8152ed9ae5f8",
+        "name": "variables"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "id_registro_clientes",
+                "value": "={{ $json.id_registro_cliente }}",
+                "type": "string"
+              },
+              {
+                "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
+                "name": "url_renovacion",
+                "value": "={{ $json.url_de_renovacion_largo }}",
+                "type": "string"
+              },
+              {
+                "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
+                "name": "tipo",
+                "value": "={{ $json.tipo }}",
+                "type": "string"
+              },
+              {
+                "id": "a6704825-3486-4960-b5c9-bded8a96b7ae",
+                "name": "id_link_short_io",
+                "value": "={{ $json.id_link_short_io }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          304,
+          128
+        ],
+        "id": "0879bcf1-5081-4eaa-a338-293c550435eb",
+        "name": "variables1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "id_registro_clientes",
+                "value": "={{ $json.id_registro_clientes }}",
+                "type": "string"
+              },
+              {
+                "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
+                "name": "url_renovacion",
+                "value": "={{ $json.url_renovacion }}",
+                "type": "string"
+              },
+              {
+                "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
+                "name": "tipo",
+                "value": "={{ $json.tipo }}",
+                "type": "string"
+              },
+              {
+                "id": "217e8b52-7b01-4b73-a33e-8c92879f426a",
+                "name": "id_link_short_io",
+                "value": "={{ $json.id_link_short_io }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          624,
+          0
+        ],
+        "id": "996c26ee-cec2-48da-880b-ef78e15ea484",
+        "name": "variables_1"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('variables_1').item.json.tipo }}",
+                      "rightValue": "nuevo_url",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      },
+                      "id": "8e955291-9fbe-4096-9012-31e49ee223fe"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "nuevo"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "97b49d1d-6abb-468c-ad4f-d69d8e800ef3",
+                      "leftValue": "={{ $('variables_1').item.json.tipo }}",
+                      "rightValue": "actualizar_url",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "actualizar"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          832,
+          0
+        ],
+        "id": "7eb06ff9-d5ba-4555-b597-6192f0e98cf7",
+        "name": "Switch"
+      },
+      {
+        "parameters": {
+          "operation": "createLink",
+          "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+          "additionalFields": {}
+        },
+        "type": "n8n-nodes-shortio.Shortio",
+        "typeVersion": 1,
+        "position": [
+          1344,
+          -192
+        ],
+        "id": "373de5a6-a237-43b3-bf6a-ac14ac7e206a",
+        "name": "Create link",
+        "credentials": {
+          "shortioApi": {
+            "id": "ZEXkTgnYJmw91NEw",
+            "name": "autoamgichlab_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "updateExistingLink",
+          "shortLinkId": {
+            "__rl": true,
+            "value": "QZoc3e",
+            "mode": "path"
+          },
+          "originalURL": "={{ $('variables_1').item.json.url_renovacion }}3",
+          "additionalFields": {}
+        },
+        "type": "n8n-nodes-shortio.Shortio",
+        "typeVersion": 1,
+        "position": [
+          1568,
+          480
+        ],
+        "id": "8f2e54ee-336e-4c0b-909e-d2b055041158",
+        "name": "Update existing link",
+        "credentials": {
+          "shortioApi": {
+            "id": "ZEXkTgnYJmw91NEw",
+            "name": "autoamgichlab_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "url_acortado",
+                "value": "={{ $('Create link').item.json.shortIoResponse.shortURL }}",
+                "type": "string"
+              },
+              {
+                "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+                "name": "id_short_io",
+                "value": "={{ $('Create link').item.json.shortIoResponse.path }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1600,
+          -192
+        ],
+        "id": "c720a3c1-073d-49d7-a124-bce8e4938f2d",
+        "name": "url_acortado"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "url_acortado",
+                "value": "={{ $json.url_acortado }}",
+                "type": "string"
+              },
+              {
+                "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
+                "name": "id_short_io",
+                "value": "={{ $json.id_short_io }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2352,
+          80
+        ],
+        "id": "c7eeac2f-b3cd-44b9-8771-8c44a91a05aa",
+        "name": "variables_2"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "update",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblkpm3CwBi8WctOZ",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id": "={{ $('variables_1').item.json.id_registro_clientes }}",
+              "ID url short.io": "={{ $('variables_2').item.json.id_short_io}}",
+              "URL renovacion corto": "={{ $('variables_2').item.json.url_acortado}}"
+            },
+            "matchingColumns": [
+              "id"
+            ],
+            "schema": [
+              {
+                "id": "id",
+                "displayName": "id",
+                "required": false,
+                "defaultMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Estudiante",
+                "displayName": "Estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Usuarios",
+                "displayName": "Usuarios",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Cel Estudiante",
+                "displayName": "Cel Estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Cel Apoderado",
+                "displayName": "Cel Apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Email del estudiante",
+                "displayName": "Email del estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Magic link (from Usuarios)",
+                "displayName": "Magic link (from Usuarios)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Email del apoderado",
+                "displayName": "Email del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular Unico",
+                "displayName": "Celular Unico",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Pais Celular",
+                "displayName": "Pais Celular",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre del estudiante",
+                "displayName": "Nombre del estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Tipo",
+                "displayName": "Tipo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Adulto",
+                    "value": "Adulto"
+                  },
+                  {
+                    "name": "Menor de edad",
+                    "value": "Menor de edad"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Apoderado",
+                "displayName": "Apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular del estudiante 1",
+                "displayName": "Celular del estudiante 1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular del estudiante 2",
+                "displayName": "Celular del estudiante 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "PEN Rollup (from DetalleVentas)",
+                "displayName": "PEN Rollup (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "# Ventas",
+                "displayName": "# Ventas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "DetalleVentas",
+                "displayName": "DetalleVentas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de Pago (from DetalleVentas)",
+                "displayName": "Fecha de Pago (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha min",
+                "displayName": "Fecha min",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "ID",
+                "displayName": "ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Inicio Suscripción Actual",
+                "displayName": "Inicio Suscripción Actual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Status",
+                "displayName": "Status",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "1ra Suscripción",
+                "displayName": "1ra Suscripción",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "WA Link",
+                "displayName": "WA Link",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "#Semanas",
+                "displayName": "#Semanas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha fin",
+                "displayName": "Fecha fin",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Semanas transcurridas",
+                "displayName": "Semanas transcurridas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Dif Semanas",
+                "displayName": "Dif Semanas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Record",
+                "displayName": "Record",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Grupos (from DetalleVentas)",
+                "displayName": "Grupos (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "latestPurchaseDate",
+                "displayName": "latestPurchaseDate",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo actual",
+                "displayName": "Grupo actual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Preventa",
+                "displayName": "Preventa",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular del apoderado",
+                "displayName": "Celular del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Nivel de Ingles del Estudiante",
+                "displayName": "Nivel de Ingles del Estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Intermedio",
+                    "value": "Intermedio"
+                  },
+                  {
+                    "name": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am",
+                    "value": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am"
+                  },
+                  {
+                    "name": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm",
+                    "value": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm"
+                  },
+                  {
+                    "name": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm",
+                    "value": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm"
+                  },
+                  {
+                    "name": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm",
+                    "value": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                    "value": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                  },
+                  {
+                    "name": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm",
+                    "value": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm"
+                  },
+                  {
+                    "name": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm",
+                    "value": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm"
+                  },
+                  {
+                    "name": "Grupos presenciales (Tacna)",
+                    "value": "Grupos presenciales (Tacna)"
+                  },
+                  {
+                    "name": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm",
+                    "value": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm"
+                  },
+                  {
+                    "name": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm",
+                    "value": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm"
+                  },
+                  {
+                    "name": "KET",
+                    "value": "KET"
+                  },
+                  {
+                    "name": "KET_A2",
+                    "value": "KET_A2"
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am",
+                    "value": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am"
+                  },
+                  {
+                    "name": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am",
+                    "value": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Nivel de Ingles del apoderado",
+                "displayName": "Nivel de Ingles del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Básico",
+                    "value": "Básico"
+                  },
+                  {
+                    "name": "No se mi nivel de inglés",
+                    "value": "No se mi nivel de inglés"
+                  },
+                  {
+                    "name": "Intermedio",
+                    "value": "Intermedio"
+                  },
+                  {
+                    "name": "Nunca he estudiado inglés",
+                    "value": "Nunca he estudiado inglés"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Aula virtual",
+                "displayName": "Aula virtual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "DetalleVentas copy",
+                "displayName": "DetalleVentas copy",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "PEN SF",
+                "displayName": "PEN SF",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "ISO",
+                "displayName": "ISO",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupos Ultimo",
+                "displayName": "Grupos Ultimo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "TUSD",
+                "displayName": "TUSD",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha de Fin (from DetalleVentas)",
+                "displayName": "Fecha de Fin (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha de Inicio (from DetalleVentas)",
+                "displayName": "Fecha de Inicio (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Kommo Link WA",
+                "displayName": "Kommo Link WA",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Cantidad DV",
+                "displayName": "Cantidad DV",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Customer Success",
+                "displayName": "Customer Success",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Onboarding",
+                    "value": "Onboarding"
+                  },
+                  {
+                    "name": "Adopción",
+                    "value": "Adopción"
+                  },
+                  {
+                    "name": "Renovación",
+                    "value": "Renovación"
+                  },
+                  {
+                    "name": "Expansión",
+                    "value": "Expansión"
+                  },
+                  {
+                    "name": "Lealtad",
+                    "value": "Lealtad"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de Fin (from DetalleVentas) 2",
+                "displayName": "Fecha de Fin (from DetalleVentas) 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Record ID",
+                "displayName": "Record ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Clientes (from DetalleVentas)",
+                "displayName": "Clientes (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Preventa 2",
+                "displayName": "Preventa 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Preventa 3",
+                "displayName": "Preventa 3",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fin Suscripción Actual",
+                "displayName": "Fin Suscripción Actual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Suscripción (from DetalleVentas)",
+                "displayName": "Suscripción (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Email F",
+                "displayName": "Email F",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre F",
+                "displayName": "Nombre F",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha de hora de envío",
+                "displayName": "Fecha de hora de envío",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "URL renovacion",
+                "displayName": "URL renovacion",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "URL renovacion corto",
+                "displayName": "URL renovacion corto",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "ID url short.io",
+                "displayName": "ID url short.io",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          2560,
+          80
+        ],
+        "id": "8d75a5e6-debd-4300-9ca2-d3f79b8c8207",
+        "name": "Update record",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "377a5ce7-7c5a-4151-bd45-a3fc0a66fbf8",
+                "leftValue": "={{ $('variables_1').item.json.id_link_short_io }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          1344,
+          320
+        ],
+        "id": "f0c2c5ab-a451-4146-a232-4917ca064743",
+        "name": "esta vacio?"
+      },
+      {
+        "parameters": {
+          "operation": "createLink",
+          "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+          "additionalFields": {}
+        },
+        "type": "n8n-nodes-shortio.Shortio",
+        "typeVersion": 1,
+        "position": [
+          1552,
+          192
+        ],
+        "id": "f34f81ba-5e7e-44e1-82d1-c95cd7284d98",
+        "name": "Create link1",
+        "credentials": {
+          "shortioApi": {
+            "id": "ZEXkTgnYJmw91NEw",
+            "name": "autoamgichlab_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "url_acortado",
+                "value": "={{ $('Create link1').item.json.shortIoResponse.shortURL }}",
+                "type": "string"
+              },
+              {
+                "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+                "name": "id_short_io",
+                "value": "={{ $('Create link1').item.json.shortIoResponse.path }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1888,
+          192
+        ],
+        "id": "98e8d3d3-3156-452a-bd06-ea7a497817dd",
+        "name": "url_acortado1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "url_acortado",
+                "value": "={{ $json.shortIoResponse.shortURL }}",
+                "type": "string"
+              },
+              {
+                "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+                "name": "id_short_io",
+                "value": "={{ $json.shortIoResponse.path }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1888,
+          480
+        ],
+        "id": "8c4f9ace-e438-4004-a81d-35d02102d2c5",
+        "name": "url_acortado2"
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "variables",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "node": "variables1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables": {
+        "main": [
+          [
+            {
+              "node": "variables_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables1": {
+        "main": [
+          [
+            {
+              "node": "variables_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_1": {
+        "main": [
+          [
+            {
+              "node": "Switch",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Switch": {
+        "main": [
+          [
+            {
+              "node": "Create link",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "esta vacio?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create link": {
+        "main": [
+          [
+            {
+              "node": "url_acortado",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "url_acortado": {
+        "main": [
+          [
+            {
+              "node": "variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_2": {
+        "main": [
+          [
+            {
+              "node": "Update record",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "esta vacio?": {
+        "main": [
+          [
+            {
+              "node": "Create link1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Update existing link",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create link1": {
+        "main": [
+          [
+            {
+              "node": "url_acortado1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "url_acortado1": {
+        "main": [
+          [
+            {
+              "node": "variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Update existing link": {
+        "main": [
+          [
+            {
+              "node": "url_acortado2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "url_acortado2": {
+        "main": [
+          [
+            {
+              "node": "variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version 71e3980c",
+    "description": ""
+  },
+  "activeVersionId": "71e3980c-bd26-480e-8446-c5cb3543d8d5",
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "variables1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables": {
+      "main": [
+        [
+          {
+            "node": "variables_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables1": {
+      "main": [
+        [
+          {
+            "node": "variables_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_1": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Create link",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "esta vacio?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create link": {
+      "main": [
+        [
+          {
+            "node": "url_acortado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url_acortado": {
+      "main": [
+        [
+          {
+            "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_2": {
+      "main": [
+        [
+          {
+            "node": "Update record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "esta vacio?": {
+      "main": [
+        [
+          {
+            "node": "Create link1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update existing link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create link1": {
+      "main": [
+        [
+          {
+            "node": "url_acortado1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url_acortado1": {
+      "main": [
+        [
+          {
+            "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update existing link": {
+      "main": [
+        [
+          {
+            "node": "url_acortado2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url_acortado2": {
+      "main": [
+        [
+          {
+            "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-21T21:07:29.873Z",
+  "id": "UqJsZfAhJHkWNxvT",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Crear/actualizar url short.io",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -16,
+        -144
+      ],
+      "id": "dd54194c-b150-4c1d-b50c-e0eafb629e4c",
+      "name": "Webhook",
+      "webhookId": "faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "url_de_renovacion_largo"
+            },
+            {
+              "name": "id_registro_cliente"
+            },
+            {
+              "name": "tipo"
+            },
+            {
+              "name": "id_link_short_io"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        128
+      ],
+      "id": "c6d20ef4-b843-4dfe-9eb3-d8bf14a64a01",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "id_registro_clientes",
+              "value": "={{ $json.body.recordId }}",
+              "type": "string"
+            },
+            {
+              "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
+              "name": "url_renovacion",
+              "value": "={{ $json.body.url_renovacion }}",
+              "type": "string"
+            },
+            {
+              "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
+              "name": "tipo",
+              "value": "={{ $json.body.tipo }}",
+              "type": "string"
+            },
+            {
+              "id": "8e67a55f-7e3e-4226-af8b-adf7bbfcc6b0",
+              "name": "id_link_short_io",
+              "value": "={{ $json.body.id_link_short_io }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        304,
+        -144
+      ],
+      "id": "51911006-86c9-4d9c-afbf-8152ed9ae5f8",
+      "name": "variables"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "id_registro_clientes",
+              "value": "={{ $json.id_registro_cliente }}",
+              "type": "string"
+            },
+            {
+              "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
+              "name": "url_renovacion",
+              "value": "={{ $json.url_de_renovacion_largo }}",
+              "type": "string"
+            },
+            {
+              "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
+              "name": "tipo",
+              "value": "={{ $json.tipo }}",
+              "type": "string"
+            },
+            {
+              "id": "a6704825-3486-4960-b5c9-bded8a96b7ae",
+              "name": "id_link_short_io",
+              "value": "={{ $json.id_link_short_io }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        304,
+        128
+      ],
+      "id": "0879bcf1-5081-4eaa-a338-293c550435eb",
+      "name": "variables1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "id_registro_clientes",
+              "value": "={{ $json.id_registro_clientes }}",
+              "type": "string"
+            },
+            {
+              "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
+              "name": "url_renovacion",
+              "value": "={{ $json.url_renovacion }}",
+              "type": "string"
+            },
+            {
+              "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
+              "name": "tipo",
+              "value": "={{ $json.tipo }}",
+              "type": "string"
+            },
+            {
+              "id": "217e8b52-7b01-4b73-a33e-8c92879f426a",
+              "name": "id_link_short_io",
+              "value": "={{ $json.id_link_short_io }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        0
+      ],
+      "id": "996c26ee-cec2-48da-880b-ef78e15ea484",
+      "name": "variables_1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('variables_1').item.json.tipo }}",
+                    "rightValue": "nuevo_url",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "8e955291-9fbe-4096-9012-31e49ee223fe"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "nuevo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "97b49d1d-6abb-468c-ad4f-d69d8e800ef3",
+                    "leftValue": "={{ $('variables_1').item.json.tipo }}",
+                    "rightValue": "actualizar_url",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "actualizar"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        832,
+        0
+      ],
+      "id": "7eb06ff9-d5ba-4555-b597-6192f0e98cf7",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "createLink",
+        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-shortio.Shortio",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        -192
+      ],
+      "id": "373de5a6-a237-43b3-bf6a-ac14ac7e206a",
+      "name": "Create link",
+      "credentials": {
+        "shortioApi": {
+          "id": "ZEXkTgnYJmw91NEw",
+          "name": "autoamgichlab_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "updateExistingLink",
+        "shortLinkId": {
+          "__rl": true,
+          "value": "QZoc3e",
+          "mode": "path"
+        },
+        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}3",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-shortio.Shortio",
+      "typeVersion": 1,
+      "position": [
+        1568,
+        480
+      ],
+      "id": "8f2e54ee-336e-4c0b-909e-d2b055041158",
+      "name": "Update existing link",
+      "credentials": {
+        "shortioApi": {
+          "id": "ZEXkTgnYJmw91NEw",
+          "name": "autoamgichlab_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "url_acortado",
+              "value": "={{ $('Create link').item.json.shortIoResponse.shortURL }}",
+              "type": "string"
+            },
+            {
+              "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+              "name": "id_short_io",
+              "value": "={{ $('Create link').item.json.shortIoResponse.path }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1600,
+        -192
+      ],
+      "id": "c720a3c1-073d-49d7-a124-bce8e4938f2d",
+      "name": "url_acortado"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "url_acortado",
+              "value": "={{ $json.url_acortado }}",
+              "type": "string"
+            },
+            {
+              "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
+              "name": "id_short_io",
+              "value": "={{ $json.id_short_io }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2352,
+        80
+      ],
+      "id": "c7eeac2f-b3cd-44b9-8771-8c44a91a05aa",
+      "name": "variables_2"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('variables_1').item.json.id_registro_clientes }}",
+            "ID url short.io": "={{ $('variables_2').item.json.id_short_io}}",
+            "URL renovacion corto": "={{ $('variables_2').item.json.url_acortado}}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Estudiante",
+              "displayName": "Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Usuarios",
+              "displayName": "Usuarios",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cel Estudiante",
+              "displayName": "Cel Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cel Apoderado",
+              "displayName": "Cel Apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email del estudiante",
+              "displayName": "Email del estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Magic link (from Usuarios)",
+              "displayName": "Magic link (from Usuarios)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Email del apoderado",
+              "displayName": "Email del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular Unico",
+              "displayName": "Celular Unico",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Pais Celular",
+              "displayName": "Pais Celular",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre del estudiante",
+              "displayName": "Nombre del estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tipo",
+              "displayName": "Tipo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Adulto",
+                  "value": "Adulto"
+                },
+                {
+                  "name": "Menor de edad",
+                  "value": "Menor de edad"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Apoderado",
+              "displayName": "Apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular del estudiante 1",
+              "displayName": "Celular del estudiante 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular del estudiante 2",
+              "displayName": "Celular del estudiante 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "PEN Rollup (from DetalleVentas)",
+              "displayName": "PEN Rollup (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "# Ventas",
+              "displayName": "# Ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "DetalleVentas",
+              "displayName": "DetalleVentas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Pago (from DetalleVentas)",
+              "displayName": "Fecha de Pago (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha min",
+              "displayName": "Fecha min",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Inicio Suscripción Actual",
+              "displayName": "Inicio Suscripción Actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "1ra Suscripción",
+              "displayName": "1ra Suscripción",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "WA Link",
+              "displayName": "WA Link",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "#Semanas",
+              "displayName": "#Semanas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha fin",
+              "displayName": "Fecha fin",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Semanas transcurridas",
+              "displayName": "Semanas transcurridas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Dif Semanas",
+              "displayName": "Dif Semanas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record",
+              "displayName": "Record",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Grupos (from DetalleVentas)",
+              "displayName": "Grupos (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "latestPurchaseDate",
+              "displayName": "latestPurchaseDate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo actual",
+              "displayName": "Grupo actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Preventa",
+              "displayName": "Preventa",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular del apoderado",
+              "displayName": "Celular del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nivel de Ingles del Estudiante",
+              "displayName": "Nivel de Ingles del Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Intermedio",
+                  "value": "Intermedio"
+                },
+                {
+                  "name": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am",
+                  "value": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am"
+                },
+                {
+                  "name": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm",
+                  "value": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm"
+                },
+                {
+                  "name": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm",
+                  "value": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm"
+                },
+                {
+                  "name": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm",
+                  "value": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm"
+                },
+                {
+                  "name": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                  "value": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                },
+                {
+                  "name": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm",
+                  "value": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm"
+                },
+                {
+                  "name": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm",
+                  "value": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm"
+                },
+                {
+                  "name": "Grupos presenciales (Tacna)",
+                  "value": "Grupos presenciales (Tacna)"
+                },
+                {
+                  "name": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm",
+                  "value": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm"
+                },
+                {
+                  "name": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm",
+                  "value": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm"
+                },
+                {
+                  "name": "KET",
+                  "value": "KET"
+                },
+                {
+                  "name": "KET_A2",
+                  "value": "KET_A2"
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am",
+                  "value": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am"
+                },
+                {
+                  "name": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am",
+                  "value": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nivel de Ingles del apoderado",
+              "displayName": "Nivel de Ingles del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Básico",
+                  "value": "Básico"
+                },
+                {
+                  "name": "No se mi nivel de inglés",
+                  "value": "No se mi nivel de inglés"
+                },
+                {
+                  "name": "Intermedio",
+                  "value": "Intermedio"
+                },
+                {
+                  "name": "Nunca he estudiado inglés",
+                  "value": "Nunca he estudiado inglés"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Aula virtual",
+              "displayName": "Aula virtual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "DetalleVentas copy",
+              "displayName": "DetalleVentas copy",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "PEN SF",
+              "displayName": "PEN SF",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "ISO",
+              "displayName": "ISO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupos Ultimo",
+              "displayName": "Grupos Ultimo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TUSD",
+              "displayName": "TUSD",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha de Fin (from DetalleVentas)",
+              "displayName": "Fecha de Fin (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha de Inicio (from DetalleVentas)",
+              "displayName": "Fecha de Inicio (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Kommo Link WA",
+              "displayName": "Kommo Link WA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Cantidad DV",
+              "displayName": "Cantidad DV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Customer Success",
+              "displayName": "Customer Success",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Onboarding",
+                  "value": "Onboarding"
+                },
+                {
+                  "name": "Adopción",
+                  "value": "Adopción"
+                },
+                {
+                  "name": "Renovación",
+                  "value": "Renovación"
+                },
+                {
+                  "name": "Expansión",
+                  "value": "Expansión"
+                },
+                {
+                  "name": "Lealtad",
+                  "value": "Lealtad"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Fin (from DetalleVentas) 2",
+              "displayName": "Fecha de Fin (from DetalleVentas) 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record ID",
+              "displayName": "Record ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Clientes (from DetalleVentas)",
+              "displayName": "Clientes (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Preventa 2",
+              "displayName": "Preventa 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Preventa 3",
+              "displayName": "Preventa 3",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fin Suscripción Actual",
+              "displayName": "Fin Suscripción Actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Suscripción (from DetalleVentas)",
+              "displayName": "Suscripción (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Email F",
+              "displayName": "Email F",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre F",
+              "displayName": "Nombre F",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha de hora de envío",
+              "displayName": "Fecha de hora de envío",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "URL renovacion",
+              "displayName": "URL renovacion",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "URL renovacion corto",
+              "displayName": "URL renovacion corto",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ID url short.io",
+              "displayName": "ID url short.io",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2560,
+        80
+      ],
+      "id": "8d75a5e6-debd-4300-9ca2-d3f79b8c8207",
+      "name": "Update record",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "377a5ce7-7c5a-4151-bd45-a3fc0a66fbf8",
+              "leftValue": "={{ $('variables_1').item.json.id_link_short_io }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1344,
+        320
+      ],
+      "id": "f0c2c5ab-a451-4146-a232-4917ca064743",
+      "name": "esta vacio?"
+    },
+    {
+      "parameters": {
+        "operation": "createLink",
+        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-shortio.Shortio",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        192
+      ],
+      "id": "f34f81ba-5e7e-44e1-82d1-c95cd7284d98",
+      "name": "Create link1",
+      "credentials": {
+        "shortioApi": {
+          "id": "ZEXkTgnYJmw91NEw",
+          "name": "autoamgichlab_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "url_acortado",
+              "value": "={{ $('Create link1').item.json.shortIoResponse.shortURL }}",
+              "type": "string"
+            },
+            {
+              "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+              "name": "id_short_io",
+              "value": "={{ $('Create link1').item.json.shortIoResponse.path }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1888,
+        192
+      ],
+      "id": "98e8d3d3-3156-452a-bd06-ea7a497817dd",
+      "name": "url_acortado1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "url_acortado",
+              "value": "={{ $json.shortIoResponse.shortURL }}",
+              "type": "string"
+            },
+            {
+              "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+              "name": "id_short_io",
+              "value": "={{ $json.shortIoResponse.path }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1888,
+        480
+      ],
+      "id": "8c4f9ace-e438-4004-a81d-35d02102d2c5",
+      "name": "url_acortado2"
+    }
+  ],
+  "pinData": {
+    "Create link": [
+      {
+        "json": {
+          "id_registro_clientes": "recwawo5YpU2f3WuX",
+          "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Leo%20Inga%20Olivera%20&celular_estudiante=%2B51944692382",
+          "tipo": "nuevo_url",
+          "id_link_short_io": null,
+          "shortIoResponse": {
+            "originalURL": "https://tally.so/r/A7K61k?nombre_estudiante=Leo%20Inga%20Olivera%20&celular_estudiante=%2B51944692382",
+            "path": "RkgQOb",
+            "idString": "lnk_6HHF_huIo9c769l0up9xZD2rDY",
+            "id": "lnk_6HHF_huIo9c769l0up9xZD2rDY",
+            "shortURL": "https://link.automagichlab.com/RkgQOb",
+            "secureShortURL": "https://link.automagichlab.com/RkgQOb",
+            "success": true,
+            "duplicate": false,
+            "cloaking": false,
+            "tags": [],
+            "createdAt": "2025-12-21T23:41:05.733Z",
+            "skipQS": false,
+            "archived": false,
+            "DomainId": 1597967,
+            "OwnerId": 1550921,
+            "hasPassword": false,
+            "source": "api"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
+            "content-length": "210",
+            "accept": "*/*",
+            "accept-encoding": "gzip,deflate",
+            "content-type": "application/json",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl0X4uOg8OFuB55M",
+            "x-forwarded-for": "3.236.210.150",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "xL1lzV_2RbSli4GHPvyhXg",
+            "x-real-ip": "3.236.210.150",
+            "x-request-start": "1766360943797"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "recordId": "recnL2hT7slg4c574",
+            "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Luz%20Dina%20Gutierrez%20Diaz%20&celular_estudiante=%2B51998067780",
+            "tipo": "actualizar_url",
+            "id_link_short_io": null
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Update existing link": [
+      {
+        "json": {
+          "id_registro_clientes": "recnL2hT7slg4c574",
+          "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Luz%20Dina%20Gutierrez%20Diaz%20&celular_estudiante=%2B51998067780",
+          "tipo": "actualizar_url",
+          "id_link_short_io": null,
+          "shortIoResponse": {
+            "originalURL": "https://tally.so/r/A7K61k?nombre_estudiante=Luz%20Dina%20Gutierrez%20Diaz%20&celular_estudiante=%2B519980677803",
+            "path": "QZoc3e",
+            "idString": "lnk_6HHF_GRRVsyC6rBAeKxjImRkbA",
+            "id": "lnk_6HHF_GRRVsyC6rBAeKxjImRkbA",
+            "shortURL": "https://link.automagichlab.com/QZoc3e",
+            "secureShortURL": "https://link.automagichlab.com/QZoc3e",
+            "cloaking": false,
+            "tags": [],
+            "createdAt": "2025-12-21T23:54:59.478Z",
+            "skipQS": false,
+            "archived": false,
+            "DomainId": 1597967,
+            "OwnerId": 1550921,
+            "hasPassword": false,
+            "source": "api",
+            "User": {
+              "id": 1550921,
+              "name": "",
+              "email": "gianmarcotejadavalenzuela66@gmail.com",
+              "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJwPzGWahpHuQbkwrei5c4_xsKAY8ndn5IAU3pwZv1Int6fDw=s96-c"
+            }
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-21T21:07:29.873Z",
+      "createdAt": "2025-12-21T21:07:29.873Z",
+      "role": "workflow:owner",
+      "workflowId": "UqJsZfAhJHkWNxvT",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-22T00:00:23.097Z",
+  "versionId": "71e3980c-bd26-480e-8446-c5cb3543d8d5"
+}
