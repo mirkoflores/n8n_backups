@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-22T00:00:25.105Z",
-    "createdAt": "2025-12-22T00:00:23.102Z",
-    "versionId": "71e3980c-bd26-480e-8446-c5cb3543d8d5",
+    "updatedAt": "2025-12-23T04:47:15.531Z",
+    "createdAt": "2025-12-23T04:47:13.658Z",
+    "versionId": "60eaf783-6efd-43ce-b965-c2dea713543c",
     "workflowId": "UqJsZfAhJHkWNxvT",
     "nodes": [
       {
@@ -255,8 +255,8 @@
         "name": "Create link",
         "credentials": {
           "shortioApi": {
-            "id": "ZEXkTgnYJmw91NEw",
-            "name": "autoamgichlab_1"
+            "id": "NUrb4eLxxnK7wHZM",
+            "name": "bio_1"
           }
         }
       },
@@ -281,8 +281,8 @@
         "name": "Update existing link",
         "credentials": {
           "shortioApi": {
-            "id": "ZEXkTgnYJmw91NEw",
-            "name": "autoamgichlab_1"
+            "id": "NUrb4eLxxnK7wHZM",
+            "name": "bio_1"
           }
         }
       },
@@ -1226,8 +1226,8 @@
         "name": "Create link1",
         "credentials": {
           "shortioApi": {
-            "id": "ZEXkTgnYJmw91NEw",
-            "name": "autoamgichlab_1"
+            "id": "NUrb4eLxxnK7wHZM",
+            "name": "bio_1"
           }
         }
       },
@@ -1461,10 +1461,10 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 71e3980c",
+    "name": "Version 60eaf783",
     "description": ""
   },
-  "activeVersionId": "71e3980c-bd26-480e-8446-c5cb3543d8d5",
+  "activeVersionId": "60eaf783-6efd-43ce-b965-c2dea713543c",
   "connections": {
     "Webhook": {
       "main": [
@@ -1892,8 +1892,8 @@
       "name": "Create link",
       "credentials": {
         "shortioApi": {
-          "id": "ZEXkTgnYJmw91NEw",
-          "name": "autoamgichlab_1"
+          "id": "NUrb4eLxxnK7wHZM",
+          "name": "bio_1"
         }
       }
     },
@@ -1918,8 +1918,8 @@
       "name": "Update existing link",
       "credentials": {
         "shortioApi": {
-          "id": "ZEXkTgnYJmw91NEw",
-          "name": "autoamgichlab_1"
+          "id": "NUrb4eLxxnK7wHZM",
+          "name": "bio_1"
         }
       }
     },
@@ -2863,8 +2863,8 @@
       "name": "Create link1",
       "credentials": {
         "shortioApi": {
-          "id": "ZEXkTgnYJmw91NEw",
-          "name": "autoamgichlab_1"
+          "id": "NUrb4eLxxnK7wHZM",
+          "name": "bio_1"
         }
       }
     },
@@ -3054,6 +3054,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-22T00:00:23.097Z",
-  "versionId": "71e3980c-bd26-480e-8446-c5cb3543d8d5"
+  "updatedAt": "2025-12-23T04:47:13.655Z",
+  "versionId": "60eaf783-6efd-43ce-b965-c2dea713543c"
 }
