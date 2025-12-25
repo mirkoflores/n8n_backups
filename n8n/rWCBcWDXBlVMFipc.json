@@ -4322,6 +4322,17 @@
       "main": [
         []
       ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-21T17:27:18.859Z",
@@ -4484,13 +4495,13 @@
           "cachedResultName": "errores",
           "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
         },
-        "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\nRenovacion de 1 mes: S/.{{ $if($('Variables_2').item.json.Precio_1_mes == 0,\"Falta definir\",$('Variables_2').item.json.Precio_1_mes)  }}\nRenovacion de 2 meses: S/.{{ $if($('Variables_2').item.json.Precio_2_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_2_meses)  }}\nRenovacion de 3 meses: S/.{{ $if($('Variables_2').item.json.Precio_3_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_3_meses)  }}\nRenovacion de 6 meses: S/.{{ $if($('Variables_2').item.json.Precio_6_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_6_meses)  }}\nRenovacion de 12 meses: S/.{{ $if($('Variables_2').item.json.Precio_12_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_12_meses)  }}\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 7 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
+        "content": "=Pago recurrente en tally se agrego a detalles venta pero no se encontro al cliente que hizo el pago!\n\nRevisar registro y agregar el cliente de forma manual\n\nUrl de tabla detalles venta: https://airtable.com/appBCL3CWLhCwIjnP/tblr6JOWFdK3kOAfo/viwhs2961Y7ecbjMj?blocks=hide\n\nId de registro de tally a detalles ventas: {{ $json.nuevo_registro_detalles_venta }}\n\nUrl de ejecucion n8n: https://primary-production-55a73.up.railway.app/workflow/rWCBcWDXBlVMFipc/executions/{{ $execution.id }}",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        3808,
+        3760,
         1104
       ],
       "id": "4fde67ee-e9b2-438b-8081-b89dc31e540c",
@@ -9951,52 +9962,6 @@
         }
       }
     ],
-    "Tally Trigger": [
-      {
-        "json": {
-          "id": "xXbabNo",
-          "formId": "A7K61k",
-          "formName": "Bioenglish - renovacion",
-          "respondentId": "aQ2LWD2",
-          "createdAt": "2025-12-23T15:25:05.000Z",
-          "question_zqjAMq": {
-            "label": "Nombre del estudiante\n",
-            "value": "b",
-            "type": "INPUT_TEXT"
-          },
-          "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
-            "label": "nombre_estudiante",
-            "value": null,
-            "type": "HIDDEN_FIELDS"
-          },
-          "question_d6Eo0A": {
-            "label": "Celular del estudiante\n",
-            "value": "+51983793579",
-            "type": "INPUT_PHONE_NUMBER"
-          },
-          "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
-            "label": "celular_estudiante",
-            "value": null,
-            "type": "HIDDEN_FIELDS"
-          },
-          "question_5zbY9d": {
-            "label": "Edad del estudiante (indica sólo el número)",
-            "value": 12,
-            "type": "INPUT_NUMBER"
-          },
-          "question_pKrE8Z": {
-            "label": "Meses a renovar",
-            "value": "1",
-            "type": "DROPDOWN"
-          },
-          "question_YQPbGd": {
-            "label": "Comprobante de pago",
-            "value": "https://storage.tally.so/private/mGRFLi_xxpck3rct75fj1U7wfaSi6nJNv3OHhAPG29Q.jpg?id=kKZ4pR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtLWjRwUiIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NjUwMzUwNX0.Ob3-p6qaytl3u8Z7iGzWprEnVHdo4UxWT7dYU25Nq_w&signature=41d0f344e354ac685140e0c8d75155eacacb67363158d8561078e2ae433331f0,https://storage.tally.so/private/tQDnSzxSM9DjrSobhWlEnGqQnZMxGcTNtbtOiDxLv2I.jpg?id=Kv04g8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikt2MDRnOCIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NjUwMzUwNX0.woG58G7rzq-V3iXpD5vZIQRqPaQrdyT47_1aGBkTMl0&signature=9c3564083cf722e782c2fdc6655f967f09b4b0f5dbd351bf1eae6da19d55866b",
-            "type": "FILE_UPLOAD"
-          }
-        }
-      }
-    ],
     "crear registro - detalles venta": [
       {
         "json": {
@@ -10100,103 +10065,52 @@
         }
       }
     ],
-    "crear registro - detalles venta2": [
+    "Tally Trigger": [
       {
         "json": {
-          "id": "recjGPlGNfxyoYd6o",
-          "createdTime": "2025-12-23T18:36:52.000Z",
-          "fields": {
-            "Detalle": "DV-2242",
-            "PEN": 640,
-            "Fecha de Pago": "2025-12-23",
-            "Fecha de Inicio": "2026-07-22",
-            "Grupos": [
-              "recfXIdb3ok2IeStM"
-            ],
-            "Grupos (from Grupos)": [
-              "ENGLISH STARTERS | Virtual | Roscisela | L-M-V-5:45-6:45pm"
-            ],
-            "Canal": [
-              "recg6U1VDaLmltbmF"
-            ],
-            "Canal (from Canal)": [
-              "Recurrente"
-            ],
-            "Fecha de Fin": "2026-08-19",
-            "Status": -211,
-            "Estado": "Ok",
-            "Clientes": [
-              "recdThPXpvHsGcm6H"
-            ],
-            "Name (from Contactos)": [
-              "C-762-Bárek Alessandro Sencara Villasante"
-            ],
-            "ID": 2242,
-            "Suscripción": "1 mes",
-            "Created": "2025-12-23T18:36:52.000Z",
-            "WA Link": {
-              "label": "Enviar WhatsApp",
-              "url": "https://api.whatsapp.com/send?phone=+51983793579&text=Hola"
-            },
-            "#Semanas": "4",
-            "createdTime": "2025-12-23",
-            "latestPurchaseDate": [
-              "2025-12-23"
-            ],
-            "latestPurchase": "ENGLISH STARTERS | Virtual | Roscisela | L-M-V-5:45-6:45pm",
-            "Cel Estudiante (from Clientes)": [
-              "+51983793579"
-            ],
-            "PEN FB": 640,
-            "Cel Estudiante (from Clientes) copy": [
-              "Bárek Alessandro Sencara Villasante"
-            ],
-            "Cel Estudiante (from Clientes) copy copy": [
-              "lilianavillasante2020@gmail.com"
-            ],
-            "Email del estudiante (from Clientes)": [
-              "lilianavillasante2020@gmail.com"
-            ],
-            "Nivel (from Grupos)": [
-              "ENGLISH STARTERS"
-            ],
-            "# Ventas (from Clientes)": [
-              3
-            ],
-            "Record ID": "recjGPlGNfxyoYd6o",
-            "URL boton": "https://www.bioenglish.lat/formulario-asistencia?recordID=recjGPlGNfxyoYd6o",
-            "Nombre del estudiante (from Clientes)": [
-              "Bárek Alessandro Sencara Villasante"
-            ],
-            "Celular Unico (from Clientes)": [
-              "+51983793579"
-            ],
-            "Pais Celular (from Clientes)": [
-              "Peru"
-            ],
-            "Celular Unico (from Clientes) 2": [
-              "+51983793579"
-            ],
-            "ISO (de Clientes)": [
-              "PE"
-            ],
-            "Kommo Link WA (from Clientes)": [
-              "https://bioenglish22.kommo.com/chats/leads/detail/10162934?filter%5Bterm%5D=%2B+51983793579"
-            ],
-            "Cantidad DV (from Clientes)": [
-              3
-            ],
-            "Tipo Recompra": "Recompra",
-            "Tipo Grupo (from Grupos)": [
-              "Niños"
-            ],
-            "Fecha min (from Clientes)": [
-              "2025-11-26"
-            ],
-            "#Meses": "1",
-            "Fin suscripción v2": "2026-08-22",
-            "Fin suscripción - 7 dias antes": "2026-08-15"
+          "id": "xXbabNo",
+          "formId": "A7K61k",
+          "formName": "Bioenglish - renovacion",
+          "respondentId": "aQ2LWD2",
+          "createdAt": "2025-12-23T15:25:05.000Z",
+          "question_zqjAMq": {
+            "label": "Nombre del estudiante\n",
+            "value": "b",
+            "type": "INPUT_TEXT"
+          },
+          "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
+            "label": "nombre_estudiante",
+            "value": null,
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_d6Eo0A": {
+            "label": "Celular del estudiante\n",
+            "value": "+51983793579",
+            "type": "INPUT_PHONE_NUMBER"
+          },
+          "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
+            "label": "celular_estudiante",
+            "value": null,
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_5zbY9d": {
+            "label": "Edad del estudiante (indica sólo el número)",
+            "value": 12,
+            "type": "INPUT_NUMBER"
+          },
+          "question_pKrE8Z": {
+            "label": "Meses a renovar",
+            "value": "1",
+            "type": "DROPDOWN"
+          },
+          "question_YQPbGd": {
+            "label": "Comprobante de pago",
+            "value": "https://storage.tally.so/private/mGRFLi_xxpck3rct75fj1U7wfaSi6nJNv3OHhAPG29Q.jpg?id=kKZ4pR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtLWjRwUiIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NjUwMzUwNX0.Ob3-p6qaytl3u8Z7iGzWprEnVHdo4UxWT7dYU25Nq_w&signature=41d0f344e354ac685140e0c8d75155eacacb67363158d8561078e2ae433331f0,https://storage.tally.so/private/tQDnSzxSM9DjrSobhWlEnGqQnZMxGcTNtbtOiDxLv2I.jpg?id=Kv04g8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikt2MDRnOCIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NjUwMzUwNX0.woG58G7rzq-V3iXpD5vZIQRqPaQrdyT47_1aGBkTMl0&signature=9c3564083cf722e782c2fdc6655f967f09b4b0f5dbd351bf1eae6da19d55866b",
+            "type": "FILE_UPLOAD"
           }
+        },
+        "pairedItem": {
+          "item": 0
         }
       }
     ]
@@ -10227,6 +10141,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-24T00:45:59.231Z",
-  "versionId": "7ec5d2c2-a440-45f4-8c21-821bfc0836e1"
+  "updatedAt": "2025-12-25T02:06:43.733Z",
+  "versionId": "bc00acd1-e81d-4773-89da-dc8db07cde70"
 }
