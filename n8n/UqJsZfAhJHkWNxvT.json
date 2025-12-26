@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-23T04:47:15.531Z",
-    "createdAt": "2025-12-23T04:47:13.658Z",
-    "versionId": "60eaf783-6efd-43ce-b965-c2dea713543c",
+    "updatedAt": "2025-12-25T18:42:24.658Z",
+    "createdAt": "2025-12-25T18:42:21.660Z",
+    "versionId": "1ca4c403-02ae-4619-b98e-a6cfc6062360",
     "workflowId": "UqJsZfAhJHkWNxvT",
     "nodes": [
       {
@@ -1288,6 +1288,56 @@
         ],
         "id": "8c4f9ace-e438-4004-a81d-35d02102d2c5",
         "name": "url_acortado2"
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "mv615168k2yx41a",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "id_automatizacion_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "url_renovacion",
+                "fieldValue": "={{ $('variables_1').item.json.url_renovacion }}"
+              },
+              {
+                "fieldName": "id_cliente_airtable",
+                "fieldValue": "={{ $('variables_1').item.json.id_registro_clientes }}"
+              },
+              {
+                "fieldName": "tipo",
+                "fieldValue": "={{ $('variables_1').item.json.tipo }}"
+              },
+              {
+                "fieldName": "id_short_io",
+                "fieldValue": "={{ $('variables_2').item.json.id_short_io }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          2768,
+          80
+        ],
+        "id": "e703399c-3bd9-4133-9f2b-fb137eecf04c",
+        "name": "Create a row",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -1458,13 +1508,24 @@
             }
           ]
         ]
+      },
+      "Update record": {
+        "main": [
+          [
+            {
+              "node": "Create a row",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 60eaf783",
+    "name": "Version 1ca4c403",
     "description": ""
   },
-  "activeVersionId": "60eaf783-6efd-43ce-b965-c2dea713543c",
+  "activeVersionId": "1ca4c403-02ae-4619-b98e-a6cfc6062360",
   "connections": {
     "Webhook": {
       "main": [
@@ -1628,6 +1689,17 @@
         [
           {
             "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record": {
+      "main": [
+        [
+          {
+            "node": "Create a row",
             "type": "main",
             "index": 0
           }
@@ -2925,6 +2997,56 @@
       ],
       "id": "8c4f9ace-e438-4004-a81d-35d02102d2c5",
       "name": "url_acortado2"
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "prkc7a6zgmy2biw",
+        "table": "mv615168k2yx41a",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "id_escenario_n8n",
+              "fieldValue": "={{ $execution.id }}"
+            },
+            {
+              "fieldName": "id_automatizacion_n8n",
+              "fieldValue": "={{ $workflow.id }}"
+            },
+            {
+              "fieldName": "url_renovacion",
+              "fieldValue": "={{ $('variables_1').item.json.url_renovacion }}"
+            },
+            {
+              "fieldName": "id_cliente_airtable",
+              "fieldValue": "={{ $('variables_1').item.json.id_registro_clientes }}"
+            },
+            {
+              "fieldName": "tipo",
+              "fieldValue": "={{ $('variables_1').item.json.tipo }}"
+            },
+            {
+              "fieldName": "id_short_io",
+              "fieldValue": "={{ $('variables_2').item.json.id_short_io }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        2768,
+        80
+      ],
+      "id": "e703399c-3bd9-4133-9f2b-fb137eecf04c",
+      "name": "Create a row",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -2954,41 +3076,6 @@
             "hasPassword": false,
             "source": "api"
           }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "host": "primary-production-55a73.up.railway.app",
-            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "210",
-            "accept": "*/*",
-            "accept-encoding": "gzip,deflate",
-            "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl0X4uOg8OFuB55M",
-            "x-forwarded-for": "3.236.210.150",
-            "x-forwarded-host": "primary-production-55a73.up.railway.app",
-            "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "xL1lzV_2RbSli4GHPvyhXg",
-            "x-real-ip": "3.236.210.150",
-            "x-request-start": "1766360943797"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "recordId": "recnL2hT7slg4c574",
-            "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Luz%20Dina%20Gutierrez%20Diaz%20&celular_estudiante=%2B51998067780",
-            "tipo": "actualizar_url",
-            "id_link_short_io": null
-          },
-          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
-          "executionMode": "production"
         },
         "pairedItem": {
           "item": 0
@@ -3030,6 +3117,41 @@
           "item": 0
         }
       }
+    ],
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
+            "content-length": "210",
+            "accept": "*/*",
+            "accept-encoding": "gzip,deflate",
+            "content-type": "application/json",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl0X4uOg8OFuB55M",
+            "x-forwarded-for": "3.236.210.150",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "xL1lzV_2RbSli4GHPvyhXg",
+            "x-real-ip": "3.236.210.150",
+            "x-request-start": "1766360943797"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "recordId": "recnL2hT7slg4c574",
+            "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Luz%20Dina%20Gutierrez%20Diaz%20&celular_estudiante=%2B51998067780",
+            "tipo": "actualizar_url",
+            "id_link_short_io": null
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
     ]
   },
   "repo_name": "n8n_backups",
@@ -3054,6 +3176,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-23T04:47:13.655Z",
-  "versionId": "60eaf783-6efd-43ce-b965-c2dea713543c"
+  "updatedAt": "2025-12-25T18:42:21.657Z",
+  "versionId": "1ca4c403-02ae-4619-b98e-a6cfc6062360"
 }
