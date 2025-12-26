@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-21T23:26:57.322Z",
-    "createdAt": "2025-12-21T23:26:54.590Z",
-    "versionId": "ede7b391-3036-4809-a961-48b9e9b579f0",
+    "updatedAt": "2025-12-26T05:09:30.839Z",
+    "createdAt": "2025-12-26T05:09:28.516Z",
+    "versionId": "0269581e-69b5-4906-afc0-ebfd6a38f596",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -235,32 +235,32 @@
               {
                 "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
                 "name": "Precio_1_mes",
-                "value": "={{ $('Grupo').item?.json['1 mes - precio renovación'] ?? 0 }}",
-                "type": "number"
+                "value": "={{ $('Grupo').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}",
+                "type": "string"
               },
               {
                 "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
                 "name": "Precio_2_meses",
-                "value": "={{ $('Grupo').item?.json['2 meses - precio renovación'] ?? 0 }}",
-                "type": "number"
+                "value": "={{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}",
+                "type": "string"
               },
               {
                 "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
                 "name": "Precio_3_meses",
-                "value": "={{ $('Grupo').item?.json['3 meses - precio renovación'] ?? 0 }}",
-                "type": "number"
+                "value": "={{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}",
+                "type": "string"
               },
               {
                 "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
                 "name": "Precio_6_meses",
-                "value": "={{ $('Grupo').item?.json['6 meses - precio renovación'] ?? 0 }}",
-                "type": "number"
+                "value": "={{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}",
+                "type": "string"
               },
               {
                 "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
                 "name": "Precio_12_meses",
-                "value": "={{ $('Grupo').item?.json['12 meses - precio renovación'] ?? 0 }}",
-                "type": "number"
+                "value": "={{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+                "type": "string"
               },
               {
                 "id": "bd6cb66a-4a46-472a-92d4-82316e1dab13",
@@ -335,7 +335,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5248,
+          5232,
           -224
         ],
         "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -723,7 +723,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5008,
+          4992,
           -224
         ],
         "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -786,8 +786,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          4272,
-          -80
+          4288,
+          -336
         ],
         "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
         "name": "Update leads",
@@ -803,8 +803,8 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          4528,
-          -80
+          4544,
+          -336
         ],
         "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
         "name": "Wait",
@@ -837,6 +837,56 @@
                 },
                 "renameOutput": true,
                 "outputKey": "7 dias"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "fcb36b08-ce5b-4747-adb9-4a4bd9e64022",
+                      "leftValue": "={{ $json.body.Tipo }}",
+                      "rightValue": "3_dias_antes",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "3 dias"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "b9b5875e-6228-4173-9395-cd8e04b1ddf8",
+                      "leftValue": "={{ $json.body.Tipo }}",
+                      "rightValue": "1_dia_antes",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "1 dia"
               }
             ]
           },
@@ -850,75 +900,6 @@
         ],
         "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
         "name": "Switch1"
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 3
-            },
-            "conditions": [
-              {
-                "id": "11a8f908-7794-463a-8c47-f5e525865a1e",
-                "leftValue": "={{ $('Variables_2').item.json.Precio_1_mes }}",
-                "rightValue": 0,
-                "operator": {
-                  "type": "number",
-                  "operation": "notEquals"
-                }
-              },
-              {
-                "id": "2a368ccd-33a7-49ec-8c0f-81db0eb96252",
-                "leftValue": "={{ $('Variables_2').item.json.Precio_2_meses }}",
-                "rightValue": 0,
-                "operator": {
-                  "type": "number",
-                  "operation": "notEquals"
-                }
-              },
-              {
-                "id": "9ac862ab-2eb2-4d3a-b914-00ca3f037ff5",
-                "leftValue": "={{ $('Variables_2').item.json.Precio_3_meses }}",
-                "rightValue": 0,
-                "operator": {
-                  "type": "number",
-                  "operation": "notEquals"
-                }
-              },
-              {
-                "id": "756a81de-238d-476c-845c-3bec5e666b89",
-                "leftValue": "={{ $('Variables_2').item.json.Precio_6_meses }}",
-                "rightValue": 0,
-                "operator": {
-                  "type": "number",
-                  "operation": "notEquals"
-                }
-              },
-              {
-                "id": "0fa911a5-5498-41de-9824-bd45d94ffb74",
-                "leftValue": "={{ $('Variables_2').item.json.Precio_12_meses }}",
-                "rightValue": 0,
-                "operator": {
-                  "type": "number",
-                  "operation": "notEquals"
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.3,
-        "position": [
-          4736,
-          -80
-        ],
-        "id": "2c710983-a029-4447-872b-b00631d26014",
-        "name": "Se tiene info de precio?"
       },
       {
         "parameters": {
@@ -962,8 +943,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5248,
-          16
+          5232,
+          -448
         ],
         "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
         "name": "Enviar email1"
@@ -982,8 +963,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5008,
-          16
+          4992,
+          -448
         ],
         "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
         "name": "Enviar mensaje1",
@@ -1011,14 +992,14 @@
             "cachedResultName": "errores",
             "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
           },
-          "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\nRenovacion de 1 mes: S/.{{ $if($('Variables_2').item.json.Precio_1_mes == 0,\"Falta definir\",$('Variables_2').item.json.Precio_1_mes)  }}\nRenovacion de 2 meses: S/.{{ $if($('Variables_2').item.json.Precio_2_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_2_meses)  }}\nRenovacion de 3 meses: S/.{{ $if($('Variables_2').item.json.Precio_3_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_3_meses)  }}\nRenovacion de 6 meses: S/.{{ $if($('Variables_2').item.json.Precio_6_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_6_meses)  }}\nRenovacion de 12 meses: S/.{{ $if($('Variables_2').item.json.Precio_12_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_12_meses)  }}\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 7 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
+          "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 7 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
           "options": {}
         },
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          5472,
-          16
+          5456,
+          -448
         ],
         "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
         "name": "Send a message",
@@ -1032,13 +1013,14 @@
       },
       {
         "parameters": {
-          "content": "### avisar que no se tiene info de precio"
+          "content": "### avisar que no se tiene info de precio",
+          "height": 80
         },
         "type": "n8n-nodes-base.stickyNote",
         "typeVersion": 1,
         "position": [
-          5328,
-          208
+          5696,
+          -352
         ],
         "id": "6ef84e22-3233-41ad-8c1f-d76b5b9b5aea",
         "name": "Sticky Note"
@@ -1197,6 +1179,129 @@
         ],
         "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
         "name": "crear url corto de renovacion"
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "mf1zt2lexmn446a",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "id_automatizacion_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_detalles_venta_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+              },
+              {
+                "fieldName": "id_cliente_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
+              },
+              {
+                "fieldName": "id_grupo_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
+              },
+              {
+                "fieldName": "id_contact_kommo",
+                "fieldValue": "={{ $('Variables_3').item.json.id_contacto }}"
+              },
+              {
+                "fieldName": "id_lead_kommo",
+                "fieldValue": "={{ $('Variables_3').item.json.id_lead }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          4272,
+          208
+        ],
+        "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
+        "name": "Create a row",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "11a8f908-7794-463a-8c47-f5e525865a1e",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_1_mes }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "2a368ccd-33a7-49ec-8c0f-81db0eb96252",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_2_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "9ac862ab-2eb2-4d3a-b914-00ca3f037ff5",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_3_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "756a81de-238d-476c-845c-3bec5e666b89",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_6_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "0fa911a5-5498-41de-9824-bd45d94ffb74",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_12_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          4752,
+          -336
+        ],
+        "id": "2c710983-a029-4447-872b-b00631d26014",
+        "name": "No se tiene info de precio?"
       }
     ],
     "connections": {
@@ -1432,7 +1537,7 @@
         "main": [
           [
             {
-              "node": "Se tiene info de precio?",
+              "node": "No se tiene info de precio?",
               "type": "main",
               "index": 0
             }
@@ -1447,7 +1552,9 @@
               "type": "main",
               "index": 0
             }
-          ]
+          ],
+          [],
+          []
         ]
       },
       "Enviar mensaje": {
@@ -1455,24 +1562,6 @@
           [
             {
               "node": "Enviar email",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Se tiene info de precio?": {
-        "main": [
-          [
-            {
-              "node": "Enviar mensaje",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Enviar mensaje1",
               "type": "main",
               "index": 0
             }
@@ -1548,22 +1637,45 @@
               "node": "Update leads",
               "type": "main",
               "index": 0
+            },
+            {
+              "node": "Create a row",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "No se tiene info de precio?": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Enviar mensaje",
+              "type": "main",
+              "index": 0
             }
           ]
         ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version ede7b391",
+    "name": "Version 0269581e",
     "description": ""
   },
-  "activeVersionId": "ede7b391-3036-4809-a961-48b9e9b579f0",
+  "activeVersionId": "0269581e-69b5-4906-afc0-ebfd6a38f596",
   "connections": {
     "Webhook": {
       "main": [
         [
           {
-            "node": "Switch1",
+            "node": "Detalles venta",
             "type": "main",
             "index": 0
           }
@@ -1791,7 +1903,7 @@
       "main": [
         [
           {
-            "node": "Se tiene info de precio?",
+            "node": "Switch1",
             "type": "main",
             "index": 0
           }
@@ -1802,11 +1914,19 @@
       "main": [
         [
           {
-            "node": "Detalles venta",
+            "node": "No se tiene info de precio?",
             "type": "main",
             "index": 0
           }
-        ]
+        ],
+        [
+          {
+            "node": "No se tiene info de precio?1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
       ]
     },
     "Enviar mensaje": {
@@ -1814,24 +1934,6 @@
         [
           {
             "node": "Enviar email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Se tiene info de precio?": {
-      "main": [
-        [
-          {
-            "node": "Enviar mensaje",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Enviar mensaje1",
             "type": "main",
             "index": 0
           }
@@ -1907,6 +2009,80 @@
             "node": "Update leads",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No se tiene info de precio?": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar mensaje2": {
+      "main": [
+        [
+          {
+            "node": "Enviar email2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar email3": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar mensaje3": {
+      "main": [
+        [
+          {
+            "node": "Enviar email3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No se tiene info de precio?1": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar mensaje2",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -1929,8 +2105,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -800,
-        288
+        -528,
+        0
       ],
       "id": "b1a9c96f-7ca3-47d4-82bd-e98e0cbecb06",
       "name": "Webhook",
@@ -2149,32 +2325,32 @@
             {
               "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
               "name": "Precio_1_mes",
-              "value": "={{ $('Grupo').item?.json['1 mes - precio renovación'] ?? 0 }}",
-              "type": "number"
+              "value": "={{ $('Grupo').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}",
+              "type": "string"
             },
             {
               "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
               "name": "Precio_2_meses",
-              "value": "={{ $('Grupo').item?.json['2 meses - precio renovación'] ?? 0 }}",
-              "type": "number"
+              "value": "={{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}",
+              "type": "string"
             },
             {
               "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
               "name": "Precio_3_meses",
-              "value": "={{ $('Grupo').item?.json['3 meses - precio renovación'] ?? 0 }}",
-              "type": "number"
+              "value": "={{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}",
+              "type": "string"
             },
             {
               "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
               "name": "Precio_6_meses",
-              "value": "={{ $('Grupo').item?.json['6 meses - precio renovación'] ?? 0 }}",
-              "type": "number"
+              "value": "={{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}",
+              "type": "string"
             },
             {
               "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
               "name": "Precio_12_meses",
-              "value": "={{ $('Grupo').item?.json['12 meses - precio renovación'] ?? 0 }}",
-              "type": "number"
+              "value": "={{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+              "type": "string"
             },
             {
               "id": "bd6cb66a-4a46-472a-92d4-82316e1dab13",
@@ -2249,8 +2425,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5248,
-        -224
+        5600,
+        -672
       ],
       "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
       "name": "Enviar email"
@@ -2637,8 +2813,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5008,
-        -224
+        5360,
+        -672
       ],
       "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
       "name": "Enviar mensaje",
@@ -2700,8 +2876,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        4272,
-        -80
+        4288,
+        -336
       ],
       "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
       "name": "Update leads",
@@ -2717,8 +2893,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4528,
-        -80
+        4544,
+        -336
       ],
       "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
       "name": "Wait",
@@ -2738,7 +2914,7 @@
                 },
                 "conditions": [
                   {
-                    "leftValue": "={{ $json.body.Tipo }}",
+                    "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
                     "rightValue": "7_dias_antes",
                     "operator": {
                       "type": "string",
@@ -2751,6 +2927,56 @@
               },
               "renameOutput": true,
               "outputKey": "7 dias"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "fcb36b08-ce5b-4747-adb9-4a4bd9e64022",
+                    "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                    "rightValue": "3_dias_antes",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "3 dias"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "b9b5875e-6228-4173-9395-cd8e04b1ddf8",
+                    "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                    "rightValue": "1_dia_antes",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "1 dia"
             }
           ]
         },
@@ -2759,80 +2985,11 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        -576,
-        288
+        4768,
+        -352
       ],
       "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
       "name": "Switch1"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "11a8f908-7794-463a-8c47-f5e525865a1e",
-              "leftValue": "={{ $('Variables_2').item.json.Precio_1_mes }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "notEquals"
-              }
-            },
-            {
-              "id": "2a368ccd-33a7-49ec-8c0f-81db0eb96252",
-              "leftValue": "={{ $('Variables_2').item.json.Precio_2_meses }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "notEquals"
-              }
-            },
-            {
-              "id": "9ac862ab-2eb2-4d3a-b914-00ca3f037ff5",
-              "leftValue": "={{ $('Variables_2').item.json.Precio_3_meses }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "notEquals"
-              }
-            },
-            {
-              "id": "756a81de-238d-476c-845c-3bec5e666b89",
-              "leftValue": "={{ $('Variables_2').item.json.Precio_6_meses }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "notEquals"
-              }
-            },
-            {
-              "id": "0fa911a5-5498-41de-9824-bd45d94ffb74",
-              "leftValue": "={{ $('Variables_2').item.json.Precio_12_meses }}",
-              "rightValue": 0,
-              "operator": {
-                "type": "number",
-                "operation": "notEquals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        4736,
-        -80
-      ],
-      "id": "2c710983-a029-4447-872b-b00631d26014",
-      "name": "Se tiene info de precio?"
     },
     {
       "parameters": {
@@ -2876,8 +3033,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5248,
-        16
+        5600,
+        -896
       ],
       "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
       "name": "Enviar email1"
@@ -2896,8 +3053,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5008,
-        16
+        5360,
+        -896
       ],
       "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
       "name": "Enviar mensaje1",
@@ -2925,14 +3082,14 @@
           "cachedResultName": "errores",
           "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
         },
-        "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\nRenovacion de 1 mes: S/.{{ $if($('Variables_2').item.json.Precio_1_mes == 0,\"Falta definir\",$('Variables_2').item.json.Precio_1_mes)  }}\nRenovacion de 2 meses: S/.{{ $if($('Variables_2').item.json.Precio_2_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_2_meses)  }}\nRenovacion de 3 meses: S/.{{ $if($('Variables_2').item.json.Precio_3_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_3_meses)  }}\nRenovacion de 6 meses: S/.{{ $if($('Variables_2').item.json.Precio_6_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_6_meses)  }}\nRenovacion de 12 meses: S/.{{ $if($('Variables_2').item.json.Precio_12_meses == 0,\"Falta definir\",$('Variables_2').item.json.Precio_12_meses)  }}\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 7 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
+        "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 7 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        5472,
-        16
+        5824,
+        -896
       ],
       "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
       "name": "Send a message",
@@ -2943,19 +3100,6 @@
           "name": "bio_1"
         }
       }
-    },
-    {
-      "parameters": {
-        "content": "### avisar que no se tiene info de precio"
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        5328,
-        208
-      ],
-      "id": "6ef84e22-3233-41ad-8c1f-d76b5b9b5aea",
-      "name": "Sticky Note"
     },
     {
       "parameters": {
@@ -3111,6 +3255,382 @@
       ],
       "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
       "name": "crear url corto de renovacion"
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "prkc7a6zgmy2biw",
+        "table": "mf1zt2lexmn446a",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "id_escenario_n8n",
+              "fieldValue": "={{ $execution.id }}"
+            },
+            {
+              "fieldName": "id_automatizacion_n8n",
+              "fieldValue": "={{ $workflow.id }}"
+            },
+            {
+              "fieldName": "id_detalles_venta_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+            },
+            {
+              "fieldName": "id_cliente_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
+            },
+            {
+              "fieldName": "id_grupo_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
+            },
+            {
+              "fieldName": "id_contact_kommo",
+              "fieldValue": "={{ $('Variables_3').item.json.id_contacto }}"
+            },
+            {
+              "fieldName": "id_lead_kommo",
+              "fieldValue": "={{ $('Variables_3').item.json.id_lead }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        4272,
+        208
+      ],
+      "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
+      "name": "Create a row",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "11a8f908-7794-463a-8c47-f5e525865a1e",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_1_mes }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "2a368ccd-33a7-49ec-8c0f-81db0eb96252",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_2_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "9ac862ab-2eb2-4d3a-b914-00ca3f037ff5",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_3_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "756a81de-238d-476c-845c-3bec5e666b89",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_6_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "0fa911a5-5498-41de-9824-bd45d94ffb74",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_12_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        5120,
+        -784
+      ],
+      "id": "2c710983-a029-4447-872b-b00631d26014",
+      "name": "No se tiene info de precio?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "precios",
+              "value": "={{ $('Variables_2').item.json.Precios }}"
+            },
+            {
+              "name": "nivel",
+              "value": "={{ $('Variables_2').item.json.Nivel }}"
+            },
+            {
+              "name": "url_link_tally",
+              "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}"
+            },
+            {
+              "name": "email_a_enviar",
+              "value": "={{ $('Variables_2').item.json.email}}"
+            },
+            {
+              "name": "nombre_estudiante",
+              "value": "={{ $('Variables_2').item.json.nombre_estudiante }}"
+            },
+            {
+              "name": "plantilla",
+              "value": "7_dias_renovacion_CON_precios"
+            },
+            {
+              "name": "numero_de_celular",
+              "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        5600,
+        -224
+      ],
+      "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
+      "name": "Enviar email2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65546,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        5360,
+        -224
+      ],
+      "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
+      "name": "Enviar mensaje2",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "precios",
+              "value": "={{ $('Variables_2').item.json.Precios }}"
+            },
+            {
+              "name": "nivel",
+              "value": "={{ $('Variables_2').item.json.Nivel }}"
+            },
+            {
+              "name": "url_link_tally",
+              "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}"
+            },
+            {
+              "name": "email_a_enviar",
+              "value": "={{ $('Variables_2').item.json.email}}"
+            },
+            {
+              "name": "nombre_estudiante",
+              "value": "={{ $('Variables_2').item.json.nombre_estudiante }}"
+            },
+            {
+              "name": "plantilla",
+              "value": "7_dias_renovacion_SIN_precios"
+            },
+            {
+              "name": "numero_de_celular",
+              "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        5600,
+        -448
+      ],
+      "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
+      "name": "Enviar email3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 0,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        5360,
+        -448
+      ],
+      "id": "0db36230-0d0d-49bb-943a-dc011650676e",
+      "name": "Enviar mensaje3",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "1244011715008532602",
+          "mode": "list",
+          "cachedResultName": "Bioenglish",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1357814199446929488",
+          "mode": "list",
+          "cachedResultName": "errores",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+        },
+        "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 7 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        5824,
+        -448
+      ],
+      "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
+      "name": "Send a message1",
+      "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+      "credentials": {
+        "discordBotApi": {
+          "id": "lrG2Z5VoQXKArDMn",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "11a8f908-7794-463a-8c47-f5e525865a1e",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_1_mes }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "2a368ccd-33a7-49ec-8c0f-81db0eb96252",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_2_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "9ac862ab-2eb2-4d3a-b914-00ca3f037ff5",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_3_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "756a81de-238d-476c-845c-3bec5e666b89",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_6_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "0fa911a5-5498-41de-9824-bd45d94ffb74",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_12_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        5120,
+        -336
+      ],
+      "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
+      "name": "No se tiene info de precio?1"
     }
   ],
   "pinData": {
@@ -3816,30 +4336,6 @@
         }
       }
     ],
-    "Variables_2": [
-      {
-        "json": {
-          "nombre_estudiante": "Gianmarco Rusher",
-          "nombre_apoderado": "Delia Huasco",
-          "celular_estudiante": "+51936639242",
-          "celular_apoderado": "",
-          "tipo": "Apoderado",
-          "url_tally_pago_recurrente": "a",
-          "Nivel": "ENGLISH KET_A2",
-          "Precios": "1 mes: S/.155\n2 meses: S/.295\n3 meses: S/.420\n6 meses: S/.745\n12 meses: S/.1300",
-          "Celular_a_enviar": "+51936639242",
-          "email": "gianmarcorusher@gmail.com",
-          "Precio_1_mes": 155,
-          "Precio_2_meses": 295,
-          "Precio_3_meses": 420,
-          "Precio_6_meses": 745,
-          "Precio_12_meses": 1300,
-          "id_grupo_airtable": "rec25XUyZufWTKuj3",
-          "url_tally_pago_recurrente_largo": "https://tally.so/r/A7K61k?nombre_estudiante=Sisa%20yol%C3%A9%20Valerie%20galiano%20huasco&celular_estudiante=%2B51930552921",
-          "id_cliente_airtable": "receJcK4J92PFbXkp"
-        }
-      }
-    ],
     "Get list of contacts": [
       {
         "json": {
@@ -3948,6 +4444,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-21T23:26:54.586Z",
-  "versionId": "ede7b391-3036-4809-a961-48b9e9b579f0"
+  "updatedAt": "2025-12-26T05:15:46.523Z",
+  "versionId": "b2aceb3f-6dd7-49cf-a18f-fd8c0981075a"
 }
