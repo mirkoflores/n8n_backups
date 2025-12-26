@@ -1,0 +1,33 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {},
+  "createdAt": "2025-12-26T05:49:13.682Z",
+  "id": "ELDQlcp489jFcWGd",
+  "isArchived": false,
+  "meta": null,
+  "name": "notificación discord - dudas",
+  "nodes": [],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-26T05:49:13.682Z",
+      "createdAt": "2025-12-26T05:49:13.682Z",
+      "role": "workflow:owner",
+      "workflowId": "ELDQlcp489jFcWGd",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-26T05:49:13.682Z",
+  "versionId": "a8276d3e-208d-4793-9abd-ae9309cd6f5b"
+}
