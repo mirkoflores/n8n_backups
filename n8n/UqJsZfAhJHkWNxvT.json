@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-25T18:42:24.658Z",
-    "createdAt": "2025-12-25T18:42:21.660Z",
-    "versionId": "1ca4c403-02ae-4619-b98e-a6cfc6062360",
+    "updatedAt": "2025-12-26T18:20:58.834Z",
+    "createdAt": "2025-12-26T18:14:22.941Z",
+    "versionId": "ef5307ed-e506-49b0-b05d-bc47a65ee572",
     "workflowId": "UqJsZfAhJHkWNxvT",
     "nodes": [
       {
@@ -268,7 +268,7 @@
             "value": "QZoc3e",
             "mode": "path"
           },
-          "originalURL": "={{ $('variables_1').item.json.url_renovacion }}3",
+          "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
           "additionalFields": {}
         },
         "type": "n8n-nodes-shortio.Shortio",
@@ -1338,6 +1338,29 @@
             "name": "bio_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "a5887fff-cbf4-4421-ad1b-d5529c753a2a",
+                "name": "url_acortado",
+                "value": "={{ $('variables_2').item.json.url_acortado }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2976,
+          80
+        ],
+        "id": "b2a082ff-ee03-47bf-8d70-bdb25408349d",
+        "name": "final"
       }
     ],
     "connections": {
@@ -1519,13 +1542,25 @@
             }
           ]
         ]
+      },
+      "Create a row": {
+        "main": [
+          [
+            {
+              "node": "final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 1ca4c403",
-    "description": ""
+    "name": "Version ef5307ed",
+    "description": "",
+    "autosaved": false
   },
-  "activeVersionId": "1ca4c403-02ae-4619-b98e-a6cfc6062360",
+  "activeVersionId": "ef5307ed-e506-49b0-b05d-bc47a65ee572",
   "connections": {
     "Webhook": {
       "main": [
@@ -1700,6 +1735,17 @@
         [
           {
             "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "final",
             "type": "main",
             "index": 0
           }
@@ -1977,7 +2023,7 @@
           "value": "QZoc3e",
           "mode": "path"
         },
-        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}3",
+        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-shortio.Shortio",
@@ -3047,106 +3093,74 @@
           "name": "bio_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a5887fff-cbf4-4421-ad1b-d5529c753a2a",
+              "name": "url_acortado",
+              "value": "={{ $('variables_2').item.json.url_acortado }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2976,
+        80
+      ],
+      "id": "b2a082ff-ee03-47bf-8d70-bdb25408349d",
+      "name": "final"
     }
   ],
   "pinData": {
-    "Create link": [
-      {
-        "json": {
-          "id_registro_clientes": "recwawo5YpU2f3WuX",
-          "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Leo%20Inga%20Olivera%20&celular_estudiante=%2B51944692382",
-          "tipo": "nuevo_url",
-          "id_link_short_io": null,
-          "shortIoResponse": {
-            "originalURL": "https://tally.so/r/A7K61k?nombre_estudiante=Leo%20Inga%20Olivera%20&celular_estudiante=%2B51944692382",
-            "path": "RkgQOb",
-            "idString": "lnk_6HHF_huIo9c769l0up9xZD2rDY",
-            "id": "lnk_6HHF_huIo9c769l0up9xZD2rDY",
-            "shortURL": "https://link.automagichlab.com/RkgQOb",
-            "secureShortURL": "https://link.automagichlab.com/RkgQOb",
-            "success": true,
-            "duplicate": false,
-            "cloaking": false,
-            "tags": [],
-            "createdAt": "2025-12-21T23:41:05.733Z",
-            "skipQS": false,
-            "archived": false,
-            "DomainId": 1597967,
-            "OwnerId": 1550921,
-            "hasPassword": false,
-            "source": "api"
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "Update existing link": [
-      {
-        "json": {
-          "id_registro_clientes": "recnL2hT7slg4c574",
-          "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Luz%20Dina%20Gutierrez%20Diaz%20&celular_estudiante=%2B51998067780",
-          "tipo": "actualizar_url",
-          "id_link_short_io": null,
-          "shortIoResponse": {
-            "originalURL": "https://tally.so/r/A7K61k?nombre_estudiante=Luz%20Dina%20Gutierrez%20Diaz%20&celular_estudiante=%2B519980677803",
-            "path": "QZoc3e",
-            "idString": "lnk_6HHF_GRRVsyC6rBAeKxjImRkbA",
-            "id": "lnk_6HHF_GRRVsyC6rBAeKxjImRkbA",
-            "shortURL": "https://link.automagichlab.com/QZoc3e",
-            "secureShortURL": "https://link.automagichlab.com/QZoc3e",
-            "cloaking": false,
-            "tags": [],
-            "createdAt": "2025-12-21T23:54:59.478Z",
-            "skipQS": false,
-            "archived": false,
-            "DomainId": 1597967,
-            "OwnerId": 1550921,
-            "hasPassword": false,
-            "source": "api",
-            "User": {
-              "id": 1550921,
-              "name": "",
-              "email": "gianmarcotejadavalenzuela66@gmail.com",
-              "photoURL": "https://lh3.googleusercontent.com/a/ACg8ocJwPzGWahpHuQbkwrei5c4_xsKAY8ndn5IAU3pwZv1Int6fDw=s96-c"
-            }
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "Webhook": [
       {
         "json": {
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "210",
+            "content-length": "245",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wfl0X4uOg8OFuB55M",
-            "x-forwarded-for": "3.236.210.150",
+            "x-forwarded-for": "3.94.202.50",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "xL1lzV_2RbSli4GHPvyhXg",
-            "x-real-ip": "3.236.210.150",
-            "x-request-start": "1766360943797"
+            "x-railway-request-id": "w5r7wgQRRcSgBuLSBT7zVQ",
+            "x-real-ip": "3.94.202.50",
+            "x-request-start": "1766758743040"
           },
           "params": {},
           "query": {},
           "body": {
-            "recordId": "recnL2hT7slg4c574",
-            "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Luz%20Dina%20Gutierrez%20Diaz%20&celular_estudiante=%2B51998067780",
+            "recordId": "recOfpZq6duabLOFM",
+            "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Rafael%20Mamani%20Cori%20&celular_estudiante=%2B51952358192&id_cliente_airtable=recOfpZq6duabLOFM",
             "tipo": "actualizar_url",
-            "id_link_short_io": null
+            "id_link_short_io": "LZ6JF2"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
           "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=Sergio%20Joaquin%20Arroyo&celular_estudiante=%2B51976348850&id_cliente_airtable=recHgtGgUw0BTaOYP",
+          "id_registro_cliente": "recHgtGgUw0BTaOYP",
+          "tipo": "nuevo_url",
+          "id_link_short_io": null
         },
         "pairedItem": {
           "item": 0
@@ -3176,6 +3190,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-25T18:42:21.657Z",
-  "versionId": "1ca4c403-02ae-4619-b98e-a6cfc6062360"
+  "updatedAt": "2025-12-26T18:14:22.936Z",
+  "versionId": "ef5307ed-e506-49b0-b05d-bc47a65ee572"
 }
