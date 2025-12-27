@@ -1,20 +1,903 @@
 {
-  "active": false,
-  "activeVersion": null,
-  "activeVersionId": null,
-  "connections": {},
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-26T15:53:02.035Z",
+    "createdAt": "2025-12-26T15:50:44.061Z",
+    "versionId": "09a7ca81-bee9-4f4a-8c5f-602afa5e7a7b",
+    "workflowId": "ELDQlcp489jFcWGd",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "2af19ce4-8566-4795-a58b-c6f958724ceb",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -32,
+          0
+        ],
+        "id": "7f242039-69fd-43a0-8a68-ceae1408a3e4",
+        "name": "Webhook",
+        "webhookId": "2af19ce4-8566-4795-a58b-c6f958724ceb"
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "1244011715008532602",
+            "mode": "list",
+            "cachedResultName": "Bioenglish",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1357814253200998781",
+            "mode": "list",
+            "cachedResultName": "cobranzas",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814253200998781"
+          },
+          "content": "=Cliente tiene una consulta sobre la renovacion de su plan en Bioenglish!\n\n\nEntra a este link para atender su consulta:\n\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('variables_1').item.json.id_lead_kommo }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          1536,
+          -208
+        ],
+        "id": "28ac7669-70b3-4a32-a4e7-0da318913c5c",
+        "name": "Send a message1",
+        "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+        "credentials": {
+          "discordBotApi": {
+            "id": "lrG2Z5VoQXKArDMn",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "29153b81-61b2-4260-969c-221081dab45a",
+                "name": "=id_lead_kommo",
+                "value": "={{ $('Webhook').item.json.body['leads[add][0][id]'] }}",
+                "type": "number"
+              },
+              {
+                "id": "d9cfa0a3-5c32-4be9-9ba1-fe1d9a176175",
+                "name": "tipo",
+                "value": "={{ $('Webhook').item.json.query.tipo }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          208,
+          0
+        ],
+        "id": "f212bed9-bca7-46c8-a78b-2887dab5b459",
+        "name": "variables_1"
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "filter": {
+            "id": "={{ $('variables_1').item.json.id_lead_kommo }}"
+          },
+          "options": {
+            "with": [
+              "contacts"
+            ]
+          },
+          "limit": 1
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          416,
+          0
+        ],
+        "id": "61632a7b-0668-4edb-8f24-70742dfab1fb",
+        "name": "Get list of leads",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "29153b81-61b2-4260-969c-221081dab45a",
+                "name": "=id_contact_kommo",
+                "value": "={{ $('Get list of leads').item.json._embedded.leads[0]._embedded.contacts[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          624,
+          0
+        ],
+        "id": "299cf99f-86b1-4668-9c92-8252aa5ace77",
+        "name": "variables_2"
+      },
+      {
+        "parameters": {
+          "resource": "contacts",
+          "filter": {
+            "id": "={{ $('variables_2').item.json.id_contact_kommo }}"
+          },
+          "options": {},
+          "limit": 1
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          832,
+          0
+        ],
+        "id": "507432fb-29de-4bb1-99ae-9dff5b01c516",
+        "name": "Get list of contacts",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "29153b81-61b2-4260-969c-221081dab45a",
+                "name": "=nombre",
+                "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].name }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1040,
+          0
+        ],
+        "id": "ed028459-e31e-42a2-82ea-70af461ffb3a",
+        "name": "variables_3"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('variables_1').item.json.tipo }}",
+                      "rightValue": "con_precio",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      },
+                      "id": "5724ae5a-fc5d-461e-9ded-f5c07e6e6882"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "con_precio"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "08beb1e0-03ca-49f3-bbb2-ecf34b5890bd",
+                      "leftValue": "={{ $('variables_1').item.json.tipo }}",
+                      "rightValue": "sin_precio",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "sin_precio"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          1264,
+          -64
+        ],
+        "id": "43aab28c-3d8c-4529-a697-0649bb79c8b7",
+        "name": "Switch"
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "1244011715008532602",
+            "mode": "list",
+            "cachedResultName": "Bioenglish",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1357814253200998781",
+            "mode": "list",
+            "cachedResultName": "cobranzas",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814253200998781"
+          },
+          "content": "=Cliente tiene una consulta sobre los precios de renovacion de su plan en Bioenglish!\n\n\nEntra a este link para atender su consulta:\n\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('variables_1').item.json.id_lead_kommo }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          1536,
+          16
+        ],
+        "id": "7d432a2f-d609-4154-8ba7-9cad86aaa99c",
+        "name": "Send a message",
+        "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+        "credentials": {
+          "discordBotApi": {
+            "id": "lrG2Z5VoQXKArDMn",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "mhvyllm1b1rp235",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "id_automatizacion_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_lead_kommo",
+                "fieldValue": "={{ $('variables_1').item.json.id_lead_kommo }}"
+              },
+              {
+                "fieldName": "id_contact_kommo",
+                "fieldValue": "={{ $('variables_2').item.json.id_contact_kommo }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          1264,
+          208
+        ],
+        "id": "9fe43691-805a-4c24-83bc-a64db890a275",
+        "name": "Create a row",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "variables_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_1": {
+        "main": [
+          [
+            {
+              "node": "Get list of leads",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get list of leads": {
+        "main": [
+          [
+            {
+              "node": "variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_2": {
+        "main": [
+          [
+            {
+              "node": "Get list of contacts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get list of contacts": {
+        "main": [
+          [
+            {
+              "node": "variables_3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_3": {
+        "main": [
+          [
+            {
+              "node": "Switch",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Create a row",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Switch": {
+        "main": [
+          [
+            {
+              "node": "Send a message1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Send a message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version 09a7ca81",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "09a7ca81-bee9-4f4a-8c5f-602afa5e7a7b",
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "variables_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_1": {
+      "main": [
+        [
+          {
+            "node": "Get list of leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get list of leads": {
+      "main": [
+        [
+          {
+            "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_2": {
+      "main": [
+        [
+          {
+            "node": "Get list of contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get list of contacts": {
+      "main": [
+        [
+          {
+            "node": "variables_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_3": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-12-26T05:49:13.682Z",
   "id": "ELDQlcp489jFcWGd",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "notificación discord - dudas",
-  "nodes": [],
-  "pinData": {},
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "2af19ce4-8566-4795-a58b-c6f958724ceb",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        0
+      ],
+      "id": "7f242039-69fd-43a0-8a68-ceae1408a3e4",
+      "name": "Webhook",
+      "webhookId": "2af19ce4-8566-4795-a58b-c6f958724ceb"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "1244011715008532602",
+          "mode": "list",
+          "cachedResultName": "Bioenglish",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1357814253200998781",
+          "mode": "list",
+          "cachedResultName": "cobranzas",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814253200998781"
+        },
+        "content": "=Cliente tiene una consulta sobre la renovacion de su plan en Bioenglish!\n\n\nEntra a este link para atender su consulta:\n\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('variables_1').item.json.id_lead_kommo }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1536,
+        -208
+      ],
+      "id": "28ac7669-70b3-4a32-a4e7-0da318913c5c",
+      "name": "Send a message1",
+      "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+      "credentials": {
+        "discordBotApi": {
+          "id": "lrG2Z5VoQXKArDMn",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "29153b81-61b2-4260-969c-221081dab45a",
+              "name": "=id_lead_kommo",
+              "value": "={{ $('Webhook').item.json.body['leads[add][0][id]'] }}",
+              "type": "number"
+            },
+            {
+              "id": "d9cfa0a3-5c32-4be9-9ba1-fe1d9a176175",
+              "name": "tipo",
+              "value": "={{ $('Webhook').item.json.query.tipo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "f212bed9-bca7-46c8-a78b-2887dab5b459",
+      "name": "variables_1"
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "filter": {
+          "id": "={{ $('variables_1').item.json.id_lead_kommo }}"
+        },
+        "options": {
+          "with": [
+            "contacts"
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "61632a7b-0668-4edb-8f24-70742dfab1fb",
+      "name": "Get list of leads",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "29153b81-61b2-4260-969c-221081dab45a",
+              "name": "=id_contact_kommo",
+              "value": "={{ $('Get list of leads').item.json._embedded.leads[0]._embedded.contacts[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        0
+      ],
+      "id": "299cf99f-86b1-4668-9c92-8252aa5ace77",
+      "name": "variables_2"
+    },
+    {
+      "parameters": {
+        "resource": "contacts",
+        "filter": {
+          "id": "={{ $('variables_2').item.json.id_contact_kommo }}"
+        },
+        "options": {},
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        832,
+        0
+      ],
+      "id": "507432fb-29de-4bb1-99ae-9dff5b01c516",
+      "name": "Get list of contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "29153b81-61b2-4260-969c-221081dab45a",
+              "name": "=nombre",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].name }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "ed028459-e31e-42a2-82ea-70af461ffb3a",
+      "name": "variables_3"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('variables_1').item.json.tipo }}",
+                    "rightValue": "con_precio",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "5724ae5a-fc5d-461e-9ded-f5c07e6e6882"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "con_precio"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "08beb1e0-03ca-49f3-bbb2-ecf34b5890bd",
+                    "leftValue": "={{ $('variables_1').item.json.tipo }}",
+                    "rightValue": "sin_precio",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "sin_precio"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        1264,
+        -64
+      ],
+      "id": "43aab28c-3d8c-4529-a697-0649bb79c8b7",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "1244011715008532602",
+          "mode": "list",
+          "cachedResultName": "Bioenglish",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1357814253200998781",
+          "mode": "list",
+          "cachedResultName": "cobranzas",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814253200998781"
+        },
+        "content": "=Cliente tiene una consulta sobre los precios de renovacion de su plan en Bioenglish!\n\n\nEntra a este link para atender su consulta:\n\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('variables_1').item.json.id_lead_kommo }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1536,
+        16
+      ],
+      "id": "7d432a2f-d609-4154-8ba7-9cad86aaa99c",
+      "name": "Send a message",
+      "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+      "credentials": {
+        "discordBotApi": {
+          "id": "lrG2Z5VoQXKArDMn",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "prkc7a6zgmy2biw",
+        "table": "mhvyllm1b1rp235",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "id_escenario_n8n",
+              "fieldValue": "={{ $execution.id }}"
+            },
+            {
+              "fieldName": "id_automatizacion_n8n",
+              "fieldValue": "={{ $workflow.id }}"
+            },
+            {
+              "fieldName": "id_lead_kommo",
+              "fieldValue": "={{ $('variables_1').item.json.id_lead_kommo }}"
+            },
+            {
+              "fieldName": "id_contact_kommo",
+              "fieldValue": "={{ $('variables_2').item.json.id_contact_kommo }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        1264,
+        208
+      ],
+      "id": "9fe43691-805a-4c24-83bc-a64db890a275",
+      "name": "Create a row",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "amoCRM-Webhooks/3.0",
+            "content-length": "192",
+            "accept-encoding": "gzip",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-amocrm-requestid": "4da79ba8-be22-436f-956d-f3d3b0bac152",
+            "x-forwarded-for": "169.150.216.80",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "54Yd6JWqQDKO7v38ozsQ6Q",
+            "x-real-ip": "169.150.216.80",
+            "x-request-start": "1766763956960"
+          },
+          "params": {},
+          "query": {
+            "tipo": "con_precio"
+          },
+          "body": {
+            "leads[add][0][id]": "24581270",
+            "leads[add][0][status_id]": "68677523",
+            "leads[add][0][pipeline_id]": "8756191",
+            "account[id]": "32863847",
+            "account[subdomain]": "bioenglish22"
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/2af19ce4-8566-4795-a58b-c6f958724ceb",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "3eeV0S5bC6x3HCMd"
   },
   "shared": [
     {
@@ -27,7 +910,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-12-26T05:49:13.682Z",
-  "versionId": "a8276d3e-208d-4793-9abd-ae9309cd6f5b"
+  "triggerCount": 1,
+  "updatedAt": "2025-12-26T15:50:44.056Z",
+  "versionId": "09a7ca81-bee9-4f4a-8c5f-602afa5e7a7b"
 }
