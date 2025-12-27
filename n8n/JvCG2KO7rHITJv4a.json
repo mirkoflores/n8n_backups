@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-25T22:49:16.914Z",
-    "createdAt": "2025-12-25T22:49:14.870Z",
-    "versionId": "95431b86-cb84-47ae-b4c4-25ad61e03671",
+    "updatedAt": "2025-12-26T18:08:14.181Z",
+    "createdAt": "2025-12-25T22:52:06.432Z",
+    "versionId": "bf25b07f-91fe-4c8e-a3d4-d57ab82ed624",
     "workflowId": "JvCG2KO7rHITJv4a",
     "nodes": [
       {
@@ -577,7 +577,30 @@
           "authentication": "nocoDbApiToken",
           "operation": "create",
           "projectId": "prkc7a6zgmy2biw",
-          "table": "met6sgiz546ghb7"
+          "table": "met6sgiz546ghb7",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "id_automatizacion_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_detalles_venta_airtable",
+                "fieldValue": "={{ $('variables_1').item.json.id_detalles_venta_airtable }}"
+              },
+              {
+                "fieldName": "id_clientes_airtable",
+                "fieldValue": "={{ $('variables_2').item.json.id_clientes_airtable }}"
+              },
+              {
+                "fieldName": "id_usuario_airtable"
+              }
+            ]
+          }
         },
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
@@ -587,6 +610,52 @@
         ],
         "id": "94032390-af70-47ad-ba56-ebe7d7150a05",
         "name": "Create a row",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "met6sgiz546ghb7",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "id_automatizacion_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_detalles_venta_airtable",
+                "fieldValue": "={{ $('variables_1').item.json.id_detalles_venta_airtable }}"
+              },
+              {
+                "fieldName": "id_clientes_airtable",
+                "fieldValue": "={{ $('variables_2').item.json.id_clientes_airtable }}"
+              },
+              {
+                "fieldName": "id_usuario_airtable",
+                "fieldValue": "={{ $('variables_3').item.json.id_usuario_airtable }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          1856,
+          -112
+        ],
+        "id": "1f7d8065-6171-4d34-9a8f-d9b3cb66f68d",
+        "name": "Create a row1",
         "credentials": {
           "nocoDbApiToken": {
             "id": "Sybr1jbACFyMMWFf",
@@ -679,13 +748,25 @@
             }
           ]
         ]
+      },
+      "Update record": {
+        "main": [
+          [
+            {
+              "node": "Create a row1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 95431b86",
-    "description": ""
+    "name": "Version bf25b07f",
+    "description": "",
+    "autosaved": false
   },
-  "activeVersionId": "95431b86-cb84-47ae-b4c4-25ad61e03671",
+  "activeVersionId": "bf25b07f-91fe-4c8e-a3d4-d57ab82ed624",
   "connections": {
     "Webhook": {
       "main": [
