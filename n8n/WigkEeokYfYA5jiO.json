@@ -1,27 +1,11 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-26T05:09:30.839Z",
-    "createdAt": "2025-12-26T05:09:28.516Z",
-    "versionId": "0269581e-69b5-4906-afc0-ebfd6a38f596",
+    "updatedAt": "2025-12-26T21:00:08.225Z",
+    "createdAt": "2025-12-26T21:00:05.894Z",
+    "versionId": "d68aeb27-e27e-431e-b7f1-8f745c5f3314",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
-      {
-        "parameters": {
-          "httpMethod": "POST",
-          "path": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.webhook",
-        "typeVersion": 2.1,
-        "position": [
-          -800,
-          288
-        ],
-        "id": "b1a9c96f-7ca3-47d4-82bd-e98e0cbecb06",
-        "name": "Webhook",
-        "webhookId": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee"
-      },
       {
         "parameters": {
           "authentication": "airtableOAuth2Api",
@@ -335,8 +319,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5232,
-          -224
+          6032,
+          -688
         ],
         "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
         "name": "Enviar email"
@@ -723,8 +707,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          4992,
-          -224
+          5792,
+          -688
         ],
         "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
         "name": "Enviar mensaje",
@@ -786,8 +770,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          4288,
-          -336
+          4720,
+          -352
         ],
         "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
         "name": "Update leads",
@@ -803,8 +787,8 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          4544,
-          -336
+          4976,
+          -352
         ],
         "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
         "name": "Wait",
@@ -824,7 +808,7 @@
                   },
                   "conditions": [
                     {
-                      "leftValue": "={{ $json.body.Tipo }}",
+                      "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
                       "rightValue": "7_dias_antes",
                       "operator": {
                         "type": "string",
@@ -849,7 +833,7 @@
                   "conditions": [
                     {
                       "id": "fcb36b08-ce5b-4747-adb9-4a4bd9e64022",
-                      "leftValue": "={{ $json.body.Tipo }}",
+                      "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
                       "rightValue": "3_dias_antes",
                       "operator": {
                         "type": "string",
@@ -874,7 +858,7 @@
                   "conditions": [
                     {
                       "id": "b9b5875e-6228-4173-9395-cd8e04b1ddf8",
-                      "leftValue": "={{ $json.body.Tipo }}",
+                      "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
                       "rightValue": "1_dia_antes",
                       "operator": {
                         "type": "string",
@@ -895,8 +879,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          -576,
-          288
+          5200,
+          -368
         ],
         "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
         "name": "Switch1"
@@ -943,8 +927,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5232,
-          -448
+          6032,
+          -912
         ],
         "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
         "name": "Enviar email1"
@@ -957,14 +941,14 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 0,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65672,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          4992,
-          -448
+          5792,
+          -912
         ],
         "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
         "name": "Enviar mensaje1",
@@ -998,8 +982,8 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          5456,
-          -448
+          6256,
+          -912
         ],
         "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
         "name": "Send a message",
@@ -1010,20 +994,6 @@
             "name": "bio_1"
           }
         }
-      },
-      {
-        "parameters": {
-          "content": "### avisar que no se tiene info de precio",
-          "height": 80
-        },
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1,
-        "position": [
-          5696,
-          -352
-        ],
-        "id": "6ef84e22-3233-41ad-8c1f-d76b5b9b5aea",
-        "name": "Sticky Note"
       },
       {
         "parameters": {
@@ -1076,7 +1046,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3648,
+          4000,
           64
         ],
         "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -1099,8 +1069,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3984,
-          -80
+          4416,
+          -96
         ],
         "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
         "name": "Variables_4"
@@ -1222,8 +1192,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4272,
-          208
+          4704,
+          192
         ],
         "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
         "name": "Create a row",
@@ -1297,25 +1267,592 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          4752,
-          -336
+          5552,
+          -800
         ],
         "id": "2c710983-a029-4447-872b-b00631d26014",
         "name": "No se tiene info de precio?"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "precios",
+                "value": "={{ $('Variables_2').item.json.Precios }}"
+              },
+              {
+                "name": "nivel",
+                "value": "={{ $('Variables_2').item.json.Nivel }}"
+              },
+              {
+                "name": "url_link_tally",
+                "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}"
+              },
+              {
+                "name": "email_a_enviar",
+                "value": "={{ $('Variables_2').item.json.email}}"
+              },
+              {
+                "name": "nombre_estudiante",
+                "value": "={{ $('Variables_2').item.json.nombre_estudiante }}"
+              },
+              {
+                "name": "plantilla",
+                "value": "3_dias_renovacion_CON_precios"
+              },
+              {
+                "name": "numero_de_celular",
+                "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          6032,
+          -240
+        ],
+        "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
+        "name": "Enviar email2"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65674,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          5792,
+          -240
+        ],
+        "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
+        "name": "Enviar mensaje2",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "precios",
+                "value": "={{ $('Variables_2').item.json.Precios }}"
+              },
+              {
+                "name": "nivel",
+                "value": "={{ $('Variables_2').item.json.Nivel }}"
+              },
+              {
+                "name": "url_link_tally",
+                "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}"
+              },
+              {
+                "name": "email_a_enviar",
+                "value": "={{ $('Variables_2').item.json.email}}"
+              },
+              {
+                "name": "nombre_estudiante",
+                "value": "={{ $('Variables_2').item.json.nombre_estudiante }}"
+              },
+              {
+                "name": "plantilla",
+                "value": "3_dias_renovacion_SIN_precios"
+              },
+              {
+                "name": "numero_de_celular",
+                "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          6032,
+          -464
+        ],
+        "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
+        "name": "Enviar email3"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65676,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          5792,
+          -464
+        ],
+        "id": "0db36230-0d0d-49bb-943a-dc011650676e",
+        "name": "Enviar mensaje3",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "1244011715008532602",
+            "mode": "list",
+            "cachedResultName": "Bioenglish",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1357814199446929488",
+            "mode": "list",
+            "cachedResultName": "errores",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+          },
+          "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 3 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          6256,
+          -464
+        ],
+        "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
+        "name": "Send a message1",
+        "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+        "credentials": {
+          "discordBotApi": {
+            "id": "lrG2Z5VoQXKArDMn",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "11a8f908-7794-463a-8c47-f5e525865a1e",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_1_mes }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "2a368ccd-33a7-49ec-8c0f-81db0eb96252",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_2_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "9ac862ab-2eb2-4d3a-b914-00ca3f037ff5",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_3_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "756a81de-238d-476c-845c-3bec5e666b89",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_6_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "0fa911a5-5498-41de-9824-bd45d94ffb74",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_12_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          5552,
+          -352
+        ],
+        "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
+        "name": "No se tiene info de precio?1"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "precios",
+                "value": "={{ $('Variables_2').item.json.Precios }}"
+              },
+              {
+                "name": "nivel",
+                "value": "={{ $('Variables_2').item.json.Nivel }}"
+              },
+              {
+                "name": "url_link_tally",
+                "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}"
+              },
+              {
+                "name": "email_a_enviar",
+                "value": "={{ $('Variables_2').item.json.email}}"
+              },
+              {
+                "name": "nombre_estudiante",
+                "value": "={{ $('Variables_2').item.json.nombre_estudiante }}"
+              },
+              {
+                "name": "plantilla",
+                "value": "1_dia_renovacion_CON_precios"
+              },
+              {
+                "name": "numero_de_celular",
+                "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          6048,
+          192
+        ],
+        "id": "fb04a892-10f5-4269-b116-17194a984389",
+        "name": "Enviar email4"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65678,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          5808,
+          192
+        ],
+        "id": "82504058-e135-4182-8768-a13266255ada",
+        "name": "Enviar mensaje4",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "precios",
+                "value": "={{ $('Variables_2').item.json.Precios }}"
+              },
+              {
+                "name": "nivel",
+                "value": "={{ $('Variables_2').item.json.Nivel }}"
+              },
+              {
+                "name": "url_link_tally",
+                "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}"
+              },
+              {
+                "name": "email_a_enviar",
+                "value": "={{ $('Variables_2').item.json.email}}"
+              },
+              {
+                "name": "nombre_estudiante",
+                "value": "={{ $('Variables_2').item.json.nombre_estudiante }}"
+              },
+              {
+                "name": "plantilla",
+                "value": "1_dia_renovacion_SIN_precios"
+              },
+              {
+                "name": "numero_de_celular",
+                "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          6048,
+          -32
+        ],
+        "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
+        "name": "Enviar email5"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65680,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          5808,
+          -32
+        ],
+        "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
+        "name": "Enviar mensaje5",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "1244011715008532602",
+            "mode": "list",
+            "cachedResultName": "Bioenglish",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1357814199446929488",
+            "mode": "list",
+            "cachedResultName": "errores",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+          },
+          "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 1 dia antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          6272,
+          -32
+        ],
+        "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
+        "name": "Send a message2",
+        "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+        "credentials": {
+          "discordBotApi": {
+            "id": "lrG2Z5VoQXKArDMn",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "11a8f908-7794-463a-8c47-f5e525865a1e",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_1_mes }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "2a368ccd-33a7-49ec-8c0f-81db0eb96252",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_2_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "9ac862ab-2eb2-4d3a-b914-00ca3f037ff5",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_3_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "756a81de-238d-476c-845c-3bec5e666b89",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_6_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "0fa911a5-5498-41de-9824-bd45d94ffb74",
+                "leftValue": "={{ $('Variables_2').item.json.Precio_12_meses }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          5568,
+          80
+        ],
+        "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
+        "name": "No se tiene info de precio?2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "51961664-61bd-45f1-9ca2-30bc1b5189f3",
+                "name": "url_tally_pago_recurrente",
+                "value": "={{ $json.url_acortado }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          4000,
+          -160
+        ],
+        "id": "791557b6-5113-41aa-b134-8ae81864350b",
+        "name": "url_renovacion1"
+      },
+      {
+        "parameters": {
+          "queue": "bioenglish",
+          "options": {
+            "arguments": {
+              "argument": [
+                {
+                  "key": "x-queue-type",
+                  "value": "quorum"
+                }
+              ]
+            },
+            "acknowledge": "executionFinishesSuccessfully",
+            "jsonParseBody": true,
+            "onlyContent": true,
+            "parallelMessages": 1
+          }
+        },
+        "type": "n8n-nodes-base.rabbitmqTrigger",
+        "typeVersion": 1,
+        "position": [
+          -496,
+          0
+        ],
+        "id": "8d9574ec-975e-4724-a561-0e4d57603596",
+        "name": "Webhook",
+        "credentials": {
+          "rabbitmq": {
+            "id": "0rr5PL45GTNhamch",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -480,
+          -368
+        ],
+        "id": "ce17ef5c-fe14-498c-9d8a-b53930c1f5aa",
+        "name": "Webhook1",
+        "webhookId": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee"
       }
     ],
     "connections": {
-      "Webhook": {
-        "main": [
-          [
-            {
-              "node": "Switch1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Detalles venta": {
         "main": [
           [
@@ -1537,7 +2074,7 @@
         "main": [
           [
             {
-              "node": "No se tiene info de precio?",
+              "node": "Switch1",
               "type": "main",
               "index": 0
             }
@@ -1548,13 +2085,25 @@
         "main": [
           [
             {
-              "node": "Detalles venta",
+              "node": "No se tiene info de precio?",
               "type": "main",
               "index": 0
             }
           ],
-          [],
-          []
+          [
+            {
+              "node": "No se tiene info de precio?1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "No se tiene info de precio?2",
+              "type": "main",
+              "index": 0
+            }
+          ]
         ]
       },
       "Enviar mensaje": {
@@ -1623,7 +2172,7 @@
         "main": [
           [
             {
-              "node": "Variables_4",
+              "node": "url_renovacion1",
               "type": "main",
               "index": 0
             }
@@ -1663,25 +2212,139 @@
             }
           ]
         ]
+      },
+      "Enviar mensaje2": {
+        "main": [
+          [
+            {
+              "node": "Enviar email2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar email3": {
+        "main": [
+          [
+            {
+              "node": "Send a message1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar mensaje3": {
+        "main": [
+          [
+            {
+              "node": "Enviar email3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "No se tiene info de precio?1": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje3",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Enviar mensaje2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar mensaje4": {
+        "main": [
+          [
+            {
+              "node": "Enviar email4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar email5": {
+        "main": [
+          [
+            {
+              "node": "Send a message2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar mensaje5": {
+        "main": [
+          [
+            {
+              "node": "Enviar email5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "No se tiene info de precio?2": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje5",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Enviar mensaje4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "url_renovacion1": {
+        "main": [
+          [
+            {
+              "node": "Variables_4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "Detalles venta",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 0269581e",
-    "description": ""
+    "name": "Version d68aeb27",
+    "description": "",
+    "autosaved": false
   },
-  "activeVersionId": "0269581e-69b5-4906-afc0-ebfd6a38f596",
+  "activeVersionId": "d68aeb27-e27e-431e-b7f1-8f745c5f3314",
   "connections": {
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "Detalles venta",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Detalles venta": {
       "main": [
         [
@@ -1926,7 +2589,13 @@
             "index": 0
           }
         ],
-        []
+        [
+          {
+            "node": "No se tiene info de precio?2",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Enviar mensaje": {
@@ -1995,7 +2664,7 @@
       "main": [
         [
           {
-            "node": "Variables_4",
+            "node": "url_renovacion1",
             "type": "main",
             "index": 0
           }
@@ -2086,6 +2755,79 @@
           }
         ]
       ]
+    },
+    "Enviar mensaje4": {
+      "main": [
+        [
+          {
+            "node": "Enviar email4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar email5": {
+      "main": [
+        [
+          {
+            "node": "Send a message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar mensaje5": {
+      "main": [
+        [
+          {
+            "node": "Enviar email5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No se tiene info de precio?2": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar mensaje4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url_renovacion1": {
+      "main": [
+        [
+          {
+            "node": "Variables_4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Detalles venta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-20T17:06:23.257Z",
@@ -2096,22 +2838,6 @@
   },
   "name": "Chatbot de cobranzas",
   "nodes": [
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2.1,
-      "position": [
-        -528,
-        0
-      ],
-      "id": "b1a9c96f-7ca3-47d4-82bd-e98e0cbecb06",
-      "name": "Webhook",
-      "webhookId": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee"
-    },
     {
       "parameters": {
         "authentication": "airtableOAuth2Api",
@@ -2425,8 +3151,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5600,
-        -672
+        6032,
+        -688
       ],
       "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
       "name": "Enviar email"
@@ -2813,8 +3539,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5360,
-        -672
+        5792,
+        -688
       ],
       "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
       "name": "Enviar mensaje",
@@ -2876,8 +3602,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        4288,
-        -336
+        4720,
+        -352
       ],
       "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
       "name": "Update leads",
@@ -2893,8 +3619,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4544,
-        -336
+        4976,
+        -352
       ],
       "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
       "name": "Wait",
@@ -2985,8 +3711,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        4768,
-        -352
+        5200,
+        -368
       ],
       "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
       "name": "Switch1"
@@ -3033,8 +3759,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5600,
-        -896
+        6032,
+        -912
       ],
       "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
       "name": "Enviar email1"
@@ -3047,14 +3773,14 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 0,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65672,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5360,
-        -896
+        5792,
+        -912
       ],
       "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
       "name": "Enviar mensaje1",
@@ -3088,8 +3814,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        5824,
-        -896
+        6256,
+        -912
       ],
       "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
       "name": "Send a message",
@@ -3152,7 +3878,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3648,
+        4000,
         64
       ],
       "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -3175,8 +3901,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3984,
-        -80
+        4416,
+        -96
       ],
       "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
       "name": "Variables_4"
@@ -3298,8 +4024,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4272,
-        208
+        4704,
+        192
       ],
       "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
       "name": "Create a row",
@@ -3373,8 +4099,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5120,
-        -784
+        5552,
+        -800
       ],
       "id": "2c710983-a029-4447-872b-b00631d26014",
       "name": "No se tiene info de precio?"
@@ -3408,7 +4134,7 @@
             },
             {
               "name": "plantilla",
-              "value": "7_dias_renovacion_CON_precios"
+              "value": "3_dias_renovacion_CON_precios"
             },
             {
               "name": "numero_de_celular",
@@ -3421,8 +4147,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5600,
-        -224
+        6032,
+        -240
       ],
       "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
       "name": "Enviar email2"
@@ -3435,14 +4161,14 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65546,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65674,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5360,
-        -224
+        5792,
+        -240
       ],
       "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
       "name": "Enviar mensaje2",
@@ -3482,7 +4208,7 @@
             },
             {
               "name": "plantilla",
-              "value": "7_dias_renovacion_SIN_precios"
+              "value": "3_dias_renovacion_SIN_precios"
             },
             {
               "name": "numero_de_celular",
@@ -3495,8 +4221,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5600,
-        -448
+        6032,
+        -464
       ],
       "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
       "name": "Enviar email3"
@@ -3509,14 +4235,14 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 0,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65676,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5360,
-        -448
+        5792,
+        -464
       ],
       "id": "0db36230-0d0d-49bb-943a-dc011650676e",
       "name": "Enviar mensaje3",
@@ -3544,14 +4270,14 @@
           "cachedResultName": "errores",
           "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
         },
-        "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 7 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
+        "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 3 dias antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        5824,
-        -448
+        6256,
+        -464
       ],
       "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
       "name": "Send a message1",
@@ -3626,47 +4352,339 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5120,
-        -336
+        5552,
+        -352
       ],
       "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
       "name": "No se tiene info de precio?1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "precios",
+              "value": "={{ $('Variables_2').item.json.Precios }}"
+            },
+            {
+              "name": "nivel",
+              "value": "={{ $('Variables_2').item.json.Nivel }}"
+            },
+            {
+              "name": "url_link_tally",
+              "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}"
+            },
+            {
+              "name": "email_a_enviar",
+              "value": "={{ $('Variables_2').item.json.email}}"
+            },
+            {
+              "name": "nombre_estudiante",
+              "value": "={{ $('Variables_2').item.json.nombre_estudiante }}"
+            },
+            {
+              "name": "plantilla",
+              "value": "1_dia_renovacion_CON_precios"
+            },
+            {
+              "name": "numero_de_celular",
+              "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        6048,
+        192
+      ],
+      "id": "fb04a892-10f5-4269-b116-17194a984389",
+      "name": "Enviar email4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65678,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        5808,
+        192
+      ],
+      "id": "82504058-e135-4182-8768-a13266255ada",
+      "name": "Enviar mensaje4",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "precios",
+              "value": "={{ $('Variables_2').item.json.Precios }}"
+            },
+            {
+              "name": "nivel",
+              "value": "={{ $('Variables_2').item.json.Nivel }}"
+            },
+            {
+              "name": "url_link_tally",
+              "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}"
+            },
+            {
+              "name": "email_a_enviar",
+              "value": "={{ $('Variables_2').item.json.email}}"
+            },
+            {
+              "name": "nombre_estudiante",
+              "value": "={{ $('Variables_2').item.json.nombre_estudiante }}"
+            },
+            {
+              "name": "plantilla",
+              "value": "1_dia_renovacion_SIN_precios"
+            },
+            {
+              "name": "numero_de_celular",
+              "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        6048,
+        -32
+      ],
+      "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
+      "name": "Enviar email5"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65680,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        5808,
+        -32
+      ],
+      "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
+      "name": "Enviar mensaje5",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "1244011715008532602",
+          "mode": "list",
+          "cachedResultName": "Bioenglish",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1357814199446929488",
+          "mode": "list",
+          "cachedResultName": "errores",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+        },
+        "content": "=Falta definir los precios de renovacion del grupo con el nivel {{ $('Variables_2').item.json.Nivel }}\n\n\nEntrar a este link para definir los precios de renovacion: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('Variables_2').item.json.id_grupo_airtable }}?blocks=hide\n\n\nSe hizo recordatorio de pago de renovacion 1 dia antes pero sin precios a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Variables_3').item.json.id_lead }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        6272,
+        -32
+      ],
+      "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
+      "name": "Send a message2",
+      "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+      "credentials": {
+        "discordBotApi": {
+          "id": "lrG2Z5VoQXKArDMn",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "11a8f908-7794-463a-8c47-f5e525865a1e",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_1_mes }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "2a368ccd-33a7-49ec-8c0f-81db0eb96252",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_2_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "9ac862ab-2eb2-4d3a-b914-00ca3f037ff5",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_3_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "756a81de-238d-476c-845c-3bec5e666b89",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_6_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "0fa911a5-5498-41de-9824-bd45d94ffb74",
+              "leftValue": "={{ $('Variables_2').item.json.Precio_12_meses }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        5568,
+        80
+      ],
+      "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
+      "name": "No se tiene info de precio?2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51961664-61bd-45f1-9ca2-30bc1b5189f3",
+              "name": "url_tally_pago_recurrente",
+              "value": "={{ $json.url_acortado }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4000,
+        -160
+      ],
+      "id": "791557b6-5113-41aa-b134-8ae81864350b",
+      "name": "url_renovacion1"
+    },
+    {
+      "parameters": {
+        "queue": "bioenglish",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishesSuccessfully",
+          "jsonParseBody": true,
+          "onlyContent": true,
+          "parallelMessages": 1
+        }
+      },
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        -496,
+        0
+      ],
+      "id": "8d9574ec-975e-4724-a561-0e4d57603596",
+      "name": "Webhook",
+      "credentials": {
+        "rabbitmq": {
+          "id": "0rr5PL45GTNhamch",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -480,
+        -368
+      ],
+      "id": "ce17ef5c-fe14-498c-9d8a-b53930c1f5aa",
+      "name": "Webhook1",
+      "webhookId": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee"
     }
   ],
   "pinData": {
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "host": "primary-production-55a73.up.railway.app",
-            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "54",
-            "accept": "*/*",
-            "accept-encoding": "gzip,deflate",
-            "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
-            "x-forwarded-for": "44.202.227.208",
-            "x-forwarded-host": "primary-production-55a73.up.railway.app",
-            "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "1uhz1hBNQJ-nxqXcozsQ6Q",
-            "x-real-ip": "44.202.227.208",
-            "x-request-start": "1766251768297"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "recordId": "reci5B3kXsKVyvfwX",
-            "Tipo": "7_dias_antes"
-          },
-          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
-          "executionMode": "production"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "Create new contacts": [
       {
         "json": {
@@ -3723,701 +4741,33 @@
         }
       }
     ],
-    "Clientes": [
+    "Webhook1": [
       {
         "json": {
-          "id": "receJcK4J92PFbXkp",
-          "createdTime": "2023-03-28T15:33:26.000Z",
-          "Estudiante": "C-96-Sisa yolé Valerie galiano huasco",
-          "Apoderado": "Delia Huasco",
-          "DetalleVentas": [
-            "recdWe7sJTmTAZTsh",
-            "rec1E5bw1tL7F6N4i",
-            "reck88jo6v9XTdlGV",
-            "recu2gNWjZdC5JCkZ",
-            "recXHZfTjO0X9Tvhc",
-            "recv7IA8vrY3yLXKy",
-            "recLwxC5NXYHkAJoH",
-            "receYFcX8KOlaUpvq",
-            "recacfaeVoXqo2ONT",
-            "recYSuEF7oImgkWJE",
-            "recy9pR0088eGElUq",
-            "recEw1OQEeJKBEaiI",
-            "recZRXSugbPiPSbdp",
-            "recU1mO9PADh9jb38",
-            "recahcPnlnobXXCPi",
-            "reci5B3kXsKVyvfwX"
-          ],
-          "PEN Rollup (from DetalleVentas)": 4660,
-          "# Ventas": 16,
-          "Nombre del estudiante": "Gianmarco Rusher",
-          "ID": 96,
-          "Tipo": "Menor de edad",
-          "Celular del estudiante 1": "+51930552921",
-          "Email del estudiante": "dyr.gahua@gmail.com",
-          "Inicio Suscripción Actual": "2026-01-05",
-          "Status": "Ok",
-          "1ra Suscripción": "2023-04-03",
-          "WA Link": {
-            "label": "Open URL",
-            "url": "https://api.whatsapp.com/send?phone=+51930552921&text=Hola"
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
+            "content-length": "54",
+            "accept": "*/*",
+            "accept-encoding": "gzip,deflate",
+            "content-type": "application/json",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
+            "x-forwarded-for": "44.199.193.163",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "1RbcTx6BS4y0uuRkozsQ6Q",
+            "x-real-ip": "44.199.193.163",
+            "x-request-start": "1766773219160"
           },
-          "#Semanas": 52,
-          "Fecha fin": "2027-01-04",
-          "Semanas transcurridas": -2,
-          "Dif Semanas": 54,
-          "Grupos (from DetalleVentas)": [
-            "recpumSpRQEyWJXL5",
-            "recpumSpRQEyWJXL5",
-            "rechppg2lNnPsBnss",
-            "recpumSpRQEyWJXL5",
-            "recpumSpRQEyWJXL5",
-            "recpumSpRQEyWJXL5",
-            "recpumSpRQEyWJXL5",
-            "recpumSpRQEyWJXL5",
-            "recpumSpRQEyWJXL5",
-            "recpumSpRQEyWJXL5",
-            "rec25XUyZufWTKuj3",
-            "rec25XUyZufWTKuj3",
-            "rec25XUyZufWTKuj3",
-            "rec25XUyZufWTKuj3",
-            "rec25XUyZufWTKuj3",
-            "rec25XUyZufWTKuj3"
-          ],
-          "latestPurchaseDate": "2025-12-01",
-          "Grupo actual": "ENGLISH KET_A2 | Virtual | Flor | M-J-4:30-6:00pm-S-11:00-12:30pm",
-          "Cel Estudiante": [
-            "recYnO7G5rfXVt80p"
-          ],
-          "Celular Unico": "+51936639242",
-          "Pais Celular": "Peru",
-          "PEN SF": 4660,
-          "ISO": "PE",
-          "Grupos Ultimo": [
-            "rec25XUyZufWTKuj3"
-          ],
-          "TUSD": 1165,
-          "Fecha de Fin (from DetalleVentas)": [
-            "2023-05-01",
-            "2023-05-31",
-            "2023-07-01",
-            "2023-06-30",
-            "2023-07-31",
-            "2023-08-30",
-            "2023-09-29",
-            "2023-10-30",
-            "2023-12-01",
-            "2023-12-29",
-            "2024-08-19",
-            "2025-02-17",
-            "2025-05-26",
-            "2025-08-25",
-            "2026-02-17",
-            "2027-01-04"
-          ],
-          "Fecha de Inicio (from DetalleVentas)": [
-            "2023-04-03",
-            "2023-05-03",
-            "2023-06-03",
-            "2023-06-02",
-            "2023-07-03",
-            "2023-08-02",
-            "2023-09-01",
-            "2023-10-02",
-            "2023-11-03",
-            "2023-12-01",
-            "2024-03-04",
-            "2024-09-02",
-            "2025-03-03",
-            "2025-06-02",
-            "2025-09-02",
-            "2026-01-05"
-          ],
-          "Kommo Link WA": {
-            "label": "Button",
-            "url": "https://bioenglish22.kommo.com/chats/leads/detail/10162934?filter%5Bterm%5D=%2B+51930552921"
+          "params": {},
+          "query": {},
+          "body": {
+            "recordId": "recnauGWmzzkNLccG",
+            "Tipo": "7_dias_antes"
           },
-          "Cantidad DV": 16,
-          "Fecha de Fin (from DetalleVentas) 2": [
-            "2027-01-04"
-          ],
-          "Record ID": "receJcK4J92PFbXkp",
-          "Clientes (from DetalleVentas)": [
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp",
-            "receJcK4J92PFbXkp"
-          ],
-          "Fecha de Pago (from DetalleVentas)": [
-            "2023-03-28",
-            "2023-05-03",
-            "2023-05-31",
-            "2023-06-09",
-            "2023-07-06",
-            "2023-08-13",
-            "2023-09-15",
-            "2023-10-17",
-            "2023-11-30",
-            "2023-12-30",
-            "2024-04-05",
-            "2024-09-30",
-            "2025-04-19",
-            "2025-07-31",
-            "2025-10-29",
-            "2025-11-30"
-          ],
-          "Fecha min": "2023-03-28",
-          "Usuarios": [
-            "rec0DumatdFQFnxdy"
-          ],
-          "Magic link (from Usuarios)": [
-            "https://www.bioenglish.lat/magic-authentication?magic-token=b85da1dd86624ed19e62ea0350d00b20"
-          ],
-          "Fin Suscripción Actual": "2026-01-04",
-          "Suscripción (from DetalleVentas)": [
-            "ANUAL"
-          ],
-          "Email F": "gianmarcorusher@gmail.com",
-          "Nombre F": "Sisa",
-          "Fecha de hora de envío": "2026-01-04T09:00:00.000Z",
-          "URL renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Sisa%20yol%C3%A9%20Valerie%20galiano%20huasco&celular_estudiante=%2B51930552921",
-          "URL renovacion corto": "a"
-        }
-      }
-    ],
-    "Grupo": [
-      {
-        "json": {
-          "id": "rec25XUyZufWTKuj3",
-          "createdTime": "2024-01-04T22:34:20.000Z",
-          "Grupos": "ENGLISH KET_A2 | Virtual | Flor | M-J-4:30-6:00pm-S-11:00-12:30pm",
-          "DetalleVentas": [
-            "rec2NXpP9KamllKcU",
-            "recZV5xdXhKbYkjwH",
-            "recMrHOcVaHMMTrM2",
-            "recoM5v9htnnkb0AW",
-            "recmLGebupAsEBKUN",
-            "rec4dOng6Y47Ebye0",
-            "recU7poTCYnVgwW1J",
-            "recG0ajLpJ0dH1Fnh",
-            "recd22EzXN8Z2eGn8",
-            "reclg068dPxLhsoqF",
-            "recmaw53BayBDDSAZ",
-            "recwFdCyDwuYcItqF",
-            "recvzXD5c4wCRkg0r",
-            "recVqMU1FXvGAeywg",
-            "recxD40lJHWtdrNpf",
-            "recKNeHjpZj550SVX",
-            "recNmqWgvHL6KszTY",
-            "reczD3107LPcswb4G",
-            "recmrApueoQlwvdIg",
-            "rec0QIwsNkkINEuwv",
-            "recQXBc6wGuXrW2Rf",
-            "recMvEa0gKfe3DHOX",
-            "reckZ9oTkClL1Ffzj",
-            "recy9pR0088eGElUq",
-            "rec58CP5ao6FUj5x9",
-            "recW7WY6i0sjH7FCz",
-            "receOg8WRLupc3ccn",
-            "recPrdTFVprvYxU7o",
-            "rec9XDHYqrH9JBMK7",
-            "rec05AvY51sbW8Dt5",
-            "recsUj0BIbPLII2fw",
-            "recu9RsZ556nliWG9",
-            "recun5c5VTbb0y79m",
-            "rec7LppCBJJzDRO5z",
-            "recfGOpRZwwe4ClkN",
-            "recR2NLijRnq5D5Wy",
-            "recBG3pz51FRCI6Y9",
-            "recWe8jT52AWDqM1P",
-            "recEng9STaGhv6S87",
-            "recByCjtBz8VrCJC7",
-            "recpRDw7LAOfH97MM",
-            "rec2aLjbVoQvDyv26",
-            "rec0koIUcYnWzZQqI",
-            "rec3HtPWy7SYZMOis",
-            "recw5kk4jksDfVIcu",
-            "rec2mymB7Cd1kmO8q",
-            "recOeWalNdDfYrUwT",
-            "rec9dZ7Gcf2LLlhpa",
-            "recEw1OQEeJKBEaiI",
-            "recoRynVdgMOfKnFc",
-            "recbIkGU80aU8Q8AU",
-            "recvx1t8B5mjHOO58",
-            "recPrmJhUodN1yVl1",
-            "recxFPscVjuNz5qbS",
-            "rec1hD5MvvLJw8px3",
-            "recVPsHoqBRNnVAzI",
-            "recm5JTI0ePrPL1sY",
-            "rec2hudOYK7mxT3fl",
-            "recPDrAbILFx7mfTg",
-            "rec9iEZWZV4oIJJNb",
-            "recjGpnpOjSEkzeFk",
-            "recHaDaSDkuuMeOXh",
-            "recvJ5RZ4ebr592WZ",
-            "recwUyfUDJyJfM1Y4",
-            "recg1HB0if1WPeAUp",
-            "recAvuzq4ab2uyGwc",
-            "recS6VLvaRD4bIKwl",
-            "recHsp2usdXASmd1f",
-            "recT2SlUli7PEUvi6",
-            "recusmmLIL9um9k6n",
-            "recLa6gUN1rj6eUPP",
-            "recHvkEGiNgKrmkB1",
-            "recvVg71P0EPd3ZtU",
-            "recyYu39u5mk2ID62",
-            "rec9ufG8jDATFCTsX",
-            "recZRXSugbPiPSbdp",
-            "recVxh3hZmC7li6gs",
-            "recLlZDccIXSBsQfp",
-            "reckNi36XSJGHE3yV",
-            "recHlfMYyufJqwcCh",
-            "recPUcV7WNkahv2K1",
-            "recK0LD46s4LymkjJ",
-            "rec20NjkwGVD9DB0x",
-            "recU1mO9PADh9jb38",
-            "rec2khYQYsbbmAzpg",
-            "recvvdL0eDjlF0rgw",
-            "reccLwW3muZBtj9KV",
-            "recqu5s8CaFjtHulL",
-            "recLpBKwwvNEzc9mO",
-            "recFt3l44qnRxYcNt",
-            "recoWCeeVJWi2OWnF",
-            "recvsgZjTo2VPrtIo",
-            "recahcPnlnobXXCPi",
-            "recw3MOKDMrp5uf5h",
-            "recdmTVTExTVnv9RI",
-            "recznN7kWbef2gESh",
-            "recIFYoJ5MqVCyndN",
-            "reciyTiFhIBWNHenY",
-            "reci5B3kXsKVyvfwX",
-            "recNSrZrttaC0S0kN"
-          ],
-          "Feb23": 0,
-          "Feb23 PEN": 0,
-          "Modalidad": "Virtual",
-          "Nivel": "ENGLISH KET_A2",
-          "Horario": "M-J-4:30-6:00pm-S-11:00-12:30pm",
-          "Mar23": 0,
-          "Mar23 PEN": 0,
-          "Docente": "Teacher Flor",
-          "Ene23 A": 0,
-          "Ene23 PEN": 0,
-          "Abr23": 0,
-          "Abr23 PEN": 0,
-          "Ahora": 5,
-          "Status": "Rentable",
-          "Edades": "9 a 12 años",
-          "Teachers horarios": [
-            "recvChSYMRUqaSvs8"
-          ],
-          "From Teachers (from Teachers horarios)": [
-            "rec4xEKSBjKWNVwOY"
-          ],
-          "May23 PEN": 0,
-          "May23": 0,
-          "Jun23 PEN": 0,
-          "Jun23": 0,
-          "Jul23 PEN": 0,
-          "Ago23 PEN": 0,
-          "Sep23 PEN": 0,
-          "Oct23 PEN": 0,
-          "Jul23": 0,
-          "Sep23": 0,
-          "Oct23": 0,
-          "Ago23": 0,
-          "Grupos mes": [
-            "recHN9cdZItClJVBw"
-          ],
-          "Nov23 PEN": 0,
-          "Total": 21210.5,
-          "Total from Mar23": 21210.5,
-          "Year2024": "2025",
-          "Nov23": 0,
-          "Dic23": 0,
-          "Ene24": 8,
-          "Dic23 PEN": 278.5,
-          "Ene24 PEN": 765,
-          "Grabaciones": [
-            "recVUnr5PI94csbZk",
-            "recvOYfWENAT5Ff4q",
-            "rect3QcUGtT2MlVj0",
-            "rec74dr9T9Y2zLRQF",
-            "recL05Bj5Z0sn3DM9",
-            "recxianleexMX5HKr",
-            "recbB4HtkcDMn560H",
-            "rechHGoEi1mEoAd1F",
-            "rec2LJCuhEi4tstSk",
-            "recjClD8xi6G7yExt",
-            "recYSTXlmHQBhTmwO",
-            "rec2GKtVtOxbKPNlu",
-            "rec67xocjQQ2tHyk2",
-            "recbbIZlYnOXBAdEp",
-            "recRMdfNw3RyViPKw",
-            "rec3H1o8lSrmrAZgY",
-            "recKv4gjfxht3xDm0",
-            "recLwkCsIzJGgxgah",
-            "recEbijDZBN6iM4WZ",
-            "recTAhaxDAbxLwrQc",
-            "recP6u3EjUBhEQ1za",
-            "recPvfvnCi6Rd0Dze",
-            "recWerg6Ku66gzxOr",
-            "recUkYQ8en3FUPfuk",
-            "recGsiKAy9XH5aXYB",
-            "rec5otaWrft1iVrSi",
-            "recYJ2UwJ2u7RzHGc",
-            "recDyaonLQT9ODpLT",
-            "recljMiFTMSDc2SK9",
-            "recxRgfDxpgaMZEts",
-            "recP0Gef7girw3YbU",
-            "recWlNdQmnBwr4uzu",
-            "recHe4XYUzoXjGZPm",
-            "recaU9le1g2QW7ddN",
-            "recb718hvL1rRqyMX",
-            "recoFcIbhJdDbC4eo",
-            "recGqy3MweCTeiy9X",
-            "recH71YmW8GDE7pxA",
-            "rec9POjYcCMytlmgN",
-            "recP0HY5g7cM2yM14",
-            "rec5m1RLfhmW6OWF0",
-            "reclJJpxtqxHEEZnC",
-            "recEyFCmyVqfN69Sl",
-            "recusVXUuiG0jJo2d",
-            "rec14blFg22ewNO1K",
-            "recRaPQXnwnX2v9X4",
-            "reckYAPD9exsmluMX",
-            "recfv6f34dQqWlEVB",
-            "recRiOoofF3XgJcPD",
-            "recd8G0SqTbiNz7SS",
-            "recdtUkrD6oP2Jv1G",
-            "recNtnF86eCqBtyn4",
-            "recviOhcG3H50fPlg",
-            "recH7IXQKq6jJPBAL",
-            "recYSpXYOmoy2f8PT",
-            "rec80X6JGXlJixDej",
-            "rechxX3JOORJRDWYn",
-            "reccHJ4XixRqpde9o",
-            "recaaGDqhknMbOSbp",
-            "rec45oUr8xlghlKvz",
-            "reclzLPUZXAIcEEAK",
-            "rec7VV12rrxzNRjgE",
-            "recYowL6KTgEZNWAw",
-            "recI0rUzfLv3iFQcA",
-            "recZXdsCGNyunddWG",
-            "reczZojnYqhde9sbH",
-            "recCojNqmYAFmLOTk",
-            "rec7339R9iDVlriCQ",
-            "recOcSTDMf4Sj7Tda",
-            "recf91uWMGATtSLRj",
-            "rec732xvdMM7zuk8E",
-            "recAugK7gYCMXCnv8",
-            "recOGOB88pJc7nq6p",
-            "reckKDMLwqOgyAPww",
-            "recekPUFgDHx7ic5K",
-            "rec4mNZxgCGZeT8gL",
-            "recKPUy2zYNNqb9gC",
-            "recp1E1uhIQ6MsI4P",
-            "reclNBOE9nC4YFyaI",
-            "recsyl1f9iJzkSnFP",
-            "recbKTr3NpRxVCeB9",
-            "recp3co3GcMka1YvS",
-            "reclBQowcDzIRDFsK",
-            "rec8lQ5WOgpMKpCRw",
-            "recgEM4VPnBCQuuFz",
-            "recLHrphIRFWOmowE",
-            "recId2hlBfIOUNLyf",
-            "recGTWT696uEvVaxS",
-            "rec3H2O2OLGkyZ88Z",
-            "rec8IrEfH3fWGRSrF",
-            "reckCV4FEMLIuAMUS",
-            "recbpq3BhlVIodZtg",
-            "recdReiZ6m54CPSUq",
-            "recKpzsyqxDH50FSJ",
-            "recCsxf6fyfqTF0lE",
-            "recLFUqKWck7CXU4y",
-            "recRlX7oxdxjxbE7I",
-            "recVU5Pcy5hPnJr29",
-            "recLRgKARoTTtNyEC",
-            "reciQIC7ZAFCWKt7P",
-            "rec5tYfUk8XnmETMX",
-            "rec1RUVWK0TDooDhY",
-            "rechKmwZXfTZ4eLjC",
-            "reczjJ1afU3mpSmEj",
-            "recwCPy3iBpNf6a7S",
-            "recSsSejV9XCbh1t7",
-            "recQCVRA0NO5WvrC8",
-            "recupz2hUHw3VUQQH",
-            "recOgG4bd3SDUxhRz",
-            "recAUYRbtrLcntpb9",
-            "recM6h3TmfYpkTXU9",
-            "rec1JqVYBCmBC4EZL",
-            "recrqQzoBgopbX3zp",
-            "recDPj69PQtlfoowS",
-            "recVmEpezNV4g1fvH",
-            "recqlY3q0B1M8f6sz",
-            "recKjwuoQVBFtR1G0",
-            "recw5bkRCR6RXc0OH",
-            "recO4sZ08eWt90wcS",
-            "recc5hLUicQXXlleF",
-            "rec2dmVldpXuwstB2",
-            "recEK7nlpKqB6gtIw",
-            "recBUZqbU6eM4KjvM",
-            "rec9GOQidKu8Kt9wl",
-            "rec5HklMKxZFLT6Ns",
-            "recyaOsH77TwSOuS4",
-            "recibZGEi5BZhIqUu",
-            "recSiqzSFTdJofG92",
-            "recL4ZPjICyRoIGP6",
-            "rec7DyBZgkPxqVaZh",
-            "recDhuzitvF7AK7Ve",
-            "recrqOy8ROvfT3H3E",
-            "recq05x34iHRCLfq0",
-            "recPRslMNxloVxXHi",
-            "recrTGMFmAzjH5Fct",
-            "recgOSzNKnmnWiTBM",
-            "recsxbOdJklSUbq1W",
-            "recDTIdkAOu0hlQJp",
-            "recFqrJTdcJENqRMS",
-            "recqZaJvUKiynP2r7",
-            "recmdF6vXbvxQjn1P",
-            "recXpMqU3Vh0yMuID",
-            "rectScwERHA7Z9TM5",
-            "reclIPXhZ1PSpP6yS",
-            "recuNPzi6ipFKmZMR",
-            "recCgk3aoOUeSamAU",
-            "rec2nIs0Xvs7iY9wn",
-            "recEzz9QR6kkqpFey",
-            "recfTASR7kGAYHEu1",
-            "recljCvlwMaNTqSKO",
-            "reclCiwOynkKTwwQ2",
-            "recJxgojQWfXrZoD4",
-            "rec8FsONsJ7xM3teI",
-            "receX844ZDSxwQRmX",
-            "recY5NTDkHv5cI1ev",
-            "recPn3QzWmVEWlNNX",
-            "recOM6JWFtpeUh6ck",
-            "recb3jLC7F7F83pjy",
-            "recQIBV8v2xRTgS2i",
-            "rect3l5KxJKf70bIT",
-            "recFVnBzyDrlg6icF",
-            "rectlFI7j6J6axofQ",
-            "recnKSlPXBnMI5fYX",
-            "recQmUh22gknxuYlZ",
-            "recZqQD6pCffs4AoN",
-            "rec5Qd6GKK0KuhVvM",
-            "recb5c5xbWDR3dnZX",
-            "recHESczgcFnJJRV2",
-            "recJlPGWD0on0212G",
-            "recH72oSRECVZfgti",
-            "rec2q2FxJrjPGcSFk",
-            "recJgo499VQqEO1vW",
-            "recB2j0OaQHOxp5It",
-            "recrNSvjbxGsvUCaT",
-            "recPZZ72UjbrOoVUu",
-            "recE5C7ngPlHqekzY",
-            "recv8LoH1175XN9q3",
-            "recNT6FzFL2VwnTzU",
-            "recSgAuKT2zZPf1Cc",
-            "recAQrc17iksJvtHi",
-            "recwi7gzzSuAJvSak",
-            "rec7AzzzFO0wpGk4w",
-            "recaOHdJyRsPaC702",
-            "reciyePUBMCcbAc1m",
-            "recZryh7K60tiIPa6",
-            "recGRLm9bN1sgvTow",
-            "reccVvuHrwYi6btg7",
-            "rec0UvYjwIdy3fIIE",
-            "recrtYi2sV4DJJKPV",
-            "recka6RsM7aMKQYrZ",
-            "rec1rZojheKTiXMfe",
-            "recQaPjbsFHnOh0aX",
-            "rechDFavLVQOtVami",
-            "recsVsfMCA8pSeysd",
-            "rec8iIKeOt0SRYI3Q",
-            "recpxqEE3ydOalSyf",
-            "recLyILj9uKldSGFu",
-            "rec57eKnkPghkWoAm",
-            "recx9pDyvPMR63hsf",
-            "recgwS5rWwyEerReL",
-            "recS3hUHcGSAEmJFk",
-            "recGYADBm3jbYubCO",
-            "recT8Pa61NwTFycFt",
-            "recajbGRUFC8tQGt1",
-            "reck5Qv9UaBrD7zpF",
-            "recrI64nRqTmZ49DF",
-            "recbjXKB8tN5lWO9G",
-            "rec8jbU3zdJldTSWX",
-            "recpmAjskv5HACFW6",
-            "reckhV2baLAN1boBM",
-            "recsMNGgPbho0rewC",
-            "rec7NDnARoT1ozQv7",
-            "recLIqEDJ1u74roRi"
-          ],
-          "Portal": [
-            "recvmxjtk4Woiua6g",
-            "recvjGKmENexKtAQx",
-            "recbdq7Yv3Ss5PIEI",
-            "recZrDRhD1GsiMDcB",
-            "recJApUgBBQPLhy3E",
-            "rechw7q3skhfkYz8u",
-            "reccusCIy7UBxZeuA",
-            "recThu8lQ0dEydkqS",
-            "recorLvfxRStZ5maV",
-            "recNza9rM4Cvb3WBG",
-            "rec3ydfbufxb8yjJp",
-            "recEfX7SLKhGKpANF"
-          ],
-          "Tarea Enunciado": [
-            "recP5n8su5VeZYwqs",
-            "rechK1AorZSc6cD3U",
-            "rec30Mxu51jBV2CwJ",
-            "recQdG7nu2b7J5JdD",
-            "recFjImBYUCTXTsoS",
-            "rec4gugcAlHuG7Avr",
-            "rec559kzACC1BIsRP"
-          ],
-          "Portal Docente": [
-            "rec9CTPHltCOgBqyy",
-            "recD5iES7jYXLR150"
-          ],
-          "Grupo Nombre": "Movers ",
-          "Nivel 2": "Básico",
-          "Detalles": "📅 Martes y Jueves\n⏰ 4:45-6:15 pm\n📅 Sábado\n⏰ 10:00-11:30 am\n",
-          "Tipo": "Niños",
-          "Edades copy": "8-10 ",
-          "Tipo 2": "Curso",
-          "Format": "Movers  para niños de 9 a 12 años",
-          "WA": "https://api.whatsapp.com/send?phone=51900570149&text=Hola%20Bio%20English%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20Grupo%3A%20Movers%20%20para%20ni%C3%B1os%20de%209%20a%2012%20a%C3%B1os",
-          "Status 2": "Activo",
-          "Recursos": [
-            "recixbaAIU9QVEOfn",
-            "rectbU8Ob0EY7GxCq"
-          ],
-          "Apr24 PEN": 765,
-          "GRUPOS ACTIVOS": "activo",
-          "Feb24": 14,
-          "Feb24 PEN": 884,
-          "Mar24": 17,
-          "Mar24 PEN": 975,
-          "Abr24": 15,
-          "May24 PEN": 565,
-          "May24": 8,
-          "Jun24": 7,
-          "Jun24 PEN": 555,
-          "Jul24": 3,
-          "Jul24 PEN": 405,
-          "Jun 24 %": 0.875,
-          "Jun24 C": 0,
-          "Tipo Grupo": "Niños",
-          "Record ID": "rec25XUyZufWTKuj3",
-          "SOLO ZOOM DE RECURSOS": [
-            "https://us02web.zoom.us/j/84760142631?pwd=tkTRELIKh6ZW7fy88qAg7sCTMKaEZX.1   "
-          ],
-          "1 mes - precio renovación": 155,
-          "2 meses - precio renovación": 295,
-          "3 meses - precio renovación": 420,
-          "6 meses - precio renovación": 745,
-          "12 meses - precio renovación": 1300
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "Get list of contacts": [
-      {
-        "json": {
-          "_page": 1,
-          "_links": {
-            "self": {
-              "href": "https://bioenglish22.kommo.com/api/v4/contacts?query=%2B51936639242&with=leads&page=1&limit=1"
-            },
-            "next": {
-              "href": "https://bioenglish22.kommo.com/api/v4/contacts?query=%2B51936639242&with=leads&page=2&limit=1"
-            }
-          },
-          "_embedded": {
-            "contacts": [
-              {
-                "id": 28101510,
-                "name": "Gian Marco Tejada",
-                "first_name": "",
-                "last_name": "",
-                "responsible_user_id": 11277651,
-                "group_id": 0,
-                "created_by": 0,
-                "updated_by": 0,
-                "created_at": 1766177082,
-                "updated_at": 1766354470,
-                "closest_task_at": null,
-                "is_deleted": false,
-                "is_unsorted": false,
-                "custom_fields_values": [
-                  {
-                    "field_id": 1303680,
-                    "field_name": "Phone",
-                    "field_code": "PHONE",
-                    "field_type": "multitext",
-                    "values": [
-                      {
-                        "value": "+51936639242",
-                        "enum_id": 928100,
-                        "enum_code": "WORK"
-                      }
-                    ]
-                  },
-                  {
-                    "field_id": 1988338,
-                    "field_name": "Tipo",
-                    "field_code": null,
-                    "field_type": "select",
-                    "values": [
-                      {
-                        "value": "Estudiante",
-                        "enum_id": 1439428,
-                        "enum_code": null
-                      }
-                    ]
-                  }
-                ],
-                "account_id": 32863847,
-                "_links": {
-                  "self": {
-                    "href": "https://bioenglish22.kommo.com/api/v4/contacts/28101510?query=%2B51936639242&with=leads&page=1&limit=1"
-                  }
-                },
-                "_embedded": {
-                  "tags": [],
-                  "leads": [
-                    {
-                      "id": 24581270,
-                      "_links": {
-                        "self": {
-                          "href": "https://bioenglish22.kommo.com/api/v4/leads/24581270?query=%2B51936639242&with=leads&page=1&limit=1"
-                        }
-                      }
-                    }
-                  ],
-                  "companies": []
-                }
-              }
-            ]
-          }
-        },
-        "pairedItem": {
-          "item": 0
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
+          "executionMode": "production"
         }
       }
     ]
@@ -4443,7 +4793,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2025-12-26T05:15:46.523Z",
-  "versionId": "b2aceb3f-6dd7-49cf-a18f-fd8c0981075a"
+  "triggerCount": 2,
+  "updatedAt": "2025-12-26T21:00:05.883Z",
+  "versionId": "d68aeb27-e27e-431e-b7f1-8f745c5f3314"
 }
