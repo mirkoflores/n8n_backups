@@ -1,0 +1,179 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-26T20:48:17.261Z",
+    "createdAt": "2025-12-26T20:48:14.921Z",
+    "versionId": "bff5fad1-318a-46e0-95c2-0547a7837e1b",
+    "workflowId": "n7YQBYWTrYNhhdvy",
+    "nodes": [
+      {
+        "parameters": {
+          "queue": "bioenglish",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.rabbitmq",
+        "typeVersion": 1.1,
+        "position": [
+          208,
+          -224
+        ],
+        "id": "3f628568-73cc-4b0e-bac7-d37da783913e",
+        "name": "RabbitMQ",
+        "credentials": {
+          "rabbitmq": {
+            "id": "0rr5PL45GTNhamch",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "9835affc-72a4-47ea-8968-aecdccf2b771",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          -16,
+          -224
+        ],
+        "id": "de7fabb7-ce19-4b68-b674-12d99a7941d5",
+        "name": "Webhook",
+        "webhookId": "9835affc-72a4-47ea-8968-aecdccf2b771"
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "RabbitMQ",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version bff5fad1",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "bff5fad1-318a-46e0-95c2-0547a7837e1b",
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "RabbitMQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-26T20:38:10.183Z",
+  "id": "n7YQBYWTrYNhhdvy",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Chatbot de cobranzas - trigger",
+  "nodes": [
+    {
+      "parameters": {
+        "queue": "bioenglish",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        -224
+      ],
+      "id": "3f628568-73cc-4b0e-bac7-d37da783913e",
+      "name": "RabbitMQ",
+      "credentials": {
+        "rabbitmq": {
+          "id": "0rr5PL45GTNhamch",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "9835affc-72a4-47ea-8968-aecdccf2b771",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -16,
+        -224
+      ],
+      "id": "de7fabb7-ce19-4b68-b674-12d99a7941d5",
+      "name": "Webhook",
+      "webhookId": "9835affc-72a4-47ea-8968-aecdccf2b771"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
+            "content-length": "54",
+            "accept": "*/*",
+            "accept-encoding": "gzip,deflate",
+            "content-type": "application/json",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
+            "x-forwarded-for": "44.199.193.163",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "1RbcTx6BS4y0uuRkozsQ6Q",
+            "x-real-ip": "44.199.193.163",
+            "x-request-start": "1766773219160"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "recordId": "recnauGWmzzkNLccG",
+            "Tipo": "7_dias_antes"
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-26T20:38:10.183Z",
+      "createdAt": "2025-12-26T20:38:10.183Z",
+      "role": "workflow:owner",
+      "workflowId": "n7YQBYWTrYNhhdvy",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-26T20:50:01.266Z",
+  "versionId": "bff5fad1-318a-46e0-95c2-0547a7837e1b"
+}
