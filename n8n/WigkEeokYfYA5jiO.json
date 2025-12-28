@@ -3773,7 +3773,7 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65672,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65682,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -4161,7 +4161,7 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65674,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -4414,7 +4414,7 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65678,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -4488,7 +4488,7 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65680,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -4646,10 +4646,9 @@
               }
             ]
           },
-          "acknowledge": "executionFinishesSuccessfully",
+          "acknowledge": "immediately",
           "jsonParseBody": true,
-          "onlyContent": true,
-          "parallelMessages": 1
+          "onlyContent": true
         }
       },
       "type": "n8n-nodes-base.rabbitmqTrigger",
@@ -4770,6 +4769,39 @@
           "executionMode": "production"
         }
       }
+    ],
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
+            "content-length": "53",
+            "accept": "*/*",
+            "accept-encoding": "gzip,deflate",
+            "content-type": "application/json",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfla0ErPJisLonnYg",
+            "x-forwarded-for": "54.173.98.68",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "bOC763ZWRsG3GehgAax-fw",
+            "x-real-ip": "54.173.98.68",
+            "x-request-start": "1766811668265"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "recordId": "reclNiEDsqGSfzFsP",
+            "Tipo": "1_dia_antes"
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
     ]
   },
   "repo_name": "n8n_backups",
@@ -4794,6 +4826,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-12-26T21:00:05.883Z",
-  "versionId": "d68aeb27-e27e-431e-b7f1-8f745c5f3314"
+  "updatedAt": "2025-12-27T13:00:42.426Z",
+  "versionId": "581d64a9-4154-4f1e-8506-ccabe145e9b6"
 }
