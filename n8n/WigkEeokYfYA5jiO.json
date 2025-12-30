@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-26T21:00:08.225Z",
-    "createdAt": "2025-12-26T21:00:05.894Z",
-    "versionId": "d68aeb27-e27e-431e-b7f1-8f745c5f3314",
+    "updatedAt": "2025-12-30T02:37:31.492Z",
+    "createdAt": "2025-12-30T02:34:42.617Z",
+    "versionId": "8c8c40ec-af37-410f-ab56-3faf39faf7b3",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -941,7 +941,7 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65672,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65682,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
@@ -1329,7 +1329,7 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65674,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65684,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
@@ -1582,7 +1582,7 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65678,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
@@ -1656,7 +1656,7 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65680,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
@@ -1814,10 +1814,9 @@
                 }
               ]
             },
-            "acknowledge": "executionFinishesSuccessfully",
+            "acknowledge": "immediately",
             "jsonParseBody": true,
-            "onlyContent": true,
-            "parallelMessages": 1
+            "onlyContent": true
           }
         },
         "type": "n8n-nodes-base.rabbitmqTrigger",
@@ -2339,11 +2338,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version d68aeb27",
+    "name": "Version 8c8c40ec",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "d68aeb27-e27e-431e-b7f1-8f745c5f3314",
+  "activeVersionId": "8c8c40ec-af37-410f-ab56-3faf39faf7b3",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -4161,7 +4160,7 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65684,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -4776,24 +4775,24 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "53",
+            "content-length": "54",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfla0ErPJisLonnYg",
-            "x-forwarded-for": "54.173.98.68",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
+            "x-forwarded-for": "44.201.120.232",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "bOC763ZWRsG3GehgAax-fw",
-            "x-real-ip": "54.173.98.68",
-            "x-request-start": "1766811668265"
+            "x-railway-request-id": "yDQpxFB0SY-ttZfDPvyhXg",
+            "x-real-ip": "44.201.120.232",
+            "x-request-start": "1766984470666"
           },
           "params": {},
           "query": {},
           "body": {
-            "recordId": "reclNiEDsqGSfzFsP",
-            "Tipo": "1_dia_antes"
+            "recordId": "recuIp1CbOUtyRoEI",
+            "Tipo": "3_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -4826,6 +4825,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-12-27T13:00:42.426Z",
-  "versionId": "581d64a9-4154-4f1e-8506-ccabe145e9b6"
+  "updatedAt": "2025-12-30T02:37:28.788Z",
+  "versionId": "8c8c40ec-af37-410f-ab56-3faf39faf7b3"
 }
