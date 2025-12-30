@@ -70,7 +70,7 @@
         ],
         [
           {
-            "node": "respuesta final",
+            "node": "es primer mensaje?",
             "type": "main",
             "index": 0
           }
@@ -81,7 +81,7 @@
       "main": [
         [
           {
-            "node": "respuesta final",
+            "node": "es primer mensaje?",
             "type": "main",
             "index": 0
           }
@@ -89,11 +89,6 @@
       ]
     },
     "atencion manual1": {
-      "main": [
-        []
-      ]
-    },
-    "respuesta final": {
       "main": [
         []
       ]
@@ -109,7 +104,7 @@
         ],
         [
           {
-            "node": "IA dijo que no sabe?1",
+            "node": "nombre validado?",
             "type": "main",
             "index": 0
           }
@@ -138,7 +133,163 @@
       "main": [
         [
           {
+            "node": "nombre validado?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nombre validado?": {
+      "main": [
+        [
+          {
+            "node": "IA revisar conversacion y actualizar nombre",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IA revisar conversacion y guardar nombre",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IA revisar conversacion y actualizar nombre": {
+      "main": [
+        [
+          {
+            "node": "guardar nombre?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar nombre?": {
+      "main": [
+        [
+          {
+            "node": "IA extrae nombre",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
             "node": "IA dijo que no sabe?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar nombre?1": {
+      "main": [
+        [
+          {
+            "node": "IA extrae nombre1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IA dijo que no sabe?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IA revisar conversacion y guardar nombre": {
+      "main": [
+        [
+          {
+            "node": "guardar nombre?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IA extrae nombre1": {
+      "main": [
+        [
+          {
+            "node": "IA dijo que no sabe?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IA extrae nombre": {
+      "main": [
+        [
+          {
+            "node": "IA dijo que no sabe?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "es primer mensaje?": {
+      "main": [
+        [
+          {
+            "node": "nombre validado?1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "respuesta final1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "nombre validado?1": {
+      "main": [
+        [
+          {
+            "node": "hablar por su nombre",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "preguntar por su nombre1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "preguntar por su nombre1": {
+      "main": [
+        [
+          {
+            "node": "respuesta final1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "hablar por su nombre": {
+      "main": [
+        [
+          {
+            "node": "respuesta final1",
             "type": "main",
             "index": 0
           }
@@ -157,8 +308,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -432,
-        -16
+        -448,
+        -48
       ],
       "id": "a5dead80-9af2-4380-9eb0-7201d4f46631",
       "name": "When clicking ‘Execute workflow’"
@@ -170,8 +321,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -224,
-        -16
+        -64,
+        -48
       ],
       "id": "2e771af4-ca13-42b2-ac63-ecf70890197b",
       "name": "decisor de peticion"
@@ -191,13 +342,14 @@
     },
     {
       "parameters": {
-        "content": "### atender si se tiene claro que es un viaje o si no se tiene clara su consulta"
+        "content": "### atender si se tiene claro que es un viaje o si no se tiene clara su consulta",
+        "height": 80
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -256,
-        -224
+        -144,
+        -176
       ],
       "id": "da239350-a152-40c6-b586-641d7c6b432a",
       "name": "Sticky Note"
@@ -209,8 +361,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        256,
-        256
+        240,
+        128
       ],
       "id": "5caa43de-aacc-4e88-be58-597dcf1e45b7",
       "name": "atencion manual"
@@ -235,24 +387,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        912,
+        944,
         -464
       ],
       "id": "6316a8a1-7789-48f9-8dc2-6cea1fd7ced2",
       "name": "atencion manual1"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        3088,
-        64
-      ],
-      "id": "7139dfc0-fe0d-497b-b9f8-daf2d4d0082f",
-      "name": "respuesta final"
     },
     {
       "parameters": {
@@ -316,8 +455,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2496,
-        96
+        3152,
+        -32
       ],
       "id": "99c802c9-e0a2-4e2e-9825-21ba7f47d719",
       "name": "IA dijo que no sabe?1"
@@ -329,8 +468,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2800,
-        -80
+        3424,
+        -208
       ],
       "id": "2cec8c43-8244-4a5b-860a-c3d1eb7f42ee",
       "name": "IA informativa"
@@ -437,8 +576,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1600,
-        -128
+        1552,
+        -144
       ],
       "id": "51df8002-8d6c-411a-9c01-c11451377ba5",
       "name": "Sticky Note3"
@@ -455,6 +594,267 @@
       ],
       "id": "50b897b6-8bfe-4227-b7c0-0e729e25ffdc",
       "name": "Extraer ID de paquete"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6e5634a6-8d83-4d2b-847f-7af3a8db274f",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1984,
+        -48
+      ],
+      "id": "587bc6d3-c250-4d26-bec2-6dac17114804",
+      "name": "nombre validado?"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2256,
+        -208
+      ],
+      "id": "8d6b754e-451d-467e-aedc-bf74d2359a48",
+      "name": "IA revisar conversacion y actualizar nombre"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2256,
+        80
+      ],
+      "id": "45d7fe64-17dc-46b4-8f0a-2422dafe5519",
+      "name": "IA revisar conversacion y guardar nombre"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6e5634a6-8d83-4d2b-847f-7af3a8db274f",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2512,
+        -208
+      ],
+      "id": "741a5a60-5820-4e44-a36a-3ca543be756b",
+      "name": "guardar nombre?"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2784,
+        -336
+      ],
+      "id": "90e908f4-caa3-446f-95bd-9f1616dde4c6",
+      "name": "IA extrae nombre"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6e5634a6-8d83-4d2b-847f-7af3a8db274f",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2512,
+        80
+      ],
+      "id": "6c2ffbc0-5e55-49cb-ad6c-2f37c6b5458c",
+      "name": "guardar nombre?1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2784,
+        -48
+      ],
+      "id": "25d6d761-bb74-4f8a-9e1c-12e00ac35669",
+      "name": "IA extrae nombre1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6e5634a6-8d83-4d2b-847f-7af3a8db274f",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3680,
+        -16
+      ],
+      "id": "544ac252-95ce-467c-94c0-27cfe29c220f",
+      "name": "es primer mensaje?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6e5634a6-8d83-4d2b-847f-7af3a8db274f",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3984,
+        -192
+      ],
+      "id": "2aa560f0-f880-45dd-bf4e-a3f88d834746",
+      "name": "nombre validado?1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4256,
+        -80
+      ],
+      "id": "4ed7d045-5dc6-4872-a225-9e0e2ea8a6c4",
+      "name": "preguntar por su nombre1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4528,
+        112
+      ],
+      "id": "6c4d0d1a-51d8-472f-a78d-b4d8860390dd",
+      "name": "respuesta final1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4256,
+        -352
+      ],
+      "id": "b22f7e62-74a7-4cb7-98d2-62dc8b4e1c93",
+      "name": "hablar por su nombre"
     }
   ],
   "pinData": {},
@@ -477,6 +877,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-29T06:26:41.402Z",
-  "versionId": "659b7f54-852a-4cc3-b46b-baa608766dd8"
+  "updatedAt": "2025-12-29T14:47:57.368Z",
+  "versionId": "6795df0f-7da3-46c8-880f-1fd03f771878"
 }
