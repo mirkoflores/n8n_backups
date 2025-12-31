@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-30T02:37:31.492Z",
-    "createdAt": "2025-12-30T02:34:42.617Z",
-    "versionId": "8c8c40ec-af37-410f-ab56-3faf39faf7b3",
+    "updatedAt": "2025-12-31T05:13:09.088Z",
+    "createdAt": "2025-12-31T05:13:06.161Z",
+    "versionId": "bee47935-7719-4a5d-a1f7-e04fe2915131",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -34,6 +34,9 @@
         ],
         "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
         "name": "Detalles venta",
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
         "credentials": {
           "airtableOAuth2Api": {
             "id": "mylJqD7auLJ9sN2T",
@@ -201,7 +204,7 @@
               {
                 "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
                 "name": "Precios",
-                "value": "=1 mes: S/.{{ $json['1 mes - precio renovación'] }}\n2 meses: S/.{{ $json['2 meses - precio renovación'] }}\n3 meses: S/.{{ $json['3 meses - precio renovación'] }}\n6 meses: S/.{{ $json['6 meses - precio renovación'] }}\n12 meses: S/.{{ $json['12 meses - precio renovación'] }}",
+                "value": "=1 mes: S/.{{ $('Grupo').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}\n2 meses: S/.{{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}\n3 meses: S/.{{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}\n6 meses: S/.{{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}\n12 meses: S/.{{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
                 "type": "string"
               },
               {
@@ -225,25 +228,25 @@
               {
                 "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
                 "name": "Precio_2_meses",
-                "value": "={{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}",
+                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*2+\" soles~ s/.\" + $('Grupo').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}\n\n",
                 "type": "string"
               },
               {
                 "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
                 "name": "Precio_3_meses",
-                "value": "={{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}",
+                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}}\n",
                 "type": "string"
               },
               {
                 "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
                 "name": "Precio_6_meses",
-                "value": "={{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}",
+                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis\n",
                 "type": "string"
               },
               {
                 "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
                 "name": "Precio_12_meses",
-                "value": "={{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
                 "type": "string"
               },
               {
@@ -319,8 +322,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6032,
-          -688
+          6016,
+          -1200
         ],
         "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
         "name": "Enviar email"
@@ -707,8 +710,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5792,
-          -688
+          5776,
+          -1200
         ],
         "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
         "name": "Enviar mensaje",
@@ -820,7 +823,7 @@
                   "combinator": "and"
                 },
                 "renameOutput": true,
-                "outputKey": "7 dias"
+                "outputKey": "- 7 dias"
               },
               {
                 "conditions": {
@@ -845,7 +848,7 @@
                   "combinator": "and"
                 },
                 "renameOutput": true,
-                "outputKey": "3 dias"
+                "outputKey": "- 3 dias"
               },
               {
                 "conditions": {
@@ -870,7 +873,82 @@
                   "combinator": "and"
                 },
                 "renameOutput": true,
-                "outputKey": "1 dia"
+                "outputKey": "- 1 dia"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "96366695-05f2-4532-864f-d1fca3ecac2d",
+                      "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                      "rightValue": "5_dias_despues",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "+ 5 dias"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "28d7d570-9548-4248-a0c2-56fc11219e7b",
+                      "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                      "rightValue": "30_dias_despues",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "+ 30 dias"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "96ee22e3-0a40-46a3-891f-df0ba41166fc",
+                      "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                      "rightValue": "60_dias_despues",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "+ 60 dias"
               }
             ]
           },
@@ -927,8 +1005,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6032,
-          -912
+          6016,
+          -1424
         ],
         "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
         "name": "Enviar email1"
@@ -947,8 +1025,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5792,
-          -912
+          5776,
+          -1424
         ],
         "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
         "name": "Enviar mensaje1",
@@ -982,8 +1060,8 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6256,
-          -912
+          6240,
+          -1424
         ],
         "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
         "name": "Send a message",
@@ -1267,8 +1345,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5552,
-          -800
+          5536,
+          -1312
         ],
         "id": "2c710983-a029-4447-872b-b00631d26014",
         "name": "No se tiene info de precio?"
@@ -1315,8 +1393,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6032,
-          -240
+          6016,
+          -752
         ],
         "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
         "name": "Enviar email2"
@@ -1335,8 +1413,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5792,
-          -240
+          5776,
+          -752
         ],
         "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
         "name": "Enviar mensaje2",
@@ -1389,8 +1467,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6032,
-          -464
+          6016,
+          -976
         ],
         "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
         "name": "Enviar email3"
@@ -1409,8 +1487,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5792,
-          -464
+          5776,
+          -976
         ],
         "id": "0db36230-0d0d-49bb-943a-dc011650676e",
         "name": "Enviar mensaje3",
@@ -1444,8 +1522,8 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6256,
-          -464
+          6240,
+          -976
         ],
         "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
         "name": "Send a message1",
@@ -1520,8 +1598,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5552,
-          -352
+          5536,
+          -864
         ],
         "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
         "name": "No se tiene info de precio?1"
@@ -1568,8 +1646,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6048,
-          192
+          6032,
+          -320
         ],
         "id": "fb04a892-10f5-4269-b116-17194a984389",
         "name": "Enviar email4"
@@ -1588,8 +1666,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5808,
-          192
+          5792,
+          -320
         ],
         "id": "82504058-e135-4182-8768-a13266255ada",
         "name": "Enviar mensaje4",
@@ -1642,8 +1720,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6048,
-          -32
+          6032,
+          -544
         ],
         "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
         "name": "Enviar email5"
@@ -1662,8 +1740,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5808,
-          -32
+          5792,
+          -544
         ],
         "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
         "name": "Enviar mensaje5",
@@ -1697,8 +1775,8 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6272,
-          -32
+          6256,
+          -544
         ],
         "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
         "name": "Send a message2",
@@ -1773,8 +1851,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5568,
-          80
+          5552,
+          -432
         ],
         "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
         "name": "No se tiene info de precio?2"
@@ -1814,9 +1892,10 @@
                 }
               ]
             },
-            "acknowledge": "immediately",
+            "acknowledge": "executionFinishes",
             "jsonParseBody": true,
-            "onlyContent": true
+            "onlyContent": true,
+            "parallelMessages": 1
           }
         },
         "type": "n8n-nodes-base.rabbitmqTrigger",
@@ -2102,7 +2181,10 @@
               "type": "main",
               "index": 0
             }
-          ]
+          ],
+          [],
+          [],
+          []
         ]
       },
       "Enviar mensaje": {
@@ -2338,11 +2420,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 8c8c40ec",
+    "name": "Version bee47935",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "8c8c40ec-af37-410f-ab56-3faf39faf7b3",
+  "activeVersionId": "bee47935-7719-4a5d-a1f7-e04fe2915131",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -2594,7 +2676,10 @@
             "type": "main",
             "index": 0
           }
-        ]
+        ],
+        [],
+        [],
+        []
       ]
     },
     "Enviar mensaje": {
@@ -2865,6 +2950,9 @@
       ],
       "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
       "name": "Detalles venta",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "credentials": {
         "airtableOAuth2Api": {
           "id": "mylJqD7auLJ9sN2T",
@@ -3032,7 +3120,7 @@
             {
               "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
               "name": "Precios",
-              "value": "=1 mes: S/.{{ $json['1 mes - precio renovación'] }}\n2 meses: S/.{{ $json['2 meses - precio renovación'] }}\n3 meses: S/.{{ $json['3 meses - precio renovación'] }}\n6 meses: S/.{{ $json['6 meses - precio renovación'] }}\n12 meses: S/.{{ $json['12 meses - precio renovación'] }}",
+              "value": "=1 mes: S/.{{ $('Grupo').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}\n2 meses: S/.{{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}\n3 meses: S/.{{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}\n6 meses: S/.{{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}\n12 meses: S/.{{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
               "type": "string"
             },
             {
@@ -3056,25 +3144,25 @@
             {
               "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
               "name": "Precio_2_meses",
-              "value": "={{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}",
+              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*2+\" soles~ s/.\" + $('Grupo').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}\n\n",
               "type": "string"
             },
             {
               "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
               "name": "Precio_3_meses",
-              "value": "={{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}",
+              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}}\n",
               "type": "string"
             },
             {
               "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
               "name": "Precio_6_meses",
-              "value": "={{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}",
+              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis\n",
               "type": "string"
             },
             {
               "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
               "name": "Precio_12_meses",
-              "value": "={{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
               "type": "string"
             },
             {
@@ -3150,8 +3238,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6032,
-        -688
+        6016,
+        -1200
       ],
       "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
       "name": "Enviar email"
@@ -3538,8 +3626,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5792,
-        -688
+        5776,
+        -1200
       ],
       "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
       "name": "Enviar mensaje",
@@ -3651,7 +3739,7 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "7 dias"
+              "outputKey": "- 7 dias"
             },
             {
               "conditions": {
@@ -3676,7 +3764,7 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "3 dias"
+              "outputKey": "- 3 dias"
             },
             {
               "conditions": {
@@ -3701,7 +3789,82 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "1 dia"
+              "outputKey": "- 1 dia"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "96366695-05f2-4532-864f-d1fca3ecac2d",
+                    "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                    "rightValue": "5_dias_despues",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "+ 5 dias"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "28d7d570-9548-4248-a0c2-56fc11219e7b",
+                    "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                    "rightValue": "30_dias_despues",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "+ 30 dias"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "96ee22e3-0a40-46a3-891f-df0ba41166fc",
+                    "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                    "rightValue": "60_dias_despues",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "+ 60 dias"
             }
           ]
         },
@@ -3758,8 +3921,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6032,
-        -912
+        6016,
+        -1424
       ],
       "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
       "name": "Enviar email1"
@@ -3778,8 +3941,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5792,
-        -912
+        5776,
+        -1424
       ],
       "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
       "name": "Enviar mensaje1",
@@ -3813,8 +3976,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6256,
-        -912
+        6240,
+        -1424
       ],
       "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
       "name": "Send a message",
@@ -4098,8 +4261,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5552,
-        -800
+        5536,
+        -1312
       ],
       "id": "2c710983-a029-4447-872b-b00631d26014",
       "name": "No se tiene info de precio?"
@@ -4146,8 +4309,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6032,
-        -240
+        6016,
+        -752
       ],
       "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
       "name": "Enviar email2"
@@ -4166,8 +4329,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5792,
-        -240
+        5776,
+        -752
       ],
       "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
       "name": "Enviar mensaje2",
@@ -4220,8 +4383,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6032,
-        -464
+        6016,
+        -976
       ],
       "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
       "name": "Enviar email3"
@@ -4240,8 +4403,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5792,
-        -464
+        5776,
+        -976
       ],
       "id": "0db36230-0d0d-49bb-943a-dc011650676e",
       "name": "Enviar mensaje3",
@@ -4275,8 +4438,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6256,
-        -464
+        6240,
+        -976
       ],
       "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
       "name": "Send a message1",
@@ -4351,8 +4514,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5552,
-        -352
+        5536,
+        -864
       ],
       "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
       "name": "No se tiene info de precio?1"
@@ -4399,8 +4562,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6048,
-        192
+        6032,
+        -320
       ],
       "id": "fb04a892-10f5-4269-b116-17194a984389",
       "name": "Enviar email4"
@@ -4419,8 +4582,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5808,
-        192
+        5792,
+        -320
       ],
       "id": "82504058-e135-4182-8768-a13266255ada",
       "name": "Enviar mensaje4",
@@ -4473,8 +4636,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6048,
-        -32
+        6032,
+        -544
       ],
       "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
       "name": "Enviar email5"
@@ -4493,8 +4656,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5808,
-        -32
+        5792,
+        -544
       ],
       "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
       "name": "Enviar mensaje5",
@@ -4528,8 +4691,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6272,
-        -32
+        6256,
+        -544
       ],
       "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
       "name": "Send a message2",
@@ -4604,8 +4767,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5568,
-        80
+        5552,
+        -432
       ],
       "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
       "name": "No se tiene info de precio?2"
@@ -4645,9 +4808,10 @@
               }
             ]
           },
-          "acknowledge": "immediately",
+          "acknowledge": "executionFinishes",
           "jsonParseBody": true,
-          "onlyContent": true
+          "onlyContent": true,
+          "parallelMessages": 1
         }
       },
       "type": "n8n-nodes-base.rabbitmqTrigger",
@@ -4775,24 +4939,24 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "54",
+            "content-length": "53",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
-            "x-forwarded-for": "44.201.120.232",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfla0ErPJisLonnYg",
+            "x-forwarded-for": "34.239.152.197",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "yDQpxFB0SY-ttZfDPvyhXg",
-            "x-real-ip": "44.201.120.232",
-            "x-request-start": "1766984470666"
+            "x-railway-request-id": "qiigaOZJSrO4PIsLwoOzXw",
+            "x-real-ip": "34.239.152.197",
+            "x-request-start": "1767157395514"
           },
           "params": {},
           "query": {},
           "body": {
-            "recordId": "recuIp1CbOUtyRoEI",
-            "Tipo": "3_dias_antes"
+            "recordId": "rec3rFyMLTiN1Tbgn",
+            "Tipo": "1_dia_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -4825,6 +4989,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-12-30T02:37:28.788Z",
-  "versionId": "8c8c40ec-af37-410f-ab56-3faf39faf7b3"
+  "updatedAt": "2025-12-31T05:13:06.151Z",
+  "versionId": "bee47935-7719-4a5d-a1f7-e04fe2915131"
 }
