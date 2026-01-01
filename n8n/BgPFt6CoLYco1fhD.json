@@ -1,0 +1,113 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-31T15:09:33.230Z",
+  "id": "BgPFt6CoLYco1fhD",
+  "isArchived": true,
+  "meta": null,
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Bio English",
+        "formDescription": "=<img src=\"https://primary-production-55a73.up.railway.app/webhook/c0e78331-d79f-4b79-ae6b-4807cb1363e4\" \n     width=\"150\">",
+        "formFields": {
+          "values": [
+            {
+              "fieldName": "tipo_estudiante",
+              "fieldLabel": "¿Para quien son las clases de inglés?",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Para mí"
+                  },
+                  {
+                    "option": "Para mi hijo/hija"
+                  },
+                  {
+                    "option": "Para un familiar o amig@"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {
+          "appendAttribution": false,
+          "buttonLabel": "Siguiente"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ef34ff0f-088f-4baf-84fe-23802bbdd5b8",
+      "name": "On form submission",
+      "webhookId": "38f89b50-40bc-414b-b5a0-97b5e995ca25"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "003cb6b4-1e09-490e-bf4c-c661999b3817",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "5c918f3c-459f-4f8b-8d68-9b18b4855139",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-31T15:09:33.230Z",
+      "createdAt": "2025-12-31T15:09:33.230Z",
+      "role": "workflow:owner",
+      "workflowId": "BgPFt6CoLYco1fhD",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-31T15:31:49.091Z",
+  "versionId": "a0468a33-4ffb-4411-a1b7-2838c65b6b05"
+}
