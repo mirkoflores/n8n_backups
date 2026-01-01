@@ -1,0 +1,294 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-31T15:37:33.130Z",
+    "createdAt": "2025-12-31T15:31:58.549Z",
+    "versionId": "d0599aa9-50a7-4969-a3b5-16689773a57f",
+    "workflowId": "L1viirefgjwpv7hp",
+    "nodes": [
+      {
+        "parameters": {
+          "path": "c0e78331-d79f-4b79-ae6b-4807cb1363e4",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "6a4ee1be-b281-4c18-9650-1eff68cbeb30",
+        "name": "Webhook",
+        "webhookId": "c0e78331-d79f-4b79-ae6b-4807cb1363e4"
+      },
+      {
+        "parameters": {
+          "respondWith": "binary",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          640,
+          0
+        ],
+        "id": "ab1e6660-0d22-406f-917d-09389ee04bfd",
+        "name": "Respond to Webhook"
+      },
+      {
+        "parameters": {
+          "url": "=https://nocodb-production-c9bb.up.railway.app/{{ $json.Imagen[0].path }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          432,
+          0
+        ],
+        "id": "9e30eb50-a599-47a6-afc5-6b3d3edbb430",
+        "name": "Extraer imagen"
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "getAll",
+          "projectId": "phgnhml9vqhbvqf",
+          "table": "mmu0qrwuyuivv43",
+          "limit": 1,
+          "options": {
+            "fields": [],
+            "where": "where=(nombre,eq,bio_perfil)"
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          208,
+          0
+        ],
+        "id": "328410e7-a905-44d6-a55b-255c10615a2b",
+        "name": "Get many rows",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "Get many rows",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Extraer imagen": {
+        "main": [
+          [
+            {
+              "node": "Respond to Webhook",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get many rows": {
+        "main": [
+          [
+            {
+              "node": "Extraer imagen",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version d0599aa9",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "d0599aa9-50a7-4969-a3b5-16689773a57f",
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extraer imagen": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Extraer imagen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-31T13:22:12.578Z",
+  "id": "L1viirefgjwpv7hp",
+  "isArchived": false,
+  "meta": null,
+  "name": "Extraer imagen perfil bio",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "c0e78331-d79f-4b79-ae6b-4807cb1363e4",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6a4ee1be-b281-4c18-9650-1eff68cbeb30",
+      "name": "Webhook",
+      "webhookId": "c0e78331-d79f-4b79-ae6b-4807cb1363e4"
+    },
+    {
+      "parameters": {
+        "respondWith": "binary",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        640,
+        0
+      ],
+      "id": "ab1e6660-0d22-406f-917d-09389ee04bfd",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "url": "=https://nocodb-production-c9bb.up.railway.app/{{ $json.Imagen[0].path }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        432,
+        0
+      ],
+      "id": "9e30eb50-a599-47a6-afc5-6b3d3edbb430",
+      "name": "Extraer imagen"
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "phgnhml9vqhbvqf",
+        "table": "mmu0qrwuyuivv43",
+        "limit": 1,
+        "options": {
+          "fields": [],
+          "where": "where=(nombre,eq,bio_perfil)"
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "328410e7-a905-44d6-a55b-255c10615a2b",
+      "name": "Get many rows",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36",
+            "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "es-ES,es;q=0.9",
+            "priority": "u=2, i",
+            "sec-ch-ua": "\"Not(A:Brand\";v=\"8\", \"Chromium\";v=\"144\", \"Google Chrome\";v=\"144\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "image",
+            "sec-fetch-mode": "no-cors",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-storage-access": "active",
+            "x-forwarded-for": "38.25.60.234",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "n24ASRqSTCuqgKykwoOzXw",
+            "x-real-ip": "38.25.60.234",
+            "x-request-start": "1767195386445"
+          },
+          "params": {},
+          "query": {},
+          "body": {},
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/c0e78331-d79f-4b79-ae6b-4807cb1363e4",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-31T13:22:12.578Z",
+      "createdAt": "2025-12-31T13:22:12.578Z",
+      "role": "workflow:owner",
+      "workflowId": "L1viirefgjwpv7hp",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-31T15:37:05.231Z",
+  "versionId": "d0599aa9-50a7-4969-a3b5-16689773a57f"
+}
