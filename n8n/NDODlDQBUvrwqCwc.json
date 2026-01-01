@@ -1,0 +1,73 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2025-12-31T18:25:04.598Z",
+    "createdAt": "2025-12-31T18:25:02.935Z",
+    "versionId": "c1579074-6212-4eb8-9bed-8a7be90288a4",
+    "workflowId": "NDODlDQBUvrwqCwc",
+    "nodes": [
+      {
+        "parameters": {
+          "inputSource": "passthrough"
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "a6793cd7-5705-48dd-b277-cd80dc2aaa62",
+        "name": "When Executed by Another Workflow"
+      }
+    ],
+    "connections": {},
+    "authors": "Bioenglish Lat",
+    "name": "Version c1579074",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "c1579074-6212-4eb8-9bed-8a7be90288a4",
+  "connections": {},
+  "createdAt": "2025-12-31T18:24:53.266Z",
+  "id": "NDODlDQBUvrwqCwc",
+  "isArchived": false,
+  "meta": null,
+  "name": "Guardar informacion de inscripcion",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a6793cd7-5705-48dd-b277-cd80dc2aaa62",
+      "name": "When Executed by Another Workflow"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-31T18:24:53.266Z",
+      "createdAt": "2025-12-31T18:24:53.266Z",
+      "role": "workflow:owner",
+      "workflowId": "NDODlDQBUvrwqCwc",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-31T18:25:02.932Z",
+  "versionId": "c1579074-6212-4eb8-9bed-8a7be90288a4"
+}
