@@ -1,0 +1,72 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-31T16:47:18.026Z",
+  "id": "snk4HQQtkPcq0spm",
+  "isArchived": true,
+  "meta": null,
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9f204be6-9fc3-439e-a862-a2e2581baf4e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://gist.github.com/eduardolat/b2a252d17b17363fab0974bb0634d259.js",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c589f48e-b8b8-4b1e-951d-e86109015d1a",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-12-31T16:47:18.026Z",
+      "createdAt": "2025-12-31T16:47:18.026Z",
+      "role": "workflow:owner",
+      "workflowId": "snk4HQQtkPcq0spm",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-31T17:12:56.839Z",
+  "versionId": "8bb0ba21-7a1c-43f6-acb9-bd9e4bbb0f81"
+}
