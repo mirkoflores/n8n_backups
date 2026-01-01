@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-31T05:13:09.088Z",
-    "createdAt": "2025-12-31T05:13:06.161Z",
-    "versionId": "bee47935-7719-4a5d-a1f7-e04fe2915131",
+    "updatedAt": "2025-12-31T15:50:00.663Z",
+    "createdAt": "2025-12-31T15:49:57.800Z",
+    "versionId": "6d7efb41-e46a-45b5-8d22-b14e60824258",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -198,7 +198,7 @@
               {
                 "id": "1a77310e-e259-4991-83ea-928a5108b577",
                 "name": "Nivel",
-                "value": "={{ $('Grupo').item.json.Nivel }}",
+                "value": "={{ $('Grupo').item.json['Nombre de grupo - mensajes renovación'] }}",
                 "type": "string"
               },
               {
@@ -234,19 +234,19 @@
               {
                 "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
                 "name": "Precio_3_meses",
-                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}}\n",
+                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + ($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}}\n",
                 "type": "string"
               },
               {
                 "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
                 "name": "Precio_6_meses",
-                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis\n",
+                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + ($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis\n",
                 "type": "string"
               },
               {
                 "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
                 "name": "Precio_12_meses",
-                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
+                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + ($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
                 "type": "string"
               },
               {
@@ -2420,11 +2420,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version bee47935",
+    "name": "Version 6d7efb41",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "bee47935-7719-4a5d-a1f7-e04fe2915131",
+  "activeVersionId": "6d7efb41-e46a-45b5-8d22-b14e60824258",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -3114,7 +3114,7 @@
             {
               "id": "1a77310e-e259-4991-83ea-928a5108b577",
               "name": "Nivel",
-              "value": "={{ $('Grupo').item.json.Nivel }}",
+              "value": "={{ $('Grupo').item.json['Nombre de grupo - mensajes renovación'] }}",
               "type": "string"
             },
             {
@@ -3150,19 +3150,19 @@
             {
               "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
               "name": "Precio_3_meses",
-              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}}\n",
+              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + ($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}}\n",
               "type": "string"
             },
             {
               "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
               "name": "Precio_6_meses",
-              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis\n",
+              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + ($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis\n",
               "type": "string"
             },
             {
               "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
               "name": "Precio_12_meses",
-              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
+              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + ($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
               "type": "string"
             },
             {
@@ -4939,24 +4939,24 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "53",
+            "content-length": "54",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfla0ErPJisLonnYg",
-            "x-forwarded-for": "34.239.152.197",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
+            "x-forwarded-for": "3.82.222.22",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "qiigaOZJSrO4PIsLwoOzXw",
-            "x-real-ip": "34.239.152.197",
-            "x-request-start": "1767157395514"
+            "x-railway-request-id": "ML4mFEoVQ32ltbj5PvyhXg",
+            "x-real-ip": "3.82.222.22",
+            "x-request-start": "1767190866217"
           },
           "params": {},
           "query": {},
           "body": {
-            "recordId": "rec3rFyMLTiN1Tbgn",
-            "Tipo": "1_dia_antes"
+            "recordId": "recldUacmxKCLFLjZ",
+            "Tipo": "3_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -4989,6 +4989,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-12-31T05:13:06.151Z",
-  "versionId": "bee47935-7719-4a5d-a1f7-e04fe2915131"
+  "updatedAt": "2025-12-31T15:49:57.797Z",
+  "versionId": "6d7efb41-e46a-45b5-8d22-b14e60824258"
 }
