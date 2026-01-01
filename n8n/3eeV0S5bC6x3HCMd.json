@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-20T17:20:44.021Z",
-    "createdAt": "2025-12-20T17:20:38.495Z",
-    "versionId": "8ecc593a-80a5-485e-9773-4f007aed0561",
+    "updatedAt": "2025-12-31T17:17:27.705Z",
+    "createdAt": "2025-12-31T17:17:21.545Z",
+    "versionId": "ace4d48d-9b5e-445b-a936-769e9757e60c",
     "workflowId": "3eeV0S5bC6x3HCMd",
     "nodes": [
       {
@@ -11,22 +11,159 @@
         "type": "n8n-nodes-base.errorTrigger",
         "typeVersion": 1,
         "position": [
-          0,
-          0
+          -320,
+          96
         ],
         "id": "f6a14f37-0fac-4dad-bb93-20f149e3c1fa",
         "name": "Error Trigger"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://appwebhook.gianmarcorusher.com/webhook/898a5f94-e466-42df-82a2-17d880bed5f4",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $('Error Trigger').item.json.toJsonString() }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          192,
+          0
+        ],
+        "id": "11d10f10-4e78-4358-a0dc-262be27acc1e",
+        "name": "enviar error"
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "1244011715008532602",
+            "mode": "list",
+            "cachedResultName": "Bioenglish",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1357814199446929488",
+            "mode": "list",
+            "cachedResultName": "errores",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+          },
+          "content": "=Reporte de Error \n\nNombre de flujo: {{ $('Error Trigger').item.json.workflow.name }}\n\nerror_url_workflow: https://primary-production-55a73.up.railway.app/workflow/{{ $('Error Trigger').item.json.workflow.id }}/executions/{{ $('Error Trigger').item.json.execution.id }}\n\nHora de error: {{ DateTime.fromISO($now).set({ hour: 1, minute: 20, second: 35 }).toFormat(\"yyyy-MM-dd HH:mm:ss\") }}\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          192,
+          192
+        ],
+        "id": "b92dd6dc-56b2-44c5-a253-b5ae35c6d334",
+        "name": "Send a message",
+        "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+        "credentials": {
+          "discordBotApi": {
+            "id": "lrG2Z5VoQXKArDMn",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "1cdfac0f-6072-4110-9fa1-649372cc381b",
+                "leftValue": "={{ $json.execution.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          -112,
+          96
+        ],
+        "id": "976b68e4-7357-44ee-82ff-1c6cbef14111",
+        "name": "Filter"
       }
     ],
-    "connections": {},
+    "connections": {
+      "Error Trigger": {
+        "main": [
+          [
+            {
+              "node": "Filter",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "enviar error": {
+        "main": [
+          []
+        ]
+      },
+      "Filter": {
+        "main": [
+          [
+            {
+              "node": "enviar error",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Send a message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
     "authors": "Bioenglish Lat",
-    "name": "Version 8ecc593a",
+    "name": "Version ace4d48d",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "8ecc593a-80a5-485e-9773-4f007aed0561",
+  "activeVersionId": "ace4d48d-9b5e-445b-a936-769e9757e60c",
   "connections": {
     "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "enviar error": {
+      "main": [
+        []
+      ]
+    },
+    "Filter": {
       "main": [
         [
           {
@@ -40,11 +177,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "enviar error": {
-      "main": [
-        []
       ]
     }
   },
@@ -61,8 +193,8 @@
       "type": "n8n-nodes-base.errorTrigger",
       "typeVersion": 1,
       "position": [
-        -48,
-        112
+        -320,
+        96
       ],
       "id": "f6a14f37-0fac-4dad-bb93-20f149e3c1fa",
       "name": "Error Trigger"
@@ -102,7 +234,7 @@
           "cachedResultName": "errores",
           "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
         },
-        "content": "=Reporte de Error - {{ $json.body.workflow.name }}\n\nNombre de flujo: {{ $json.body.workflow.name }}\n\nerror_url_workflow: https://primary-production-55a73.up.railway.app/workflow/{{ $json.body.workflow.id }}/executions/{{ $json.body.execution.id }}\n\nHora de error: {{ DateTime.fromISO($now).set({ hour: 1, minute: 20, second: 35 }).toFormat(\"yyyy-MM-dd HH:mm:ss\") }}\n",
+        "content": "=Reporte de Error \n\nNombre de flujo: {{ $('Error Trigger').item.json.workflow.name }}\n\nerror_url_workflow: https://primary-production-55a73.up.railway.app/workflow/{{ $('Error Trigger').item.json.workflow.id }}/executions/{{ $('Error Trigger').item.json.execution.id }}\n\nHora de error: {{ DateTime.fromISO($now).set({ hour: 1, minute: 20, second: 35 }).toFormat(\"yyyy-MM-dd HH:mm:ss\") }}\n",
         "options": {}
       },
       "type": "n8n-nodes-base.discord",
@@ -120,9 +252,66 @@
           "name": "bio_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "1cdfac0f-6072-4110-9fa1-649372cc381b",
+              "leftValue": "={{ $json.execution.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        -112,
+        96
+      ],
+      "id": "976b68e4-7357-44ee-82ff-1c6cbef14111",
+      "name": "Filter"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Error Trigger": [
+      {
+        "json": {
+          "execution": {
+            "id": "979",
+            "url": "https://primary-production-55a73.up.railway.app/workflow/efFbgE1bYCOEbonn/executions/979",
+            "error": {
+              "message": "Error: Cannot read properties of undefined (reading 'execute')",
+              "stack": "Error: Error: Cannot read properties of undefined (reading 'execute')\n    at Queue.onFailed (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/bull@4.16.4_patch_hash=a4b6d56db16fe5870646929938466d6a5c668435fd1551bed6a93fffb597ba42/node_modules/bull/lib/job.js:523:18)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)"
+            },
+            "mode": "webhook"
+          },
+          "workflow": {
+            "id": "efFbgE1bYCOEbonn",
+            "name": "Formulario de inscripcion"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
@@ -141,6 +330,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-21T18:33:52.493Z",
-  "versionId": "fb4dae91-e59d-4a74-a4ad-0e737f6dffb0"
+  "updatedAt": "2025-12-31T17:17:21.543Z",
+  "versionId": "ace4d48d-9b5e-445b-a936-769e9757e60c"
 }
