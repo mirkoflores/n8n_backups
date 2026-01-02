@@ -4943,20 +4943,20 @@
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
-            "x-forwarded-for": "3.82.222.22",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
+            "x-forwarded-for": "54.165.143.43",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "ML4mFEoVQ32ltbj5PvyhXg",
-            "x-real-ip": "3.82.222.22",
-            "x-request-start": "1767190866217"
+            "x-railway-request-id": "c2kMgHdjTIuEf0Q6BT7zVQ",
+            "x-real-ip": "54.165.143.43",
+            "x-request-start": "1767330365646"
           },
           "params": {},
           "query": {},
           "body": {
-            "recordId": "recldUacmxKCLFLjZ",
-            "Tipo": "3_dias_antes"
+            "recordId": "recmtobfc6ZH3QvoR",
+            "Tipo": "7_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -4989,6 +4989,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2025-12-31T15:49:57.797Z",
+  "updatedAt": "2026-01-02T06:21:43.168Z",
   "versionId": "6d7efb41-e46a-45b5-8d22-b14e60824258"
 }
