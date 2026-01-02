@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-31T18:25:04.598Z",
-    "createdAt": "2025-12-31T18:25:02.935Z",
-    "versionId": "c1579074-6212-4eb8-9bed-8a7be90288a4",
+    "updatedAt": "2026-01-01T18:33:17.374Z",
+    "createdAt": "2026-01-01T18:33:16.150Z",
+    "versionId": "5fba6fae-98bb-4706-a26f-f2796d721568",
     "workflowId": "NDODlDQBUvrwqCwc",
     "nodes": [
       {
@@ -18,20 +18,338 @@
         ],
         "id": "a6793cd7-5705-48dd-b277-cd80dc2aaa62",
         "name": "When Executed by Another Workflow"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "fxwcW7dv3ToNuiCH",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/fxwcW7dv3ToNuiCH",
+            "cachedResultName": "Extraer_codigo_de_pais"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Pais": "={{ $('When Executed by Another Workflow').item.json.Pais }}"
+            },
+            "matchingColumns": [
+              "Pais"
+            ],
+            "schema": [
+              {
+                "id": "Pais",
+                "displayName": "Pais",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          208,
+          0
+        ],
+        "name": "estudiante_codigo_de_pais",
+        "id": "747c66b0-d99d-4861-9a56-dfd97b78da1d"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "fxwcW7dv3ToNuiCH",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/fxwcW7dv3ToNuiCH",
+            "cachedResultName": "Extraer_codigo_de_pais"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Pais": "={{ $('When Executed by Another Workflow').item.json.pais_apoderado }}"
+            },
+            "matchingColumns": [
+              "Pais"
+            ],
+            "schema": [
+              {
+                "id": "Pais",
+                "displayName": "Pais",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          432,
+          0
+        ],
+        "name": "apoderado_codigo_de_pais",
+        "id": "a9ec0b1b-7ddd-4130-b309-b802b1b8507c"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "4b0a3365-70ab-49d3-b51f-b063dd0122d8",
+                "name": "numero_completo_estudiante",
+                "value": "=+{{ $('estudiante_codigo_de_pais').item.json.codigo_de_pais }}{{ $('When Executed by Another Workflow').item.json['Celular del estudiante - colocar sin codigo de pais'] }}",
+                "type": "string"
+              },
+              {
+                "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
+                "name": "numero_completo_apoderado",
+                "value": "=+{{ $('apoderado_codigo_de_pais').item.json.codigo_de_pais }}{{ $('When Executed by Another Workflow').item.json.celular_apoderado_sin_codigo }}",
+                "type": "string"
+              },
+              {
+                "id": "0f19719a-614d-45a9-af8a-50e6741d864a",
+                "name": "email_estudiante",
+                "value": "={{ $('When Executed by Another Workflow').item.json['Correo electrónico del estudiante'] }}",
+                "type": "string"
+              },
+              {
+                "id": "19af37ae-13e6-4f83-8978-17aeb4bd75cc",
+                "name": "email_apoderado",
+                "value": "={{ $('When Executed by Another Workflow').item.json.correo_apoderado }}",
+                "type": "string"
+              },
+              {
+                "id": "95db29f1-61eb-46be-81b4-b9b67f5933f3",
+                "name": "nombre_estudiante",
+                "value": "={{ $('When Executed by Another Workflow').item.json['Nombre completo del estudiante'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          640,
+          0
+        ],
+        "id": "f428c7a4-e52a-42f9-ad74-e9cbb2259979",
+        "name": "variables_1"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblkpm3CwBi8WctOZ",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+          },
+          "filterByFormula": "={Celular Unico}=\"{{$('variables_1').item.json.numero_completo_estudiante}}\"",
+          "returnAll": false,
+          "limit": 1,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          848,
+          0
+        ],
+        "id": "c012a86a-1091-4db3-8303-87d8dc5853de",
+        "name": "buscar - cliente - numero estudiante",
+        "alwaysOutputData": true,
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "5971b180-0067-4d7c-bcc0-ce0b0c955459",
+                "leftValue": "={{ $json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          1056,
+          0
+        ],
+        "id": "947a5b48-dc95-49ff-b9ec-74d041478614",
+        "name": "encontro?"
       }
     ],
-    "connections": {},
+    "connections": {
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "node": "estudiante_codigo_de_pais",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "estudiante_codigo_de_pais": {
+        "main": [
+          [
+            {
+              "node": "apoderado_codigo_de_pais",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "apoderado_codigo_de_pais": {
+        "main": [
+          [
+            {
+              "node": "variables_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_1": {
+        "main": [
+          [
+            {
+              "node": "buscar - cliente - numero estudiante",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "buscar - cliente - numero estudiante": {
+        "main": [
+          [
+            {
+              "node": "encontro?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
     "authors": "Bioenglish Lat",
-    "name": "Version c1579074",
+    "name": "Version 5fba6fae",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "c1579074-6212-4eb8-9bed-8a7be90288a4",
-  "connections": {},
+  "activeVersionId": "5fba6fae-98bb-4706-a26f-f2796d721568",
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "estudiante_codigo_de_pais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "estudiante_codigo_de_pais": {
+      "main": [
+        [
+          {
+            "node": "apoderado_codigo_de_pais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "apoderado_codigo_de_pais": {
+      "main": [
+        [
+          {
+            "node": "variables_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_1": {
+      "main": [
+        [
+          {
+            "node": "buscar - cliente - numero estudiante",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar - cliente - numero estudiante": {
+      "main": [
+        [
+          {
+            "node": "encontro?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-12-31T18:24:53.266Z",
   "id": "NDODlDQBUvrwqCwc",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Guardar informacion de inscripcion",
   "nodes": [
     {
@@ -46,9 +364,269 @@
       ],
       "id": "a6793cd7-5705-48dd-b277-cd80dc2aaa62",
       "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "fxwcW7dv3ToNuiCH",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/fxwcW7dv3ToNuiCH",
+          "cachedResultName": "Extraer_codigo_de_pais"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Pais": "={{ $('When Executed by Another Workflow').item.json.Pais }}"
+          },
+          "matchingColumns": [
+            "Pais"
+          ],
+          "schema": [
+            {
+              "id": "Pais",
+              "displayName": "Pais",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        0
+      ],
+      "name": "estudiante_codigo_de_pais",
+      "id": "747c66b0-d99d-4861-9a56-dfd97b78da1d"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "fxwcW7dv3ToNuiCH",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/fxwcW7dv3ToNuiCH",
+          "cachedResultName": "Extraer_codigo_de_pais"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Pais": "={{ $('When Executed by Another Workflow').item.json.pais_apoderado }}"
+          },
+          "matchingColumns": [
+            "Pais"
+          ],
+          "schema": [
+            {
+              "id": "Pais",
+              "displayName": "Pais",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        432,
+        0
+      ],
+      "name": "apoderado_codigo_de_pais",
+      "id": "a9ec0b1b-7ddd-4130-b309-b802b1b8507c"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4b0a3365-70ab-49d3-b51f-b063dd0122d8",
+              "name": "numero_completo_estudiante",
+              "value": "=+{{ $('estudiante_codigo_de_pais').item.json.codigo_de_pais }}{{ $('When Executed by Another Workflow').item.json['Celular del estudiante - colocar sin codigo de pais'] }}",
+              "type": "string"
+            },
+            {
+              "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
+              "name": "numero_completo_apoderado",
+              "value": "=+{{ $('apoderado_codigo_de_pais').item.json.codigo_de_pais }}{{ $('When Executed by Another Workflow').item.json.celular_apoderado_sin_codigo }}",
+              "type": "string"
+            },
+            {
+              "id": "0f19719a-614d-45a9-af8a-50e6741d864a",
+              "name": "email_estudiante",
+              "value": "={{ $('When Executed by Another Workflow').item.json['Correo electrónico del estudiante'] }}",
+              "type": "string"
+            },
+            {
+              "id": "19af37ae-13e6-4f83-8978-17aeb4bd75cc",
+              "name": "email_apoderado",
+              "value": "={{ $('When Executed by Another Workflow').item.json.correo_apoderado }}",
+              "type": "string"
+            },
+            {
+              "id": "95db29f1-61eb-46be-81b4-b9b67f5933f3",
+              "name": "nombre_estudiante",
+              "value": "={{ $('When Executed by Another Workflow').item.json['Nombre completo del estudiante'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        640,
+        0
+      ],
+      "id": "f428c7a4-e52a-42f9-ad74-e9cbb2259979",
+      "name": "variables_1"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "filterByFormula": "={Celular Unico}=\"{{$('variables_1').item.json.numero_completo_estudiante}}\"",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        848,
+        0
+      ],
+      "id": "c012a86a-1091-4db3-8303-87d8dc5853de",
+      "name": "buscar - cliente - numero estudiante",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "5971b180-0067-4d7c-bcc0-ce0b0c955459",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1056,
+        0
+      ],
+      "id": "947a5b48-dc95-49ff-b9ec-74d041478614",
+      "name": "encontro?"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "Nombre completo del estudiante": "gianj",
+          "Correo electrónico del estudiante": "gian@gmail.com",
+          "Pais": "Perú",
+          "Celular del estudiante - colocar sin codigo de pais": "936639242",
+          "Grupo y horario al que desea inscribirse": "ENGLISH PET_B1 (15 a más) | L-M-V-8:00-9:30pm",
+          "Comprobante de pago": [
+            {
+              "filename": "Imagen de WhatsApp 2025-11-07 a las 09.08.00_ed87bd03.jpg",
+              "mimetype": "image/jpeg",
+              "size": 32220
+            },
+            {
+              "filename": "Imagen de WhatsApp 2025-11-07 a las 09.07.39_574f2704.jpg",
+              "mimetype": "image/jpeg",
+              "size": 53518
+            }
+          ],
+          "submittedAt": "2026-01-01T12:55:39.167-05:00",
+          "formMode": "test",
+          "tipo_estudiante": "Para mi hijo/hija",
+          "nombre_apoderado": "esther",
+          "dni_apoderado": 73069255,
+          "correo_apoderado": "esther@gmail.com",
+          "pais_apoderado": "Perú",
+          "celular_apoderado_sin_codigo": 994512678,
+          "nivel_inglés_apoderado": "Intermedio"
+        },
+        "binary": {
+          "Comprobante_de_pago_0": {
+            "mimeType": "image/jpeg",
+            "fileType": "image",
+            "fileExtension": "jpg",
+            "data": "database",
+            "fileName": "Imagen de WhatsApp 2025-11-07 a las 09.08.00_ed87bd03.jpg",
+            "id": "database:f7f24f7e-5434-47bd-aa05-0338a2d9815f",
+            "fileSize": "32.2 kB"
+          },
+          "Comprobante_de_pago_1": {
+            "mimeType": "image/jpeg",
+            "fileType": "image",
+            "fileExtension": "jpg",
+            "data": "database",
+            "fileName": "Imagen de WhatsApp 2025-11-07 a las 09.07.39_574f2704.jpg",
+            "id": "database:d3ca118b-8f7e-4140-a88f-3b5302a23954",
+            "fileSize": "53.5 kB"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
@@ -68,6 +646,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-31T18:25:02.932Z",
-  "versionId": "c1579074-6212-4eb8-9bed-8a7be90288a4"
+  "updatedAt": "2026-01-01T18:33:16.144Z",
+  "versionId": "5fba6fae-98bb-4706-a26f-f2796d721568"
 }
