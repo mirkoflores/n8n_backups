@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-26T17:59:50.924Z",
-    "createdAt": "2025-12-26T17:59:48.475Z",
-    "versionId": "d95f1adf-9230-4e19-a3a8-65b69e301c66",
+    "updatedAt": "2026-01-02T23:06:39.566Z",
+    "createdAt": "2026-01-02T23:05:33.090Z",
+    "versionId": "fcddcab5-2c27-4504-90eb-6193e8928070",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -477,7 +477,6 @@
             "value": {
               "Pasados a pixel": false,
               "Enviar correo": false,
-              "test-1": false,
               "Renovado": true,
               "PEN": 0,
               "id": "={{ $('variables_3').item.json.id_detalles_venta_ultima_compra }}",
@@ -677,13 +676,39 @@
                 "removed": false
               },
               {
-                "id": "Evidencia",
-                "displayName": "Evidencia",
+                "id": "Retirados",
+                "displayName": "Retirados",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
                 "display": true,
-                "type": "array",
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Vacaciones",
+                    "value": "Vacaciones"
+                  },
+                  {
+                    "name": "No conforme",
+                    "value": "No conforme"
+                  },
+                  {
+                    "name": "cambio horario",
+                    "value": "cambio horario"
+                  },
+                  {
+                    "name": "presencial",
+                    "value": "presencial"
+                  },
+                  {
+                    "name": "falta presupuesto",
+                    "value": "falta presupuesto"
+                  },
+                  {
+                    "name": "motivos personales",
+                    "value": "motivos personales"
+                  }
+                ],
                 "readOnly": false,
                 "removed": false
               },
@@ -1285,17 +1310,6 @@
                 "removed": true
               },
               {
-                "id": "test-1",
-                "displayName": "test-1",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "boolean",
-                "readOnly": false,
-                "removed": false
-              },
-              {
                 "id": "Renovado",
                 "displayName": "Renovado",
                 "required": false,
@@ -1315,6 +1329,72 @@
                 "display": true,
                 "type": "number",
                 "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "No renovo",
+                "displayName": "No renovo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 3 dias antes",
+                "displayName": "Fin suscripción - 3 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 1 dias antes",
+                "displayName": "Fin suscripción - 1 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 5 dias despues",
+                "displayName": "Fin suscripción - 5 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 30 dias despues",
+                "displayName": "Fin suscripción - 30 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 60 dias despues",
+                "displayName": "Fin suscripción - 60 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
                 "removed": false
               }
             ],
@@ -6834,11 +6914,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version d95f1adf",
+    "name": "Version fcddcab5",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "d95f1adf-9230-4e19-a3a8-65b69e301c66",
+  "activeVersionId": "fcddcab5-2c27-4504-90eb-6193e8928070",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -7913,7 +7993,6 @@
           "value": {
             "Pasados a pixel": false,
             "Enviar correo": false,
-            "test-1": false,
             "Renovado": true,
             "PEN": 0,
             "id": "={{ $('variables_3').item.json.id_detalles_venta_ultima_compra }}",
@@ -8113,13 +8192,39 @@
               "removed": false
             },
             {
-              "id": "Evidencia",
-              "displayName": "Evidencia",
+              "id": "Retirados",
+              "displayName": "Retirados",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "array",
+              "type": "options",
+              "options": [
+                {
+                  "name": "Vacaciones",
+                  "value": "Vacaciones"
+                },
+                {
+                  "name": "No conforme",
+                  "value": "No conforme"
+                },
+                {
+                  "name": "cambio horario",
+                  "value": "cambio horario"
+                },
+                {
+                  "name": "presencial",
+                  "value": "presencial"
+                },
+                {
+                  "name": "falta presupuesto",
+                  "value": "falta presupuesto"
+                },
+                {
+                  "name": "motivos personales",
+                  "value": "motivos personales"
+                }
+              ],
               "readOnly": false,
               "removed": false
             },
@@ -8721,17 +8826,6 @@
               "removed": true
             },
             {
-              "id": "test-1",
-              "displayName": "test-1",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "boolean",
-              "readOnly": false,
-              "removed": false
-            },
-            {
               "id": "Renovado",
               "displayName": "Renovado",
               "required": false,
@@ -8751,6 +8845,72 @@
               "display": true,
               "type": "number",
               "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No renovo",
+              "displayName": "No renovo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 3 dias antes",
+              "displayName": "Fin suscripción - 3 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 1 dias antes",
+              "displayName": "Fin suscripción - 1 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 5 dias despues",
+              "displayName": "Fin suscripción - 5 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 30 dias despues",
+              "displayName": "Fin suscripción - 30 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 60 dias despues",
+              "displayName": "Fin suscripción - 60 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
               "removed": false
             }
           ],
@@ -13678,34 +13838,44 @@
     "Tally Trigger": [
       {
         "json": {
-          "id": "xXbabNo",
+          "id": "EkoW674",
           "formId": "A7K61k",
           "formName": "Bioenglish - renovacion",
-          "respondentId": "aQ2LWD2",
-          "createdAt": "2025-12-23T15:25:05.000Z",
+          "respondentId": "YKxEY0",
+          "createdAt": "2026-01-02T18:32:16.000Z",
           "question_zqjAMq": {
             "label": "Nombre del estudiante\n",
-            "value": "b",
+            "value": "Leo Matias Machacuay Laura ",
             "type": "INPUT_TEXT"
           },
           "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
             "label": "nombre_estudiante",
-            "value": null,
+            "value": "Leo Matias Machacuay Laura ",
             "type": "HIDDEN_FIELDS"
           },
           "question_d6Eo0A": {
             "label": "Celular del estudiante\n",
-            "value": "+51983793579",
+            "value": "+51977671198",
             "type": "INPUT_PHONE_NUMBER"
           },
           "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
             "label": "celular_estudiante",
-            "value": null,
+            "value": "+51977671198",
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_jy6Vg4": {
+            "label": "id_cliente_airtable",
+            "value": "recJCRZsZhDeHJ5XX",
+            "type": "INPUT_TEXT"
+          },
+          "question_lyeEgv_fc65a15c-b459-43f2-8bdd-2ba80612f4fa": {
+            "label": "id_cliente_airtable",
+            "value": "recJCRZsZhDeHJ5XX",
             "type": "HIDDEN_FIELDS"
           },
           "question_5zbY9d": {
             "label": "Edad del estudiante (indica sólo el número)",
-            "value": 12,
+            "value": 10,
             "type": "INPUT_NUMBER"
           },
           "question_pKrE8Z": {
@@ -13714,8 +13884,8 @@
             "type": "DROPDOWN"
           },
           "question_YQPbGd": {
-            "label": "Comprobante de pago",
-            "value": "https://storage.tally.so/private/mGRFLi_xxpck3rct75fj1U7wfaSi6nJNv3OHhAPG29Q.jpg?id=kKZ4pR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtLWjRwUiIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NjUwMzUwNX0.Ob3-p6qaytl3u8Z7iGzWprEnVHdo4UxWT7dYU25Nq_w&signature=41d0f344e354ac685140e0c8d75155eacacb67363158d8561078e2ae433331f0,https://storage.tally.so/private/tQDnSzxSM9DjrSobhWlEnGqQnZMxGcTNtbtOiDxLv2I.jpg?id=Kv04g8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikt2MDRnOCIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NjUwMzUwNX0.woG58G7rzq-V3iXpD5vZIQRqPaQrdyT47_1aGBkTMl0&signature=9c3564083cf722e782c2fdc6655f967f09b4b0f5dbd351bf1eae6da19d55866b",
+            "label": "Comprobante de pago\n",
+            "value": "https://storage.tally.so/private/IMG-20260102-WA0015.jpg?id=rGpr4v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJHcHI0diIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NzM3ODczNn0.ZwS9xfEJ5ES0NOqlzq8R3tq-usPTRZOPI83wkC6hbfc&signature=8c73ea00c8782a699032dc6a7d912fc15da657732d4daa453db590c68e99e3d9",
             "type": "FILE_UPLOAD"
           }
         },
@@ -13746,11 +13916,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "wzMMPZ"
+      "webhookId": "nGpzA2"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-26T17:59:48.470Z",
-  "versionId": "d95f1adf-9230-4e19-a3a8-65b69e301c66"
+  "updatedAt": "2026-01-02T23:06:36.594Z",
+  "versionId": "fcddcab5-2c27-4504-90eb-6193e8928070"
 }
