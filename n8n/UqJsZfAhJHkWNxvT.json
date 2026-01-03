@@ -1712,7 +1712,7 @@
       "main": [
         [
           {
-            "node": "url_acortado2",
+            "node": "Limit",
             "type": "main",
             "index": 0
           }
@@ -1746,6 +1746,57 @@
         [
           {
             "node": "final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sin errores?": {
+      "main": [
+        [
+          {
+            "node": "url_acortado2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create link2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "sin errores?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create link2": {
+      "main": [
+        [
+          {
+            "node": "url_acortado3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url_acortado3": {
+      "main": [
+        [
+          {
+            "node": "url_acortado2",
             "type": "main",
             "index": 0
           }
@@ -2020,7 +2071,7 @@
         "operation": "updateExistingLink",
         "shortLinkId": {
           "__rl": true,
-          "value": "QZoc3e",
+          "value": "={{ $('variables_1').item.json.id_link_short_io }}",
           "mode": "path"
         },
         "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
@@ -2034,12 +2085,14 @@
       ],
       "id": "8f2e54ee-336e-4c0b-909e-d2b055041158",
       "name": "Update existing link",
+      "alwaysOutputData": false,
       "credentials": {
         "shortioApi": {
           "id": "NUrb4eLxxnK7wHZM",
           "name": "bio_1"
         }
-      }
+      },
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2093,8 +2146,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2352,
-        80
+        3296,
+        64
       ],
       "id": "c7eeac2f-b3cd-44b9-8771-8c44a91a05aa",
       "name": "variables_2"
@@ -2919,8 +2972,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2560,
-        80
+        3504,
+        64
       ],
       "id": "8d75a5e6-debd-4300-9ca2-d3f79b8c8207",
       "name": "Update record",
@@ -3038,8 +3091,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1888,
-        480
+        2848,
+        448
       ],
       "id": "8c4f9ace-e438-4004-a81d-35d02102d2c5",
       "name": "url_acortado2"
@@ -3082,8 +3135,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        2768,
-        80
+        3712,
+        64
       ],
       "id": "e703399c-3bd9-4133-9f2b-fb137eecf04c",
       "name": "Create a row",
@@ -3111,49 +3164,109 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2976,
-        80
+        3920,
+        64
       ],
       "id": "b2a082ff-ee03-47bf-8d70-bdb25408349d",
       "name": "final"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "090a2282-095c-4c90-a8ce-d50417937fd3",
+              "leftValue": "={{ $json.shortIoResponse.path }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1968,
+        480
+      ],
+      "id": "e644643d-61ab-402c-b18e-f389f87e4086",
+      "name": "sin errores?"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1776,
+        480
+      ],
+      "id": "2a1742b3-2b50-4bdf-8ba9-fb80d9734906",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "operation": "createLink",
+        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-shortio.Shortio",
+      "typeVersion": 1,
+      "position": [
+        2192,
+        656
+      ],
+      "id": "5f3b1d4b-fc9c-42e3-baf6-1007ac95937f",
+      "name": "Create link2",
+      "credentials": {
+        "shortioApi": {
+          "id": "NUrb4eLxxnK7wHZM",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "url_acortado",
+              "value": "={{ $('Create link2').item.json.shortIoResponse.shortURL }}",
+              "type": "string"
+            },
+            {
+              "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+              "name": "id_short_io",
+              "value": "={{ $('Create link2').item.json.shortIoResponse.path }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2480,
+        656
+      ],
+      "id": "1fb22094-9ff3-4c0a-b455-3b9ec7ba1434",
+      "name": "url_acortado3"
     }
   ],
   "pinData": {
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "host": "primary-production-55a73.up.railway.app",
-            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "245",
-            "accept": "*/*",
-            "accept-encoding": "gzip,deflate",
-            "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl0X4uOg8OFuB55M",
-            "x-forwarded-for": "3.94.202.50",
-            "x-forwarded-host": "primary-production-55a73.up.railway.app",
-            "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "w5r7wgQRRcSgBuLSBT7zVQ",
-            "x-real-ip": "3.94.202.50",
-            "x-request-start": "1766758743040"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "recordId": "recOfpZq6duabLOFM",
-            "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Rafael%20Mamani%20Cori%20&celular_estudiante=%2B51952358192&id_cliente_airtable=recOfpZq6duabLOFM",
-            "tipo": "actualizar_url",
-            "id_link_short_io": "LZ6JF2"
-          },
-          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
-          "executionMode": "production"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "When Executed by Another Workflow": [
       {
         "json": {
@@ -3161,6 +3274,41 @@
           "id_registro_cliente": "recHgtGgUw0BTaOYP",
           "tipo": "nuevo_url",
           "id_link_short_io": null
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
+            "content-length": "257",
+            "accept": "*/*",
+            "accept-encoding": "gzip,deflate",
+            "content-type": "application/json",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl0X4uOg8OFuB55M",
+            "x-forwarded-for": "35.172.164.244",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "BmenQJgMStuArHAyCx5-qw",
+            "x-real-ip": "35.172.164.244",
+            "x-request-start": "1767393998478"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "recordId": "recRjMh8Eg6cQtRkq",
+            "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Catherine%20Luciana%20Soncco%20Granda&celular_estudiante=%2B51914776827&id_cliente_airtable=recRjMh8Eg6cQtRkq",
+            "tipo": "actualizar_url",
+            "id_link_short_io": "9quqAD"
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
+          "executionMode": "production"
         },
         "pairedItem": {
           "item": 0
@@ -3190,6 +3338,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-26T18:14:22.936Z",
-  "versionId": "ef5307ed-e506-49b0-b05d-bc47a65ee572"
+  "updatedAt": "2026-01-02T23:03:52.069Z",
+  "versionId": "2cb7e4ca-6ca3-4885-a5dd-f1fe1f85a2e5"
 }
