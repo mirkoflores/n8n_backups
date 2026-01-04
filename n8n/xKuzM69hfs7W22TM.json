@@ -1,0 +1,105 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-04T03:46:47.533Z",
+    "createdAt": "2026-01-04T03:46:44.951Z",
+    "versionId": "c0b319af-d9a2-4dfd-b0a4-95c058eca4d7",
+    "workflowId": "xKuzM69hfs7W22TM",
+    "nodes": [
+      {
+        "parameters": {
+          "inputSource": "passthrough"
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "a9356d97-c1e2-4320-9a28-37ae34240929",
+        "name": "When Executed by Another Workflow"
+      }
+    ],
+    "connections": {},
+    "authors": "Bioenglish Lat",
+    "name": "Version c0b319af",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "c0b319af-d9a2-4dfd-b0a4-95c058eca4d7",
+  "connections": {},
+  "createdAt": "2026-01-04T03:45:54.729Z",
+  "id": "xKuzM69hfs7W22TM",
+  "isArchived": false,
+  "meta": null,
+  "name": "Enviar accesos a nuevo usuario",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a9356d97-c1e2-4320-9a28-37ae34240929",
+      "name": "When Executed by Another Workflow"
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "numero_completo_estudiante": "+51936639242",
+          "numero_completo_apoderado": "+51994512678",
+          "email_estudiante": "informes@automagichlab.com",
+          "email_apoderado": "esther@gmail.com",
+          "nombre_estudiante": "Gianmarco Tejada Valenzuela",
+          "nombre_apoderado": "esther elizabeth",
+          "monto_depositado": 640,
+          "tipo_de_moneda": "soles peruanos",
+          "pais_estudiante": "Perú",
+          "id_grupo": "recYaKbXq1tguSFJr",
+          "tipo_estudiante": "Para mi hijo/hija",
+          "dni_apoderado": 73069254,
+          "pais_apoderado": "Perú",
+          "nivel_inglés_apoderado": "Intermedio",
+          "id_contacto_apoderado_airtable": "recFitzL2Pp6XtbHK",
+          "id_contacto_estudiante_airtable": "rec7pXBKHrzAHiNAP",
+          "id_cliente_airtable": "rec8eh4nYKMv7KRGh",
+          "id_preventa_airtable": "recBW8z2cXvvyqiPs",
+          "id_detalles_venta_airtable": "recxtc5yXQM7iHjXC"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-04T03:45:54.729Z",
+      "createdAt": "2026-01-04T03:45:54.729Z",
+      "role": "workflow:owner",
+      "workflowId": "xKuzM69hfs7W22TM",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-04T05:33:41.426Z",
+  "versionId": "c0b319af-d9a2-4dfd-b0a4-95c058eca4d7"
+}
