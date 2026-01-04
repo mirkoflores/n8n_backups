@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-01T17:57:51.296Z",
-    "createdAt": "2026-01-01T17:57:49.712Z",
-    "versionId": "28e6ee0e-0c4a-4527-b53e-eadac87417e1",
+    "updatedAt": "2026-01-04T04:00:27.837Z",
+    "createdAt": "2026-01-04T04:00:26.386Z",
+    "versionId": "254befd5-01e0-49e3-94cc-d76d2b7e4d63",
     "workflowId": "efFbgE1bYCOEbonn",
     "nodes": [
       {
@@ -42,8 +42,8 @@
         "type": "n8n-nodes-base.formTrigger",
         "typeVersion": 2.4,
         "position": [
-          -544,
-          -96
+          64,
+          -112
         ],
         "id": "08f9137d-f800-4f9d-8951-a415bea9b881",
         "name": "On form submission",
@@ -77,8 +77,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          -336,
-          -96
+          272,
+          -112
         ],
         "id": "1901249b-48f9-4ee8-8d59-bf8eda6cb773",
         "name": "es para el mismo estudiante?"
@@ -142,7 +142,7 @@
         "typeVersion": 2.4,
         "position": [
           1056,
-          304
+          -544
         ],
         "id": "628286e9-5331-4382-ae79-7647d3d13d62",
         "name": "info apoderado",
@@ -224,7 +224,7 @@
         "typeVersion": 2.4,
         "position": [
           1264,
-          -512
+          -528
         ],
         "id": "2addfaf2-b95b-4f01-9228-397bec6d5e01",
         "name": "info estudiante1",
@@ -272,31 +272,14 @@
         "parameters": {
           "operation": "completion",
           "completionTitle": "Bienvenid@ a Bioenglish!",
-          "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json.correo_estudiante }} y numero de celular {{ $('variables_1').item.json.celular_estudiante_sin_codigo_pais }}.",
+          "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json['Correo electrónico del estudiante'] }}\n y numero de celular {{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}.",
           "options": {}
         },
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          2928,
-          -368
-        ],
-        "id": "7b08d9f8-3825-4b32-b84a-eb0cf700c031",
-        "name": "Form",
-        "webhookId": "321ce14a-d2e6-4df2-9952-590f798ee2bf"
-      },
-      {
-        "parameters": {
-          "operation": "completion",
-          "completionTitle": "Bienvenid@ a Bioenglish!",
-          "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json.correo_estudiante }} y numero de celular {{ $('variables_1').item.json.celular_estudiante_sin_codigo_pais }}.",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.form",
-        "typeVersion": 2.4,
-        "position": [
-          2720,
-          192
+          2384,
+          -128
         ],
         "id": "c7f67cbf-e8b0-417b-a177-22f96b460bc6",
         "name": "Form1",
@@ -304,13 +287,13 @@
       },
       {
         "parameters": {
-          "errorMessage": "Error en escenario \"Guardar informacion de inscripcion\""
+          "errorMessage": "Error en subescenario"
         },
         "type": "n8n-nodes-base.stopAndError",
         "typeVersion": 1,
         "position": [
-          2992,
-          192
+          3888,
+          48
         ],
         "id": "bd6e34ea-1f1f-434e-b478-5aade2964fbb",
         "name": "Stop and Error"
@@ -339,7 +322,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          2384,
+          2640,
           -128
         ],
         "id": "26ae9d6a-e166-4d16-bd2e-89baf660a695",
@@ -386,7 +369,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          240,
+          592,
           64
         ],
         "name": "Call Paises - form de inscripcion",
@@ -479,6 +462,143 @@
         ],
         "id": "5c40ccea-43af-4cd9-9849-7b2e1068623e",
         "name": "variables_1"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "xKuzM69hfs7W22TM",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/xKuzM69hfs7W22TM",
+            "cachedResultName": "Enviar accesos a nuevo usuario"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {},
+            "matchingColumns": [],
+            "schema": [],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3,
+        "position": [
+          3168,
+          -272
+        ],
+        "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
+        "name": "Call 'Enviar accesos a nuevo usuario'",
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "mhwre6k16cwus69",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_ejecucion_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "sin errores",
+                "fieldValue": "={{ false }}"
+              },
+              {
+                "fieldName": "celular_apoderado_sin_codigo",
+                "fieldValue": "={{ $('variables_1').item.json.celular_apoderado_sin_codigo }}"
+              },
+              {
+                "fieldName": "celular_estudiante_sin_codigo",
+                "fieldValue": "={{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}"
+              },
+              {
+                "fieldName": "pais_estudiante",
+                "fieldValue": "={{ $('variables_1').item.json.Pais }}"
+              },
+              {
+                "fieldName": "pais_apoderado",
+                "fieldValue": "={{ $('variables_1').item.json.pais_apoderado }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          3680,
+          48
+        ],
+        "id": "138fe642-fddd-4c29-bd33-1a0f13691026",
+        "name": "Create a row",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "mhwre6k16cwus69",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_ejecucion_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "sin errores",
+                "fieldValue": "={{ true }}"
+              },
+              {
+                "fieldName": "celular_apoderado_sin_codigo",
+                "fieldValue": "={{ $('variables_1').item.json.celular_apoderado_sin_codigo }}"
+              },
+              {
+                "fieldName": "celular_estudiante_sin_codigo",
+                "fieldValue": "={{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}"
+              },
+              {
+                "fieldName": "pais_estudiante",
+                "fieldValue": "={{ $('variables_1').item.json.Pais }}"
+              },
+              {
+                "fieldName": "pais_apoderado",
+                "fieldValue": "={{ $('variables_1').item.json.pais_apoderado }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          3584,
+          -368
+        ],
+        "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
+        "name": "Create a row1",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -564,7 +684,7 @@
         "main": [
           [
             {
-              "node": "Stop and Error",
+              "node": "Guardar informacion de inscripcion",
               "type": "main",
               "index": 0
             }
@@ -575,14 +695,14 @@
         "main": [
           [
             {
-              "node": "Form",
+              "node": "Call 'Enviar accesos a nuevo usuario'",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "Form1",
+              "node": "Create a row",
               "type": "main",
               "index": 0
             }
@@ -621,14 +741,54 @@
             }
           ]
         ]
+      },
+      "variables_1": {
+        "main": [
+          [
+            {
+              "node": "Form1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call 'Enviar accesos a nuevo usuario'": {
+        "main": [
+          [
+            {
+              "node": "Create a row1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create a row",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a row": {
+        "main": [
+          [
+            {
+              "node": "Stop and Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 28e6ee0e",
+    "name": "Version 254befd5",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "28e6ee0e-0c4a-4527-b53e-eadac87417e1",
+  "activeVersionId": "254befd5-01e0-49e3-94cc-d76d2b7e4d63",
   "connections": {
     "On form submission": {
       "main": [
@@ -712,7 +872,7 @@
       "main": [
         [
           {
-            "node": "Stop and Error",
+            "node": "Guardar informacion de inscripcion",
             "type": "main",
             "index": 0
           }
@@ -723,14 +883,14 @@
       "main": [
         [
           {
-            "node": "Form",
+            "node": "Call 'Enviar accesos a nuevo usuario'",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Form1",
+            "node": "Create a row",
             "type": "main",
             "index": 0
           }
@@ -774,7 +934,36 @@
       "main": [
         [
           {
-            "node": "Guardar informacion de inscripcion",
+            "node": "Form1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'Enviar accesos a nuevo usuario'": {
+      "main": [
+        [
+          {
+            "node": "Create a row1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a row": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error",
             "type": "main",
             "index": 0
           }
@@ -826,8 +1015,8 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.4,
       "position": [
-        -544,
-        -96
+        64,
+        -112
       ],
       "id": "08f9137d-f800-4f9d-8951-a415bea9b881",
       "name": "On form submission",
@@ -861,8 +1050,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -336,
-        -96
+        272,
+        -112
       ],
       "id": "1901249b-48f9-4ee8-8d59-bf8eda6cb773",
       "name": "es para el mismo estudiante?"
@@ -926,7 +1115,7 @@
       "typeVersion": 2.4,
       "position": [
         1056,
-        304
+        -544
       ],
       "id": "628286e9-5331-4382-ae79-7647d3d13d62",
       "name": "info apoderado",
@@ -1008,7 +1197,7 @@
       "typeVersion": 2.4,
       "position": [
         1264,
-        -512
+        -528
       ],
       "id": "2addfaf2-b95b-4f01-9228-397bec6d5e01",
       "name": "info estudiante1",
@@ -1056,31 +1245,14 @@
       "parameters": {
         "operation": "completion",
         "completionTitle": "Bienvenid@ a Bioenglish!",
-        "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json.correo_estudiante }} y numero de celular {{ $('variables_1').item.json.celular_estudiante_sin_codigo_pais }}.",
+        "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json['Correo electrónico del estudiante'] }}\n y numero de celular {{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}.",
         "options": {}
       },
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        2928,
-        -368
-      ],
-      "id": "7b08d9f8-3825-4b32-b84a-eb0cf700c031",
-      "name": "Form",
-      "webhookId": "321ce14a-d2e6-4df2-9952-590f798ee2bf"
-    },
-    {
-      "parameters": {
-        "operation": "completion",
-        "completionTitle": "Bienvenid@ a Bioenglish!",
-        "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json.correo_estudiante }} y numero de celular {{ $('variables_1').item.json.celular_estudiante_sin_codigo_pais }}.",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.form",
-      "typeVersion": 2.4,
-      "position": [
-        2720,
-        192
+        2384,
+        -128
       ],
       "id": "c7f67cbf-e8b0-417b-a177-22f96b460bc6",
       "name": "Form1",
@@ -1088,13 +1260,13 @@
     },
     {
       "parameters": {
-        "errorMessage": "Error en escenario \"Guardar informacion de inscripcion\""
+        "errorMessage": "Error en subescenario"
       },
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        2992,
-        192
+        3888,
+        48
       ],
       "id": "bd6e34ea-1f1f-434e-b478-5aade2964fbb",
       "name": "Stop and Error"
@@ -1123,7 +1295,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        2384,
+        2640,
         -128
       ],
       "id": "26ae9d6a-e166-4d16-bd2e-89baf660a695",
@@ -1170,7 +1342,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        240,
+        592,
         64
       ],
       "name": "Call Paises - form de inscripcion",
@@ -1263,9 +1435,159 @@
       ],
       "id": "5c40ccea-43af-4cd9-9849-7b2e1068623e",
       "name": "variables_1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "xKuzM69hfs7W22TM",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/xKuzM69hfs7W22TM",
+          "cachedResultName": "Enviar accesos a nuevo usuario"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        3168,
+        -272
+      ],
+      "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
+      "name": "Call 'Enviar accesos a nuevo usuario'",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "prkc7a6zgmy2biw",
+        "table": "mhwre6k16cwus69",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "id_escenario_n8n",
+              "fieldValue": "={{ $workflow.id }}"
+            },
+            {
+              "fieldName": "id_ejecucion_n8n",
+              "fieldValue": "={{ $execution.id }}"
+            },
+            {
+              "fieldName": "sin errores",
+              "fieldValue": "={{ false }}"
+            },
+            {
+              "fieldName": "celular_apoderado_sin_codigo",
+              "fieldValue": "={{ $('variables_1').item.json.celular_apoderado_sin_codigo }}"
+            },
+            {
+              "fieldName": "celular_estudiante_sin_codigo",
+              "fieldValue": "={{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}"
+            },
+            {
+              "fieldName": "pais_estudiante",
+              "fieldValue": "={{ $('variables_1').item.json.Pais }}"
+            },
+            {
+              "fieldName": "pais_apoderado",
+              "fieldValue": "={{ $('variables_1').item.json.pais_apoderado }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        3680,
+        48
+      ],
+      "id": "138fe642-fddd-4c29-bd33-1a0f13691026",
+      "name": "Create a row",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "prkc7a6zgmy2biw",
+        "table": "mhwre6k16cwus69",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "id_escenario_n8n",
+              "fieldValue": "={{ $workflow.id }}"
+            },
+            {
+              "fieldName": "id_ejecucion_n8n",
+              "fieldValue": "={{ $execution.id }}"
+            },
+            {
+              "fieldName": "sin errores",
+              "fieldValue": "={{ true }}"
+            },
+            {
+              "fieldName": "celular_apoderado_sin_codigo",
+              "fieldValue": "={{ $('variables_1').item.json.celular_apoderado_sin_codigo }}"
+            },
+            {
+              "fieldName": "celular_estudiante_sin_codigo",
+              "fieldValue": "={{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}"
+            },
+            {
+              "fieldName": "pais_estudiante",
+              "fieldValue": "={{ $('variables_1').item.json.Pais }}"
+            },
+            {
+              "fieldName": "pais_apoderado",
+              "fieldValue": "={{ $('variables_1').item.json.pais_apoderado }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        3584,
+        -368
+      ],
+      "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
+      "name": "Create a row1",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "tipo_estudiante": "Para mi hijo/hija",
+          "submittedAt": "2026-01-03T22:51:15.438-05:00",
+          "formMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
@@ -1288,6 +1610,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-01T17:57:59.945Z",
-  "versionId": "b5b1f2b2-f530-4aec-a115-6e1f04d5d959"
+  "updatedAt": "2026-01-04T04:00:26.381Z",
+  "versionId": "254befd5-01e0-49e3-94cc-d76d2b7e4d63"
 }
