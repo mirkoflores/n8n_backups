@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-31T15:50:00.663Z",
-    "createdAt": "2025-12-31T15:49:57.800Z",
-    "versionId": "6d7efb41-e46a-45b5-8d22-b14e60824258",
+    "updatedAt": "2026-01-03T22:08:03.716Z",
+    "createdAt": "2026-01-03T22:08:01.775Z",
+    "versionId": "b51a3dab-bec6-4ebf-af74-7d9576ee12a4",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -29,8 +29,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -304,
-          0
+          -1648,
+          -16
         ],
         "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
         "name": "Detalles venta",
@@ -67,8 +67,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          112,
-          0
+          -1264,
+          -16
         ],
         "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
         "name": "Clientes",
@@ -102,8 +102,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          320,
-          0
+          -1072,
+          -16
         ],
         "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
         "name": "Grupo",
@@ -149,8 +149,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -96,
-          0
+          -1456,
+          -16
         ],
         "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
         "name": "Variables_1"
@@ -204,7 +204,7 @@
               {
                 "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
                 "name": "Precios",
-                "value": "=1 mes: S/.{{ $('Grupo').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}\n2 meses: S/.{{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}\n3 meses: S/.{{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}\n6 meses: S/.{{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}\n12 meses: S/.{{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+                "value": "={{ $json.Precios }}",
                 "type": "string"
               },
               {
@@ -222,31 +222,31 @@
               {
                 "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
                 "name": "Precio_1_mes",
-                "value": "={{ $('Grupo').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}",
+                "value": "={{ $json.Precio_1_mes }}",
                 "type": "string"
               },
               {
                 "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
                 "name": "Precio_2_meses",
-                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*2+\" soles~ s/.\" + $('Grupo').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}\n\n",
+                "value": "={{ $json.Precio_2_meses }}",
                 "type": "string"
               },
               {
                 "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
                 "name": "Precio_3_meses",
-                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + ($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}}\n",
+                "value": "={{ $json.Precio_3_meses }}",
                 "type": "string"
               },
               {
                 "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
                 "name": "Precio_6_meses",
-                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + ($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis\n",
+                "value": "={{ $json.Precio_6_meses }}",
                 "type": "string"
               },
               {
                 "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
                 "name": "Precio_12_meses",
-                "value": "={{\n\n$if(\n\n($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + ($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
+                "value": "={{ $json.Precio_12_meses }}",
                 "type": "string"
               },
               {
@@ -274,7 +274,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          528,
+          944,
           0
         ],
         "id": "9ec0bb18-6870-408b-84cb-c8aac21ee542",
@@ -322,7 +322,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6016,
+          7056,
           -1200
         ],
         "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -344,7 +344,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          800,
+          1216,
           0
         ],
         "id": "0c8912d6-5610-43c2-80ab-601cf8fc29ed",
@@ -384,7 +384,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1008,
+          1424,
           0
         ],
         "id": "b0e969fd-2ddb-428f-b481-8dc62a65b44e",
@@ -418,7 +418,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1824,
+          2240,
           -80
         ],
         "id": "cf285d04-3261-4645-930d-0c1946f00da9",
@@ -451,7 +451,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1280,
+          1696,
           208
         ],
         "id": "9506b4c7-6a8b-4254-b280-fbba0d3d8b55",
@@ -493,7 +493,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          2640,
+          3264,
           64
         ],
         "id": "37921795-ebf1-49ab-9c75-07fbc3360fd1",
@@ -522,7 +522,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2064,
+          2688,
           16
         ],
         "id": "7c32102d-f747-4780-a52a-89bda90b8aab",
@@ -545,7 +545,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2064,
+          2480,
           208
         ],
         "id": "32355781-7403-4f47-973e-5c81edc5a38b",
@@ -574,7 +574,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1472,
+          1888,
           -80
         ],
         "id": "a7cbcda0-d49b-4ee3-8a3a-a2b4e58b8340",
@@ -609,7 +609,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2880,
+          3920,
           -208
         ],
         "id": "522d763d-a7b2-44ba-b84b-aaf4fdc3d05c",
@@ -638,7 +638,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2880,
+          3504,
           64
         ],
         "id": "8b3a5f45-4979-4ef0-8655-9ea76573cd6a",
@@ -661,7 +661,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2384,
+          3008,
           64
         ],
         "id": "d656bed3-5266-4520-9245-484bd4580f39",
@@ -690,7 +690,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3136,
+          4176,
           -80
         ],
         "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
@@ -710,7 +710,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5776,
+          6816,
           -1200
         ],
         "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -773,8 +773,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          4720,
-          -352
+          5760,
+          -304
         ],
         "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
         "name": "Update leads",
@@ -790,8 +790,8 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          4976,
-          -352
+          6016,
+          -304
         ],
         "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
         "name": "Wait",
@@ -957,7 +957,7 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          5200,
+          6240,
           -368
         ],
         "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
@@ -1005,7 +1005,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6016,
+          7056,
           -1424
         ],
         "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
@@ -1025,7 +1025,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5776,
+          6816,
           -1424
         ],
         "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
@@ -1060,7 +1060,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6240,
+          7280,
           -1424
         ],
         "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
@@ -1101,7 +1101,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3344,
+          4384,
           -80
         ],
         "id": "937effc5-d55b-4e41-bb82-647f9266837d",
@@ -1124,7 +1124,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4000,
+          5040,
           64
         ],
         "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -1147,7 +1147,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4416,
+          5456,
           -96
         ],
         "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
@@ -1222,7 +1222,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3648,
+          4688,
           -160
         ],
         "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
@@ -1270,7 +1270,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4704,
+          5744,
           192
         ],
         "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
@@ -1345,7 +1345,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5536,
+          6576,
           -1312
         ],
         "id": "2c710983-a029-4447-872b-b00631d26014",
@@ -1393,7 +1393,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6016,
+          7056,
           -752
         ],
         "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
@@ -1413,7 +1413,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5776,
+          6816,
           -752
         ],
         "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
@@ -1467,7 +1467,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6016,
+          7056,
           -976
         ],
         "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
@@ -1487,7 +1487,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5776,
+          6816,
           -976
         ],
         "id": "0db36230-0d0d-49bb-943a-dc011650676e",
@@ -1522,7 +1522,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6240,
+          7280,
           -976
         ],
         "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
@@ -1598,7 +1598,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5536,
+          6576,
           -864
         ],
         "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
@@ -1646,7 +1646,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6032,
+          7072,
           -320
         ],
         "id": "fb04a892-10f5-4269-b116-17194a984389",
@@ -1666,7 +1666,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5792,
+          6832,
           -320
         ],
         "id": "82504058-e135-4182-8768-a13266255ada",
@@ -1720,7 +1720,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6032,
+          7072,
           -544
         ],
         "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
@@ -1740,7 +1740,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5792,
+          6832,
           -544
         ],
         "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
@@ -1775,7 +1775,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6256,
+          7296,
           -544
         ],
         "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
@@ -1851,7 +1851,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5552,
+          6592,
           -432
         ],
         "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
@@ -1874,7 +1874,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4000,
+          5040,
           -160
         ],
         "id": "791557b6-5113-41aa-b134-8ae81864350b",
@@ -1901,8 +1901,8 @@
         "type": "n8n-nodes-base.rabbitmqTrigger",
         "typeVersion": 1,
         "position": [
-          -496,
-          0
+          -1840,
+          -16
         ],
         "id": "8d9574ec-975e-4724-a561-0e4d57603596",
         "name": "Webhook",
@@ -1922,12 +1922,555 @@
         "type": "n8n-nodes-base.webhook",
         "typeVersion": 2.1,
         "position": [
-          -480,
-          -368
+          -848,
+          -384
         ],
         "id": "ce17ef5c-fe14-498c-9d8a-b53930c1f5aa",
         "name": "Webhook1",
         "webhookId": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee"
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "filter": {
+            "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}"
+          },
+          "options": {},
+          "limit": 1
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          2672,
+          -208
+        ],
+        "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
+        "name": "Obtener info de lead",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblNCKsSLcjBVDVID",
+            "mode": "list",
+            "cachedResultName": "Precios renovacion",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblNCKsSLcjBVDVID"
+          },
+          "filterByFormula": "=FIND(\"{{ $('Grupo').item.json.id }}\",{Record ID grupos})>0",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          -688,
+          -16
+        ],
+        "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
+        "name": "Precios renovacion",
+        "alwaysOutputData": true,
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "f341c9d8-633f-43aa-bd6e-026f1d87d6db",
+                "name": "fecha_creacion_cliente",
+                "value": "={{ $('Clientes').item.json['Fecha min'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -880,
+          -16
+        ],
+        "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
+        "name": "fecha_creacion_cliente"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "f341c9d8-633f-43aa-bd6e-026f1d87d6db",
+                "name": "fecha_disponible_precio_renovacion",
+                "value": "={{ $('Precios renovacion').item.json['Fecha disponible'] ?? '2050-01-31' }}",
+                "type": "string"
+              }
+            ]
+          },
+          "includeOtherFields": true,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -240,
+          -112
+        ],
+        "id": "eded776a-4999-4cf5-8a75-21cef8d9d006",
+        "name": "fecha disponible"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "6debd180-e9bc-4976-a3d6-d11b253afecc",
+                "leftValue": "={{ $json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          -496,
+          -16
+        ],
+        "id": "023db1c4-7a67-4833-81af-407461e9fe80",
+        "name": "existe?"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "132d472f-4c6f-4eb9-97a7-5f22b8ccbd8c",
+                "leftValue": "={{ $('fecha_creacion_cliente').item.json.fecha_creacion_cliente }}",
+                "rightValue": "={{ $('fecha disponible').item.json.fecha_disponible_precio_renovacion }}",
+                "operator": {
+                  "type": "dateTime",
+                  "operation": "beforeOrEquals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          -32,
+          -112
+        ],
+        "id": "b63a8355-67c0-4e5b-89c6-6c9442e6e1e4",
+        "name": "solo si creacion de cliente es antes de fecha disponible de precio"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          176,
+          -112
+        ],
+        "id": "fbca6dbb-58ce-453c-95b2-5769a23587b2",
+        "name": "Limit"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "6debd180-e9bc-4976-a3d6-d11b253afecc",
+                "leftValue": "={{ $('Grupo').item?.json['1 mes - precio renovación'].toString() ?? \"No disponible\" }}",
+                "rightValue": "No disponible",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEquals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          400,
+          -112
+        ],
+        "id": "d03fb4e8-add6-4f83-ac82-2d16d2787efd",
+        "name": "tiene por lo menos precio mensual?"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "Precios",
+                "value": "=1 mes: No disponible\n2 meses: S/.{{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}\n3 meses: S/.{{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}\n6 meses: S/.{{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}\n12 meses: S/.{{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+                "type": "string"
+              },
+              {
+                "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
+                "name": "Precio_1_mes",
+                "value": "=No disponible",
+                "type": "string"
+              },
+              {
+                "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
+                "name": "Precio_2_meses",
+                "value": "=No disponible",
+                "type": "string"
+              },
+              {
+                "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
+                "name": "Precio_3_meses",
+                "value": "=No disponible",
+                "type": "string"
+              },
+              {
+                "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
+                "name": "Precio_6_meses",
+                "value": "=No disponible",
+                "type": "string"
+              },
+              {
+                "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
+                "name": "Precio_12_meses",
+                "value": "=No disponible",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          672,
+          240
+        ],
+        "id": "5e78f3b8-3154-40ef-84da-a000d79be981",
+        "name": "precios"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "Precios",
+                "value": "=1 mes: {{ $if(($('Limit').item?.json['1 mes - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['1 mes - precio renovación'] ?? \"No disponible\") }}\n2 meses: {{ $if(($('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\") }}\n3 meses: {{ $if(($('Limit').item?.json['3 meses - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['3 meses - precio renovación'] ?? \"No disponible\") }}\n6 meses: {{ $if(($('Limit').item?.json['6 meses - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['6 meses - precio renovación'] ?? \"No disponible\") }}\n12 meses: {{ $if(($('Limit').item?.json['12 meses - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['12 meses - precio renovación'] ?? \"No disponible\") }}",
+                "type": "string"
+              },
+              {
+                "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
+                "name": "Precio_1_mes",
+                "value": "={{ $('Limit').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}",
+                "type": "string"
+              },
+              {
+                "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
+                "name": "Precio_2_meses",
+                "value": "={{\n\n$if(\n\n($('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item?.json['2 meses - precio renovación']*2+\" soles~ s/.\" + $('Limit').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}",
+                "type": "string"
+              },
+              {
+                "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
+                "name": "Precio_3_meses",
+                "value": "={{\n\n$if(\n\n($('Limit').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + ($('Limit').item?.json['3 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}}",
+                "type": "string"
+              },
+              {
+                "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
+                "name": "Precio_6_meses",
+                "value": "={{\n\n$if(\n\n($('Limit').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + ($('Limit').item?.json['6 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis",
+                "type": "string"
+              },
+              {
+                "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
+                "name": "Precio_12_meses",
+                "value": "={{\n\n$if(\n\n($('Limit').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + ($('Limit').item?.json['12 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          672,
+          -208
+        ],
+        "id": "b54ae000-1a58-4b98-a283-1f3489ee7ce0",
+        "name": "precios3"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "Precios",
+                "value": "=1 mes: No disponible\n2 meses: S/.{{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}\n3 meses: S/.{{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}\n6 meses: S/.{{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}\n12 meses: S/.{{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+                "type": "string"
+              },
+              {
+                "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
+                "name": "Precio_1_mes",
+                "value": "=No disponible",
+                "type": "string"
+              },
+              {
+                "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
+                "name": "Precio_2_meses",
+                "value": "=No disponible",
+                "type": "string"
+              },
+              {
+                "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
+                "name": "Precio_3_meses",
+                "value": "=No disponible",
+                "type": "string"
+              },
+              {
+                "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
+                "name": "Precio_6_meses",
+                "value": "=No disponible",
+                "type": "string"
+              },
+              {
+                "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
+                "name": "Precio_12_meses",
+                "value": "=No disponible",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          672,
+          0
+        ],
+        "id": "4571803b-4ece-4e49-acb1-60f78184297c",
+        "name": "precios1"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65754,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          6576,
+          -192
+        ],
+        "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
+        "name": "Enviar mensaje6",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65756,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          6576,
+          0
+        ],
+        "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
+        "name": "Enviar mensaje7",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65758,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          6576,
+          192
+        ],
+        "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
+        "name": "Enviar mensaje8",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "mf1zt2lexmn446a",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "id_automatizacion_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_detalles_venta_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+              },
+              {
+                "fieldName": "id_cliente_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
+              },
+              {
+                "fieldName": "id_grupo_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
+              },
+              {
+                "fieldName": "id_contact_kommo",
+                "fieldValue": "="
+              },
+              {
+                "fieldName": "id_lead_kommo",
+                "fieldValue": "="
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          3264,
+          -96
+        ],
+        "id": "cd74891b-2961-4751-a371-640f3faed8ea",
+        "name": "Create a row1",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "d04257d5-740a-4c36-8711-6dd69fc55020",
+                "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+                "rightValue": 143,
+                "operator": {
+                  "type": "number",
+                  "operation": "notEquals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          2976,
+          -208
+        ],
+        "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
+        "name": "no esta en etapa perdida"
       }
     ],
     "connections": {
@@ -1968,7 +2511,7 @@
         "main": [
           [
             {
-              "node": "Variables_2",
+              "node": "fecha_creacion_cliente",
               "type": "main",
               "index": 0
             }
@@ -2024,7 +2567,7 @@
         "main": [
           [
             {
-              "node": "contact_lead",
+              "node": "Obtener info de lead",
               "type": "main",
               "index": 0
             }
@@ -2182,9 +2725,27 @@
               "index": 0
             }
           ],
-          [],
-          [],
-          []
+          [
+            {
+              "node": "Enviar mensaje6",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Enviar mensaje7",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Enviar mensaje8",
+              "type": "main",
+              "index": 0
+            }
+          ]
         ]
       },
       "Enviar mensaje": {
@@ -2417,14 +2978,167 @@
             }
           ]
         ]
+      },
+      "Obtener info de lead": {
+        "main": [
+          [
+            {
+              "node": "no esta en etapa perdida",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Precios renovacion": {
+        "main": [
+          [
+            {
+              "node": "existe?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "fecha_creacion_cliente": {
+        "main": [
+          [
+            {
+              "node": "Precios renovacion",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "existe?": {
+        "main": [
+          [
+            {
+              "node": "fecha disponible",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "precios",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "fecha disponible": {
+        "main": [
+          [
+            {
+              "node": "solo si creacion de cliente es antes de fecha disponible de precio",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "solo si creacion de cliente es antes de fecha disponible de precio": {
+        "main": [
+          [
+            {
+              "node": "Limit",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Limit": {
+        "main": [
+          [
+            {
+              "node": "tiene por lo menos precio mensual?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "tiene por lo menos precio mensual?": {
+        "main": [
+          [
+            {
+              "node": "precios3",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "precios1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "precios3": {
+        "main": [
+          [
+            {
+              "node": "Variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "precios1": {
+        "main": [
+          [
+            {
+              "node": "Variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "precios": {
+        "main": [
+          [
+            {
+              "node": "Variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "no esta en etapa perdida": {
+        "main": [
+          [
+            {
+              "node": "contact_lead",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create a row1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 6d7efb41",
+    "name": "Version b51a3dab",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "6d7efb41-e46a-45b5-8d22-b14e60824258",
+  "activeVersionId": "b51a3dab-bec6-4ebf-af74-7d9576ee12a4",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -2463,7 +3177,7 @@
       "main": [
         [
           {
-            "node": "Variables_2",
+            "node": "fecha_creacion_cliente",
             "type": "main",
             "index": 0
           }
@@ -2519,7 +3233,7 @@
       "main": [
         [
           {
-            "node": "contact_lead",
+            "node": "Obtener info de lead",
             "type": "main",
             "index": 0
           }
@@ -2677,9 +3391,27 @@
             "index": 0
           }
         ],
-        [],
-        [],
-        []
+        [
+          {
+            "node": "Enviar mensaje6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar mensaje7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar mensaje8",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Enviar mensaje": {
@@ -2912,6 +3644,159 @@
           }
         ]
       ]
+    },
+    "Obtener info de lead": {
+      "main": [
+        [
+          {
+            "node": "no esta en etapa perdida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Precios renovacion": {
+      "main": [
+        [
+          {
+            "node": "existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fecha_creacion_cliente": {
+      "main": [
+        [
+          {
+            "node": "Precios renovacion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe?": {
+      "main": [
+        [
+          {
+            "node": "fecha disponible",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "precios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fecha disponible": {
+      "main": [
+        [
+          {
+            "node": "solo si creacion de cliente es antes de fecha disponible de precio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "solo si creacion de cliente es antes de fecha disponible de precio": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "tiene por lo menos precio mensual?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tiene por lo menos precio mensual?": {
+      "main": [
+        [
+          {
+            "node": "precios3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "precios1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "precios3": {
+      "main": [
+        [
+          {
+            "node": "Variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "precios1": {
+      "main": [
+        [
+          {
+            "node": "Variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "precios": {
+      "main": [
+        [
+          {
+            "node": "Variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "no esta en etapa perdida": {
+      "main": [
+        [
+          {
+            "node": "contact_lead",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create a row1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-20T17:06:23.257Z",
@@ -2945,8 +3830,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -304,
-        0
+        -1648,
+        -16
       ],
       "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
       "name": "Detalles venta",
@@ -2983,8 +3868,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        112,
-        0
+        -1264,
+        -16
       ],
       "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
       "name": "Clientes",
@@ -3018,8 +3903,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        320,
-        0
+        -1072,
+        -16
       ],
       "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
       "name": "Grupo",
@@ -3065,8 +3950,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -96,
-        0
+        -1456,
+        -16
       ],
       "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
       "name": "Variables_1"
@@ -3120,7 +4005,7 @@
             {
               "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
               "name": "Precios",
-              "value": "=1 mes: S/.{{ $('Grupo').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}\n2 meses: S/.{{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}\n3 meses: S/.{{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}\n6 meses: S/.{{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}\n12 meses: S/.{{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+              "value": "={{ $json.Precios }}",
               "type": "string"
             },
             {
@@ -3138,31 +4023,31 @@
             {
               "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
               "name": "Precio_1_mes",
-              "value": "={{ $('Grupo').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}",
+              "value": "={{ $json.Precio_1_mes }}",
               "type": "string"
             },
             {
               "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
               "name": "Precio_2_meses",
-              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*2+\" soles~ s/.\" + $('Grupo').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}\n\n",
+              "value": "={{ $json.Precio_2_meses }}",
               "type": "string"
             },
             {
               "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
               "name": "Precio_3_meses",
-              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + ($('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}}\n",
+              "value": "={{ $json.Precio_3_meses }}",
               "type": "string"
             },
             {
               "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
               "name": "Precio_6_meses",
-              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + ($('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis\n",
+              "value": "={{ $json.Precio_6_meses }}",
               "type": "string"
             },
             {
               "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
               "name": "Precio_12_meses",
-              "value": "={{\n\n$if(\n\n($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Grupo').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + ($('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
+              "value": "={{ $json.Precio_12_meses }}",
               "type": "string"
             },
             {
@@ -3190,7 +4075,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        528,
+        944,
         0
       ],
       "id": "9ec0bb18-6870-408b-84cb-c8aac21ee542",
@@ -3238,7 +4123,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6016,
+        7056,
         -1200
       ],
       "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -3260,7 +4145,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        800,
+        1216,
         0
       ],
       "id": "0c8912d6-5610-43c2-80ab-601cf8fc29ed",
@@ -3300,7 +4185,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1008,
+        1424,
         0
       ],
       "id": "b0e969fd-2ddb-428f-b481-8dc62a65b44e",
@@ -3334,7 +4219,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1824,
+        2240,
         -80
       ],
       "id": "cf285d04-3261-4645-930d-0c1946f00da9",
@@ -3367,7 +4252,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1280,
+        1696,
         208
       ],
       "id": "9506b4c7-6a8b-4254-b280-fbba0d3d8b55",
@@ -3409,7 +4294,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        2640,
+        3264,
         64
       ],
       "id": "37921795-ebf1-49ab-9c75-07fbc3360fd1",
@@ -3438,7 +4323,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2064,
+        2688,
         16
       ],
       "id": "7c32102d-f747-4780-a52a-89bda90b8aab",
@@ -3461,7 +4346,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2064,
+        2480,
         208
       ],
       "id": "32355781-7403-4f47-973e-5c81edc5a38b",
@@ -3490,7 +4375,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1472,
+        1888,
         -80
       ],
       "id": "a7cbcda0-d49b-4ee3-8a3a-a2b4e58b8340",
@@ -3525,7 +4410,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2880,
+        3920,
         -208
       ],
       "id": "522d763d-a7b2-44ba-b84b-aaf4fdc3d05c",
@@ -3554,7 +4439,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2880,
+        3504,
         64
       ],
       "id": "8b3a5f45-4979-4ef0-8655-9ea76573cd6a",
@@ -3577,7 +4462,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2384,
+        3008,
         64
       ],
       "id": "d656bed3-5266-4520-9245-484bd4580f39",
@@ -3606,7 +4491,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3136,
+        4176,
         -80
       ],
       "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
@@ -3626,7 +4511,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5776,
+        6816,
         -1200
       ],
       "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -3689,8 +4574,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        4720,
-        -352
+        5760,
+        -304
       ],
       "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
       "name": "Update leads",
@@ -3706,8 +4591,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4976,
-        -352
+        6016,
+        -304
       ],
       "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
       "name": "Wait",
@@ -3873,7 +4758,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        5200,
+        6240,
         -368
       ],
       "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
@@ -3921,7 +4806,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6016,
+        7056,
         -1424
       ],
       "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
@@ -3941,7 +4826,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5776,
+        6816,
         -1424
       ],
       "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
@@ -3976,7 +4861,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6240,
+        7280,
         -1424
       ],
       "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
@@ -4017,7 +4902,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3344,
+        4384,
         -80
       ],
       "id": "937effc5-d55b-4e41-bb82-647f9266837d",
@@ -4040,7 +4925,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4000,
+        5040,
         64
       ],
       "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -4063,7 +4948,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4416,
+        5456,
         -96
       ],
       "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
@@ -4138,7 +5023,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3648,
+        4688,
         -160
       ],
       "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
@@ -4186,7 +5071,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4704,
+        5744,
         192
       ],
       "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
@@ -4261,7 +5146,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5536,
+        6576,
         -1312
       ],
       "id": "2c710983-a029-4447-872b-b00631d26014",
@@ -4309,7 +5194,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6016,
+        7056,
         -752
       ],
       "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
@@ -4329,7 +5214,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5776,
+        6816,
         -752
       ],
       "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
@@ -4383,7 +5268,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6016,
+        7056,
         -976
       ],
       "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
@@ -4403,7 +5288,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5776,
+        6816,
         -976
       ],
       "id": "0db36230-0d0d-49bb-943a-dc011650676e",
@@ -4438,7 +5323,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6240,
+        7280,
         -976
       ],
       "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
@@ -4514,7 +5399,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5536,
+        6576,
         -864
       ],
       "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
@@ -4562,7 +5447,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6032,
+        7072,
         -320
       ],
       "id": "fb04a892-10f5-4269-b116-17194a984389",
@@ -4582,7 +5467,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5792,
+        6832,
         -320
       ],
       "id": "82504058-e135-4182-8768-a13266255ada",
@@ -4636,7 +5521,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6032,
+        7072,
         -544
       ],
       "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
@@ -4656,7 +5541,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5792,
+        6832,
         -544
       ],
       "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
@@ -4691,7 +5576,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6256,
+        7296,
         -544
       ],
       "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
@@ -4767,7 +5652,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5552,
+        6592,
         -432
       ],
       "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
@@ -4790,7 +5675,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4000,
+        5040,
         -160
       ],
       "id": "791557b6-5113-41aa-b134-8ae81864350b",
@@ -4817,8 +5702,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -496,
-        0
+        -1840,
+        -16
       ],
       "id": "8d9574ec-975e-4724-a561-0e4d57603596",
       "name": "Webhook",
@@ -4838,12 +5723,555 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -480,
-        -368
+        -848,
+        -384
       ],
       "id": "ce17ef5c-fe14-498c-9d8a-b53930c1f5aa",
       "name": "Webhook1",
       "webhookId": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee"
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "filter": {
+          "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}"
+        },
+        "options": {},
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        2672,
+        -208
+      ],
+      "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
+      "name": "Obtener info de lead",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNCKsSLcjBVDVID",
+          "mode": "list",
+          "cachedResultName": "Precios renovacion",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblNCKsSLcjBVDVID"
+        },
+        "filterByFormula": "=FIND(\"{{ $('Grupo').item.json.id }}\",{Record ID grupos})>0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -688,
+        -16
+      ],
+      "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
+      "name": "Precios renovacion",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f341c9d8-633f-43aa-bd6e-026f1d87d6db",
+              "name": "fecha_creacion_cliente",
+              "value": "={{ $('Clientes').item.json['Fecha min'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -880,
+        -16
+      ],
+      "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
+      "name": "fecha_creacion_cliente"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f341c9d8-633f-43aa-bd6e-026f1d87d6db",
+              "name": "fecha_disponible_precio_renovacion",
+              "value": "={{ $('Precios renovacion').item.json['Fecha disponible'] ?? '2050-01-31' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -240,
+        -112
+      ],
+      "id": "eded776a-4999-4cf5-8a75-21cef8d9d006",
+      "name": "fecha disponible"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6debd180-e9bc-4976-a3d6-d11b253afecc",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -496,
+        -16
+      ],
+      "id": "023db1c4-7a67-4833-81af-407461e9fe80",
+      "name": "existe?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "132d472f-4c6f-4eb9-97a7-5f22b8ccbd8c",
+              "leftValue": "={{ $('fecha_creacion_cliente').item.json.fecha_creacion_cliente }}",
+              "rightValue": "={{ $('fecha disponible').item.json.fecha_disponible_precio_renovacion }}",
+              "operator": {
+                "type": "dateTime",
+                "operation": "beforeOrEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        -32,
+        -112
+      ],
+      "id": "b63a8355-67c0-4e5b-89c6-6c9442e6e1e4",
+      "name": "solo si creacion de cliente es antes de fecha disponible de precio"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        176,
+        -112
+      ],
+      "id": "fbca6dbb-58ce-453c-95b2-5769a23587b2",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6debd180-e9bc-4976-a3d6-d11b253afecc",
+              "leftValue": "={{ $('Grupo').item?.json['1 mes - precio renovación'].toString() ?? \"No disponible\" }}",
+              "rightValue": "No disponible",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        400,
+        -112
+      ],
+      "id": "d03fb4e8-add6-4f83-ac82-2d16d2787efd",
+      "name": "tiene por lo menos precio mensual?"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "Precios",
+              "value": "=1 mes: No disponible\n2 meses: S/.{{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}\n3 meses: S/.{{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}\n6 meses: S/.{{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}\n12 meses: S/.{{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+              "type": "string"
+            },
+            {
+              "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
+              "name": "Precio_1_mes",
+              "value": "=No disponible",
+              "type": "string"
+            },
+            {
+              "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
+              "name": "Precio_2_meses",
+              "value": "=No disponible",
+              "type": "string"
+            },
+            {
+              "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
+              "name": "Precio_3_meses",
+              "value": "=No disponible",
+              "type": "string"
+            },
+            {
+              "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
+              "name": "Precio_6_meses",
+              "value": "=No disponible",
+              "type": "string"
+            },
+            {
+              "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
+              "name": "Precio_12_meses",
+              "value": "=No disponible",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        672,
+        240
+      ],
+      "id": "5e78f3b8-3154-40ef-84da-a000d79be981",
+      "name": "precios"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "Precios",
+              "value": "=1 mes: {{ $if(($('Limit').item?.json['1 mes - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['1 mes - precio renovación'] ?? \"No disponible\") }}\n2 meses: {{ $if(($('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\") }}\n3 meses: {{ $if(($('Limit').item?.json['3 meses - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['3 meses - precio renovación'] ?? \"No disponible\") }}\n6 meses: {{ $if(($('Limit').item?.json['6 meses - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['6 meses - precio renovación'] ?? \"No disponible\") }}\n12 meses: {{ $if(($('Limit').item?.json['12 meses - precio renovación'] ?? \"No disponible\")== \"No disponible\",\"No disponible\",\"S/.\" + $('Limit').item?.json['12 meses - precio renovación'] ?? \"No disponible\") }}",
+              "type": "string"
+            },
+            {
+              "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
+              "name": "Precio_1_mes",
+              "value": "={{ $('Limit').item?.json['1 mes - precio renovación'] ?? \"No disponible\" }}",
+              "type": "string"
+            },
+            {
+              "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
+              "name": "Precio_2_meses",
+              "value": "={{\n\n$if(\n\n($('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item?.json['2 meses - precio renovación']*2+\" soles~ s/.\" + $('Limit').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}",
+              "type": "string"
+            },
+            {
+              "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
+              "name": "Precio_3_meses",
+              "value": "={{\n\n$if(\n\n($('Limit').item?.json['3 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item.json['1 mes - precio renovación']*3+\" soles~ s/.\" + ($('Limit').item?.json['3 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}}",
+              "type": "string"
+            },
+            {
+              "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
+              "name": "Precio_6_meses",
+              "value": "={{\n\n$if(\n\n($('Limit').item?.json['6 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item.json['1 mes - precio renovación']*6+\" soles~ s/.\" + ($('Limit').item?.json['6 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 20% dsct. más de 1 mes gratis",
+              "type": "string"
+            },
+            {
+              "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
+              "name": "Precio_12_meses",
+              "value": "={{\n\n$if(\n\n($('Limit').item?.json['12 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item.json['1 mes - precio renovación']*12+\" soles~ s/.\" + ($('Limit').item?.json['12 meses - precio renovación'] ?? \"No disponible\") + \"*\"\n\n)\n}} 30% dsct. más de 3 meses gratis",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        672,
+        -208
+      ],
+      "id": "b54ae000-1a58-4b98-a283-1f3489ee7ce0",
+      "name": "precios3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "Precios",
+              "value": "=1 mes: No disponible\n2 meses: S/.{{ $('Grupo').item?.json['2 meses - precio renovación'] ?? \"No disponible\" }}\n3 meses: S/.{{ $('Grupo').item?.json['3 meses - precio renovación'] ?? \"No disponible\" }}\n6 meses: S/.{{ $('Grupo').item?.json['6 meses - precio renovación'] ?? \"No disponible\" }}\n12 meses: S/.{{ $('Grupo').item?.json['12 meses - precio renovación'] ?? \"No disponible\" }}",
+              "type": "string"
+            },
+            {
+              "id": "a6171914-e08f-4063-894d-8a5687aa3fde",
+              "name": "Precio_1_mes",
+              "value": "=No disponible",
+              "type": "string"
+            },
+            {
+              "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
+              "name": "Precio_2_meses",
+              "value": "=No disponible",
+              "type": "string"
+            },
+            {
+              "id": "219528a4-5736-4ae3-8f2d-564ae9c6f24c",
+              "name": "Precio_3_meses",
+              "value": "=No disponible",
+              "type": "string"
+            },
+            {
+              "id": "c4ca0544-c8fb-4389-9da0-8cf10fc654b8",
+              "name": "Precio_6_meses",
+              "value": "=No disponible",
+              "type": "string"
+            },
+            {
+              "id": "de7058d2-3b1c-45d2-84d6-e293a66e61f1",
+              "name": "Precio_12_meses",
+              "value": "=No disponible",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        672,
+        0
+      ],
+      "id": "4571803b-4ece-4e49-acb1-60f78184297c",
+      "name": "precios1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65754,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        6576,
+        -192
+      ],
+      "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
+      "name": "Enviar mensaje6",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65756,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        6576,
+        0
+      ],
+      "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
+      "name": "Enviar mensaje7",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65758,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        6576,
+        192
+      ],
+      "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
+      "name": "Enviar mensaje8",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "prkc7a6zgmy2biw",
+        "table": "mf1zt2lexmn446a",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "id_escenario_n8n",
+              "fieldValue": "={{ $execution.id }}"
+            },
+            {
+              "fieldName": "id_automatizacion_n8n",
+              "fieldValue": "={{ $workflow.id }}"
+            },
+            {
+              "fieldName": "id_detalles_venta_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+            },
+            {
+              "fieldName": "id_cliente_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
+            },
+            {
+              "fieldName": "id_grupo_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
+            },
+            {
+              "fieldName": "id_contact_kommo",
+              "fieldValue": "="
+            },
+            {
+              "fieldName": "id_lead_kommo",
+              "fieldValue": "="
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        3264,
+        -96
+      ],
+      "id": "cd74891b-2961-4751-a371-640f3faed8ea",
+      "name": "Create a row1",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d04257d5-740a-4c36-8711-6dd69fc55020",
+              "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+              "rightValue": 143,
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2976,
+        -208
+      ],
+      "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
+      "name": "no esta en etapa perdida"
     }
   ],
   "pinData": {
@@ -4944,18 +6372,18 @@
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
-            "x-forwarded-for": "54.165.143.43",
+            "x-forwarded-for": "44.195.84.225",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "c2kMgHdjTIuEf0Q6BT7zVQ",
-            "x-real-ip": "54.165.143.43",
-            "x-request-start": "1767330365646"
+            "x-railway-request-id": "WlZAs33NRHi7SnN2ezItjw",
+            "x-real-ip": "44.195.84.225",
+            "x-request-start": "1767417096254"
           },
           "params": {},
           "query": {},
           "body": {
-            "recordId": "recmtobfc6ZH3QvoR",
+            "recordId": "recbsMbqgPg3UGSsH",
             "Tipo": "7_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
@@ -4989,6 +6417,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2026-01-02T06:21:43.168Z",
-  "versionId": "6d7efb41-e46a-45b5-8d22-b14e60824258"
+  "updatedAt": "2026-01-03T22:08:01.767Z",
+  "versionId": "b51a3dab-bec6-4ebf-af74-7d9576ee12a4"
 }
