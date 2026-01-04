@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-02T23:06:39.566Z",
-    "createdAt": "2026-01-02T23:05:33.090Z",
-    "versionId": "fcddcab5-2c27-4504-90eb-6193e8928070",
+    "updatedAt": "2026-01-03T16:50:24.989Z",
+    "createdAt": "2026-01-03T16:50:22.671Z",
+    "versionId": "c484c70f-62f4-4eea-a6ab-fb8052c41405",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -170,8 +170,8 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          3888,
-          832
+          3920,
+          592
         ],
         "id": "4fde67ee-e9b2-438b-8081-b89dc31e540c",
         "name": "Send a message",
@@ -1830,7 +1830,7 @@
             "mappingMode": "defineBelow",
             "value": {
               "PEN": "={{ $('variables_2').item.json.monto_final_depositado }}",
-              "Clientes": "=recdThPXpvHsGcm6H",
+              "Clientes": "={{ $('variables_2').item.json.id_cliente_airtable }}",
               "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
               "Fecha de Inicio": "={{ $('variables_3').item.json.fecha_de_inicio }}",
               "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
@@ -2019,15 +2019,41 @@
                 "removed": true
               },
               {
-                "id": "Evidencia",
-                "displayName": "Evidencia",
+                "id": "Retirados",
+                "displayName": "Retirados",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
                 "display": true,
-                "type": "array",
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Vacaciones",
+                    "value": "Vacaciones"
+                  },
+                  {
+                    "name": "No conforme",
+                    "value": "No conforme"
+                  },
+                  {
+                    "name": "cambio horario",
+                    "value": "cambio horario"
+                  },
+                  {
+                    "name": "presencial",
+                    "value": "presencial"
+                  },
+                  {
+                    "name": "falta presupuesto",
+                    "value": "falta presupuesto"
+                  },
+                  {
+                    "name": "motivos personales",
+                    "value": "motivos personales"
+                  }
+                ],
                 "readOnly": false,
-                "removed": true
+                "removed": false
               },
               {
                 "id": "ID",
@@ -2627,17 +2653,6 @@
                 "removed": true
               },
               {
-                "id": "test-1",
-                "displayName": "test-1",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "boolean",
-                "readOnly": false,
-                "removed": true
-              },
-              {
                 "id": "Renovado",
                 "displayName": "Renovado",
                 "required": false,
@@ -2658,6 +2673,72 @@
                 "type": "number",
                 "readOnly": false,
                 "removed": true
+              },
+              {
+                "id": "No renovo",
+                "displayName": "No renovo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 3 dias antes",
+                "displayName": "Fin suscripción - 3 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 1 dias antes",
+                "displayName": "Fin suscripción - 1 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 5 dias despues",
+                "displayName": "Fin suscripción - 5 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 30 dias despues",
+                "displayName": "Fin suscripción - 30 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 60 dias despues",
+                "displayName": "Fin suscripción - 60 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -2893,15 +2974,41 @@
                 "removed": true
               },
               {
-                "id": "Evidencia",
-                "displayName": "Evidencia",
+                "id": "Retirados",
+                "displayName": "Retirados",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
                 "display": true,
-                "type": "array",
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Vacaciones",
+                    "value": "Vacaciones"
+                  },
+                  {
+                    "name": "No conforme",
+                    "value": "No conforme"
+                  },
+                  {
+                    "name": "cambio horario",
+                    "value": "cambio horario"
+                  },
+                  {
+                    "name": "presencial",
+                    "value": "presencial"
+                  },
+                  {
+                    "name": "falta presupuesto",
+                    "value": "falta presupuesto"
+                  },
+                  {
+                    "name": "motivos personales",
+                    "value": "motivos personales"
+                  }
+                ],
                 "readOnly": false,
-                "removed": true
+                "removed": false
               },
               {
                 "id": "ID",
@@ -3501,17 +3608,6 @@
                 "removed": true
               },
               {
-                "id": "test-1",
-                "displayName": "test-1",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "boolean",
-                "readOnly": false,
-                "removed": true
-              },
-              {
                 "id": "Renovado",
                 "displayName": "Renovado",
                 "required": false,
@@ -3531,6 +3627,72 @@
                 "display": true,
                 "type": "number",
                 "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "No renovo",
+                "displayName": "No renovo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 3 dias antes",
+                "displayName": "Fin suscripción - 3 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 1 dias antes",
+                "displayName": "Fin suscripción - 1 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 5 dias despues",
+                "displayName": "Fin suscripción - 5 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 30 dias despues",
+                "displayName": "Fin suscripción - 30 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 60 dias despues",
+                "displayName": "Fin suscripción - 60 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
                 "removed": false
               }
             ],
@@ -3644,8 +3806,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          2880,
-          480
+          2864,
+          400
         ],
         "id": "777b42e2-3aed-4593-b4f1-120a88ae814f",
         "name": "Switch1"
@@ -3688,8 +3850,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          3632,
-          432
+          3616,
+          352
         ],
         "id": "e19510f7-d3c5-421a-8296-babbdeeb0e14",
         "name": "Split Out2"
@@ -3723,8 +3885,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3840,
-          432
+          3824,
+          352
         ],
         "id": "80ace516-5ebf-4bce-9791-c35e531e20ce",
         "name": "Edit Fields1"
@@ -4604,8 +4766,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          3184,
-          272
+          3168,
+          192
         ],
         "id": "257666fa-5ba1-41d7-a8f7-2e56dd6c79b7",
         "name": "crear registro - detalles venta2",
@@ -5478,8 +5640,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          3184,
-          608
+          3168,
+          528
         ],
         "id": "ba8f94b2-f98d-4bad-acfb-9a762d5fcce8",
         "name": "crear registro - detalles venta3",
@@ -5547,8 +5709,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3424,
-          432
+          3408,
+          352
         ],
         "id": "8c6b2d4f-a873-477e-b2f4-7e053fb577bc",
         "name": "variables_5"
@@ -5578,6 +5740,10 @@
               },
               {
                 "fieldName": "id_cliente_encontrado"
+              },
+              {
+                "fieldName": "Cel estudiante",
+                "fieldValue": "={{ $('variables_1').item.json.cel_estudiante }}"
               }
             ]
           }
@@ -5585,8 +5751,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3680,
-          832
+          3712,
+          592
         ],
         "id": "43142dad-6cba-414f-a647-91037fd87256",
         "name": "Create a row",
@@ -5624,6 +5790,10 @@
               {
                 "fieldName": "id_cliente_encontrado",
                 "fieldValue": "={{ $('variables_2').item.json.id_cliente_airtable }}"
+              },
+              {
+                "fieldName": "Cel estudiante",
+                "fieldValue": "={{ $('variables_1').item.json.cel_estudiante }}"
               }
             ]
           }
@@ -6201,8 +6371,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5248,
-          64
+          5536,
+          368
         ],
         "id": "76069d10-6ce8-4a24-825c-d119ec3169e3",
         "name": "Enviar email"
@@ -6267,8 +6437,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          4992,
-          160
+          5280,
+          464
         ],
         "id": "997043c4-1298-449f-925c-66090490ed14",
         "name": "Switch2"
@@ -6311,11 +6481,462 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5248,
-          240
+          5536,
+          544
         ],
         "id": "badd326d-8efe-4ed0-82f6-7976faaf2c11",
         "name": "Enviar email1"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65752,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          8768,
+          384
+        ],
+        "id": "35357314-0a64-433e-b731-ee0066c0dd2e",
+        "name": "Enviar mensaje",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "contacts",
+          "filter": {
+            "query": "={{ $('variables_1').item.json.cel_estudiante }}"
+          },
+          "options": {
+            "with": [
+              "leads"
+            ]
+          },
+          "limit": 1
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          5776,
+          464
+        ],
+        "id": "6e3e0038-a3b6-4211-a453-188099ca40a5",
+        "name": "Get list of contacts",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "fc632a6e-e3be-4b43-8535-83bfe0fa949c",
+                "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "number",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          5984,
+          464
+        ],
+        "id": "45f6237e-f977-48a5-abe0-1a104a5c21ce",
+        "name": "existe contacto?"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "e76c1e07-8bf3-4d90-b985-7702d222ece7",
+                "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "array",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          6800,
+          384
+        ],
+        "id": "ab21f045-adae-4687-a1a3-5a22a2132a5d",
+        "name": "tiene leads?"
+      },
+      {
+        "parameters": {
+          "resource": "contacts",
+          "operation": "createContacts",
+          "collection": {
+            "contact": [
+              {
+                "name": "={{ $('variables_1').item.json.nombre_estudiante }}",
+                "custom_fields_values": {
+                  "custom_field": [
+                    {
+                      "data": "{\"id\":1988338,\"type\":\"select\"}",
+                      "value": "=Estudiante"
+                    },
+                    {
+                      "data": "{\"id\":1303680,\"type\":\"multitext\"}",
+                      "value": "={{ $('variables_1').item.json.cel_estudiante }}"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          6256,
+          672
+        ],
+        "id": "665fa8d4-5bd8-46f1-ae8e-f35e39a06fe3",
+        "name": "Create new contacts",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "operation": "createLeads",
+          "collection": {
+            "lead": [
+              {
+                "name": "={{ $('variables_1').item.json.nombre_estudiante }}",
+                "pipeline_id": 8756191,
+                "status_id": 68677523,
+                "_embedded": {
+                  "contacts": [
+                    {
+                      "id": {
+                        "contact": [
+                          {
+                            "id": "={{ $json.id_contact }}"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          7824,
+          528
+        ],
+        "id": "53f1e2b7-1110-4ff7-b910-3e3d230b3cd4",
+        "name": "Create new leads",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+                "name": "id_contact",
+                "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          7248,
+          480
+        ],
+        "id": "60de4aa5-62ff-4575-9286-96789a6c246d",
+        "name": "id_contact"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+                "name": "id_contact",
+                "value": "={{ $json._embedded.contacts[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          7040,
+          672
+        ],
+        "id": "4c00f515-9fa1-478e-8bb5-2cc9ba8ba26e",
+        "name": "id_contact1"
+      },
+      {
+        "parameters": {
+          "resource": "contacts",
+          "operation": "updateContacts",
+          "collection": {
+            "contact": [
+              {
+                "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+                "custom_fields_values": {
+                  "custom_field": [
+                    {
+                      "data": "{\"id\":1988338,\"type\":\"select\"}",
+                      "value": "=Estudiante"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          6448,
+          384
+        ],
+        "id": "5fcf9919-d46b-4772-b6ff-1d2973392e86",
+        "name": "Update contacts",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "id_contacto",
+                "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+                "type": "number"
+              },
+              {
+                "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+                "name": "id_lead",
+                "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          8272,
+          256
+        ],
+        "id": "9dc557cb-7838-40ce-8e2d-fbb05ec16278",
+        "name": "contact_lead"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "id_contacto",
+                "value": "={{ $('id_contact2').item.json.id_contact }}",
+                "type": "number"
+              },
+              {
+                "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+                "name": "id_lead",
+                "value": "={{ $json._embedded.leads[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          8064,
+          528
+        ],
+        "id": "52ba2f07-8af0-4d3c-9f70-608bfc13d3d1",
+        "name": "contact_lead1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+                "name": "id_contact",
+                "value": "={{ $json.id_contact }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          7568,
+          528
+        ],
+        "id": "f32c16de-3602-4301-b89d-491c24d9bf2f",
+        "name": "id_contact2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "id_contacto",
+                "value": "={{ $json.id_contacto }}",
+                "type": "number"
+              },
+              {
+                "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+                "name": "id_lead",
+                "value": "={{ $json.id_lead }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          8528,
+          384
+        ],
+        "id": "6dd04422-f0af-47ad-97f1-b598bd83eed2",
+        "name": "Variables_3"
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "filter": {
+            "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}"
+          },
+          "options": {},
+          "limit": 1
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          7232,
+          256
+        ],
+        "id": "638be66b-cc6b-4c09-b621-39bdc7ad24de",
+        "name": "Obtener info de lead",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "80f066bb-bb15-46f9-b9c3-9ab5bbd0ba4f",
+                "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+                "rightValue": 143,
+                "operator": {
+                  "type": "number",
+                  "operation": "notEquals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          7584,
+          256
+        ],
+        "id": "d9ff8e79-9e79-4b89-967f-6e15ecc0b85d",
+        "name": "no esta en etapa perdida"
       }
     ],
     "connections": {
@@ -6911,14 +7532,204 @@
             }
           ]
         ]
+      },
+      "Enviar email": {
+        "main": [
+          [
+            {
+              "node": "Get list of contacts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar email1": {
+        "main": [
+          [
+            {
+              "node": "Get list of contacts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get list of contacts": {
+        "main": [
+          [
+            {
+              "node": "existe contacto?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "existe contacto?": {
+        "main": [
+          [
+            {
+              "node": "Update contacts",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create new contacts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "tiene leads?": {
+        "main": [
+          [
+            {
+              "node": "Obtener info de lead",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "id_contact",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create new contacts": {
+        "main": [
+          [
+            {
+              "node": "id_contact1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create new leads": {
+        "main": [
+          [
+            {
+              "node": "contact_lead1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "id_contact": {
+        "main": [
+          [
+            {
+              "node": "id_contact2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "id_contact1": {
+        "main": [
+          [
+            {
+              "node": "id_contact2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Update contacts": {
+        "main": [
+          [
+            {
+              "node": "tiene leads?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "contact_lead": {
+        "main": [
+          [
+            {
+              "node": "Variables_3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "contact_lead1": {
+        "main": [
+          [
+            {
+              "node": "Variables_3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "id_contact2": {
+        "main": [
+          [
+            {
+              "node": "Create new leads",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Obtener info de lead": {
+        "main": [
+          [
+            {
+              "node": "no esta en etapa perdida",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "no esta en etapa perdida": {
+        "main": [
+          [
+            {
+              "node": "contact_lead",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Variables_3": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version fcddcab5",
+    "name": "Version c484c70f",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "fcddcab5-2c27-4504-90eb-6193e8928070",
+  "activeVersionId": "c484c70f-62f4-4eea-a6ab-fb8052c41405",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -7512,6 +8323,196 @@
           }
         ]
       ]
+    },
+    "Enviar email": {
+      "main": [
+        [
+          {
+            "node": "Get list of contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar email1": {
+      "main": [
+        [
+          {
+            "node": "Get list of contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get list of contacts": {
+      "main": [
+        [
+          {
+            "node": "existe contacto?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe contacto?": {
+      "main": [
+        [
+          {
+            "node": "Update contacts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create new contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tiene leads?": {
+      "main": [
+        [
+          {
+            "node": "Obtener info de lead",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "id_contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new contacts": {
+      "main": [
+        [
+          {
+            "node": "id_contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new leads": {
+      "main": [
+        [
+          {
+            "node": "contact_lead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact": {
+      "main": [
+        [
+          {
+            "node": "id_contact2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact1": {
+      "main": [
+        [
+          {
+            "node": "id_contact2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update contacts": {
+      "main": [
+        [
+          {
+            "node": "tiene leads?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contact_lead": {
+      "main": [
+        [
+          {
+            "node": "Variables_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contact_lead1": {
+      "main": [
+        [
+          {
+            "node": "Variables_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact2": {
+      "main": [
+        [
+          {
+            "node": "Create new leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener info de lead": {
+      "main": [
+        [
+          {
+            "node": "no esta en etapa perdida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "no esta en etapa perdida": {
+      "main": [
+        [
+          {
+            "node": "contact_lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Variables_3": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-21T17:27:18.859Z",
@@ -7686,8 +8687,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        3888,
-        832
+        3920,
+        592
       ],
       "id": "4fde67ee-e9b2-438b-8081-b89dc31e540c",
       "name": "Send a message",
@@ -9346,7 +10347,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "PEN": "={{ $('variables_2').item.json.monto_final_depositado }}",
-            "Clientes": "=recdThPXpvHsGcm6H",
+            "Clientes": "={{ $('variables_2').item.json.id_cliente_airtable }}",
             "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
             "Fecha de Inicio": "={{ $('variables_3').item.json.fecha_de_inicio }}",
             "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
@@ -9535,15 +10536,41 @@
               "removed": true
             },
             {
-              "id": "Evidencia",
-              "displayName": "Evidencia",
+              "id": "Retirados",
+              "displayName": "Retirados",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "array",
+              "type": "options",
+              "options": [
+                {
+                  "name": "Vacaciones",
+                  "value": "Vacaciones"
+                },
+                {
+                  "name": "No conforme",
+                  "value": "No conforme"
+                },
+                {
+                  "name": "cambio horario",
+                  "value": "cambio horario"
+                },
+                {
+                  "name": "presencial",
+                  "value": "presencial"
+                },
+                {
+                  "name": "falta presupuesto",
+                  "value": "falta presupuesto"
+                },
+                {
+                  "name": "motivos personales",
+                  "value": "motivos personales"
+                }
+              ],
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "ID",
@@ -10143,17 +11170,6 @@
               "removed": true
             },
             {
-              "id": "test-1",
-              "displayName": "test-1",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "boolean",
-              "readOnly": false,
-              "removed": true
-            },
-            {
               "id": "Renovado",
               "displayName": "Renovado",
               "required": false,
@@ -10174,6 +11190,72 @@
               "type": "number",
               "readOnly": false,
               "removed": true
+            },
+            {
+              "id": "No renovo",
+              "displayName": "No renovo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 3 dias antes",
+              "displayName": "Fin suscripción - 3 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 1 dias antes",
+              "displayName": "Fin suscripción - 1 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 5 dias despues",
+              "displayName": "Fin suscripción - 5 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 30 dias despues",
+              "displayName": "Fin suscripción - 30 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 60 dias despues",
+              "displayName": "Fin suscripción - 60 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -10409,15 +11491,41 @@
               "removed": true
             },
             {
-              "id": "Evidencia",
-              "displayName": "Evidencia",
+              "id": "Retirados",
+              "displayName": "Retirados",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "array",
+              "type": "options",
+              "options": [
+                {
+                  "name": "Vacaciones",
+                  "value": "Vacaciones"
+                },
+                {
+                  "name": "No conforme",
+                  "value": "No conforme"
+                },
+                {
+                  "name": "cambio horario",
+                  "value": "cambio horario"
+                },
+                {
+                  "name": "presencial",
+                  "value": "presencial"
+                },
+                {
+                  "name": "falta presupuesto",
+                  "value": "falta presupuesto"
+                },
+                {
+                  "name": "motivos personales",
+                  "value": "motivos personales"
+                }
+              ],
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "ID",
@@ -11017,17 +12125,6 @@
               "removed": true
             },
             {
-              "id": "test-1",
-              "displayName": "test-1",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "boolean",
-              "readOnly": false,
-              "removed": true
-            },
-            {
               "id": "Renovado",
               "displayName": "Renovado",
               "required": false,
@@ -11047,6 +12144,72 @@
               "display": true,
               "type": "number",
               "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No renovo",
+              "displayName": "No renovo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 3 dias antes",
+              "displayName": "Fin suscripción - 3 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 1 dias antes",
+              "displayName": "Fin suscripción - 1 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 5 dias despues",
+              "displayName": "Fin suscripción - 5 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 30 dias despues",
+              "displayName": "Fin suscripción - 30 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 60 dias despues",
+              "displayName": "Fin suscripción - 60 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
               "removed": false
             }
           ],
@@ -11160,8 +12323,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        2880,
-        480
+        2864,
+        400
       ],
       "id": "777b42e2-3aed-4593-b4f1-120a88ae814f",
       "name": "Switch1"
@@ -11204,8 +12367,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3632,
-        432
+        3616,
+        352
       ],
       "id": "e19510f7-d3c5-421a-8296-babbdeeb0e14",
       "name": "Split Out2"
@@ -11239,8 +12402,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3840,
-        432
+        3824,
+        352
       ],
       "id": "80ace516-5ebf-4bce-9791-c35e531e20ce",
       "name": "Edit Fields1"
@@ -12120,8 +13283,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3184,
-        272
+        3168,
+        192
       ],
       "id": "257666fa-5ba1-41d7-a8f7-2e56dd6c79b7",
       "name": "crear registro - detalles venta2",
@@ -12994,8 +14157,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3184,
-        608
+        3168,
+        528
       ],
       "id": "ba8f94b2-f98d-4bad-acfb-9a762d5fcce8",
       "name": "crear registro - detalles venta3",
@@ -13063,8 +14226,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3424,
-        432
+        3408,
+        352
       ],
       "id": "8c6b2d4f-a873-477e-b2f4-7e053fb577bc",
       "name": "variables_5"
@@ -13094,6 +14257,10 @@
             },
             {
               "fieldName": "id_cliente_encontrado"
+            },
+            {
+              "fieldName": "Cel estudiante",
+              "fieldValue": "={{ $('variables_1').item.json.cel_estudiante }}"
             }
           ]
         }
@@ -13101,8 +14268,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3680,
-        832
+        3712,
+        592
       ],
       "id": "43142dad-6cba-414f-a647-91037fd87256",
       "name": "Create a row",
@@ -13140,6 +14307,10 @@
             {
               "fieldName": "id_cliente_encontrado",
               "fieldValue": "={{ $('variables_2').item.json.id_cliente_airtable }}"
+            },
+            {
+              "fieldName": "Cel estudiante",
+              "fieldValue": "={{ $('variables_1').item.json.cel_estudiante }}"
             }
           ]
         }
@@ -13717,8 +14888,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5248,
-        64
+        5536,
+        368
       ],
       "id": "76069d10-6ce8-4a24-825c-d119ec3169e3",
       "name": "Enviar email"
@@ -13783,8 +14954,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        4992,
-        160
+        5280,
+        464
       ],
       "id": "997043c4-1298-449f-925c-66090490ed14",
       "name": "Switch2"
@@ -13827,70 +14998,571 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5248,
-        240
+        5536,
+        544
       ],
       "id": "badd326d-8efe-4ed0-82f6-7976faaf2c11",
       "name": "Enviar email1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65752,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        8768,
+        384
+      ],
+      "id": "35357314-0a64-433e-b731-ee0066c0dd2e",
+      "name": "Enviar mensaje",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "contacts",
+        "filter": {
+          "query": "={{ $('variables_1').item.json.cel_estudiante }}"
+        },
+        "options": {
+          "with": [
+            "leads"
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        5776,
+        464
+      ],
+      "id": "6e3e0038-a3b6-4211-a453-188099ca40a5",
+      "name": "Get list of contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "fc632a6e-e3be-4b43-8535-83bfe0fa949c",
+              "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        5984,
+        464
+      ],
+      "id": "45f6237e-f977-48a5-abe0-1a104a5c21ce",
+      "name": "existe contacto?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e76c1e07-8bf3-4d90-b985-7702d222ece7",
+              "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        6800,
+        384
+      ],
+      "id": "ab21f045-adae-4687-a1a3-5a22a2132a5d",
+      "name": "tiene leads?"
+    },
+    {
+      "parameters": {
+        "resource": "contacts",
+        "operation": "createContacts",
+        "collection": {
+          "contact": [
+            {
+              "name": "={{ $('variables_1').item.json.nombre_estudiante }}",
+              "custom_fields_values": {
+                "custom_field": [
+                  {
+                    "data": "{\"id\":1988338,\"type\":\"select\"}",
+                    "value": "=Estudiante"
+                  },
+                  {
+                    "data": "{\"id\":1303680,\"type\":\"multitext\"}",
+                    "value": "={{ $('variables_1').item.json.cel_estudiante }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        6256,
+        672
+      ],
+      "id": "665fa8d4-5bd8-46f1-ae8e-f35e39a06fe3",
+      "name": "Create new contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "operation": "createLeads",
+        "collection": {
+          "lead": [
+            {
+              "name": "={{ $('variables_1').item.json.nombre_estudiante }}",
+              "pipeline_id": 8756191,
+              "status_id": 68677523,
+              "_embedded": {
+                "contacts": [
+                  {
+                    "id": {
+                      "contact": [
+                        {
+                          "id": "={{ $json.id_contact }}"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        7824,
+        528
+      ],
+      "id": "53f1e2b7-1110-4ff7-b910-3e3d230b3cd4",
+      "name": "Create new leads",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7248,
+        480
+      ],
+      "id": "60de4aa5-62ff-4575-9286-96789a6c246d",
+      "name": "id_contact"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $json._embedded.contacts[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7040,
+        672
+      ],
+      "id": "4c00f515-9fa1-478e-8bb5-2cc9ba8ba26e",
+      "name": "id_contact1"
+    },
+    {
+      "parameters": {
+        "resource": "contacts",
+        "operation": "updateContacts",
+        "collection": {
+          "contact": [
+            {
+              "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "custom_fields_values": {
+                "custom_field": [
+                  {
+                    "data": "{\"id\":1988338,\"type\":\"select\"}",
+                    "value": "=Estudiante"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        6448,
+        384
+      ],
+      "id": "5fcf9919-d46b-4772-b6ff-1d2973392e86",
+      "name": "Update contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        8272,
+        256
+      ],
+      "id": "9dc557cb-7838-40ce-8e2d-fbb05ec16278",
+      "name": "contact_lead"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $('id_contact2').item.json.id_contact }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $json._embedded.leads[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        8064,
+        528
+      ],
+      "id": "52ba2f07-8af0-4d3c-9f70-608bfc13d3d1",
+      "name": "contact_lead1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $json.id_contact }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7568,
+        528
+      ],
+      "id": "f32c16de-3602-4301-b89d-491c24d9bf2f",
+      "name": "id_contact2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $json.id_contacto }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $json.id_lead }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        8528,
+        384
+      ],
+      "id": "6dd04422-f0af-47ad-97f1-b598bd83eed2",
+      "name": "Variables_3"
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "filter": {
+          "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}"
+        },
+        "options": {},
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        7232,
+        256
+      ],
+      "id": "638be66b-cc6b-4c09-b621-39bdc7ad24de",
+      "name": "Obtener info de lead",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "80f066bb-bb15-46f9-b9c3-9ab5bbd0ba4f",
+              "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+              "rightValue": 143,
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        7584,
+        256
+      ],
+      "id": "d9ff8e79-9e79-4b89-967f-6e15ecc0b85d",
+      "name": "no esta en etapa perdida"
     }
   ],
   "pinData": {
     "Tally Trigger": [
       {
         "json": {
-          "id": "EkoW674",
+          "id": "pbYKrxE",
           "formId": "A7K61k",
           "formName": "Bioenglish - renovacion",
-          "respondentId": "YKxEY0",
-          "createdAt": "2026-01-02T18:32:16.000Z",
+          "respondentId": "WOzdMkj",
+          "createdAt": "2026-01-03T02:59:31.000Z",
           "question_zqjAMq": {
             "label": "Nombre del estudiante\n",
-            "value": "Leo Matias Machacuay Laura ",
+            "value": "Bethsy Daniela Mamani Callohuari",
             "type": "INPUT_TEXT"
           },
           "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
             "label": "nombre_estudiante",
-            "value": "Leo Matias Machacuay Laura ",
+            "value": "Bethsy Daniela Mamani Callohuari",
             "type": "HIDDEN_FIELDS"
           },
           "question_d6Eo0A": {
             "label": "Celular del estudiante\n",
-            "value": "+51977671198",
+            "value": "+51937388824",
             "type": "INPUT_PHONE_NUMBER"
           },
           "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
             "label": "celular_estudiante",
-            "value": "+51977671198",
+            "value": "+51937388824",
             "type": "HIDDEN_FIELDS"
           },
           "question_jy6Vg4": {
             "label": "id_cliente_airtable",
-            "value": "recJCRZsZhDeHJ5XX",
+            "value": "recrgQU85tKmhXVi3",
             "type": "INPUT_TEXT"
           },
           "question_lyeEgv_fc65a15c-b459-43f2-8bdd-2ba80612f4fa": {
             "label": "id_cliente_airtable",
-            "value": "recJCRZsZhDeHJ5XX",
+            "value": "recrgQU85tKmhXVi3",
             "type": "HIDDEN_FIELDS"
           },
           "question_5zbY9d": {
             "label": "Edad del estudiante (indica sólo el número)",
-            "value": 10,
+            "value": 12,
             "type": "INPUT_NUMBER"
           },
           "question_pKrE8Z": {
             "label": "Meses a renovar",
-            "value": "1",
+            "value": "12",
             "type": "DROPDOWN"
           },
           "question_YQPbGd": {
             "label": "Comprobante de pago\n",
-            "value": "https://storage.tally.so/private/IMG-20260102-WA0015.jpg?id=rGpr4v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJHcHI0diIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NzM3ODczNn0.ZwS9xfEJ5ES0NOqlzq8R3tq-usPTRZOPI83wkC6hbfc&signature=8c73ea00c8782a699032dc6a7d912fc15da657732d4daa453db590c68e99e3d9",
+            "value": "https://storage.tally.so/private/WhatsApp-Image-2025-12-25-at-12.54.51-PM.jpeg?id=NMg2Mb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5NZzJNYiIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NzQwOTE3Mn0.FjjYnh2SYvX7XNhYQf1Nkp2L81smFGGmulMZMympJXI&signature=5ecd9ab51ac4f904cc2a5775717f242f7637526998dae2a712dda348372cafca",
             "type": "FILE_UPLOAD"
           }
         },
         "pairedItem": {
           "item": 0
+        }
+      }
+    ],
+    "Create new contacts": [
+      {
+        "json": {
+          "_links": {
+            "self": {
+              "href": "https://bioenglish22.kommo.com/api/v4/contacts"
+            }
+          },
+          "_embedded": {
+            "contacts": [
+              {
+                "id": 28116270,
+                "is_deleted": false,
+                "is_unsorted": false,
+                "request_id": "0",
+                "_links": {
+                  "self": {
+                    "href": "https://bioenglish22.kommo.com/api/v4/contacts/28116270"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "Create new leads": [
+      {
+        "json": {
+          "_links": {
+            "self": {
+              "href": "https://bioenglish22.kommo.com/api/v4/leads"
+            }
+          },
+          "_embedded": {
+            "leads": [
+              {
+                "id": 24581270,
+                "request_id": "0",
+                "_links": {
+                  "self": {
+                    "href": "https://bioenglish22.kommo.com/api/v4/leads/24581270"
+                  }
+                }
+              }
+            ]
+          }
         }
       }
     ]
@@ -13916,11 +15588,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "nGpzA2"
+      "webhookId": "wbeldL"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-02T23:06:36.594Z",
-  "versionId": "fcddcab5-2c27-4504-90eb-6193e8928070"
+  "updatedAt": "2026-01-03T16:50:22.662Z",
+  "versionId": "c484c70f-62f4-4eea-a6ab-fb8052c41405"
 }
