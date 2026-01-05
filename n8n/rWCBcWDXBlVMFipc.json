@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-03T16:50:24.989Z",
-    "createdAt": "2026-01-03T16:50:22.671Z",
-    "versionId": "c484c70f-62f4-4eea-a6ab-fb8052c41405",
+    "updatedAt": "2026-01-04T23:44:22.256Z",
+    "createdAt": "2026-01-04T23:44:20.020Z",
+    "versionId": "48d62f77-eb23-4ac8-9311-b11a8e74f7ef",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -6620,10 +6620,6 @@
                 "custom_fields_values": {
                   "custom_field": [
                     {
-                      "data": "{\"id\":1988338,\"type\":\"select\"}",
-                      "value": "=Estudiante"
-                    },
-                    {
                       "data": "{\"id\":1303680,\"type\":\"multitext\"}",
                       "value": "={{ $('variables_1').item.json.cel_estudiante }}"
                     }
@@ -7725,11 +7721,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version c484c70f",
+    "name": "Version 48d62f77",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "c484c70f-62f4-4eea-a6ab-fb8052c41405",
+  "activeVersionId": "48d62f77-eb23-4ac8-9311-b11a8e74f7ef",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -15137,10 +15133,6 @@
               "custom_fields_values": {
                 "custom_field": [
                   {
-                    "data": "{\"id\":1988338,\"type\":\"select\"}",
-                    "value": "=Estudiante"
-                  },
-                  {
                     "data": "{\"id\":1303680,\"type\":\"multitext\"}",
                     "value": "={{ $('variables_1').item.json.cel_estudiante }}"
                   }
@@ -15457,6 +15449,56 @@
     }
   ],
   "pinData": {
+    "Create new contacts": [
+      {
+        "json": {
+          "_links": {
+            "self": {
+              "href": "https://bioenglish22.kommo.com/api/v4/contacts"
+            }
+          },
+          "_embedded": {
+            "contacts": [
+              {
+                "id": 28116270,
+                "is_deleted": false,
+                "is_unsorted": false,
+                "request_id": "0",
+                "_links": {
+                  "self": {
+                    "href": "https://bioenglish22.kommo.com/api/v4/contacts/28116270"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "Create new leads": [
+      {
+        "json": {
+          "_links": {
+            "self": {
+              "href": "https://bioenglish22.kommo.com/api/v4/leads"
+            }
+          },
+          "_embedded": {
+            "leads": [
+              {
+                "id": 24581270,
+                "request_id": "0",
+                "_links": {
+                  "self": {
+                    "href": "https://bioenglish22.kommo.com/api/v4/leads/24581270"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
     "Tally Trigger": [
       {
         "json": {
@@ -15515,56 +15557,6 @@
           "item": 0
         }
       }
-    ],
-    "Create new contacts": [
-      {
-        "json": {
-          "_links": {
-            "self": {
-              "href": "https://bioenglish22.kommo.com/api/v4/contacts"
-            }
-          },
-          "_embedded": {
-            "contacts": [
-              {
-                "id": 28116270,
-                "is_deleted": false,
-                "is_unsorted": false,
-                "request_id": "0",
-                "_links": {
-                  "self": {
-                    "href": "https://bioenglish22.kommo.com/api/v4/contacts/28116270"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    ],
-    "Create new leads": [
-      {
-        "json": {
-          "_links": {
-            "self": {
-              "href": "https://bioenglish22.kommo.com/api/v4/leads"
-            }
-          },
-          "_embedded": {
-            "leads": [
-              {
-                "id": 24581270,
-                "request_id": "0",
-                "_links": {
-                  "self": {
-                    "href": "https://bioenglish22.kommo.com/api/v4/leads/24581270"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
     ]
   },
   "repo_name": "n8n_backups",
@@ -15588,11 +15580,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "wbeldL"
+      "webhookId": "mKxMbM"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-03T16:50:22.662Z",
-  "versionId": "c484c70f-62f4-4eea-a6ab-fb8052c41405"
+  "updatedAt": "2026-01-04T23:44:20.007Z",
+  "versionId": "48d62f77-eb23-4ac8-9311-b11a8e74f7ef"
 }
