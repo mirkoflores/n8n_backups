@@ -1,0 +1,1273 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-04T23:50:19.300Z",
+    "createdAt": "2026-01-04T23:50:18.069Z",
+    "versionId": "808efef4-9ead-4912-b7bb-6cc8525af367",
+    "workflowId": "FUqVaG3kGGb2Eqpm",
+    "nodes": [
+      {
+        "parameters": {
+          "resource": "contacts",
+          "operation": "createContacts",
+          "collection": {
+            "contact": [
+              {
+                "name": "={{ $('Start').item.json.nombre }}",
+                "custom_fields_values": {
+                  "custom_field": [
+                    {
+                      "data": "{\"id\":1303680,\"type\":\"multitext\"}",
+                      "value": "={{ $('Start').item.json.celular }}"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          1968,
+          16
+        ],
+        "id": "71b80ce9-250e-4506-8a58-a0fb7dfe75ee",
+        "name": "Create new contacts",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+                "name": "id_contact",
+                "value": "={{ $json._embedded.contacts[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2752,
+          16
+        ],
+        "id": "64b47106-b100-424c-8b33-fe2f6caaf119",
+        "name": "id_contact1"
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "operation": "createLeads",
+          "collection": {
+            "lead": [
+              {
+                "name": "={{ $('Start').item.json.nombre }}",
+                "pipeline_id": "={{ $('Start').item.json.lead_etapa }}",
+                "status_id": 68677523,
+                "_embedded": {
+                  "contacts": [
+                    {
+                      "id": {
+                        "contact": [
+                          {
+                            "id": "={{ $json.id_contact }}"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          3536,
+          -128
+        ],
+        "id": "101100ba-dcef-4f64-95a9-5de83a03ae5b",
+        "name": "Create new leads",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "id_contacto",
+                "value": "={{ $('id_contact2').item.json.id_contact }}",
+                "type": "number"
+              },
+              {
+                "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+                "name": "id_lead",
+                "value": "={{ $json._embedded.leads[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          3776,
+          -128
+        ],
+        "id": "53d4a5be-6f79-4295-a07b-f498c1629fea",
+        "name": "contact_lead1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+                "name": "id_contact",
+                "value": "={{ $json.id_contact }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          3280,
+          -128
+        ],
+        "id": "22318df9-e99d-4201-b694-2658006692dd",
+        "name": "id_contact2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+                "name": "id_contact",
+                "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          2960,
+          -176
+        ],
+        "id": "34dce8f4-a40f-4565-a8fc-78cd6e47b42c",
+        "name": "id_contact"
+      },
+      {
+        "parameters": {
+          "resource": "contacts",
+          "filter": {
+            "query": "={{ $('Start').item.json.celular }}"
+          },
+          "options": {
+            "with": [
+              "leads"
+            ]
+          },
+          "limit": 1
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          1488,
+          -192
+        ],
+        "id": "0ca74819-64f5-4584-ad1e-053078f8aabe",
+        "name": "Get list of contacts",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "fc632a6e-e3be-4b43-8535-83bfe0fa949c",
+                "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "number",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          1696,
+          -192
+        ],
+        "id": "53856eac-2fb8-4aae-884f-422b868ff26d",
+        "name": "existe contacto?"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "e76c1e07-8bf3-4d90-b985-7702d222ece7",
+                "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "array",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          2512,
+          -272
+        ],
+        "id": "62d7a6fc-3a06-4c31-8b11-299f85bc75f7",
+        "name": "tiene leads?"
+      },
+      {
+        "parameters": {
+          "resource": "contacts",
+          "operation": "updateContacts",
+          "collection": {
+            "contact": [
+              {
+                "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          2160,
+          -272
+        ],
+        "id": "a05be2c3-d170-497d-92eb-d35556221da9",
+        "name": "Update contacts",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "id_contacto",
+                "value": "={{ $json.id_contacto }}",
+                "type": "number"
+              },
+              {
+                "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+                "name": "id_lead",
+                "value": "={{ $json.id_lead }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          4240,
+          -272
+        ],
+        "id": "6613555f-cb46-4dfc-a6ed-bbcffc456072",
+        "name": "Variables_3"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+                "name": "id_contacto",
+                "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+                "type": "number"
+              },
+              {
+                "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+                "name": "id_lead",
+                "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}",
+                "type": "number"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          3984,
+          -400
+        ],
+        "id": "35f0c09a-3d1b-4de5-a867-bfee54def95f",
+        "name": "contact_lead"
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "filter": {
+            "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}"
+          },
+          "options": {},
+          "limit": 1
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          2944,
+          -400
+        ],
+        "id": "6770c092-5220-4aed-933b-001e8422c306",
+        "name": "Obtener info de lead",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "80f066bb-bb15-46f9-b9c3-9ab5bbd0ba4f",
+                "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+                "rightValue": 143,
+                "operator": {
+                  "type": "number",
+                  "operation": "notEquals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          3296,
+          -400
+        ],
+        "id": "cb938d7b-8381-4c0b-8342-1c4f7484de0a",
+        "name": "no esta en etapa perdida"
+      },
+      {
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "celular"
+              },
+              {
+                "name": "nombre"
+              },
+              {
+                "name": "lead_etapa",
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "id": "3199a978-aeb1-41f6-a9f7-ffc25c30a573",
+        "typeVersion": 1.1,
+        "name": "Start",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "position": [
+          1280,
+          -192
+        ]
+      }
+    ],
+    "connections": {
+      "Get list of contacts": {
+        "main": [
+          [
+            {
+              "node": "existe contacto?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "existe contacto?": {
+        "main": [
+          [
+            {
+              "node": "Update contacts",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create new contacts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "tiene leads?": {
+        "main": [
+          [
+            {
+              "node": "Obtener info de lead",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "id_contact",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create new contacts": {
+        "main": [
+          [
+            {
+              "node": "id_contact1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create new leads": {
+        "main": [
+          [
+            {
+              "node": "contact_lead1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "id_contact": {
+        "main": [
+          [
+            {
+              "node": "id_contact2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "id_contact1": {
+        "main": [
+          [
+            {
+              "node": "id_contact2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Update contacts": {
+        "main": [
+          [
+            {
+              "node": "tiene leads?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "contact_lead": {
+        "main": [
+          [
+            {
+              "node": "Variables_3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "contact_lead1": {
+        "main": [
+          [
+            {
+              "node": "Variables_3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "id_contact2": {
+        "main": [
+          [
+            {
+              "node": "Create new leads",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Variables_3": {
+        "main": [
+          []
+        ]
+      },
+      "Obtener info de lead": {
+        "main": [
+          [
+            {
+              "node": "no esta en etapa perdida",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "no esta en etapa perdida": {
+        "main": [
+          [
+            {
+              "node": "contact_lead",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Start": {
+        "main": [
+          [
+            {
+              "node": "Get list of contacts",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version 808efef4",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "808efef4-9ead-4912-b7bb-6cc8525af367",
+  "connections": {
+    "Get list of contacts": {
+      "main": [
+        [
+          {
+            "node": "existe contacto?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe contacto?": {
+      "main": [
+        [
+          {
+            "node": "Update contacts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create new contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tiene leads?": {
+      "main": [
+        [
+          {
+            "node": "Obtener info de lead",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "id_contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new contacts": {
+      "main": [
+        [
+          {
+            "node": "id_contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new leads": {
+      "main": [
+        [
+          {
+            "node": "contact_lead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact": {
+      "main": [
+        [
+          {
+            "node": "id_contact2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact1": {
+      "main": [
+        [
+          {
+            "node": "id_contact2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update contacts": {
+      "main": [
+        [
+          {
+            "node": "tiene leads?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contact_lead": {
+      "main": [
+        [
+          {
+            "node": "Variables_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contact_lead1": {
+      "main": [
+        [
+          {
+            "node": "Variables_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact2": {
+      "main": [
+        [
+          {
+            "node": "Create new leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Variables_3": {
+      "main": [
+        []
+      ]
+    },
+    "Obtener info de lead": {
+      "main": [
+        [
+          {
+            "node": "no esta en etapa perdida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "no esta en etapa perdida": {
+      "main": [
+        [
+          {
+            "node": "contact_lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Get list of contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-04T23:36:46.325Z",
+  "id": "FUqVaG3kGGb2Eqpm",
+  "isArchived": false,
+  "meta": null,
+  "name": "Definir ID contacto y lead en Kommo",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "contacts",
+        "operation": "createContacts",
+        "collection": {
+          "contact": [
+            {
+              "name": "={{ $('Start').item.json.nombre }}",
+              "custom_fields_values": {
+                "custom_field": [
+                  {
+                    "data": "{\"id\":1303680,\"type\":\"multitext\"}",
+                    "value": "={{ $('Start').item.json.celular }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        1968,
+        16
+      ],
+      "id": "71b80ce9-250e-4506-8a58-a0fb7dfe75ee",
+      "name": "Create new contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $json._embedded.contacts[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2752,
+        16
+      ],
+      "id": "64b47106-b100-424c-8b33-fe2f6caaf119",
+      "name": "id_contact1"
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "operation": "createLeads",
+        "collection": {
+          "lead": [
+            {
+              "name": "={{ $('Start').item.json.nombre }}",
+              "pipeline_id": "={{ $('Start').item.json.lead_etapa }}",
+              "status_id": 68677523,
+              "_embedded": {
+                "contacts": [
+                  {
+                    "id": {
+                      "contact": [
+                        {
+                          "id": "={{ $json.id_contact }}"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        3536,
+        -128
+      ],
+      "id": "101100ba-dcef-4f64-95a9-5de83a03ae5b",
+      "name": "Create new leads",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $('id_contact2').item.json.id_contact }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $json._embedded.leads[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3776,
+        -128
+      ],
+      "id": "53d4a5be-6f79-4295-a07b-f498c1629fea",
+      "name": "contact_lead1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $json.id_contact }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3280,
+        -128
+      ],
+      "id": "22318df9-e99d-4201-b694-2658006692dd",
+      "name": "id_contact2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2960,
+        -176
+      ],
+      "id": "34dce8f4-a40f-4565-a8fc-78cd6e47b42c",
+      "name": "id_contact"
+    },
+    {
+      "parameters": {
+        "resource": "contacts",
+        "filter": {
+          "query": "={{ $('Start').item.json.celular }}"
+        },
+        "options": {
+          "with": [
+            "leads"
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        1488,
+        -192
+      ],
+      "id": "0ca74819-64f5-4584-ad1e-053078f8aabe",
+      "name": "Get list of contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "fc632a6e-e3be-4b43-8535-83bfe0fa949c",
+              "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1696,
+        -192
+      ],
+      "id": "53856eac-2fb8-4aae-884f-422b868ff26d",
+      "name": "existe contacto?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e76c1e07-8bf3-4d90-b985-7702d222ece7",
+              "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2512,
+        -272
+      ],
+      "id": "62d7a6fc-3a06-4c31-8b11-299f85bc75f7",
+      "name": "tiene leads?"
+    },
+    {
+      "parameters": {
+        "resource": "contacts",
+        "operation": "updateContacts",
+        "collection": {
+          "contact": [
+            {
+              "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        -272
+      ],
+      "id": "a05be2c3-d170-497d-92eb-d35556221da9",
+      "name": "Update contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $json.id_contacto }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $json.id_lead }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4240,
+        -272
+      ],
+      "id": "6613555f-cb46-4dfc-a6ed-bbcffc456072",
+      "name": "Variables_3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3984,
+        -400
+      ],
+      "id": "35f0c09a-3d1b-4de5-a867-bfee54def95f",
+      "name": "contact_lead"
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "filter": {
+          "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}"
+        },
+        "options": {},
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        2944,
+        -400
+      ],
+      "id": "6770c092-5220-4aed-933b-001e8422c306",
+      "name": "Obtener info de lead",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "80f066bb-bb15-46f9-b9c3-9ab5bbd0ba4f",
+              "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+              "rightValue": 143,
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        3296,
+        -400
+      ],
+      "id": "cb938d7b-8381-4c0b-8342-1c4f7484de0a",
+      "name": "no esta en etapa perdida"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "celular"
+            },
+            {
+              "name": "nombre"
+            },
+            {
+              "name": "lead_etapa",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "id": "3199a978-aeb1-41f6-a9f7-ffc25c30a573",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        1280,
+        -192
+      ]
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-04T23:36:46.325Z",
+      "createdAt": "2026-01-04T23:36:46.325Z",
+      "role": "workflow:owner",
+      "workflowId": "FUqVaG3kGGb2Eqpm",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-04T23:50:18.065Z",
+  "versionId": "808efef4-9ead-4912-b7bb-6cc8525af367"
+}
