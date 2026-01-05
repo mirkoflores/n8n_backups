@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-04T04:00:27.837Z",
-    "createdAt": "2026-01-04T04:00:26.386Z",
-    "versionId": "254befd5-01e0-49e3-94cc-d76d2b7e4d63",
+    "updatedAt": "2026-01-04T21:47:22.257Z",
+    "createdAt": "2026-01-04T21:47:20.714Z",
+    "versionId": "393c99e4-bfb1-482e-9b91-c748d735c844",
     "workflowId": "efFbgE1bYCOEbonn",
     "nodes": [
       {
@@ -42,7 +42,7 @@
         "type": "n8n-nodes-base.formTrigger",
         "typeVersion": 2.4,
         "position": [
-          64,
+          464,
           -112
         ],
         "id": "08f9137d-f800-4f9d-8951-a415bea9b881",
@@ -77,7 +77,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          272,
+          672,
           -112
         ],
         "id": "1901249b-48f9-4ee8-8d59-bf8eda6cb773",
@@ -85,55 +85,7 @@
       },
       {
         "parameters": {
-          "formFields": {
-            "values": [
-              {
-                "fieldName": "nombre_apoderado",
-                "fieldLabel": "Nombre completo del apoderado",
-                "requiredField": true
-              },
-              {
-                "fieldName": "dni_apoderado",
-                "fieldLabel": "DNI del apoderado",
-                "requiredField": true
-              },
-              {
-                "fieldName": "correo_apoderado",
-                "fieldLabel": "Correo electrónico del apoderado",
-                "requiredField": true
-              },
-              {
-                "fieldName": "celular_apoderado",
-                "fieldLabel": "Celular de apoderado - colocar sin codigo de pais",
-                "requiredField": true
-              },
-              {
-                "fieldName": "nivel_ingles_apoderado",
-                "fieldLabel": "Nivel de inglés del apoderado",
-                "fieldType": "dropdown",
-                "fieldOptions": {
-                  "values": [
-                    {
-                      "option": "Básico"
-                    },
-                    {
-                      "option": "Intermedio"
-                    },
-                    {
-                      "option": "Avanzado"
-                    },
-                    {
-                      "option": "Nunca he estudiado inglés"
-                    },
-                    {
-                      "option": "No se mi nivel de inglés"
-                    }
-                  ]
-                },
-                "requiredField": true
-              }
-            ]
-          },
+          "defineForm": "json",
           "options": {
             "formTitle": "Datos del apoderado"
           }
@@ -151,7 +103,7 @@
       {
         "parameters": {
           "defineForm": "json",
-          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del estudiante\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion1').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular del estudiante - colocar sin codigo de pais\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Grupo y horario al que desea inscribirse\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ JSON.stringify($('Aggregate').item.json.values) }}\n},\n    \"requiredField\": true \n},\n{\n    \"fieldLabel\": \"Comprobante de pago\",\n    \"fieldType\": \"file\",\n    \"multipleFiles\": true,\n    \"acceptFileTypes\": \".jpg, .png\" ,\n    \"requiredField\": true\n  }\n]\n",
+          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del estudiante\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion1').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular del estudiante - colocar sin codigo de pais\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Edad del estudiante\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  }\n]\n",
           "options": {
             "formTitle": "Datos del estudiante"
           }
@@ -159,7 +111,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          1968,
+          1616,
           -128
         ],
         "id": "3423b85a-b689-449f-9312-bc6988a59db3",
@@ -184,13 +136,13 @@
             "cachedResultName": "Grupos",
             "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI"
           },
-          "filterByFormula": "AND({GRUPOS ACTIVOS}=\"activo\",{Year2024}=\"2026\")",
+          "filterByFormula": "=AND({Aparece en el formulario?}=\"🟢 Grupo aparece en formulario de inscripcion\",{Edad minima}<={{ $json['Edad del estudiante'] }},{Edad maxima}>={{ $json['Edad del estudiante'] }})",
           "options": {}
         },
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1072,
+          1824,
           -128
         ],
         "id": "71fdc19b-a74d-4114-854b-84fa93718b5a",
@@ -247,7 +199,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1280,
+          2032,
           -128
         ],
         "id": "b2dc214b-41ea-4e98-8492-20fa5e8f1e4c",
@@ -262,7 +214,7 @@
         "type": "n8n-nodes-base.aggregate",
         "typeVersion": 1,
         "position": [
-          1488,
+          2240,
           -128
         ],
         "id": "0d91e0f9-5b94-4b2a-9ce6-e117d8133138",
@@ -278,7 +230,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          2384,
+          2960,
           -128
         ],
         "id": "c7f67cbf-e8b0-417b-a177-22f96b460bc6",
@@ -292,7 +244,7 @@
         "type": "n8n-nodes-base.stopAndError",
         "typeVersion": 1,
         "position": [
-          3888,
+          4208,
           48
         ],
         "id": "bd6e34ea-1f1f-434e-b478-5aade2964fbb",
@@ -322,11 +274,12 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          2640,
+          3184,
           -128
         ],
         "id": "26ae9d6a-e166-4d16-bd2e-89baf660a695",
         "name": "Guardar informacion de inscripcion",
+        "alwaysOutputData": false,
         "onError": "continueErrorOutput"
       },
       {
@@ -340,7 +293,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          800,
+          1136,
           64
         ],
         "id": "172ae1dc-7838-4e2e-8520-7e04f377b7ca",
@@ -369,7 +322,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          592,
+          928,
           64
         ],
         "name": "Call Paises - form de inscripcion",
@@ -397,7 +350,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          1728,
+          1376,
           -128
         ],
         "name": "Call Paises - form de inscripcion1",
@@ -448,6 +401,36 @@
                 "name": "nivel_inglés_apoderado",
                 "value": "={{ $('info apoderado1').item.json['Nivel de inglés del apoderado'] }}",
                 "type": "string"
+              },
+              {
+                "id": "e01a6b4b-4ff8-49cc-ad82-b1c081bb4e17",
+                "name": "Nombre completo del estudiante",
+                "value": "={{ $('info estudiante').item.json[\"Nombre completo del estudiante\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "a34268bc-c41f-493d-9aab-fd15b8826b54",
+                "name": "Correo electrónico del estudiante",
+                "value": "={{ $('info estudiante').item.json[\"Correo electrónico del estudiante\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "f9fda7f2-64fd-4113-b1d7-0904603cd12c",
+                "name": "Pais",
+                "value": "={{ $('info estudiante').item.json.Pais }}",
+                "type": "string"
+              },
+              {
+                "id": "cb8449b1-391e-4c24-bb60-7ceb6a41e691",
+                "name": "Celular del estudiante - colocar sin codigo de pais",
+                "value": "={{ $('info estudiante').item.json[\"Celular del estudiante - colocar sin codigo de pais\"] }}",
+                "type": "string"
+              },
+              {
+                "id": "a73a09c9-fa64-4bdc-85c6-3a6b7af36996",
+                "name": "Edad del estudiante",
+                "value": "={{ $('info estudiante').item.json[\"Edad del estudiante\"] }}",
+                "type": "number"
               }
             ]
           },
@@ -457,7 +440,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2176,
+          2752,
           -128
         ],
         "id": "5c40ccea-43af-4cd9-9849-7b2e1068623e",
@@ -485,11 +468,12 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3168,
+          3488,
           -272
         ],
         "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
         "name": "Call 'Enviar accesos a nuevo usuario'",
+        "alwaysOutputData": true,
         "onError": "continueErrorOutput"
       },
       {
@@ -534,7 +518,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3680,
+          4000,
           48
         ],
         "id": "138fe642-fddd-4c29-bd33-1a0f13691026",
@@ -588,7 +572,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3584,
+          3904,
           -368
         ],
         "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
@@ -599,6 +583,24 @@
             "name": "bio_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "defineForm": "json",
+          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Grupo y horario al que desea inscribirse\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ JSON.stringify($('Aggregate').item.json.values) }}\n},\n    \"requiredField\": true \n},\n{\n    \"fieldLabel\": \"Comprobante de pago\",\n    \"fieldType\": \"file\",\n    \"multipleFiles\": true,\n    \"acceptFileTypes\": \".jpg, .png\" ,\n    \"requiredField\": true\n  }\n]\n",
+          "options": {
+            "formTitle": "Datos del estudiante"
+          }
+        },
+        "type": "n8n-nodes-base.form",
+        "typeVersion": 2.4,
+        "position": [
+          2480,
+          -128
+        ],
+        "id": "3da085c8-dda6-4441-b1e9-521ad257fd2f",
+        "name": "comprobantes y grupo",
+        "webhookId": "c4d2aac6-01be-495b-a27e-3c03ed4cb389"
       }
     ],
     "connections": {
@@ -617,7 +619,7 @@
         "main": [
           [
             {
-              "node": "Search records",
+              "node": "Call Paises - form de inscripcion1",
               "type": "main",
               "index": 0
             }
@@ -657,7 +659,7 @@
         "main": [
           [
             {
-              "node": "Call Paises - form de inscripcion1",
+              "node": "comprobantes y grupo",
               "type": "main",
               "index": 0
             }
@@ -668,7 +670,7 @@
         "main": [
           [
             {
-              "node": "variables_1",
+              "node": "Search records",
               "type": "main",
               "index": 0
             }
@@ -713,7 +715,7 @@
         "main": [
           [
             {
-              "node": "Search records",
+              "node": "Call Paises - form de inscripcion1",
               "type": "main",
               "index": 0
             }
@@ -781,14 +783,25 @@
             }
           ]
         ]
+      },
+      "comprobantes y grupo": {
+        "main": [
+          [
+            {
+              "node": "variables_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 254befd5",
+    "name": "Version 393c99e4",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "254befd5-01e0-49e3-94cc-d76d2b7e4d63",
+  "activeVersionId": "393c99e4-bfb1-482e-9b91-c748d735c844",
   "connections": {
     "On form submission": {
       "main": [
@@ -805,7 +818,7 @@
       "main": [
         [
           {
-            "node": "Search records",
+            "node": "Call Paises - form de inscripcion1",
             "type": "main",
             "index": 0
           }
@@ -845,7 +858,7 @@
       "main": [
         [
           {
-            "node": "Call Paises - form de inscripcion1",
+            "node": "comprobantes y grupo",
             "type": "main",
             "index": 0
           }
@@ -856,7 +869,7 @@
       "main": [
         [
           {
-            "node": "variables_1",
+            "node": "Search records",
             "type": "main",
             "index": 0
           }
@@ -901,7 +914,7 @@
       "main": [
         [
           {
-            "node": "Search records",
+            "node": "Call Paises - form de inscripcion1",
             "type": "main",
             "index": 0
           }
@@ -969,6 +982,17 @@
           }
         ]
       ]
+    },
+    "comprobantes y grupo": {
+      "main": [
+        [
+          {
+            "node": "variables_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-31T05:18:18.673Z",
@@ -1015,7 +1039,7 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.4,
       "position": [
-        64,
+        464,
         -112
       ],
       "id": "08f9137d-f800-4f9d-8951-a415bea9b881",
@@ -1050,7 +1074,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        272,
+        672,
         -112
       ],
       "id": "1901249b-48f9-4ee8-8d59-bf8eda6cb773",
@@ -1058,55 +1082,7 @@
     },
     {
       "parameters": {
-        "formFields": {
-          "values": [
-            {
-              "fieldName": "nombre_apoderado",
-              "fieldLabel": "Nombre completo del apoderado",
-              "requiredField": true
-            },
-            {
-              "fieldName": "dni_apoderado",
-              "fieldLabel": "DNI del apoderado",
-              "requiredField": true
-            },
-            {
-              "fieldName": "correo_apoderado",
-              "fieldLabel": "Correo electrónico del apoderado",
-              "requiredField": true
-            },
-            {
-              "fieldName": "celular_apoderado",
-              "fieldLabel": "Celular de apoderado - colocar sin codigo de pais",
-              "requiredField": true
-            },
-            {
-              "fieldName": "nivel_ingles_apoderado",
-              "fieldLabel": "Nivel de inglés del apoderado",
-              "fieldType": "dropdown",
-              "fieldOptions": {
-                "values": [
-                  {
-                    "option": "Básico"
-                  },
-                  {
-                    "option": "Intermedio"
-                  },
-                  {
-                    "option": "Avanzado"
-                  },
-                  {
-                    "option": "Nunca he estudiado inglés"
-                  },
-                  {
-                    "option": "No se mi nivel de inglés"
-                  }
-                ]
-              },
-              "requiredField": true
-            }
-          ]
-        },
+        "defineForm": "json",
         "options": {
           "formTitle": "Datos del apoderado"
         }
@@ -1124,7 +1100,7 @@
     {
       "parameters": {
         "defineForm": "json",
-        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del estudiante\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion1').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular del estudiante - colocar sin codigo de pais\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Grupo y horario al que desea inscribirse\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ JSON.stringify($('Aggregate').item.json.values) }}\n},\n    \"requiredField\": true \n},\n{\n    \"fieldLabel\": \"Comprobante de pago\",\n    \"fieldType\": \"file\",\n    \"multipleFiles\": true,\n    \"acceptFileTypes\": \".jpg, .png\" ,\n    \"requiredField\": true\n  }\n]\n",
+        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del estudiante\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion1').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular del estudiante - colocar sin codigo de pais\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Edad del estudiante\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  }\n]\n",
         "options": {
           "formTitle": "Datos del estudiante"
         }
@@ -1132,7 +1108,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        1968,
+        1616,
         -128
       ],
       "id": "3423b85a-b689-449f-9312-bc6988a59db3",
@@ -1157,13 +1133,13 @@
           "cachedResultName": "Grupos",
           "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI"
         },
-        "filterByFormula": "AND({GRUPOS ACTIVOS}=\"activo\",{Year2024}=\"2026\")",
+        "filterByFormula": "=AND({Aparece en el formulario?}=\"🟢 Grupo aparece en formulario de inscripcion\",{Edad minima}<={{ $json['Edad del estudiante'] }},{Edad maxima}>={{ $json['Edad del estudiante'] }})",
         "options": {}
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1072,
+        1824,
         -128
       ],
       "id": "71fdc19b-a74d-4114-854b-84fa93718b5a",
@@ -1220,7 +1196,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1280,
+        2032,
         -128
       ],
       "id": "b2dc214b-41ea-4e98-8492-20fa5e8f1e4c",
@@ -1235,7 +1211,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1488,
+        2240,
         -128
       ],
       "id": "0d91e0f9-5b94-4b2a-9ce6-e117d8133138",
@@ -1251,7 +1227,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        2384,
+        2960,
         -128
       ],
       "id": "c7f67cbf-e8b0-417b-a177-22f96b460bc6",
@@ -1265,7 +1241,7 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        3888,
+        4208,
         48
       ],
       "id": "bd6e34ea-1f1f-434e-b478-5aade2964fbb",
@@ -1295,11 +1271,12 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        2640,
+        3184,
         -128
       ],
       "id": "26ae9d6a-e166-4d16-bd2e-89baf660a695",
       "name": "Guardar informacion de inscripcion",
+      "alwaysOutputData": false,
       "onError": "continueErrorOutput"
     },
     {
@@ -1313,7 +1290,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        800,
+        1136,
         64
       ],
       "id": "172ae1dc-7838-4e2e-8520-7e04f377b7ca",
@@ -1342,7 +1319,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        592,
+        928,
         64
       ],
       "name": "Call Paises - form de inscripcion",
@@ -1370,7 +1347,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        1728,
+        1376,
         -128
       ],
       "name": "Call Paises - form de inscripcion1",
@@ -1421,6 +1398,36 @@
               "name": "nivel_inglés_apoderado",
               "value": "={{ $('info apoderado1').item.json['Nivel de inglés del apoderado'] }}",
               "type": "string"
+            },
+            {
+              "id": "e01a6b4b-4ff8-49cc-ad82-b1c081bb4e17",
+              "name": "Nombre completo del estudiante",
+              "value": "={{ $('info estudiante').item.json[\"Nombre completo del estudiante\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a34268bc-c41f-493d-9aab-fd15b8826b54",
+              "name": "Correo electrónico del estudiante",
+              "value": "={{ $('info estudiante').item.json[\"Correo electrónico del estudiante\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "f9fda7f2-64fd-4113-b1d7-0904603cd12c",
+              "name": "Pais",
+              "value": "={{ $('info estudiante').item.json.Pais }}",
+              "type": "string"
+            },
+            {
+              "id": "cb8449b1-391e-4c24-bb60-7ceb6a41e691",
+              "name": "Celular del estudiante - colocar sin codigo de pais",
+              "value": "={{ $('info estudiante').item.json[\"Celular del estudiante - colocar sin codigo de pais\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "a73a09c9-fa64-4bdc-85c6-3a6b7af36996",
+              "name": "Edad del estudiante",
+              "value": "={{ $('info estudiante').item.json[\"Edad del estudiante\"] }}",
+              "type": "number"
             }
           ]
         },
@@ -1430,7 +1437,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2176,
+        2752,
         -128
       ],
       "id": "5c40ccea-43af-4cd9-9849-7b2e1068623e",
@@ -1458,11 +1465,12 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3168,
+        3488,
         -272
       ],
       "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
       "name": "Call 'Enviar accesos a nuevo usuario'",
+      "alwaysOutputData": true,
       "onError": "continueErrorOutput"
     },
     {
@@ -1507,7 +1515,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3680,
+        4000,
         48
       ],
       "id": "138fe642-fddd-4c29-bd33-1a0f13691026",
@@ -1561,7 +1569,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3584,
+        3904,
         -368
       ],
       "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
@@ -1572,6 +1580,24 @@
           "name": "bio_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "defineForm": "json",
+        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Grupo y horario al que desea inscribirse\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ JSON.stringify($('Aggregate').item.json.values) }}\n},\n    \"requiredField\": true \n},\n{\n    \"fieldLabel\": \"Comprobante de pago\",\n    \"fieldType\": \"file\",\n    \"multipleFiles\": true,\n    \"acceptFileTypes\": \".jpg, .png\" ,\n    \"requiredField\": true\n  }\n]\n",
+        "options": {
+          "formTitle": "Datos del estudiante"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.4,
+      "position": [
+        2480,
+        -128
+      ],
+      "id": "3da085c8-dda6-4441-b1e9-521ad257fd2f",
+      "name": "comprobantes y grupo",
+      "webhookId": "c4d2aac6-01be-495b-a27e-3c03ed4cb389"
     }
   ],
   "pinData": {
@@ -1610,6 +1636,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-04T04:00:26.381Z",
-  "versionId": "254befd5-01e0-49e3-94cc-d76d2b7e4d63"
+  "updatedAt": "2026-01-04T21:47:20.712Z",
+  "versionId": "393c99e4-bfb1-482e-9b91-c748d735c844"
 }
