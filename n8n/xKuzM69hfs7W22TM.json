@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-04T03:46:47.533Z",
-    "createdAt": "2026-01-04T03:46:44.951Z",
-    "versionId": "c0b319af-d9a2-4dfd-b0a4-95c058eca4d7",
+    "updatedAt": "2026-01-05T00:21:20.269Z",
+    "createdAt": "2026-01-05T00:21:18.662Z",
+    "versionId": "01e2cddd-fd59-4cca-a70d-ff24790042f2",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -13,25 +13,1084 @@
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "typeVersion": 1.1,
         "position": [
-          0,
+          -144,
           0
         ],
         "id": "a9356d97-c1e2-4320-9a28-37ae34240929",
         "name": "When Executed by Another Workflow"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://studio-api.softr.io/v1/api/users",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Softr-Domain",
+                "value": "automagichlab.com"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "full_name",
+                "value": "Gian"
+              },
+              {
+                "name": "email",
+                "value": "gianmarcorusher@gmail.com"
+              },
+              {
+                "name": "generate_magic_link",
+                "value": "false"
+              },
+              {
+                "name": "password",
+                "value": "12345678"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          736,
+          -336
+        ],
+        "id": "0d12b2e0-ceb4-4790-82d2-39fc09ea908a",
+        "name": "Crear usuario1",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "bWNGZdZ4iQI6nyeY",
+            "name": "softr_automagich_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "1f10df29-6a99-4d6b-89f0-e1b93cadd314",
+                "name": "nombre_a_dar_accesos",
+                "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.nombre_estudiante,$('When Executed by Another Workflow').item.json.nombre_apoderado\n) }}",
+                "type": "string"
+              },
+              {
+                "id": "0f3afbc8-c6de-4d3c-8188-a5f7efd5d931",
+                "name": "id_grupo",
+                "value": "={{ $('When Executed by Another Workflow').item.json.id_grupo }}",
+                "type": "string"
+              },
+              {
+                "id": "f42ff231-988e-440d-842a-85fbef5e6bc4",
+                "name": "tipo_estudiante",
+                "value": "={{ $('When Executed by Another Workflow').item.json.tipo_estudiante }}",
+                "type": "string"
+              },
+              {
+                "id": "bbf3ca4c-c194-40c2-ae5e-a6508d88c06e",
+                "name": "email_a_dar_accesos",
+                "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.email_estudiante,$('When Executed by Another Workflow').item.json.email_apoderado\n) }}",
+                "type": "string"
+              },
+              {
+                "id": "3affae35-b9eb-4cb7-b5a1-26b11ebd4ec7",
+                "name": "numero_a_dar_accesos",
+                "value": "={{ $if( $('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.numero_completo_estudiante,$('When Executed by Another Workflow').item.json.numero_completo_apoderado ) }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          64,
+          0
+        ],
+        "id": "41e0ece7-979b-4ca0-8c22-ea9d5a93dea5",
+        "name": "variables_1"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tbllfzjbgoKjO87HI",
+            "mode": "list",
+            "cachedResultName": "Grupos",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI"
+          },
+          "id": "={{ $('variables_1').item.json.id_grupo }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          544,
+          0
+        ],
+        "id": "562fe0b7-010a-4659-bc46-4ddc1ad20024",
+        "name": "registro - grupo",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "b2b7128e-1e4a-4656-aca4-ae56a2607212",
+                "name": "url_de_zoom",
+                "value": "={{ $('registro - grupo').item.json['SOLO ZOOM DE RECURSOS'][0] }}",
+                "type": "string"
+              },
+              {
+                "id": "6439798c-878a-466d-9b4b-94afc769f3f2",
+                "name": "pagina_web_acceso",
+                "value": "https://www.bioenglish.lat/",
+                "type": "string"
+              },
+              {
+                "id": "cba0952f-07ac-415b-b4ed-eac0251b1425",
+                "name": "nombre_grupo",
+                "value": "={{ $('registro - grupo').item.json.Nivel }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          752,
+          0
+        ],
+        "id": "d80e9a8c-2ecb-4677-87f8-e994b2bf1d23",
+        "name": "variables_2"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "27b6d036-16dc-41d2-8e58-7ed0bed1dbe1",
+                "leftValue": "={{ $('variables_2').item.json.url_de_zoom }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          960,
+          0
+        ],
+        "id": "4b34e1b5-3e61-4ac2-b913-05cdfe906353",
+        "name": "se tiene zoom?"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://studio-api.softr.io/v1/api/users",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "httpHeaderAuth",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "Softr-Domain",
+                "value": "bioenglish.lat"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "full_name",
+                "value": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}"
+              },
+              {
+                "name": "email",
+                "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+              },
+              {
+                "name": "generate_magic_link",
+                "value": "false"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          304,
+          0
+        ],
+        "id": "cc2462d7-3f28-4c23-bac9-66444555fde9",
+        "name": "Crear usuario_2",
+        "credentials": {
+          "httpHeaderAuth": {
+            "id": "K6I1JR86S0osID15",
+            "name": "softr_bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "mode": "raw",
+          "jsonOutput": "\n{\n  \n  \n\"full_name\": \n\"Gian\",\n  \n  \n\"email\": \n\"gianmarcorusher@gmail.com\",\n  \n  \n\"magic_link\": \nnull,\n  \n  \n\"updated\": \n\"2026-01-04 19:00:26\",\n  \n  \n\"created\": \n\"2026-01-04 19:00:26\"\n  \n}\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          416,
+          -304
+        ],
+        "id": "bff2f2f2-9f0f-4fbe-8ded-a1bc8f2df843",
+        "name": "Crear usuario"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "7b2e89e8-b789-43d3-8e04-44a104ba9d9b",
+                "name": "contraseña",
+                "value": "={{ $('When Executed by Another Workflow').item.json.email_estudiante.split('@')[0] }}{{ Math.floor(Math.random() * 9000) + 1000 }}",
+                "type": "string"
+              },
+              {
+                "id": "1f10df29-6a99-4d6b-89f0-e1b93cadd314",
+                "name": "nombre_estudiante",
+                "value": "={{ $('When Executed by Another Workflow').item.json.nombre_estudiante }}",
+                "type": "string"
+              },
+              {
+                "id": "0f3afbc8-c6de-4d3c-8188-a5f7efd5d931",
+                "name": "id_grupo",
+                "value": "={{ $('When Executed by Another Workflow').item.json.id_grupo }}",
+                "type": "string"
+              },
+              {
+                "id": "2975ad78-95ba-4904-9aa5-402d29fd5552",
+                "name": "email_apoderado",
+                "value": "={{ $('When Executed by Another Workflow').item.json.email_apoderado }}",
+                "type": "string"
+              },
+              {
+                "id": "f42ff231-988e-440d-842a-85fbef5e6bc4",
+                "name": "tipo_estudiante",
+                "value": "={{ $('When Executed by Another Workflow').item.json.tipo_estudiante }}",
+                "type": "string"
+              },
+              {
+                "id": "bbf3ca4c-c194-40c2-ae5e-a6508d88c06e",
+                "name": "email_a_dar_accesos",
+                "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.email_estudiante,$('When Executed by Another Workflow').item.json.email_apoderado\n) }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          16,
+          -352
+        ],
+        "id": "dab3ae4b-7691-417c-9fe3-be7c7d834087",
+        "name": "variables_"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wflz3qEtBROqCrd73/wtrj9NEGs20Z4ed4A",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "email_a_enviar",
+                "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+              },
+              {
+                "name": "nombre",
+                "value": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}"
+              },
+              {
+                "name": "celular_estudiante",
+                "value": "={{ $('variables_1').item.json.numero_a_dar_accesos }}"
+              },
+              {
+                "name": "nombre_grupo",
+                "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+              },
+              {
+                "name": "url_zoom",
+                "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+              },
+              {
+                "name": "tipo",
+                "value": "con_zoom"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1232,
+          -208
+        ],
+        "id": "5dfb79b1-0395-4d5a-b137-1d5c93b898f5",
+        "name": "Enviar email1"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65752,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1040,
+          -624
+        ],
+        "id": "abf7bf12-6b45-4cc7-b6a1-580cef61c47d",
+        "name": "Enviar mensaje",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "FUqVaG3kGGb2Eqpm",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
+            "cachedResultName": "Definir ID contacto y lead en Kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
+              "nombre": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}",
+              "lead_etapa": 68677515
+            },
+            "matchingColumns": [
+              "cel_estudiante",
+              "nombre_estudiante"
+            ],
+            "schema": [
+              {
+                "id": "celular",
+                "displayName": "celular",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "nombre",
+                "displayName": "nombre",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "lead_etapa",
+                "displayName": "lead_etapa",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          1472,
+          -208
+        ],
+        "name": "Call Definir ID contacto y lead en Kommo",
+        "id": "130e48f4-0974-43ef-b71c-9e864def9eca"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65782,\n    \"entity_id\": {{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1984,
+          -208
+        ],
+        "id": "ceab8b5c-6539-49c0-9fa9-991c4273671c",
+        "name": "Enviar mensaje1",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "operation": "updateLeads",
+          "collection": {
+            "lead": [
+              {
+                "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+                "custom_fields_values": {
+                  "custom_field": [
+                    {
+                      "data": "{\"id\":1988418,\"type\":\"textarea\"}",
+                      "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+                    },
+                    {
+                      "data": "{\"id\":1988420,\"type\":\"textarea\"}",
+                      "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                    },
+                    {
+                      "data": "{\"id\":1988354,\"type\":\"text\"}",
+                      "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          1744,
+          -208
+        ],
+        "id": "82b799d0-e062-419c-a9f4-528621879d6d",
+        "name": "Update leads",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wflz3qEtBROqCrd73/wtrj9NEGs20Z4ed4A",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "email_a_enviar",
+                "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+              },
+              {
+                "name": "nombre",
+                "value": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}"
+              },
+              {
+                "name": "celular_estudiante",
+                "value": "={{ $('variables_1').item.json.numero_a_dar_accesos }}"
+              },
+              {
+                "name": "nombre_grupo",
+                "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+              },
+              {
+                "name": "url_zoom",
+                "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+              },
+              {
+                "name": "tipo",
+                "value": "sin_zoom"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1232,
+          160
+        ],
+        "id": "f9374dfc-e668-4ffb-beb9-ec22614a7ee4",
+        "name": "Enviar email"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "FUqVaG3kGGb2Eqpm",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
+            "cachedResultName": "Definir ID contacto y lead en Kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
+              "nombre": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}",
+              "lead_etapa": 68677515
+            },
+            "matchingColumns": [
+              "cel_estudiante",
+              "nombre_estudiante"
+            ],
+            "schema": [
+              {
+                "id": "celular",
+                "displayName": "celular",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "nombre",
+                "displayName": "nombre",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "lead_etapa",
+                "displayName": "lead_etapa",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          1472,
+          160
+        ],
+        "name": "Call Definir ID contacto y lead en Kommo1",
+        "id": "616e6d0f-b136-4f3f-919a-e5581a6c14bb"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65784,\n    \"entity_id\": {{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1984,
+          160
+        ],
+        "id": "93bf402b-af28-464c-b2e0-079ee0a9052e",
+        "name": "Enviar mensaje2",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "operation": "updateLeads",
+          "collection": {
+            "lead": [
+              {
+                "id": "={{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }}",
+                "custom_fields_values": {
+                  "custom_field": [
+                    {
+                      "data": "{\"id\":1988420,\"type\":\"textarea\"}",
+                      "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                    },
+                    {
+                      "data": "{\"id\":1988354,\"type\":\"text\"}",
+                      "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          1744,
+          160
+        ],
+        "id": "07bc2596-320e-467b-a7c0-1ba9782b61cb",
+        "name": "Update leads1",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "1244011715008532602",
+            "mode": "list",
+            "cachedResultName": "Bioenglish",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1357814199446929488",
+            "mode": "list",
+            "cachedResultName": "errores",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+          },
+          "content": "=Falta definir URL de zoom en grupo con el nivel {{ $('variables_2').item.json.nombre_grupo }}\n\n\nEntrar a este link para definir el link de zoom: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('variables_1').item.json.id_grupo }}?blocks=hide\n\n\nSe hizo envio de accesos pero sin link de zoom a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          2224,
+          160
+        ],
+        "id": "2e25b701-0379-485e-9c9b-c8cfe9379aeb",
+        "name": "Send a message2",
+        "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+        "credentials": {
+          "discordBotApi": {
+            "id": "lrG2Z5VoQXKArDMn",
+            "name": "bio_1"
+          }
+        }
       }
     ],
-    "connections": {},
+    "connections": {
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "node": "variables_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_1": {
+        "main": [
+          [
+            {
+              "node": "Crear usuario_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "registro - grupo": {
+        "main": [
+          [
+            {
+              "node": "variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_2": {
+        "main": [
+          [
+            {
+              "node": "se tiene zoom?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Crear usuario_2": {
+        "main": [
+          [
+            {
+              "node": "registro - grupo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Crear usuario": {
+        "main": [
+          []
+        ]
+      },
+      "Enviar email1": {
+        "main": [
+          [
+            {
+              "node": "Call Definir ID contacto y lead en Kommo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "se tiene zoom?": {
+        "main": [
+          [
+            {
+              "node": "Enviar email1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Enviar email",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call Definir ID contacto y lead en Kommo": {
+        "main": [
+          [
+            {
+              "node": "Update leads",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Update leads": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar email": {
+        "main": [
+          [
+            {
+              "node": "Call Definir ID contacto y lead en Kommo1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call Definir ID contacto y lead en Kommo1": {
+        "main": [
+          [
+            {
+              "node": "Update leads1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Update leads1": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar mensaje2": {
+        "main": [
+          [
+            {
+              "node": "Send a message2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
     "authors": "Bioenglish Lat",
-    "name": "Version c0b319af",
+    "name": "Version 01e2cddd",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "c0b319af-d9a2-4dfd-b0a4-95c058eca4d7",
-  "connections": {},
+  "activeVersionId": "01e2cddd-fd59-4cca-a70d-ff24790042f2",
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "variables_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_1": {
+      "main": [
+        [
+          {
+            "node": "Crear usuario_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "registro - grupo": {
+      "main": [
+        [
+          {
+            "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_2": {
+      "main": [
+        [
+          {
+            "node": "se tiene zoom?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear usuario_2": {
+      "main": [
+        [
+          {
+            "node": "registro - grupo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear usuario": {
+      "main": [
+        []
+      ]
+    },
+    "Enviar email1": {
+      "main": [
+        [
+          {
+            "node": "Call Definir ID contacto y lead en Kommo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "se tiene zoom?": {
+      "main": [
+        [
+          {
+            "node": "Enviar email1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Enviar email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Definir ID contacto y lead en Kommo": {
+      "main": [
+        [
+          {
+            "node": "Update leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update leads": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar email": {
+      "main": [
+        [
+          {
+            "node": "Call Definir ID contacto y lead en Kommo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Definir ID contacto y lead en Kommo1": {
+      "main": [
+        [
+          {
+            "node": "Update leads1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update leads1": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar mensaje2": {
+      "main": [
+        [
+          {
+            "node": "Send a message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2026-01-04T03:45:54.729Z",
   "id": "xKuzM69hfs7W22TM",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Enviar accesos a nuevo usuario",
   "nodes": [
     {
@@ -41,11 +1100,756 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        0,
+        -144,
         0
       ],
       "id": "a9356d97-c1e2-4320-9a28-37ae34240929",
       "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://studio-api.softr.io/v1/api/users",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Softr-Domain",
+              "value": "automagichlab.com"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "full_name",
+              "value": "Gian"
+            },
+            {
+              "name": "email",
+              "value": "gianmarcorusher@gmail.com"
+            },
+            {
+              "name": "generate_magic_link",
+              "value": "false"
+            },
+            {
+              "name": "password",
+              "value": "12345678"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        736,
+        -336
+      ],
+      "id": "0d12b2e0-ceb4-4790-82d2-39fc09ea908a",
+      "name": "Crear usuario1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "bWNGZdZ4iQI6nyeY",
+          "name": "softr_automagich_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1f10df29-6a99-4d6b-89f0-e1b93cadd314",
+              "name": "nombre_a_dar_accesos",
+              "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.nombre_estudiante,$('When Executed by Another Workflow').item.json.nombre_apoderado\n) }}",
+              "type": "string"
+            },
+            {
+              "id": "0f3afbc8-c6de-4d3c-8188-a5f7efd5d931",
+              "name": "id_grupo",
+              "value": "={{ $('When Executed by Another Workflow').item.json.id_grupo }}",
+              "type": "string"
+            },
+            {
+              "id": "f42ff231-988e-440d-842a-85fbef5e6bc4",
+              "name": "tipo_estudiante",
+              "value": "={{ $('When Executed by Another Workflow').item.json.tipo_estudiante }}",
+              "type": "string"
+            },
+            {
+              "id": "bbf3ca4c-c194-40c2-ae5e-a6508d88c06e",
+              "name": "email_a_dar_accesos",
+              "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.email_estudiante,$('When Executed by Another Workflow').item.json.email_apoderado\n) }}",
+              "type": "string"
+            },
+            {
+              "id": "3affae35-b9eb-4cb7-b5a1-26b11ebd4ec7",
+              "name": "numero_a_dar_accesos",
+              "value": "={{ $if( $('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.numero_completo_estudiante,$('When Executed by Another Workflow').item.json.numero_completo_apoderado ) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        64,
+        0
+      ],
+      "id": "41e0ece7-979b-4ca0-8c22-ea9d5a93dea5",
+      "name": "variables_1"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbllfzjbgoKjO87HI",
+          "mode": "list",
+          "cachedResultName": "Grupos",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI"
+        },
+        "id": "={{ $('variables_1').item.json.id_grupo }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        544,
+        0
+      ],
+      "id": "562fe0b7-010a-4659-bc46-4ddc1ad20024",
+      "name": "registro - grupo",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b2b7128e-1e4a-4656-aca4-ae56a2607212",
+              "name": "url_de_zoom",
+              "value": "={{ $('registro - grupo').item.json['SOLO ZOOM DE RECURSOS'][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "6439798c-878a-466d-9b4b-94afc769f3f2",
+              "name": "pagina_web_acceso",
+              "value": "https://www.bioenglish.lat/",
+              "type": "string"
+            },
+            {
+              "id": "cba0952f-07ac-415b-b4ed-eac0251b1425",
+              "name": "nombre_grupo",
+              "value": "={{ $('registro - grupo').item.json.Nivel }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        752,
+        0
+      ],
+      "id": "d80e9a8c-2ecb-4677-87f8-e994b2bf1d23",
+      "name": "variables_2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "27b6d036-16dc-41d2-8e58-7ed0bed1dbe1",
+              "leftValue": "={{ $('variables_2').item.json.url_de_zoom }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        960,
+        0
+      ],
+      "id": "4b34e1b5-3e61-4ac2-b913-05cdfe906353",
+      "name": "se tiene zoom?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://studio-api.softr.io/v1/api/users",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Softr-Domain",
+              "value": "bioenglish.lat"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "full_name",
+              "value": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+            },
+            {
+              "name": "generate_magic_link",
+              "value": "false"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        304,
+        0
+      ],
+      "id": "cc2462d7-3f28-4c23-bac9-66444555fde9",
+      "name": "Crear usuario_2",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "K6I1JR86S0osID15",
+          "name": "softr_bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "\n{\n  \n  \n\"full_name\": \n\"Gian\",\n  \n  \n\"email\": \n\"gianmarcorusher@gmail.com\",\n  \n  \n\"magic_link\": \nnull,\n  \n  \n\"updated\": \n\"2026-01-04 19:00:26\",\n  \n  \n\"created\": \n\"2026-01-04 19:00:26\"\n  \n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        -304
+      ],
+      "id": "bff2f2f2-9f0f-4fbe-8ded-a1bc8f2df843",
+      "name": "Crear usuario"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7b2e89e8-b789-43d3-8e04-44a104ba9d9b",
+              "name": "contraseña",
+              "value": "={{ $('When Executed by Another Workflow').item.json.email_estudiante.split('@')[0] }}{{ Math.floor(Math.random() * 9000) + 1000 }}",
+              "type": "string"
+            },
+            {
+              "id": "1f10df29-6a99-4d6b-89f0-e1b93cadd314",
+              "name": "nombre_estudiante",
+              "value": "={{ $('When Executed by Another Workflow').item.json.nombre_estudiante }}",
+              "type": "string"
+            },
+            {
+              "id": "0f3afbc8-c6de-4d3c-8188-a5f7efd5d931",
+              "name": "id_grupo",
+              "value": "={{ $('When Executed by Another Workflow').item.json.id_grupo }}",
+              "type": "string"
+            },
+            {
+              "id": "2975ad78-95ba-4904-9aa5-402d29fd5552",
+              "name": "email_apoderado",
+              "value": "={{ $('When Executed by Another Workflow').item.json.email_apoderado }}",
+              "type": "string"
+            },
+            {
+              "id": "f42ff231-988e-440d-842a-85fbef5e6bc4",
+              "name": "tipo_estudiante",
+              "value": "={{ $('When Executed by Another Workflow').item.json.tipo_estudiante }}",
+              "type": "string"
+            },
+            {
+              "id": "bbf3ca4c-c194-40c2-ae5e-a6508d88c06e",
+              "name": "email_a_dar_accesos",
+              "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.email_estudiante,$('When Executed by Another Workflow').item.json.email_apoderado\n) }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        16,
+        -352
+      ],
+      "id": "dab3ae4b-7691-417c-9fe3-be7c7d834087",
+      "name": "variables_"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wflz3qEtBROqCrd73/wtrj9NEGs20Z4ed4A",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email_a_enviar",
+              "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+            },
+            {
+              "name": "nombre",
+              "value": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}"
+            },
+            {
+              "name": "celular_estudiante",
+              "value": "={{ $('variables_1').item.json.numero_a_dar_accesos }}"
+            },
+            {
+              "name": "nombre_grupo",
+              "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+            },
+            {
+              "name": "url_zoom",
+              "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+            },
+            {
+              "name": "tipo",
+              "value": "con_zoom"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1232,
+        -208
+      ],
+      "id": "5dfb79b1-0395-4d5a-b137-1d5c93b898f5",
+      "name": "Enviar email1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65752,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1040,
+        -624
+      ],
+      "id": "abf7bf12-6b45-4cc7-b6a1-580cef61c47d",
+      "name": "Enviar mensaje",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "FUqVaG3kGGb2Eqpm",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
+          "cachedResultName": "Definir ID contacto y lead en Kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
+            "nombre": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}",
+            "lead_etapa": 68677515
+          },
+          "matchingColumns": [
+            "cel_estudiante",
+            "nombre_estudiante"
+          ],
+          "schema": [
+            {
+              "id": "celular",
+              "displayName": "celular",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "nombre",
+              "displayName": "nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "lead_etapa",
+              "displayName": "lead_etapa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1472,
+        -208
+      ],
+      "name": "Call Definir ID contacto y lead en Kommo",
+      "id": "130e48f4-0974-43ef-b71c-9e864def9eca"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65782,\n    \"entity_id\": {{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1984,
+        -208
+      ],
+      "id": "ceab8b5c-6539-49c0-9fa9-991c4273671c",
+      "name": "Enviar mensaje1",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "operation": "updateLeads",
+        "collection": {
+          "lead": [
+            {
+              "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+              "custom_fields_values": {
+                "custom_field": [
+                  {
+                    "data": "{\"id\":1988418,\"type\":\"textarea\"}",
+                    "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+                  },
+                  {
+                    "data": "{\"id\":1988420,\"type\":\"textarea\"}",
+                    "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                  },
+                  {
+                    "data": "{\"id\":1988354,\"type\":\"text\"}",
+                    "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        1744,
+        -208
+      ],
+      "id": "82b799d0-e062-419c-a9f4-528621879d6d",
+      "name": "Update leads",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wflz3qEtBROqCrd73/wtrj9NEGs20Z4ed4A",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email_a_enviar",
+              "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+            },
+            {
+              "name": "nombre",
+              "value": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}"
+            },
+            {
+              "name": "celular_estudiante",
+              "value": "={{ $('variables_1').item.json.numero_a_dar_accesos }}"
+            },
+            {
+              "name": "nombre_grupo",
+              "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+            },
+            {
+              "name": "url_zoom",
+              "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+            },
+            {
+              "name": "tipo",
+              "value": "sin_zoom"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1232,
+        160
+      ],
+      "id": "f9374dfc-e668-4ffb-beb9-ec22614a7ee4",
+      "name": "Enviar email"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "FUqVaG3kGGb2Eqpm",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
+          "cachedResultName": "Definir ID contacto y lead en Kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
+            "nombre": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}",
+            "lead_etapa": 68677515
+          },
+          "matchingColumns": [
+            "cel_estudiante",
+            "nombre_estudiante"
+          ],
+          "schema": [
+            {
+              "id": "celular",
+              "displayName": "celular",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "nombre",
+              "displayName": "nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "lead_etapa",
+              "displayName": "lead_etapa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1472,
+        160
+      ],
+      "name": "Call Definir ID contacto y lead en Kommo1",
+      "id": "616e6d0f-b136-4f3f-919a-e5581a6c14bb"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65784,\n    \"entity_id\": {{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1984,
+        160
+      ],
+      "id": "93bf402b-af28-464c-b2e0-079ee0a9052e",
+      "name": "Enviar mensaje2",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "operation": "updateLeads",
+        "collection": {
+          "lead": [
+            {
+              "id": "={{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }}",
+              "custom_fields_values": {
+                "custom_field": [
+                  {
+                    "data": "{\"id\":1988420,\"type\":\"textarea\"}",
+                    "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                  },
+                  {
+                    "data": "{\"id\":1988354,\"type\":\"text\"}",
+                    "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        1744,
+        160
+      ],
+      "id": "07bc2596-320e-467b-a7c0-1ba9782b61cb",
+      "name": "Update leads1",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "1244011715008532602",
+          "mode": "list",
+          "cachedResultName": "Bioenglish",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1357814199446929488",
+          "mode": "list",
+          "cachedResultName": "errores",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+        },
+        "content": "=Falta definir URL de zoom en grupo con el nivel {{ $('variables_2').item.json.nombre_grupo }}\n\n\nEntrar a este link para definir el link de zoom: https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI/viwHWienEAkK0GiH1/{{ $('variables_1').item.json.id_grupo }}?blocks=hide\n\n\nSe hizo envio de accesos pero sin link de zoom a este lead:\nhttps://bioenglish22.kommo.com/leads/detail/{{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        2224,
+        160
+      ],
+      "id": "2e25b701-0379-485e-9c9b-c8cfe9379aeb",
+      "name": "Send a message2",
+      "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+      "credentials": {
+        "discordBotApi": {
+          "id": "lrG2Z5VoQXKArDMn",
+          "name": "bio_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -76,6 +1880,39 @@
           "item": 0
         }
       }
+    ],
+    "Crear usuario_2": [
+      {
+        "json": {
+          "full_name": "esther elizabeth",
+          "email": "esther@gmail.com",
+          "magic_link": null,
+          "updated": "2026-01-04 23:17:14",
+          "created": "2026-01-04 23:17:14"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Call Definir ID contacto y lead en Kommo": [
+      {
+        "json": {
+          "id_contacto": 28244998,
+          "id_lead": 24692538
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Call Definir ID contacto y lead en Kommo1": [
+      {
+        "json": {
+          "id_contacto": 28244998,
+          "id_lead": 24692538
+        }
+      }
     ]
   },
   "repo_name": "n8n_backups",
@@ -100,6 +1937,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-04T05:33:41.426Z",
-  "versionId": "c0b319af-d9a2-4dfd-b0a4-95c058eca4d7"
+  "updatedAt": "2026-01-05T00:21:18.648Z",
+  "versionId": "01e2cddd-fd59-4cca-a70d-ff24790042f2"
 }
