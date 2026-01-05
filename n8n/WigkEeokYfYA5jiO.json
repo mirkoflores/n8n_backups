@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-03T22:08:03.716Z",
-    "createdAt": "2026-01-03T22:08:01.775Z",
-    "versionId": "b51a3dab-bec6-4ebf-af74-7d9576ee12a4",
+    "updatedAt": "2026-01-05T00:34:18.312Z",
+    "createdAt": "2026-01-05T00:34:16.100Z",
+    "versionId": "22b701cb-3d48-4746-b14c-51e6386e6608",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -29,7 +29,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -1648,
+          -1440,
           -16
         ],
         "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
@@ -67,7 +67,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -1264,
+          -1056,
           -16
         ],
         "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
@@ -102,7 +102,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -1072,
+          -864,
           -16
         ],
         "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
@@ -149,7 +149,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -1456,
+          -1248,
           -16
         ],
         "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
@@ -274,7 +274,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          944,
+          1152,
           0
         ],
         "id": "9ec0bb18-6870-408b-84cb-c8aac21ee542",
@@ -322,7 +322,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7056,
+          7264,
           -1200
         ],
         "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -344,7 +344,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1216,
+          1424,
           0
         ],
         "id": "0c8912d6-5610-43c2-80ab-601cf8fc29ed",
@@ -384,7 +384,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1424,
+          1632,
           0
         ],
         "id": "b0e969fd-2ddb-428f-b481-8dc62a65b44e",
@@ -418,7 +418,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2240,
+          2448,
           -80
         ],
         "id": "cf285d04-3261-4645-930d-0c1946f00da9",
@@ -451,7 +451,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1696,
+          1904,
           208
         ],
         "id": "9506b4c7-6a8b-4254-b280-fbba0d3d8b55",
@@ -493,7 +493,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          3264,
+          3472,
           64
         ],
         "id": "37921795-ebf1-49ab-9c75-07fbc3360fd1",
@@ -522,7 +522,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2688,
+          2896,
           16
         ],
         "id": "7c32102d-f747-4780-a52a-89bda90b8aab",
@@ -545,7 +545,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2480,
+          2688,
           208
         ],
         "id": "32355781-7403-4f47-973e-5c81edc5a38b",
@@ -574,7 +574,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1888,
+          2096,
           -80
         ],
         "id": "a7cbcda0-d49b-4ee3-8a3a-a2b4e58b8340",
@@ -609,7 +609,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3920,
+          4128,
           -208
         ],
         "id": "522d763d-a7b2-44ba-b84b-aaf4fdc3d05c",
@@ -638,7 +638,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3504,
+          3712,
           64
         ],
         "id": "8b3a5f45-4979-4ef0-8655-9ea76573cd6a",
@@ -661,7 +661,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3008,
+          3216,
           64
         ],
         "id": "d656bed3-5266-4520-9245-484bd4580f39",
@@ -690,7 +690,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4176,
+          4384,
           -80
         ],
         "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
@@ -710,7 +710,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6816,
+          7024,
           -1200
         ],
         "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -773,7 +773,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          5760,
+          5968,
           -304
         ],
         "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
@@ -790,7 +790,7 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          6016,
+          6224,
           -304
         ],
         "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
@@ -957,7 +957,7 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          6240,
+          6448,
           -368
         ],
         "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
@@ -1005,7 +1005,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7056,
+          7264,
           -1424
         ],
         "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
@@ -1025,7 +1025,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6816,
+          7024,
           -1424
         ],
         "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
@@ -1060,7 +1060,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          7280,
+          7488,
           -1424
         ],
         "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
@@ -1101,7 +1101,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          4384,
+          4592,
           -80
         ],
         "id": "937effc5-d55b-4e41-bb82-647f9266837d",
@@ -1124,7 +1124,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5040,
+          5248,
           64
         ],
         "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -1147,7 +1147,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5456,
+          5664,
           -96
         ],
         "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
@@ -1222,7 +1222,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          4688,
+          4896,
           -160
         ],
         "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
@@ -1270,7 +1270,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          5744,
+          5952,
           192
         ],
         "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
@@ -1345,7 +1345,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          6576,
+          6784,
           -1312
         ],
         "id": "2c710983-a029-4447-872b-b00631d26014",
@@ -1393,7 +1393,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7056,
+          7264,
           -752
         ],
         "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
@@ -1413,7 +1413,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6816,
+          7024,
           -752
         ],
         "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
@@ -1467,7 +1467,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7056,
+          7264,
           -976
         ],
         "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
@@ -1487,7 +1487,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6816,
+          7024,
           -976
         ],
         "id": "0db36230-0d0d-49bb-943a-dc011650676e",
@@ -1522,7 +1522,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          7280,
+          7488,
           -976
         ],
         "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
@@ -1598,7 +1598,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          6576,
+          6784,
           -864
         ],
         "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
@@ -1646,7 +1646,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7072,
+          7280,
           -320
         ],
         "id": "fb04a892-10f5-4269-b116-17194a984389",
@@ -1666,7 +1666,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6832,
+          7040,
           -320
         ],
         "id": "82504058-e135-4182-8768-a13266255ada",
@@ -1720,7 +1720,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7072,
+          7280,
           -544
         ],
         "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
@@ -1740,7 +1740,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6832,
+          7040,
           -544
         ],
         "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
@@ -1775,7 +1775,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          7296,
+          7504,
           -544
         ],
         "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
@@ -1851,7 +1851,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          6592,
+          6800,
           -432
         ],
         "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
@@ -1874,7 +1874,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5040,
+          5248,
           -160
         ],
         "id": "791557b6-5113-41aa-b134-8ae81864350b",
@@ -1882,7 +1882,7 @@
       },
       {
         "parameters": {
-          "queue": "bioenglish",
+          "queue": "chatbot_cobranzas",
           "options": {
             "arguments": {
               "argument": [
@@ -1901,7 +1901,7 @@
         "type": "n8n-nodes-base.rabbitmqTrigger",
         "typeVersion": 1,
         "position": [
-          -1840,
+          -1648,
           -16
         ],
         "id": "8d9574ec-975e-4724-a561-0e4d57603596",
@@ -1941,7 +1941,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          2672,
+          2880,
           -208
         ],
         "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
@@ -1977,7 +1977,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -688,
+          -480,
           -16
         ],
         "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
@@ -2007,7 +2007,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -880,
+          -672,
           -16
         ],
         "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
@@ -2031,7 +2031,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -240,
+          -32,
           -112
         ],
         "id": "eded776a-4999-4cf5-8a75-21cef8d9d006",
@@ -2065,7 +2065,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          -496,
+          -288,
           -16
         ],
         "id": "023db1c4-7a67-4833-81af-407461e9fe80",
@@ -2098,7 +2098,7 @@
         "type": "n8n-nodes-base.filter",
         "typeVersion": 2.3,
         "position": [
-          -32,
+          176,
           -112
         ],
         "id": "b63a8355-67c0-4e5b-89c6-6c9442e6e1e4",
@@ -2109,7 +2109,7 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          176,
+          384,
           -112
         ],
         "id": "fbca6dbb-58ce-453c-95b2-5769a23587b2",
@@ -2142,7 +2142,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          400,
+          608,
           -112
         ],
         "id": "d03fb4e8-add6-4f83-ac82-2d16d2787efd",
@@ -2195,7 +2195,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          672,
+          880,
           240
         ],
         "id": "5e78f3b8-3154-40ef-84da-a000d79be981",
@@ -2248,7 +2248,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          672,
+          880,
           -208
         ],
         "id": "b54ae000-1a58-4b98-a283-1f3489ee7ce0",
@@ -2301,7 +2301,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          672,
+          880,
           0
         ],
         "id": "4571803b-4ece-4e49-acb1-60f78184297c",
@@ -2321,7 +2321,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6576,
+          6784,
           -192
         ],
         "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
@@ -2347,7 +2347,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6576,
+          6784,
           0
         ],
         "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
@@ -2373,7 +2373,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6576,
+          6784,
           192
         ],
         "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
@@ -2427,7 +2427,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3264,
+          3472,
           -96
         ],
         "id": "cd74891b-2961-4751-a371-640f3faed8ea",
@@ -2466,7 +2466,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2976,
+          3184,
           -208
         ],
         "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
@@ -3134,11 +3134,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version b51a3dab",
+    "name": "Version 22b701cb",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "b51a3dab-bec6-4ebf-af74-7d9576ee12a4",
+  "activeVersionId": "22b701cb-3d48-4746-b14c-51e6386e6608",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -3830,7 +3830,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -1648,
+        -1440,
         -16
       ],
       "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
@@ -3868,7 +3868,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -1264,
+        -1056,
         -16
       ],
       "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
@@ -3903,7 +3903,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -1072,
+        -864,
         -16
       ],
       "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
@@ -3950,7 +3950,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1456,
+        -1248,
         -16
       ],
       "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
@@ -4075,7 +4075,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        944,
+        1152,
         0
       ],
       "id": "9ec0bb18-6870-408b-84cb-c8aac21ee542",
@@ -4123,7 +4123,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7056,
+        7264,
         -1200
       ],
       "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -4145,7 +4145,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1216,
+        1424,
         0
       ],
       "id": "0c8912d6-5610-43c2-80ab-601cf8fc29ed",
@@ -4185,7 +4185,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1424,
+        1632,
         0
       ],
       "id": "b0e969fd-2ddb-428f-b481-8dc62a65b44e",
@@ -4219,7 +4219,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2240,
+        2448,
         -80
       ],
       "id": "cf285d04-3261-4645-930d-0c1946f00da9",
@@ -4252,7 +4252,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1696,
+        1904,
         208
       ],
       "id": "9506b4c7-6a8b-4254-b280-fbba0d3d8b55",
@@ -4294,7 +4294,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        3264,
+        3472,
         64
       ],
       "id": "37921795-ebf1-49ab-9c75-07fbc3360fd1",
@@ -4323,7 +4323,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2688,
+        2896,
         16
       ],
       "id": "7c32102d-f747-4780-a52a-89bda90b8aab",
@@ -4346,7 +4346,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2480,
+        2688,
         208
       ],
       "id": "32355781-7403-4f47-973e-5c81edc5a38b",
@@ -4375,7 +4375,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1888,
+        2096,
         -80
       ],
       "id": "a7cbcda0-d49b-4ee3-8a3a-a2b4e58b8340",
@@ -4410,7 +4410,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3920,
+        4128,
         -208
       ],
       "id": "522d763d-a7b2-44ba-b84b-aaf4fdc3d05c",
@@ -4439,7 +4439,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3504,
+        3712,
         64
       ],
       "id": "8b3a5f45-4979-4ef0-8655-9ea76573cd6a",
@@ -4462,7 +4462,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3008,
+        3216,
         64
       ],
       "id": "d656bed3-5266-4520-9245-484bd4580f39",
@@ -4491,7 +4491,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4176,
+        4384,
         -80
       ],
       "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
@@ -4511,7 +4511,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6816,
+        7024,
         -1200
       ],
       "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -4574,7 +4574,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        5760,
+        5968,
         -304
       ],
       "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
@@ -4591,7 +4591,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        6016,
+        6224,
         -304
       ],
       "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
@@ -4758,7 +4758,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        6240,
+        6448,
         -368
       ],
       "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
@@ -4806,7 +4806,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7056,
+        7264,
         -1424
       ],
       "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
@@ -4826,7 +4826,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6816,
+        7024,
         -1424
       ],
       "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
@@ -4861,7 +4861,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        7280,
+        7488,
         -1424
       ],
       "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
@@ -4902,7 +4902,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        4384,
+        4592,
         -80
       ],
       "id": "937effc5-d55b-4e41-bb82-647f9266837d",
@@ -4925,7 +4925,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5040,
+        5248,
         64
       ],
       "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -4948,7 +4948,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5456,
+        5664,
         -96
       ],
       "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
@@ -5023,7 +5023,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        4688,
+        4896,
         -160
       ],
       "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
@@ -5071,7 +5071,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        5744,
+        5952,
         192
       ],
       "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
@@ -5146,7 +5146,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        6576,
+        6784,
         -1312
       ],
       "id": "2c710983-a029-4447-872b-b00631d26014",
@@ -5194,7 +5194,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7056,
+        7264,
         -752
       ],
       "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
@@ -5214,7 +5214,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6816,
+        7024,
         -752
       ],
       "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
@@ -5268,7 +5268,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7056,
+        7264,
         -976
       ],
       "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
@@ -5288,7 +5288,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6816,
+        7024,
         -976
       ],
       "id": "0db36230-0d0d-49bb-943a-dc011650676e",
@@ -5323,7 +5323,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        7280,
+        7488,
         -976
       ],
       "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
@@ -5399,7 +5399,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        6576,
+        6784,
         -864
       ],
       "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
@@ -5447,7 +5447,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7072,
+        7280,
         -320
       ],
       "id": "fb04a892-10f5-4269-b116-17194a984389",
@@ -5467,7 +5467,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6832,
+        7040,
         -320
       ],
       "id": "82504058-e135-4182-8768-a13266255ada",
@@ -5521,7 +5521,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7072,
+        7280,
         -544
       ],
       "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
@@ -5541,7 +5541,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6832,
+        7040,
         -544
       ],
       "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
@@ -5576,7 +5576,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        7296,
+        7504,
         -544
       ],
       "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
@@ -5652,7 +5652,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        6592,
+        6800,
         -432
       ],
       "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
@@ -5675,7 +5675,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5040,
+        5248,
         -160
       ],
       "id": "791557b6-5113-41aa-b134-8ae81864350b",
@@ -5683,7 +5683,7 @@
     },
     {
       "parameters": {
-        "queue": "bioenglish",
+        "queue": "chatbot_cobranzas",
         "options": {
           "arguments": {
             "argument": [
@@ -5702,7 +5702,7 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -1840,
+        -1648,
         -16
       ],
       "id": "8d9574ec-975e-4724-a561-0e4d57603596",
@@ -5742,7 +5742,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        2672,
+        2880,
         -208
       ],
       "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
@@ -5778,7 +5778,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -688,
+        -480,
         -16
       ],
       "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
@@ -5808,7 +5808,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -880,
+        -672,
         -16
       ],
       "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
@@ -5832,7 +5832,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -240,
+        -32,
         -112
       ],
       "id": "eded776a-4999-4cf5-8a75-21cef8d9d006",
@@ -5866,7 +5866,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -496,
+        -288,
         -16
       ],
       "id": "023db1c4-7a67-4833-81af-407461e9fe80",
@@ -5899,7 +5899,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        -32,
+        176,
         -112
       ],
       "id": "b63a8355-67c0-4e5b-89c6-6c9442e6e1e4",
@@ -5910,7 +5910,7 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        176,
+        384,
         -112
       ],
       "id": "fbca6dbb-58ce-453c-95b2-5769a23587b2",
@@ -5943,7 +5943,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        400,
+        608,
         -112
       ],
       "id": "d03fb4e8-add6-4f83-ac82-2d16d2787efd",
@@ -5996,7 +5996,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        672,
+        880,
         240
       ],
       "id": "5e78f3b8-3154-40ef-84da-a000d79be981",
@@ -6049,7 +6049,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        672,
+        880,
         -208
       ],
       "id": "b54ae000-1a58-4b98-a283-1f3489ee7ce0",
@@ -6102,7 +6102,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        672,
+        880,
         0
       ],
       "id": "4571803b-4ece-4e49-acb1-60f78184297c",
@@ -6122,7 +6122,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6576,
+        6784,
         -192
       ],
       "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
@@ -6148,7 +6148,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6576,
+        6784,
         0
       ],
       "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
@@ -6174,7 +6174,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6576,
+        6784,
         192
       ],
       "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
@@ -6228,7 +6228,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3264,
+        3472,
         -96
       ],
       "id": "cd74891b-2961-4751-a371-640f3faed8ea",
@@ -6267,7 +6267,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2976,
+        3184,
         -208
       ],
       "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
@@ -6417,6 +6417,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2026-01-03T22:08:01.767Z",
-  "versionId": "b51a3dab-bec6-4ebf-af74-7d9576ee12a4"
+  "updatedAt": "2026-01-05T00:34:16.095Z",
+  "versionId": "22b701cb-3d48-4746-b14c-51e6386e6608"
 }
