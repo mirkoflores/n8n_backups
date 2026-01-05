@@ -1,31 +1,11 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-26T20:48:17.261Z",
-    "createdAt": "2025-12-26T20:48:14.921Z",
-    "versionId": "bff5fad1-318a-46e0-95c2-0547a7837e1b",
+    "updatedAt": "2026-01-05T00:54:48.415Z",
+    "createdAt": "2026-01-05T00:54:47.086Z",
+    "versionId": "c39080fd-303d-4f00-8351-1f7df1d9d832",
     "workflowId": "n7YQBYWTrYNhhdvy",
     "nodes": [
-      {
-        "parameters": {
-          "queue": "bioenglish",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.rabbitmq",
-        "typeVersion": 1.1,
-        "position": [
-          208,
-          -224
-        ],
-        "id": "3f628568-73cc-4b0e-bac7-d37da783913e",
-        "name": "RabbitMQ",
-        "credentials": {
-          "rabbitmq": {
-            "id": "0rr5PL45GTNhamch",
-            "name": "bio_1"
-          }
-        }
-      },
       {
         "parameters": {
           "httpMethod": "POST",
@@ -35,12 +15,149 @@
         "type": "n8n-nodes-base.webhook",
         "typeVersion": 2.1,
         "position": [
-          -16,
-          -224
+          -304,
+          -272
         ],
         "id": "de7fabb7-ce19-4b68-b674-12d99a7941d5",
         "name": "Webhook",
         "webhookId": "9835affc-72a4-47ea-8968-aecdccf2b771"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('Webhook').item.json.query.tipo }}",
+                      "rightValue": "chatbot_cobranzas",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      },
+                      "id": "274cac4b-398e-4eb2-9576-7a0a5f47be41"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "chatbot_cobranzas"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "c65c0954-3102-41fc-9c1c-b28b276a1e9d",
+                      "leftValue": "={{ $('Webhook').item.json.query.tipo }}",
+                      "rightValue": "chatbot_upselling",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "chatbot_upselling"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          -96,
+          -272
+        ],
+        "id": "b7e339e3-a311-4f38-8294-204c4e7640b2",
+        "name": "tipo"
+      },
+      {
+        "parameters": {
+          "queue": "chatbot_cobranzas",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.rabbitmq",
+        "typeVersion": 1.1,
+        "position": [
+          480,
+          -432
+        ],
+        "id": "3f628568-73cc-4b0e-bac7-d37da783913e",
+        "name": "chatbot cobranzas",
+        "credentials": {
+          "rabbitmq": {
+            "id": "0rr5PL45GTNhamch",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "amount": 9,
+          "unit": "hours"
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          256,
+          -432
+        ],
+        "id": "b34f1c62-d444-439b-8b96-cfced012d5fc",
+        "name": "Wait",
+        "webhookId": "63b27213-b7d7-4aa0-8088-4af10b5d523a"
+      },
+      {
+        "parameters": {
+          "queue": "chatbot_upselling",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.rabbitmq",
+        "typeVersion": 1.1,
+        "position": [
+          464,
+          -128
+        ],
+        "id": "90ae4dd0-1523-4e6b-8d18-b2162766c162",
+        "name": "chatbot cobranzas1",
+        "credentials": {
+          "rabbitmq": {
+            "id": "0rr5PL45GTNhamch",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "amount": 9,
+          "unit": "hours"
+        },
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          240,
+          -128
+        ],
+        "id": "7ba682f1-bf0a-429c-8c67-741b57db161a",
+        "name": "Wait1",
+        "webhookId": "63b27213-b7d7-4aa0-8088-4af10b5d523a",
+        "disabled": true
       }
     ],
     "connections": {
@@ -48,7 +165,47 @@
         "main": [
           [
             {
-              "node": "RabbitMQ",
+              "node": "tipo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "tipo": {
+        "main": [
+          [
+            {
+              "node": "Wait",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Wait1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait": {
+        "main": [
+          [
+            {
+              "node": "chatbot cobranzas",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait1": {
+        "main": [
+          [
+            {
+              "node": "chatbot cobranzas1",
               "type": "main",
               "index": 0
             }
@@ -57,17 +214,57 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version bff5fad1",
+    "name": "Version c39080fd",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "bff5fad1-318a-46e0-95c2-0547a7837e1b",
+  "activeVersionId": "c39080fd-303d-4f00-8351-1f7df1d9d832",
   "connections": {
     "Webhook": {
       "main": [
         [
           {
-            "node": "RabbitMQ",
+            "node": "tipo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tipo": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "chatbot cobranzas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "chatbot cobranzas1",
             "type": "main",
             "index": 0
           }
@@ -81,28 +278,8 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "Chatbot de cobranzas - trigger",
+  "name": "webhook n8n a rabbit mq",
   "nodes": [
-    {
-      "parameters": {
-        "queue": "bioenglish",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.rabbitmq",
-      "typeVersion": 1.1,
-      "position": [
-        208,
-        -224
-      ],
-      "id": "3f628568-73cc-4b0e-bac7-d37da783913e",
-      "name": "RabbitMQ",
-      "credentials": {
-        "rabbitmq": {
-          "id": "0rr5PL45GTNhamch",
-          "name": "bio_1"
-        }
-      }
-    },
     {
       "parameters": {
         "httpMethod": "POST",
@@ -112,12 +289,149 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -16,
-        -224
+        -304,
+        -272
       ],
       "id": "de7fabb7-ce19-4b68-b674-12d99a7941d5",
       "name": "Webhook",
       "webhookId": "9835affc-72a4-47ea-8968-aecdccf2b771"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Webhook').item.json.query.tipo }}",
+                    "rightValue": "chatbot_cobranzas",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "274cac4b-398e-4eb2-9576-7a0a5f47be41"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "chatbot_cobranzas"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "c65c0954-3102-41fc-9c1c-b28b276a1e9d",
+                    "leftValue": "={{ $('Webhook').item.json.query.tipo }}",
+                    "rightValue": "chatbot_upselling",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "chatbot_upselling"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -96,
+        -272
+      ],
+      "id": "b7e339e3-a311-4f38-8294-204c4e7640b2",
+      "name": "tipo"
+    },
+    {
+      "parameters": {
+        "queue": "chatbot_cobranzas",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        -432
+      ],
+      "id": "3f628568-73cc-4b0e-bac7-d37da783913e",
+      "name": "chatbot cobranzas",
+      "credentials": {
+        "rabbitmq": {
+          "id": "0rr5PL45GTNhamch",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 9,
+        "unit": "hours"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        256,
+        -432
+      ],
+      "id": "b34f1c62-d444-439b-8b96-cfced012d5fc",
+      "name": "Wait",
+      "webhookId": "63b27213-b7d7-4aa0-8088-4af10b5d523a"
+    },
+    {
+      "parameters": {
+        "queue": "chatbot_upselling",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1.1,
+      "position": [
+        464,
+        -128
+      ],
+      "id": "90ae4dd0-1523-4e6b-8d18-b2162766c162",
+      "name": "chatbot cobranzas1",
+      "credentials": {
+        "rabbitmq": {
+          "id": "0rr5PL45GTNhamch",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 9,
+        "unit": "hours"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        -128
+      ],
+      "id": "7ba682f1-bf0a-429c-8c67-741b57db161a",
+      "name": "Wait1",
+      "webhookId": "63b27213-b7d7-4aa0-8088-4af10b5d523a",
+      "disabled": true
     }
   ],
   "pinData": {
@@ -132,22 +446,27 @@
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
-            "x-forwarded-for": "44.199.193.163",
+            "x-forwarded-for": "54.89.88.150",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "1RbcTx6BS4y0uuRkozsQ6Q",
-            "x-real-ip": "44.199.193.163",
-            "x-request-start": "1766773219160"
+            "x-railway-request-id": "IkweFaGVTLCBdeR-woOzXw",
+            "x-real-ip": "54.89.88.150",
+            "x-request-start": "1767572892879"
           },
           "params": {},
-          "query": {},
+          "query": {
+            "tipo": "chatbot_cobranzas"
+          },
           "body": {
-            "recordId": "recnauGWmzzkNLccG",
+            "recordId": "recbsMbqgPg3UGSsH",
             "Tipo": "7_dias_antes"
           },
-          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
         }
       }
     ]
@@ -174,6 +493,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-26T20:50:01.266Z",
-  "versionId": "bff5fad1-318a-46e0-95c2-0547a7837e1b"
+  "updatedAt": "2026-01-05T00:54:47.084Z",
+  "versionId": "c39080fd-303d-4f00-8351-1f7df1d9d832"
 }
