@@ -1,0 +1,1240 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-05T02:01:01.582Z",
+    "createdAt": "2026-01-05T02:00:59.210Z",
+    "versionId": "f81c4c49-4a3f-4357-8255-432299baaa00",
+    "workflowId": "HALPYZ7HHe7U1tZK",
+    "nodes": [
+      {
+        "parameters": {
+          "queue": "chatbot_upselling",
+          "options": {
+            "arguments": {
+              "argument": [
+                {
+                  "key": "x-queue-type",
+                  "value": "quorum"
+                }
+              ]
+            },
+            "acknowledge": "executionFinishes",
+            "jsonParseBody": true,
+            "onlyContent": true,
+            "parallelMessages": 1
+          }
+        },
+        "type": "n8n-nodes-base.rabbitmqTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "fcab0a63-2837-4795-b55b-4ed2e2273d42",
+        "name": "RabbitMQ Trigger",
+        "credentials": {
+          "rabbitmq": {
+            "id": "0rr5PL45GTNhamch",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('RabbitMQ Trigger').item.json.body.Tipo }}",
+                      "rightValue": "2_dias_despues",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      },
+                      "id": "69d42ac1-faa1-40dc-bbb2-6244a405de6a"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "2_dias_despues"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "3e142f2b-88d5-4e0e-ab06-3287a8f1118a",
+                      "leftValue": "={{ $('RabbitMQ Trigger').item.json.body.Tipo }}",
+                      "rightValue": "7_dias_despues",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "7_dias_despues"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          208,
+          0
+        ],
+        "id": "6be829f7-3ac9-4247-afd4-753da1225f7a",
+        "name": "tipo"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblkpm3CwBi8WctOZ",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+          },
+          "id": "={{ $('RabbitMQ Trigger').item.json.body.recordId }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          496,
+          -176
+        ],
+        "id": "69da828d-2f11-465c-9abb-d755e930d26c",
+        "name": "obtener registro - cliente",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tbllfzjbgoKjO87HI",
+            "mode": "list",
+            "cachedResultName": "Grupos",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI"
+          },
+          "filterByFormula": "={Grupos}=\"{{ $json['Grupo actual'] }}\"",
+          "returnAll": false,
+          "limit": 1,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          704,
+          -176
+        ],
+        "id": "1e6aa1e8-3f99-40c8-ac8d-cbfa8411c83f",
+        "name": "obtener registro - grupo",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "217e6b34-02ea-4d3f-8943-4aa6e792d6e2",
+                "name": "nombre_grupo",
+                "value": "={{ $('obtener registro - grupo').item.json.Nivel }}",
+                "type": "string"
+              },
+              {
+                "id": "6fb73710-17bc-4605-b616-0ad29ceddc1c",
+                "name": "celular_a_enviar_upseel",
+                "value": "={{ $('obtener registro - cliente').item.json['Celular Unico'] }}",
+                "type": "string"
+              },
+              {
+                "id": "f269b051-349e-431c-9599-a8f744c95f94",
+                "name": "correo_a_enviar_upseel",
+                "value": "={{ $('obtener registro - cliente').item.json['Email F'] }}",
+                "type": "string"
+              },
+              {
+                "id": "364ce6a3-43d7-4339-b673-418271f09721",
+                "name": "nombre_a_enviar_upseel",
+                "value": "={{ $('obtener registro - cliente').item.json['Nombre F'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          912,
+          -176
+        ],
+        "id": "8857b9b7-3bf4-4faa-9211-8b2a98d3dc31",
+        "name": "variables_1"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "FUqVaG3kGGb2Eqpm",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
+            "cachedResultName": "Definir ID contacto y lead en Kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "lead_etapa": "=68677515",
+              "celular": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}",
+              "nombre": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "celular",
+                "displayName": "celular",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "nombre",
+                "displayName": "nombre",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "lead_etapa",
+                "displayName": "lead_etapa",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3,
+        "position": [
+          1376,
+          -176
+        ],
+        "id": "653c70e5-2027-48f4-8aaa-c76800021e50",
+        "name": "Call 'Definir ID contacto y lead en Kommo'"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wflOHNIJXEey3bmMz/wtryNaIWOPq7vYmJ6",
+          "sendBody": true,
+          "bodyParameters": {
+            "parameters": [
+              {
+                "name": "email_a_enviar",
+                "value": "={{ $('variables_1').item.json.correo_a_enviar_upseel }}"
+              },
+              {
+                "name": "nombre",
+                "value": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
+              },
+              {
+                "name": "celular_estudiante",
+                "value": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}"
+              },
+              {
+                "name": "nombre_grupo",
+                "value": "={{ $('variables_1').item.json.nombre_grupo }}"
+              },
+              {
+                "name": "tipo",
+                "value": "2_dias_despues"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1136,
+          -176
+        ],
+        "id": "38e0ea79-a258-4305-82e0-ae6266e492aa",
+        "name": "Enviar email1"
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65782,\n    \"entity_id\": {{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          1840,
+          -176
+        ],
+        "id": "7fc09309-e765-45a7-9112-5411a66bb710",
+        "name": "Enviar mensaje1",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "resource": "leads",
+          "operation": "updateLeads",
+          "collection": {
+            "lead": [
+              {
+                "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+                "custom_fields_values": {
+                  "custom_field": [
+                    {
+                      "data": "{\"id\":1988418,\"type\":\"textarea\"}",
+                      "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+                    },
+                    {
+                      "data": "{\"id\":1988420,\"type\":\"textarea\"}",
+                      "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                    },
+                    {
+                      "data": "{\"id\":1988354,\"type\":\"text\"}",
+                      "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-kommo.kommo",
+        "typeVersion": 1,
+        "position": [
+          1600,
+          -176
+        ],
+        "id": "cf252b35-68b6-46b8-835f-30c60d4c96ae",
+        "name": "Update leads",
+        "credentials": {
+          "kommoOAuth2Api": {
+            "id": "yjgoywi6EgfDZmcO",
+            "name": "kommo_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblkpm3CwBi8WctOZ",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+          },
+          "id": "={{ $('RabbitMQ Trigger').item.json.body.recordId }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          496,
+          80
+        ],
+        "id": "20c2c03f-e9dc-43b9-a9a8-7e7d6668e643",
+        "name": "obtener registro - cliente1",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblr6JOWFdK3kOAfo",
+            "mode": "list",
+            "cachedResultName": "DetalleVentas",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblr6JOWFdK3kOAfo"
+          },
+          "filterByFormula": "={Clientes}=\"{{ $json.Estudiante }}\"",
+          "returnAll": false,
+          "limit": 1,
+          "options": {},
+          "sort": {
+            "property": [
+              {
+                "field": "Fecha de inicio real"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          704,
+          80
+        ],
+        "id": "dcd85f61-dd1e-4a90-99b0-bde925865b4e",
+        "name": "Search records",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "RabbitMQ Trigger": {
+        "main": [
+          [
+            {
+              "node": "tipo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "tipo": {
+        "main": [
+          [
+            {
+              "node": "obtener registro - cliente",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "obtener registro - cliente1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "obtener registro - cliente": {
+        "main": [
+          [
+            {
+              "node": "obtener registro - grupo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "obtener registro - grupo": {
+        "main": [
+          [
+            {
+              "node": "variables_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_1": {
+        "main": [
+          [
+            {
+              "node": "Enviar email1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Enviar email1": {
+        "main": [
+          [
+            {
+              "node": "Call 'Definir ID contacto y lead en Kommo'",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Update leads": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call 'Definir ID contacto y lead en Kommo'": {
+        "main": [
+          [
+            {
+              "node": "Update leads",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "obtener registro - cliente1": {
+        "main": [
+          [
+            {
+              "node": "Search records",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version f81c4c49",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "f81c4c49-4a3f-4357-8255-432299baaa00",
+  "connections": {
+    "RabbitMQ Trigger": {
+      "main": [
+        [
+          {
+            "node": "tipo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tipo": {
+      "main": [
+        [
+          {
+            "node": "obtener registro - cliente",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "obtener registro - cliente1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener registro - cliente": {
+      "main": [
+        [
+          {
+            "node": "obtener registro - grupo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener registro - grupo": {
+      "main": [
+        [
+          {
+            "node": "variables_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_1": {
+      "main": [
+        [
+          {
+            "node": "Enviar email1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar email1": {
+      "main": [
+        [
+          {
+            "node": "Call 'Definir ID contacto y lead en Kommo'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update leads": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'Definir ID contacto y lead en Kommo'": {
+      "main": [
+        [
+          {
+            "node": "Update leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener registro - cliente1": {
+      "main": [
+        [
+          {
+            "node": "Search records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-05T00:30:31.045Z",
+  "id": "HALPYZ7HHe7U1tZK",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "chatbot upselling",
+  "nodes": [
+    {
+      "parameters": {
+        "queue": "chatbot_upselling",
+        "options": {
+          "arguments": {
+            "argument": [
+              {
+                "key": "x-queue-type",
+                "value": "quorum"
+              }
+            ]
+          },
+          "acknowledge": "executionFinishes",
+          "jsonParseBody": true,
+          "onlyContent": true,
+          "parallelMessages": 1
+        }
+      },
+      "type": "n8n-nodes-base.rabbitmqTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "fcab0a63-2837-4795-b55b-4ed2e2273d42",
+      "name": "RabbitMQ Trigger",
+      "credentials": {
+        "rabbitmq": {
+          "id": "0rr5PL45GTNhamch",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('RabbitMQ Trigger').item.json.body.Tipo }}",
+                    "rightValue": "2_dias_despues",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "69d42ac1-faa1-40dc-bbb2-6244a405de6a"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "2_dias_despues"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "3e142f2b-88d5-4e0e-ab06-3287a8f1118a",
+                    "leftValue": "={{ $('RabbitMQ Trigger').item.json.body.Tipo }}",
+                    "rightValue": "7_dias_despues",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "7_dias_despues"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "6be829f7-3ac9-4247-afd4-753da1225f7a",
+      "name": "tipo"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "id": "={{ $('RabbitMQ Trigger').item.json.body.recordId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        496,
+        -176
+      ],
+      "id": "69da828d-2f11-465c-9abb-d755e930d26c",
+      "name": "obtener registro - cliente",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbllfzjbgoKjO87HI",
+          "mode": "list",
+          "cachedResultName": "Grupos",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tbllfzjbgoKjO87HI"
+        },
+        "filterByFormula": "={Grupos}=\"{{ $json['Grupo actual'] }}\"",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        704,
+        -176
+      ],
+      "id": "1e6aa1e8-3f99-40c8-ac8d-cbfa8411c83f",
+      "name": "obtener registro - grupo",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "217e6b34-02ea-4d3f-8943-4aa6e792d6e2",
+              "name": "nombre_grupo",
+              "value": "={{ $('obtener registro - grupo').item.json.Nivel }}",
+              "type": "string"
+            },
+            {
+              "id": "6fb73710-17bc-4605-b616-0ad29ceddc1c",
+              "name": "celular_a_enviar_upseel",
+              "value": "={{ $('obtener registro - cliente').item.json['Celular Unico'] }}",
+              "type": "string"
+            },
+            {
+              "id": "f269b051-349e-431c-9599-a8f744c95f94",
+              "name": "correo_a_enviar_upseel",
+              "value": "={{ $('obtener registro - cliente').item.json['Email F'] }}",
+              "type": "string"
+            },
+            {
+              "id": "364ce6a3-43d7-4339-b673-418271f09721",
+              "name": "nombre_a_enviar_upseel",
+              "value": "={{ $('obtener registro - cliente').item.json['Nombre F'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        912,
+        -176
+      ],
+      "id": "8857b9b7-3bf4-4faa-9211-8b2a98d3dc31",
+      "name": "variables_1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "FUqVaG3kGGb2Eqpm",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
+          "cachedResultName": "Definir ID contacto y lead en Kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "lead_etapa": "=68677515",
+            "celular": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}",
+            "nombre": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "celular",
+              "displayName": "celular",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "nombre",
+              "displayName": "nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "lead_etapa",
+              "displayName": "lead_etapa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        1376,
+        -176
+      ],
+      "id": "653c70e5-2027-48f4-8aaa-c76800021e50",
+      "name": "Call 'Definir ID contacto y lead en Kommo'"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wflOHNIJXEey3bmMz/wtryNaIWOPq7vYmJ6",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "email_a_enviar",
+              "value": "={{ $('variables_1').item.json.correo_a_enviar_upseel }}"
+            },
+            {
+              "name": "nombre",
+              "value": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
+            },
+            {
+              "name": "celular_estudiante",
+              "value": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}"
+            },
+            {
+              "name": "nombre_grupo",
+              "value": "={{ $('variables_1').item.json.nombre_grupo }}"
+            },
+            {
+              "name": "tipo",
+              "value": "2_dias_despues"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1136,
+        -176
+      ],
+      "id": "38e0ea79-a258-4305-82e0-ae6266e492aa",
+      "name": "Enviar email1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65782,\n    \"entity_id\": {{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1840,
+        -176
+      ],
+      "id": "7fc09309-e765-45a7-9112-5411a66bb710",
+      "name": "Enviar mensaje1",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "operation": "updateLeads",
+        "collection": {
+          "lead": [
+            {
+              "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+              "custom_fields_values": {
+                "custom_field": [
+                  {
+                    "data": "{\"id\":1988418,\"type\":\"textarea\"}",
+                    "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+                  },
+                  {
+                    "data": "{\"id\":1988420,\"type\":\"textarea\"}",
+                    "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                  },
+                  {
+                    "data": "{\"id\":1988354,\"type\":\"text\"}",
+                    "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        -176
+      ],
+      "id": "cf252b35-68b6-46b8-835f-30c60d4c96ae",
+      "name": "Update leads",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "id": "={{ $('RabbitMQ Trigger').item.json.body.recordId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        496,
+        80
+      ],
+      "id": "20c2c03f-e9dc-43b9-a9a8-7e7d6668e643",
+      "name": "obtener registro - cliente1",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblr6JOWFdK3kOAfo",
+          "mode": "list",
+          "cachedResultName": "DetalleVentas",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblr6JOWFdK3kOAfo"
+        },
+        "filterByFormula": "={Clientes}=\"{{ $json.Estudiante }}\"",
+        "returnAll": false,
+        "limit": 1,
+        "options": {},
+        "sort": {
+          "property": [
+            {
+              "field": "Fecha de inicio real"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        704,
+        80
+      ],
+      "id": "dcd85f61-dd1e-4a90-99b0-bde925865b4e",
+      "name": "Search records",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Call 'Definir ID contacto y lead en Kommo'": [
+      {
+        "json": {
+          "id_contacto": 28244998,
+          "id_lead": 24692538
+        }
+      }
+    ],
+    "RabbitMQ Trigger": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
+            "content-length": "56",
+            "accept": "*/*",
+            "accept-encoding": "gzip,deflate",
+            "content-type": "application/json",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflF0v8TmvsCxuuSu",
+            "x-forwarded-for": "13.222.11.74",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "sjrLTEEdSa-BO0SwBT7zVQ",
+            "x-real-ip": "13.222.11.74",
+            "x-request-start": "1767577923594"
+          },
+          "params": {},
+          "query": {
+            "tipo": "chatbot_upselling"
+          },
+          "body": {
+            "recordId": "recijA6I20XUzYxqx",
+            "Tipo": "7_dias_despues"
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-05T00:30:31.045Z",
+      "createdAt": "2026-01-05T00:30:31.045Z",
+      "role": "workflow:owner",
+      "workflowId": "HALPYZ7HHe7U1tZK",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-05T02:00:59.203Z",
+  "versionId": "f81c4c49-4a3f-4357-8255-432299baaa00"
+}
