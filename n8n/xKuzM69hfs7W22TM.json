@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-05T00:21:20.269Z",
-    "createdAt": "2026-01-05T00:21:18.662Z",
-    "versionId": "01e2cddd-fd59-4cca-a70d-ff24790042f2",
+    "updatedAt": "2026-01-05T19:49:47.887Z",
+    "createdAt": "2026-01-05T19:49:46.569Z",
+    "versionId": "2c390907-c582-4c7a-8c40-edc9c2b97e7e",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -179,6 +179,12 @@
                 "name": "nombre_grupo",
                 "value": "={{ $('registro - grupo').item.json.Nivel }}",
                 "type": "string"
+              },
+              {
+                "id": "0c6b0f8b-6bf7-4f29-be1a-b4e95795e73d",
+                "name": "magic_link",
+                "value": "={{ $('Crear usuario_2').item.json.magic_link }}",
+                "type": "string"
               }
             ]
           },
@@ -259,7 +265,7 @@
               },
               {
                 "name": "generate_magic_link",
-                "value": "false"
+                "value": "true"
               }
             ]
           },
@@ -378,6 +384,10 @@
               {
                 "name": "tipo",
                 "value": "con_zoom"
+              },
+              {
+                "name": "magich_link",
+                "value": "={{ $('variables_2').item.json.magic_link }}"
               }
             ]
           },
@@ -583,6 +593,10 @@
               {
                 "name": "tipo",
                 "value": "sin_zoom"
+              },
+              {
+                "name": "magich_link",
+                "value": "={{ $('variables_2').item.json.magic_link }}"
               }
             ]
           },
@@ -923,11 +937,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 01e2cddd",
+    "name": "Version 2c390907",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "01e2cddd-fd59-4cca-a70d-ff24790042f2",
+  "activeVersionId": "2c390907-c582-4c7a-8c40-edc9c2b97e7e",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -1266,6 +1280,12 @@
               "name": "nombre_grupo",
               "value": "={{ $('registro - grupo').item.json.Nivel }}",
               "type": "string"
+            },
+            {
+              "id": "0c6b0f8b-6bf7-4f29-be1a-b4e95795e73d",
+              "name": "magic_link",
+              "value": "={{ $('Crear usuario_2').item.json.magic_link }}",
+              "type": "string"
             }
           ]
         },
@@ -1346,7 +1366,7 @@
             },
             {
               "name": "generate_magic_link",
-              "value": "false"
+              "value": "true"
             }
           ]
         },
@@ -1465,6 +1485,10 @@
             {
               "name": "tipo",
               "value": "con_zoom"
+            },
+            {
+              "name": "magich_link",
+              "value": "={{ $('variables_2').item.json.magic_link }}"
             }
           ]
         },
@@ -1670,6 +1694,10 @@
             {
               "name": "tipo",
               "value": "sin_zoom"
+            },
+            {
+              "name": "magich_link",
+              "value": "={{ $('variables_2').item.json.magic_link }}"
             }
           ]
         },
@@ -1881,20 +1909,6 @@
         }
       }
     ],
-    "Crear usuario_2": [
-      {
-        "json": {
-          "full_name": "esther elizabeth",
-          "email": "esther@gmail.com",
-          "magic_link": null,
-          "updated": "2026-01-04 23:17:14",
-          "created": "2026-01-04 23:17:14"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "Call Definir ID contacto y lead en Kommo": [
       {
         "json": {
@@ -1911,6 +1925,20 @@
         "json": {
           "id_contacto": 28244998,
           "id_lead": 24692538
+        }
+      }
+    ],
+    "Crear usuario_2": [
+      {
+        "json": {
+          "full_name": "esther elizabeth",
+          "email": "esther@gmail.com",
+          "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=533579f1c7f7456989c4dd3d926867e1",
+          "updated": "2026-01-05 19:46:56",
+          "created": "2026-01-05 19:46:56"
+        },
+        "pairedItem": {
+          "item": 0
         }
       }
     ]
@@ -1937,6 +1965,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-05T00:21:18.648Z",
-  "versionId": "01e2cddd-fd59-4cca-a70d-ff24790042f2"
+  "updatedAt": "2026-01-05T19:49:46.566Z",
+  "versionId": "2c390907-c582-4c7a-8c40-edc9c2b97e7e"
 }
