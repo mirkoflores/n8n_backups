@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-05T00:34:18.312Z",
-    "createdAt": "2026-01-05T00:34:16.100Z",
-    "versionId": "22b701cb-3d48-4746-b14c-51e6386e6608",
+    "updatedAt": "2026-01-06T04:17:02.607Z",
+    "createdAt": "2026-01-06T04:17:00.911Z",
+    "versionId": "31937312-28d6-49e9-9cb0-73366935a0d5",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -29,8 +29,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -1440,
-          -16
+          -112,
+          -624
         ],
         "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
         "name": "Detalles venta",
@@ -67,8 +67,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -1056,
-          -16
+          336,
+          -624
         ],
         "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
         "name": "Clientes",
@@ -102,8 +102,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -864,
-          -16
+          560,
+          -624
         ],
         "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
         "name": "Grupo",
@@ -149,8 +149,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -1248,
-          -16
+          112,
+          -624
         ],
         "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
         "name": "Variables_1"
@@ -274,8 +274,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1152,
-          0
+          1232,
+          -144
         ],
         "id": "9ec0bb18-6870-408b-84cb-c8aac21ee542",
         "name": "Variables_2"
@@ -322,8 +322,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7264,
-          -1200
+          5648,
+          -928
         ],
         "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
         "name": "Enviar email"
@@ -344,8 +344,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1424,
-          0
+          1472,
+          -144
         ],
         "id": "0c8912d6-5610-43c2-80ab-601cf8fc29ed",
         "name": "Get list of contacts",
@@ -384,8 +384,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1632,
-          0
+          1712,
+          -144
         ],
         "id": "b0e969fd-2ddb-428f-b481-8dc62a65b44e",
         "name": "existe contacto?"
@@ -418,8 +418,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2448,
-          -80
+          2160,
+          -240
         ],
         "id": "cf285d04-3261-4645-930d-0c1946f00da9",
         "name": "tiene leads?"
@@ -451,8 +451,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1904,
-          208
+          2160,
+          144
         ],
         "id": "9506b4c7-6a8b-4254-b280-fbba0d3d8b55",
         "name": "Create new contacts",
@@ -493,8 +493,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          3472,
-          64
+          2832,
+          48
         ],
         "id": "37921795-ebf1-49ab-9c75-07fbc3360fd1",
         "name": "Create new leads",
@@ -522,8 +522,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2896,
-          16
+          2384,
+          -48
         ],
         "id": "7c32102d-f747-4780-a52a-89bda90b8aab",
         "name": "id_contact"
@@ -545,8 +545,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2688,
-          208
+          2384,
+          144
         ],
         "id": "32355781-7403-4f47-973e-5c81edc5a38b",
         "name": "id_contact1"
@@ -574,8 +574,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          2096,
-          -80
+          1936,
+          -240
         ],
         "id": "a7cbcda0-d49b-4ee3-8a3a-a2b4e58b8340",
         "name": "Update contacts",
@@ -609,8 +609,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4128,
-          -208
+          3056,
+          -408
         ],
         "id": "522d763d-a7b2-44ba-b84b-aaf4fdc3d05c",
         "name": "contact_lead"
@@ -638,8 +638,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3712,
-          64
+          3056,
+          48
         ],
         "id": "8b3a5f45-4979-4ef0-8655-9ea76573cd6a",
         "name": "contact_lead1"
@@ -661,8 +661,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3216,
-          64
+          2608,
+          48
         ],
         "id": "d656bed3-5266-4520-9245-484bd4580f39",
         "name": "id_contact2"
@@ -690,8 +690,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4384,
-          -80
+          3280,
+          -144
         ],
         "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
         "name": "Variables_3"
@@ -710,8 +710,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7024,
-          -1200
+          5424,
+          -928
         ],
         "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
         "name": "Enviar mensaje",
@@ -773,8 +773,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          5968,
-          -304
+          4400,
+          -240
         ],
         "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
         "name": "Update leads",
@@ -790,8 +790,8 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          6224,
-          -304
+          4624,
+          -240
         ],
         "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
         "name": "Wait",
@@ -957,8 +957,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          6448,
-          -368
+          4848,
+          -304
         ],
         "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
         "name": "Switch1"
@@ -1005,8 +1005,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7264,
-          -1424
+          5648,
+          -1120
         ],
         "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
         "name": "Enviar email1"
@@ -1025,8 +1025,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7024,
-          -1424
+          5424,
+          -1120
         ],
         "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
         "name": "Enviar mensaje1",
@@ -1060,8 +1060,8 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          7488,
-          -1424
+          5872,
+          -1120
         ],
         "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
         "name": "Send a message",
@@ -1101,8 +1101,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          4592,
-          -80
+          3504,
+          -144
         ],
         "id": "937effc5-d55b-4e41-bb82-647f9266837d",
         "name": "Url de renovacion corto vacio?"
@@ -1124,8 +1124,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5248,
-          64
+          3952,
+          -48
         ],
         "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
         "name": "url_renovacion"
@@ -1147,8 +1147,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5664,
-          -96
+          4176,
+          -144
         ],
         "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
         "name": "Variables_4"
@@ -1222,8 +1222,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          4896,
-          -160
+          3728,
+          -240
         ],
         "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
         "name": "crear url corto de renovacion"
@@ -1270,8 +1270,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          5952,
-          192
+          4400,
+          -48
         ],
         "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
         "name": "Create a row",
@@ -1345,8 +1345,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          6784,
-          -1312
+          5200,
+          -1024
         ],
         "id": "2c710983-a029-4447-872b-b00631d26014",
         "name": "No se tiene info de precio?"
@@ -1393,8 +1393,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7264,
-          -752
+          5648,
+          -544
         ],
         "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
         "name": "Enviar email2"
@@ -1413,8 +1413,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7024,
-          -752
+          5424,
+          -544
         ],
         "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
         "name": "Enviar mensaje2",
@@ -1467,8 +1467,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7264,
-          -976
+          5648,
+          -736
         ],
         "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
         "name": "Enviar email3"
@@ -1487,8 +1487,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7024,
-          -976
+          5424,
+          -736
         ],
         "id": "0db36230-0d0d-49bb-943a-dc011650676e",
         "name": "Enviar mensaje3",
@@ -1522,8 +1522,8 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          7488,
-          -976
+          5872,
+          -736
         ],
         "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
         "name": "Send a message1",
@@ -1598,8 +1598,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          6784,
-          -864
+          5200,
+          -640
         ],
         "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
         "name": "No se tiene info de precio?1"
@@ -1646,8 +1646,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7280,
-          -320
+          5648,
+          -160
         ],
         "id": "fb04a892-10f5-4269-b116-17194a984389",
         "name": "Enviar email4"
@@ -1666,8 +1666,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7040,
-          -320
+          5424,
+          -160
         ],
         "id": "82504058-e135-4182-8768-a13266255ada",
         "name": "Enviar mensaje4",
@@ -1720,8 +1720,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7280,
-          -544
+          5648,
+          -352
         ],
         "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
         "name": "Enviar email5"
@@ -1740,8 +1740,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          7040,
-          -544
+          5424,
+          -352
         ],
         "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
         "name": "Enviar mensaje5",
@@ -1775,8 +1775,8 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          7504,
-          -544
+          5872,
+          -352
         ],
         "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
         "name": "Send a message2",
@@ -1851,8 +1851,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          6800,
-          -432
+          5200,
+          -256
         ],
         "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
         "name": "No se tiene info de precio?2"
@@ -1874,8 +1874,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5248,
-          -160
+          3952,
+          -240
         ],
         "id": "791557b6-5113-41aa-b134-8ae81864350b",
         "name": "url_renovacion1"
@@ -1901,8 +1901,8 @@
         "type": "n8n-nodes-base.rabbitmqTrigger",
         "typeVersion": 1,
         "position": [
-          -1648,
-          -16
+          -336,
+          -624
         ],
         "id": "8d9574ec-975e-4724-a561-0e4d57603596",
         "name": "Webhook",
@@ -1912,22 +1912,6 @@
             "name": "bio_1"
           }
         }
-      },
-      {
-        "parameters": {
-          "httpMethod": "POST",
-          "path": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.webhook",
-        "typeVersion": 2.1,
-        "position": [
-          -848,
-          -384
-        ],
-        "id": "ce17ef5c-fe14-498c-9d8a-b53930c1f5aa",
-        "name": "Webhook1",
-        "webhookId": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee"
       },
       {
         "parameters": {
@@ -1941,8 +1925,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          2880,
-          -208
+          2608,
+          -312
         ],
         "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
         "name": "Obtener info de lead",
@@ -1977,8 +1961,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -480,
-          -16
+          1008,
+          -624
         ],
         "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
         "name": "Precios renovacion",
@@ -2007,8 +1991,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -672,
-          -16
+          784,
+          -624
         ],
         "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
         "name": "fecha_creacion_cliente"
@@ -2031,8 +2015,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -32,
-          -112
+          -64,
+          -224
         ],
         "id": "eded776a-4999-4cf5-8a75-21cef8d9d006",
         "name": "fecha disponible"
@@ -2066,7 +2050,7 @@
         "typeVersion": 2.3,
         "position": [
           -288,
-          -16
+          -224
         ],
         "id": "023db1c4-7a67-4833-81af-407461e9fe80",
         "name": "existe?"
@@ -2098,8 +2082,8 @@
         "type": "n8n-nodes-base.filter",
         "typeVersion": 2.3,
         "position": [
-          176,
-          -112
+          160,
+          -224
         ],
         "id": "b63a8355-67c0-4e5b-89c6-6c9442e6e1e4",
         "name": "solo si creacion de cliente es antes de fecha disponible de precio"
@@ -2110,7 +2094,7 @@
         "typeVersion": 1,
         "position": [
           384,
-          -112
+          -224
         ],
         "id": "fbca6dbb-58ce-453c-95b2-5769a23587b2",
         "name": "Limit"
@@ -2143,7 +2127,7 @@
         "typeVersion": 2.3,
         "position": [
           608,
-          -112
+          -224
         ],
         "id": "d03fb4e8-add6-4f83-ac82-2d16d2787efd",
         "name": "tiene por lo menos precio mensual?"
@@ -2195,8 +2179,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          880,
-          240
+          976,
+          48
         ],
         "id": "5e78f3b8-3154-40ef-84da-a000d79be981",
         "name": "precios"
@@ -2248,8 +2232,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          880,
-          -208
+          976,
+          -336
         ],
         "id": "b54ae000-1a58-4b98-a283-1f3489ee7ce0",
         "name": "precios3"
@@ -2301,8 +2285,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          880,
-          0
+          976,
+          -144
         ],
         "id": "4571803b-4ece-4e49-acb1-60f78184297c",
         "name": "precios1"
@@ -2321,8 +2305,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6784,
-          -192
+          5200,
+          -64
         ],
         "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
         "name": "Enviar mensaje6",
@@ -2347,8 +2331,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6784,
-          0
+          5200,
+          128
         ],
         "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
         "name": "Enviar mensaje7",
@@ -2373,8 +2357,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6784,
-          192
+          5200,
+          320
         ],
         "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
         "name": "Enviar mensaje8",
@@ -2427,8 +2411,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3472,
-          -96
+          3056,
+          -216
         ],
         "id": "cd74891b-2961-4751-a371-640f3faed8ea",
         "name": "Create a row1",
@@ -2466,8 +2450,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3184,
-          -208
+          2832,
+          -312
         ],
         "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
         "name": "no esta en etapa perdida"
@@ -3134,11 +3118,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 22b701cb",
+    "name": "Version 31937312",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "22b701cb-3d48-4746-b14c-51e6386e6608",
+  "activeVersionId": "31937312-28d6-49e9-9cb0-73366935a0d5",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -3830,8 +3814,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -1440,
-        -16
+        -112,
+        -624
       ],
       "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
       "name": "Detalles venta",
@@ -3868,8 +3852,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -1056,
-        -16
+        336,
+        -624
       ],
       "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
       "name": "Clientes",
@@ -3903,8 +3887,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -864,
-        -16
+        560,
+        -624
       ],
       "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
       "name": "Grupo",
@@ -3950,8 +3934,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1248,
-        -16
+        112,
+        -624
       ],
       "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
       "name": "Variables_1"
@@ -4075,8 +4059,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1152,
-        0
+        1232,
+        -144
       ],
       "id": "9ec0bb18-6870-408b-84cb-c8aac21ee542",
       "name": "Variables_2"
@@ -4123,8 +4107,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7264,
-        -1200
+        5648,
+        -928
       ],
       "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
       "name": "Enviar email"
@@ -4145,8 +4129,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1424,
-        0
+        1472,
+        -144
       ],
       "id": "0c8912d6-5610-43c2-80ab-601cf8fc29ed",
       "name": "Get list of contacts",
@@ -4185,8 +4169,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1632,
-        0
+        1712,
+        -144
       ],
       "id": "b0e969fd-2ddb-428f-b481-8dc62a65b44e",
       "name": "existe contacto?"
@@ -4219,8 +4203,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2448,
-        -80
+        2160,
+        -240
       ],
       "id": "cf285d04-3261-4645-930d-0c1946f00da9",
       "name": "tiene leads?"
@@ -4252,8 +4236,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1904,
-        208
+        2160,
+        144
       ],
       "id": "9506b4c7-6a8b-4254-b280-fbba0d3d8b55",
       "name": "Create new contacts",
@@ -4294,8 +4278,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        3472,
-        64
+        2832,
+        48
       ],
       "id": "37921795-ebf1-49ab-9c75-07fbc3360fd1",
       "name": "Create new leads",
@@ -4323,8 +4307,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2896,
-        16
+        2384,
+        -48
       ],
       "id": "7c32102d-f747-4780-a52a-89bda90b8aab",
       "name": "id_contact"
@@ -4346,8 +4330,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2688,
-        208
+        2384,
+        144
       ],
       "id": "32355781-7403-4f47-973e-5c81edc5a38b",
       "name": "id_contact1"
@@ -4375,8 +4359,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        2096,
-        -80
+        1936,
+        -240
       ],
       "id": "a7cbcda0-d49b-4ee3-8a3a-a2b4e58b8340",
       "name": "Update contacts",
@@ -4410,8 +4394,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4128,
-        -208
+        3056,
+        -408
       ],
       "id": "522d763d-a7b2-44ba-b84b-aaf4fdc3d05c",
       "name": "contact_lead"
@@ -4439,8 +4423,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3712,
-        64
+        3056,
+        48
       ],
       "id": "8b3a5f45-4979-4ef0-8655-9ea76573cd6a",
       "name": "contact_lead1"
@@ -4462,8 +4446,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3216,
-        64
+        2608,
+        48
       ],
       "id": "d656bed3-5266-4520-9245-484bd4580f39",
       "name": "id_contact2"
@@ -4491,8 +4475,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4384,
-        -80
+        3280,
+        -144
       ],
       "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
       "name": "Variables_3"
@@ -4511,8 +4495,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7024,
-        -1200
+        5424,
+        -928
       ],
       "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
       "name": "Enviar mensaje",
@@ -4574,8 +4558,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        5968,
-        -304
+        4400,
+        -240
       ],
       "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
       "name": "Update leads",
@@ -4591,8 +4575,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        6224,
-        -304
+        4624,
+        -240
       ],
       "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
       "name": "Wait",
@@ -4758,8 +4742,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        6448,
-        -368
+        4848,
+        -304
       ],
       "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
       "name": "Switch1"
@@ -4806,8 +4790,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7264,
-        -1424
+        5648,
+        -1120
       ],
       "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
       "name": "Enviar email1"
@@ -4826,8 +4810,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7024,
-        -1424
+        5424,
+        -1120
       ],
       "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
       "name": "Enviar mensaje1",
@@ -4861,8 +4845,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        7488,
-        -1424
+        5872,
+        -1120
       ],
       "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
       "name": "Send a message",
@@ -4902,8 +4886,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        4592,
-        -80
+        3504,
+        -144
       ],
       "id": "937effc5-d55b-4e41-bb82-647f9266837d",
       "name": "Url de renovacion corto vacio?"
@@ -4925,8 +4909,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5248,
-        64
+        3952,
+        -48
       ],
       "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
       "name": "url_renovacion"
@@ -4948,8 +4932,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5664,
-        -96
+        4176,
+        -144
       ],
       "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
       "name": "Variables_4"
@@ -5023,8 +5007,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        4896,
-        -160
+        3728,
+        -240
       ],
       "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
       "name": "crear url corto de renovacion"
@@ -5071,8 +5055,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        5952,
-        192
+        4400,
+        -48
       ],
       "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
       "name": "Create a row",
@@ -5146,8 +5130,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        6784,
-        -1312
+        5200,
+        -1024
       ],
       "id": "2c710983-a029-4447-872b-b00631d26014",
       "name": "No se tiene info de precio?"
@@ -5194,8 +5178,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7264,
-        -752
+        5648,
+        -544
       ],
       "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
       "name": "Enviar email2"
@@ -5214,8 +5198,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7024,
-        -752
+        5424,
+        -544
       ],
       "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
       "name": "Enviar mensaje2",
@@ -5268,8 +5252,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7264,
-        -976
+        5648,
+        -736
       ],
       "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
       "name": "Enviar email3"
@@ -5288,8 +5272,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7024,
-        -976
+        5424,
+        -736
       ],
       "id": "0db36230-0d0d-49bb-943a-dc011650676e",
       "name": "Enviar mensaje3",
@@ -5323,8 +5307,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        7488,
-        -976
+        5872,
+        -736
       ],
       "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
       "name": "Send a message1",
@@ -5399,8 +5383,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        6784,
-        -864
+        5200,
+        -640
       ],
       "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
       "name": "No se tiene info de precio?1"
@@ -5447,8 +5431,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7280,
-        -320
+        5648,
+        -160
       ],
       "id": "fb04a892-10f5-4269-b116-17194a984389",
       "name": "Enviar email4"
@@ -5467,8 +5451,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7040,
-        -320
+        5424,
+        -160
       ],
       "id": "82504058-e135-4182-8768-a13266255ada",
       "name": "Enviar mensaje4",
@@ -5521,8 +5505,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7280,
-        -544
+        5648,
+        -352
       ],
       "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
       "name": "Enviar email5"
@@ -5541,8 +5525,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7040,
-        -544
+        5424,
+        -352
       ],
       "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
       "name": "Enviar mensaje5",
@@ -5576,8 +5560,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        7504,
-        -544
+        5872,
+        -352
       ],
       "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
       "name": "Send a message2",
@@ -5652,8 +5636,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        6800,
-        -432
+        5200,
+        -256
       ],
       "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
       "name": "No se tiene info de precio?2"
@@ -5675,8 +5659,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5248,
-        -160
+        3952,
+        -240
       ],
       "id": "791557b6-5113-41aa-b134-8ae81864350b",
       "name": "url_renovacion1"
@@ -5702,8 +5686,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -1648,
-        -16
+        -336,
+        -624
       ],
       "id": "8d9574ec-975e-4724-a561-0e4d57603596",
       "name": "Webhook",
@@ -5713,22 +5697,6 @@
           "name": "bio_1"
         }
       }
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2.1,
-      "position": [
-        -848,
-        -384
-      ],
-      "id": "ce17ef5c-fe14-498c-9d8a-b53930c1f5aa",
-      "name": "Webhook1",
-      "webhookId": "d0f0cd99-4ed0-4de9-a00e-2ea09974eaee"
     },
     {
       "parameters": {
@@ -5742,8 +5710,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        2880,
-        -208
+        2608,
+        -312
       ],
       "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
       "name": "Obtener info de lead",
@@ -5778,8 +5746,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -480,
-        -16
+        1008,
+        -624
       ],
       "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
       "name": "Precios renovacion",
@@ -5808,8 +5776,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -672,
-        -16
+        784,
+        -624
       ],
       "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
       "name": "fecha_creacion_cliente"
@@ -5832,8 +5800,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -32,
-        -112
+        -64,
+        -224
       ],
       "id": "eded776a-4999-4cf5-8a75-21cef8d9d006",
       "name": "fecha disponible"
@@ -5867,7 +5835,7 @@
       "typeVersion": 2.3,
       "position": [
         -288,
-        -16
+        -224
       ],
       "id": "023db1c4-7a67-4833-81af-407461e9fe80",
       "name": "existe?"
@@ -5899,8 +5867,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        176,
-        -112
+        160,
+        -224
       ],
       "id": "b63a8355-67c0-4e5b-89c6-6c9442e6e1e4",
       "name": "solo si creacion de cliente es antes de fecha disponible de precio"
@@ -5911,7 +5879,7 @@
       "typeVersion": 1,
       "position": [
         384,
-        -112
+        -224
       ],
       "id": "fbca6dbb-58ce-453c-95b2-5769a23587b2",
       "name": "Limit"
@@ -5944,7 +5912,7 @@
       "typeVersion": 2.3,
       "position": [
         608,
-        -112
+        -224
       ],
       "id": "d03fb4e8-add6-4f83-ac82-2d16d2787efd",
       "name": "tiene por lo menos precio mensual?"
@@ -5996,8 +5964,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        880,
-        240
+        976,
+        48
       ],
       "id": "5e78f3b8-3154-40ef-84da-a000d79be981",
       "name": "precios"
@@ -6049,8 +6017,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        880,
-        -208
+        976,
+        -336
       ],
       "id": "b54ae000-1a58-4b98-a283-1f3489ee7ce0",
       "name": "precios3"
@@ -6102,8 +6070,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        880,
-        0
+        976,
+        -144
       ],
       "id": "4571803b-4ece-4e49-acb1-60f78184297c",
       "name": "precios1"
@@ -6122,8 +6090,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6784,
-        -192
+        5200,
+        -64
       ],
       "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
       "name": "Enviar mensaje6",
@@ -6148,8 +6116,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6784,
-        0
+        5200,
+        128
       ],
       "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
       "name": "Enviar mensaje7",
@@ -6174,8 +6142,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6784,
-        192
+        5200,
+        320
       ],
       "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
       "name": "Enviar mensaje8",
@@ -6228,8 +6196,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3472,
-        -96
+        3056,
+        -216
       ],
       "id": "cd74891b-2961-4751-a371-640f3faed8ea",
       "name": "Create a row1",
@@ -6267,8 +6235,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3184,
-        -208
+        2832,
+        -312
       ],
       "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
       "name": "no esta en etapa perdida"
@@ -6331,36 +6299,6 @@
         }
       }
     ],
-    "Webhook1": [
-      {
-        "json": {
-          "headers": {
-            "host": "primary-production-55a73.up.railway.app",
-            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "54",
-            "accept": "*/*",
-            "accept-encoding": "gzip,deflate",
-            "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
-            "x-forwarded-for": "44.199.193.163",
-            "x-forwarded-host": "primary-production-55a73.up.railway.app",
-            "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "1RbcTx6BS4y0uuRkozsQ6Q",
-            "x-real-ip": "44.199.193.163",
-            "x-request-start": "1766773219160"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "recordId": "recnauGWmzzkNLccG",
-            "Tipo": "7_dias_antes"
-          },
-          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/d0f0cd99-4ed0-4de9-a00e-2ea09974eaee",
-          "executionMode": "production"
-        }
-      }
-    ],
     "Webhook": [
       {
         "json": {
@@ -6416,7 +6354,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 2,
-  "updatedAt": "2026-01-05T00:34:16.095Z",
-  "versionId": "22b701cb-3d48-4746-b14c-51e6386e6608"
+  "triggerCount": 1,
+  "updatedAt": "2026-01-06T04:17:00.908Z",
+  "versionId": "31937312-28d6-49e9-9cb0-73366935a0d5"
 }
