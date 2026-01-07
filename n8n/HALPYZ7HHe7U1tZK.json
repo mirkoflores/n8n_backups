@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-05T22:20:03.485Z",
-    "createdAt": "2026-01-05T22:20:01.378Z",
-    "versionId": "228c22eb-087a-457c-84db-0a0a827448a9",
+    "updatedAt": "2026-01-07T02:37:54.152Z",
+    "createdAt": "2026-01-07T02:37:52.221Z",
+    "versionId": "6fd9d1d5-12f4-4b64-80b7-f70a875e679a",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -128,8 +128,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          448,
-          -192
+          400,
+          -496
         ],
         "id": "69da828d-2f11-465c-9abb-d755e930d26c",
         "name": "obtener registro - cliente",
@@ -166,8 +166,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          656,
-          -192
+          608,
+          -496
         ],
         "id": "1e6aa1e8-3f99-40c8-ac8d-cbfa8411c83f",
         "name": "obtener registro - grupo",
@@ -213,8 +213,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          864,
-          -192
+          816,
+          -496
         ],
         "id": "8857b9b7-3bf4-4faa-9211-8b2a98d3dc31",
         "name": "variables_1"
@@ -276,8 +276,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          1328,
-          -192
+          1280,
+          -496
         ],
         "id": "653c70e5-2027-48f4-8aaa-c76800021e50",
         "name": "Call 'Definir ID contacto y lead en Kommo'"
@@ -308,6 +308,24 @@
               {
                 "name": "tipo",
                 "value": "2_dias_despues"
+              },
+              {
+                "name": "plan_inicial"
+              },
+              {
+                "name": "plan_a_proponer"
+              },
+              {
+                "name": "precio_completo_nueva_propuesta"
+              },
+              {
+                "name": "pago_realizado_actual"
+              },
+              {
+                "name": "pago_restante"
+              },
+              {
+                "name": "url_cobranza"
               }
             ]
           },
@@ -316,8 +334,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          1088,
-          -192
+          1040,
+          -496
         ],
         "id": "38e0ea79-a258-4305-82e0-ae6266e492aa",
         "name": "Enviar email1"
@@ -336,8 +354,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          1792,
-          -192
+          1744,
+          -496
         ],
         "id": "7fc09309-e765-45a7-9112-5411a66bb710",
         "name": "Enviar mensaje1",
@@ -379,8 +397,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1552,
-          -192
+          1504,
+          -496
         ],
         "id": "cf252b35-68b6-46b8-835f-30c60d4c96ae",
         "name": "Update leads",
@@ -556,6 +574,12 @@
                 "name": "celular_a_enviar_upseel",
                 "value": "={{ $('obtener registro - cliente1').item.json['Celular Unico'] }}",
                 "type": "string"
+              },
+              {
+                "id": "ee0cc82e-b5ea-4f17-8166-1287a012d7bc",
+                "name": "nombre_nivel",
+                "value": "={{ $('obtener registro - detalles venta').item.json['Nivel (from Grupos)'][0] }}",
+                "type": "string"
               }
             ]
           },
@@ -620,8 +644,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          2000,
-          -192
+          1952,
+          -496
         ],
         "id": "737d7bb5-3d64-4353-8a49-ea1e05845a34",
         "name": "Create a row",
@@ -864,8 +888,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          1552,
-          480
+          1824,
+          1040
         ],
         "id": "fe95589e-5f05-41ee-bcae-cdb1a17b477a",
         "name": "dependiendo de meses"
@@ -928,8 +952,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          1888,
-          1008
+          2400,
+          1968
         ],
         "id": "b09e0af8-055b-4b94-ba5d-7b49aebc0781",
         "name": "Create a row2",
@@ -971,7 +995,13 @@
               {
                 "id": "31b1d76a-9f60-4b13-8ed8-f2d819d085f4",
                 "name": "pago_restante",
-                "value": "={{ $json['2 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN }}",
+                "value": "={{ $json['2 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN}}",
+                "type": "string"
+              },
+              {
+                "id": "39ed3da3-d5ed-45d0-8f07-14c2c2744927",
+                "name": "url_tally_upsell_largo",
+                "value": "={{ $('obtener registro - cliente1').item.json['URL renovacion - chatbot upseel'] }}&meses_a_renovar=2",
                 "type": "string"
               }
             ]
@@ -981,8 +1011,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2112,
-          224
+          3056,
+          384
         ],
         "id": "4b61bfd7-993e-4650-a910-3dcd6e09f2d5",
         "name": "2 _meses"
@@ -1008,6 +1038,12 @@
                 "name": "precio_upseel",
                 "value": "={{ $json['3 meses - precio renovación'] }}",
                 "type": "number"
+              },
+              {
+                "id": "e2a2b6e9-bea4-4607-84a1-9e64f7b62464",
+                "name": "url_tally_upsell_largo",
+                "value": "={{ $('obtener registro - cliente1').item.json['URL renovacion - chatbot upseel'] }}&meses_a_renovar=3",
+                "type": "string"
               }
             ]
           },
@@ -1016,8 +1052,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2112,
-          400
+          3056,
+          864
         ],
         "id": "6d93b6ab-4f4e-4dc6-ab0b-c63d8c18592e",
         "name": "3 _meses"
@@ -1043,6 +1079,12 @@
                 "name": "precio_upseel",
                 "value": "={{ $json['6 meses - precio renovación'] }}",
                 "type": "number"
+              },
+              {
+                "id": "b242234a-b72e-4c91-a7dd-1716aba5b952",
+                "name": "url_tally_upsell_largo",
+                "value": "={{ $('obtener registro - cliente1').item.json['URL renovacion - chatbot upseel'] }}&meses_a_renovar=6",
+                "type": "string"
               }
             ]
           },
@@ -1051,8 +1093,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2112,
-          592
+          3040,
+          1264
         ],
         "id": "86d0b719-c809-4fe2-8b31-20dc01c4d79f",
         "name": "6 _meses"
@@ -1078,6 +1120,12 @@
                 "name": "precio_upseel",
                 "value": "={{ $json['12 meses - precio renovación'] }}",
                 "type": "number"
+              },
+              {
+                "id": "cfb4b756-5529-44fa-a607-00b03ba6c785",
+                "name": "=url_tally_upsell_largo",
+                "value": "={{ $('obtener registro - cliente1').item.json['URL renovacion - chatbot upseel'] }}&meses_a_renovar=12",
+                "type": "string"
               }
             ]
           },
@@ -1086,8 +1134,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2112,
-          800
+          3040,
+          1680
         ],
         "id": "4e46ec59-c170-47a8-acf1-25bbf454cf66",
         "name": "12 _meses"
@@ -1116,8 +1164,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1888,
-          224
+          2672,
+          464
         ],
         "id": "bd4d6312-edc8-4f15-9a43-6d178d82a788",
         "name": "obtener registro - precios renovacion",
@@ -1154,8 +1202,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1888,
-          400
+          2704,
+          864
         ],
         "id": "3ce310e2-42cc-4d61-8a27-33937d6685d1",
         "name": "obtener registro - precios renovacion1",
@@ -1192,8 +1240,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1888,
-          592
+          2720,
+          1264
         ],
         "id": "78fed7e0-f39c-4956-b369-ccc6c4e4c0ea",
         "name": "obtener registro - precios renovacion2",
@@ -1230,8 +1278,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1888,
-          800
+          2736,
+          1680
         ],
         "id": "5caf50bd-9ef8-42ff-9973-805ec3fa84cb",
         "name": "obtener registro - precios renovacion3",
@@ -1272,8 +1320,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2624,
-          544
+          3568,
+          1008
         ],
         "id": "da1806e3-681a-45f9-bc9c-5b2f2380de45",
         "name": "encontro precio para upsell?"
@@ -1336,8 +1384,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          2896,
-          640
+          3840,
+          1104
         ],
         "id": "0ce98e26-a229-48d9-b221-84b1fcc085d6",
         "name": "Create a row3",
@@ -1371,8 +1419,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2896,
-          448
+          3840,
+          912
         ],
         "id": "3668c4e3-d0a8-4edc-9847-5a9363805e21",
         "name": "obtener registro - grupo1",
@@ -1416,6 +1464,18 @@
                 "name": "pago_restante",
                 "value": "={{ $json.pago_restante }}",
                 "type": "string"
+              },
+              {
+                "id": "f61cdafb-5cce-4040-a061-104a91c3a305",
+                "name": "id_short_io",
+                "value": "={{ $('obtener registro - cliente1').item.json['ID url short.io - chatbot upseel'] }}",
+                "type": "string"
+              },
+              {
+                "id": "2eedc897-6fc8-45d7-a3cf-d3f0c9ad29d1",
+                "name": "url_tally_upsell_largo",
+                "value": "={{ $json.url_tally_upsell_largo }}",
+                "type": "string"
               }
             ]
           },
@@ -1424,8 +1484,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2416,
-          544
+          3360,
+          1008
         ],
         "id": "314dbfce-4cad-4e7c-81f7-6c44b70abf0f",
         "name": "variables_3"
@@ -1437,7 +1497,13 @@
               {
                 "id": "ddbf2c7e-5479-429a-83d6-b90c29867f68",
                 "name": "nombre_grupo",
-                "value": "={{ $json.Nivel }}",
+                "value": "={{ $('obtener registro - grupo1').item.json.Nivel }}",
+                "type": "string"
+              },
+              {
+                "id": "e52f2540-b2f4-4f56-821f-60123bcc68ab",
+                "name": "url_acortado",
+                "value": "={{ $('crear url corto de renovacion').item.json.url_acortado }}",
                 "type": "string"
               }
             ]
@@ -1447,8 +1513,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3088,
-          448
+          4864,
+          912
         ],
         "id": "8060199c-603f-4935-97eb-165fd243a9a0",
         "name": "variables_5"
@@ -1510,8 +1576,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3584,
-          448
+          5360,
+          912
         ],
         "id": "3e2fef3f-de53-42a7-868f-5d955d0a036b",
         "name": "Call 'Definir ID contacto y lead en Kommo'1"
@@ -1542,6 +1608,30 @@
               {
                 "name": "tipo",
                 "value": "10_dias_despues"
+              },
+              {
+                "name": "plan_inicial",
+                "value": "={{ $('variables_2').item.json.suscripcion }}"
+              },
+              {
+                "name": "plan_a_proponer",
+                "value": "={{ $('variables_3').item.json.meses_a_proponer }} meses"
+              },
+              {
+                "name": "precio_completo_nueva_propuesta",
+                "value": "={{ $('variables_3').item.json.precio_completo_nueva_propuesta }}"
+              },
+              {
+                "name": "pago_realizado_actual",
+                "value": "={{ $('variables_3').item.json.pago_realizado_actual }}"
+              },
+              {
+                "name": "pago_restante",
+                "value": "={{ $('variables_3').item.json.pago_restante }}"
+              },
+              {
+                "name": "url_cobranza",
+                "value": "={{ $('variables_5').item.json.url_acortado }}"
               }
             ]
           },
@@ -1550,8 +1640,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          3344,
-          448
+          5120,
+          912
         ],
         "id": "d9f1328c-5c7e-4ee3-b126-ef238f1c5496",
         "name": "Enviar email"
@@ -1564,14 +1654,14 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65786,\n    \"entity_id\": {{ $('Call \\'Definir ID contacto y lead en Kommo\\'').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 65860,\n    \"entity_id\": {{ $('Call \\'Definir ID contacto y lead en Kommo\\'1').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          4048,
-          448
+          6032,
+          912
         ],
         "id": "76ff4cff-4bed-4ba3-9478-5635eccf18d2",
         "name": "Enviar mensaje",
@@ -1589,20 +1679,32 @@
           "collection": {
             "lead": [
               {
-                "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+                "id": "={{ $('Call \\'Definir ID contacto y lead en Kommo\\'1').item.json.id_lead }}",
                 "custom_fields_values": {
                   "custom_field": [
                     {
-                      "data": "{\"id\":1988418,\"type\":\"textarea\"}",
-                      "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+                      "data": "{\"id\":1988474,\"type\":\"text\"}",
+                      "value": "={{ $('variables_2').item.json.suscripcion }}"
                     },
                     {
-                      "data": "{\"id\":1988420,\"type\":\"textarea\"}",
-                      "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                      "data": "{\"id\":1988476,\"type\":\"text\"}",
+                      "value": "={{ $('variables_3').item.json.meses_a_proponer }} meses"
+                    },
+                    {
+                      "data": "{\"id\":1988478,\"type\":\"text\"}",
+                      "value": "={{ $('variables_3').item.json.precio_completo_nueva_propuesta }}"
+                    },
+                    {
+                      "data": "{\"id\":1988480,\"type\":\"text\"}",
+                      "value": "={{ $('variables_3').item.json.pago_restante }}"
                     },
                     {
                       "data": "{\"id\":1988354,\"type\":\"text\"}",
-                      "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                      "value": "={{ $('variables_5').item.json.nombre_grupo }}"
+                    },
+                    {
+                      "data": "{\"id\":1988352,\"type\":\"url\"}",
+                      "value": "={{ $('variables_5').item.json.url_acortado }}"
                     }
                   ]
                 }
@@ -1613,8 +1715,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          3808,
-          448
+          5584,
+          912
         ],
         "id": "e2792c5c-e57e-4c25-a310-b4909b6cbd4d",
         "name": "Update leads1",
@@ -1643,31 +1745,31 @@
               },
               {
                 "fieldName": "nombre_grupo",
-                "fieldValue": "={{ $('variables_1').item.json.nombre_grupo }}"
+                "fieldValue": "={{ $('variables_5').item.json.nombre_grupo }}"
               },
               {
                 "fieldName": "celular_a_enviar_upseel",
-                "fieldValue": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}"
+                "fieldValue": "={{ $('variables_2').item.json.celular_a_enviar_upseel }}"
               },
               {
                 "fieldName": "correo_a_enviar_upseel",
-                "fieldValue": "={{ $('variables_1').item.json.correo_a_enviar_upseel }}"
+                "fieldValue": "={{ $('variables_2').item.json.correo_a_enviar_upseel }}"
               },
               {
                 "fieldName": "nombre_a_enviar_upseel",
-                "fieldValue": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
+                "fieldValue": "={{ $('variables_2').item.json.nombre_a_enviar_upseel }}"
               },
               {
                 "fieldName": "id_cliente_airtable",
-                "fieldValue": "={{ $('obtener registro - cliente').item.json.id }}"
+                "fieldValue": "={{ $('variables_2').item.json.id_cliente }}"
               },
               {
                 "fieldName": "id_grupo_airtable",
-                "fieldValue": "={{ $('obtener registro - grupo').item.json.id }}"
+                "fieldValue": "={{ $('variables_2').item.json.id_grupo }}"
               },
               {
                 "fieldName": "tipo",
-                "fieldValue": "2_dias_despues"
+                "fieldValue": "10_dias_despues"
               }
             ]
           }
@@ -1675,8 +1777,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4256,
-          448
+          6240,
+          912
         ],
         "id": "fe9f7e8a-95e7-4b72-8539-2f927d73ed0e",
         "name": "Create a row4",
@@ -1794,6 +1896,385 @@
             "name": "bio_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "470e5792-f40b-4cec-a35f-15453f2d0e02",
+                "leftValue": "={{ $('variables_3').item.json.id_short_io }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          4048,
+          912
+        ],
+        "id": "d507e701-570a-41d6-ae16-fd2e58805f54",
+        "name": "Url de renovacion corto vacio?"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "93a4bf70-b27e-4a3f-a503-fd0e613b0818",
+                "name": "tipo_estado",
+                "value": "con_link_acortado",
+                "type": "string"
+              },
+              {
+                "id": "bd2c0de4-6402-46ae-830b-075258160d91",
+                "name": "tipo_automatizacion",
+                "value": "chatbot_upsell",
+                "type": "string"
+              },
+              {
+                "id": "3b64a14c-c7df-4529-924d-65070cc2b0df",
+                "name": "id_short_io",
+                "value": "={{ $('variables_3').item.json.id_short_io }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          4288,
+          1024
+        ],
+        "id": "534809a8-0b75-43de-958d-3f59353be067",
+        "name": "url_renovacion"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "UqJsZfAhJHkWNxvT",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/UqJsZfAhJHkWNxvT",
+            "cachedResultName": "Crear/actualizar url short.io"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "url_de_renovacion_largo": "={{ $('variables_3').item.json.url_tally_upsell_largo }}",
+              "id_registro_cliente": "={{ $('variables_2').item.json.id_cliente }}",
+              "tipo_estado": "={{ $json.tipo_estado }}",
+              "tipo_automatizacion": "={{ $json.tipo_automatizacion }}",
+              "id_short_io": "={{ $json.id_short_io }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "url_de_renovacion_largo",
+                "displayName": "url_de_renovacion_largo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_registro_cliente",
+                "displayName": "id_registro_cliente",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "tipo_estado",
+                "displayName": "tipo_estado",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "tipo_automatizacion",
+                "displayName": "tipo_automatizacion",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_short_io",
+                "displayName": "id_short_io",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {
+            "waitForSubWorkflow": true
+          }
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3,
+        "position": [
+          4640,
+          912
+        ],
+        "id": "61d6d58d-3edc-43a1-ba7d-e302b4a7fdc6",
+        "name": "crear url corto de renovacion"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "c27d5593-762c-4c50-b011-d3968cf8148e",
+                "name": "tipo_estado",
+                "value": "sin_link_acortado",
+                "type": "string"
+              },
+              {
+                "id": "49b4a3bc-75cc-40e8-844f-7045de7e6706",
+                "name": "tipo_automatizacion",
+                "value": "chatbot_upsell",
+                "type": "string"
+              },
+              {
+                "id": "6000e332-e178-47fe-8e46-381a9e0e2b94",
+                "name": "id_short_io",
+                "value": "={{ $('variables_2').item.json.id_short_io }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          4288,
+          784
+        ],
+        "id": "a9e99d03-4c99-4cc5-a136-02cfcdc910df",
+        "name": "url_renovacion1"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblNCKsSLcjBVDVID",
+            "mode": "list",
+            "cachedResultName": "Precios renovacion",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblNCKsSLcjBVDVID"
+          },
+          "filterByFormula": "=AND(\n{Record ID (from Grupos)}=\"{{ $('variables_2').item.json.id_grupo }}\",\n\nOR(\n{1 mes - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\",\n{2 meses - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\",\n{3 meses - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\",\n{6 meses - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\",\n{12 meses - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\"\n)\n)",
+          "returnAll": false,
+          "limit": 1,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          1584,
+          1120
+        ],
+        "id": "de7b2e77-91eb-4d20-aa12-3b6bc0b1229a",
+        "name": "obtener registro - precios renovacion4",
+        "executeOnce": false,
+        "alwaysOutputData": true,
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "4959a812-71a1-4ac1-9a80-9b254f9e0e3a",
+                "leftValue": "={{ $('obtener registro - precios renovacion4').item.json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          2384,
+          352
+        ],
+        "id": "76d74d0e-8e17-421a-ba9c-58ea1dc8f493",
+        "name": "se encontro precio de renovacion?"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "4959a812-71a1-4ac1-9a80-9b254f9e0e3a",
+                "leftValue": "={{ $('obtener registro - precios renovacion4').item.json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          2384,
+          704
+        ],
+        "id": "c9ebd26f-9dcb-4cd8-97f9-ed3897ce760d",
+        "name": "se encontro precio de renovacion?1"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "4959a812-71a1-4ac1-9a80-9b254f9e0e3a",
+                "leftValue": "={{ $('obtener registro - precios renovacion4').item.json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          2384,
+          1024
+        ],
+        "id": "60e8afeb-43d2-429e-bc34-f6e49fc8c7ff",
+        "name": "se encontro precio de renovacion?2"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "4959a812-71a1-4ac1-9a80-9b254f9e0e3a",
+                "leftValue": "={{ $('obtener registro - precios renovacion4').item.json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          2384,
+          1456
+        ],
+        "id": "85b45132-e6b2-4fbb-bb0e-f1a0ae0341b4",
+        "name": "se encontro precio de renovacion?3"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          5792,
+          912
+        ],
+        "id": "eaa6ad67-24eb-4335-9448-70c727e5027d",
+        "name": "Wait",
+        "webhookId": "19188098-f35b-4b5f-85a8-12cc335c8936"
       }
     ],
     "connections": {
@@ -1947,7 +2428,7 @@
           ],
           [
             {
-              "node": "dependiendo de meses",
+              "node": "obtener registro - precios renovacion4",
               "type": "main",
               "index": 0
             }
@@ -1958,42 +2439,42 @@
         "main": [
           [
             {
-              "node": "obtener registro - precios renovacion",
+              "node": "se encontro precio de renovacion?",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "obtener registro - precios renovacion1",
+              "node": "se encontro precio de renovacion?1",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "obtener registro - precios renovacion2",
+              "node": "se encontro precio de renovacion?2",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "obtener registro - precios renovacion2",
+              "node": "se encontro precio de renovacion?2",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "obtener registro - precios renovacion2",
+              "node": "se encontro precio de renovacion?2",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "obtener registro - precios renovacion3",
+              "node": "se encontro precio de renovacion?3",
               "type": "main",
               "index": 0
             }
@@ -2128,7 +2609,7 @@
         "main": [
           [
             {
-              "node": "variables_5",
+              "node": "Url de renovacion corto vacio?",
               "type": "main",
               "index": 0
             }
@@ -2172,7 +2653,7 @@
         "main": [
           [
             {
-              "node": "Enviar mensaje",
+              "node": "Wait",
               "type": "main",
               "index": 0
             }
@@ -2207,14 +2688,159 @@
             }
           ]
         ]
+      },
+      "Url de renovacion corto vacio?": {
+        "main": [
+          [
+            {
+              "node": "url_renovacion1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "url_renovacion",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "url_renovacion": {
+        "main": [
+          [
+            {
+              "node": "crear url corto de renovacion",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "url_renovacion1": {
+        "main": [
+          [
+            {
+              "node": "crear url corto de renovacion",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "crear url corto de renovacion": {
+        "main": [
+          [
+            {
+              "node": "variables_5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "obtener registro - precios renovacion4": {
+        "main": [
+          [
+            {
+              "node": "dependiendo de meses",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "se encontro precio de renovacion?": {
+        "main": [
+          [
+            {
+              "node": "2 _meses",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "obtener registro - precios renovacion",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "se encontro precio de renovacion?1": {
+        "main": [
+          [
+            {
+              "node": "3 _meses",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "obtener registro - precios renovacion1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "se encontro precio de renovacion?2": {
+        "main": [
+          [
+            {
+              "node": "6 _meses",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "obtener registro - precios renovacion2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "se encontro precio de renovacion?3": {
+        "main": [
+          [
+            {
+              "node": "12 _meses",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "obtener registro - precios renovacion3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 228c22eb",
+    "name": "Version 6fd9d1d5",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "228c22eb-087a-457c-84db-0a0a827448a9",
+  "activeVersionId": "6fd9d1d5-12f4-4b64-80b7-f70a875e679a",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -2366,7 +2992,7 @@
         ],
         [
           {
-            "node": "dependiendo de meses",
+            "node": "obtener registro - precios renovacion4",
             "type": "main",
             "index": 0
           }
@@ -2377,42 +3003,42 @@
       "main": [
         [
           {
-            "node": "obtener registro - precios renovacion",
+            "node": "se encontro precio de renovacion?",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "obtener registro - precios renovacion1",
+            "node": "se encontro precio de renovacion?1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "obtener registro - precios renovacion2",
+            "node": "se encontro precio de renovacion?2",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "obtener registro - precios renovacion2",
+            "node": "se encontro precio de renovacion?2",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "obtener registro - precios renovacion2",
+            "node": "se encontro precio de renovacion?2",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "obtener registro - precios renovacion3",
+            "node": "se encontro precio de renovacion?3",
             "type": "main",
             "index": 0
           }
@@ -2547,7 +3173,7 @@
       "main": [
         [
           {
-            "node": "variables_5",
+            "node": "Url de renovacion corto vacio?",
             "type": "main",
             "index": 0
           }
@@ -2591,7 +3217,7 @@
       "main": [
         [
           {
-            "node": "Enviar mensaje",
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -2621,6 +3247,151 @@
         [
           {
             "node": "Create a row5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Url de renovacion corto vacio?": {
+      "main": [
+        [
+          {
+            "node": "url_renovacion1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "url_renovacion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url_renovacion": {
+      "main": [
+        [
+          {
+            "node": "crear url corto de renovacion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url_renovacion1": {
+      "main": [
+        [
+          {
+            "node": "crear url corto de renovacion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear url corto de renovacion": {
+      "main": [
+        [
+          {
+            "node": "variables_5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener registro - precios renovacion4": {
+      "main": [
+        [
+          {
+            "node": "dependiendo de meses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "se encontro precio de renovacion?": {
+      "main": [
+        [
+          {
+            "node": "2 _meses",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "obtener registro - precios renovacion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "se encontro precio de renovacion?1": {
+      "main": [
+        [
+          {
+            "node": "3 _meses",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "obtener registro - precios renovacion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "se encontro precio de renovacion?2": {
+      "main": [
+        [
+          {
+            "node": "6 _meses",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "obtener registro - precios renovacion2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "se encontro precio de renovacion?3": {
+      "main": [
+        [
+          {
+            "node": "12 _meses",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "obtener registro - precios renovacion3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje",
             "type": "main",
             "index": 0
           }
@@ -2758,8 +3529,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        448,
-        -192
+        400,
+        -496
       ],
       "id": "69da828d-2f11-465c-9abb-d755e930d26c",
       "name": "obtener registro - cliente",
@@ -2796,8 +3567,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        656,
-        -192
+        608,
+        -496
       ],
       "id": "1e6aa1e8-3f99-40c8-ac8d-cbfa8411c83f",
       "name": "obtener registro - grupo",
@@ -2843,8 +3614,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        864,
-        -192
+        816,
+        -496
       ],
       "id": "8857b9b7-3bf4-4faa-9211-8b2a98d3dc31",
       "name": "variables_1"
@@ -2906,8 +3677,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        1328,
-        -192
+        1280,
+        -496
       ],
       "id": "653c70e5-2027-48f4-8aaa-c76800021e50",
       "name": "Call 'Definir ID contacto y lead en Kommo'"
@@ -2938,6 +3709,24 @@
             {
               "name": "tipo",
               "value": "2_dias_despues"
+            },
+            {
+              "name": "plan_inicial"
+            },
+            {
+              "name": "plan_a_proponer"
+            },
+            {
+              "name": "precio_completo_nueva_propuesta"
+            },
+            {
+              "name": "pago_realizado_actual"
+            },
+            {
+              "name": "pago_restante"
+            },
+            {
+              "name": "url_cobranza"
             }
           ]
         },
@@ -2946,8 +3735,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        1088,
-        -192
+        1040,
+        -496
       ],
       "id": "38e0ea79-a258-4305-82e0-ae6266e492aa",
       "name": "Enviar email1"
@@ -2966,8 +3755,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        1792,
-        -192
+        1744,
+        -496
       ],
       "id": "7fc09309-e765-45a7-9112-5411a66bb710",
       "name": "Enviar mensaje1",
@@ -3009,8 +3798,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1552,
-        -192
+        1504,
+        -496
       ],
       "id": "cf252b35-68b6-46b8-835f-30c60d4c96ae",
       "name": "Update leads",
@@ -3186,6 +3975,12 @@
               "name": "celular_a_enviar_upseel",
               "value": "={{ $('obtener registro - cliente1').item.json['Celular Unico'] }}",
               "type": "string"
+            },
+            {
+              "id": "ee0cc82e-b5ea-4f17-8166-1287a012d7bc",
+              "name": "nombre_nivel",
+              "value": "={{ $('obtener registro - detalles venta').item.json['Nivel (from Grupos)'][0] }}",
+              "type": "string"
             }
           ]
         },
@@ -3250,8 +4045,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        2000,
-        -192
+        1952,
+        -496
       ],
       "id": "737d7bb5-3d64-4353-8a49-ea1e05845a34",
       "name": "Create a row",
@@ -3494,8 +4289,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        1552,
-        480
+        1824,
+        1040
       ],
       "id": "fe95589e-5f05-41ee-bcae-cdb1a17b477a",
       "name": "dependiendo de meses"
@@ -3558,8 +4353,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        1888,
-        1008
+        2400,
+        1968
       ],
       "id": "b09e0af8-055b-4b94-ba5d-7b49aebc0781",
       "name": "Create a row2",
@@ -3601,7 +4396,13 @@
             {
               "id": "31b1d76a-9f60-4b13-8ed8-f2d819d085f4",
               "name": "pago_restante",
-              "value": "={{ $json['2 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN }}",
+              "value": "={{ $json['2 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN}}",
+              "type": "string"
+            },
+            {
+              "id": "39ed3da3-d5ed-45d0-8f07-14c2c2744927",
+              "name": "url_tally_upsell_largo",
+              "value": "={{ $('obtener registro - cliente1').item.json['URL renovacion - chatbot upseel'] }}&meses_a_renovar=2",
               "type": "string"
             }
           ]
@@ -3611,8 +4412,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2112,
-        224
+        3056,
+        384
       ],
       "id": "4b61bfd7-993e-4650-a910-3dcd6e09f2d5",
       "name": "2 _meses"
@@ -3638,6 +4439,12 @@
               "name": "precio_upseel",
               "value": "={{ $json['3 meses - precio renovación'] }}",
               "type": "number"
+            },
+            {
+              "id": "e2a2b6e9-bea4-4607-84a1-9e64f7b62464",
+              "name": "url_tally_upsell_largo",
+              "value": "={{ $('obtener registro - cliente1').item.json['URL renovacion - chatbot upseel'] }}&meses_a_renovar=3",
+              "type": "string"
             }
           ]
         },
@@ -3646,8 +4453,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2112,
-        400
+        3056,
+        864
       ],
       "id": "6d93b6ab-4f4e-4dc6-ab0b-c63d8c18592e",
       "name": "3 _meses"
@@ -3673,6 +4480,12 @@
               "name": "precio_upseel",
               "value": "={{ $json['6 meses - precio renovación'] }}",
               "type": "number"
+            },
+            {
+              "id": "b242234a-b72e-4c91-a7dd-1716aba5b952",
+              "name": "url_tally_upsell_largo",
+              "value": "={{ $('obtener registro - cliente1').item.json['URL renovacion - chatbot upseel'] }}&meses_a_renovar=6",
+              "type": "string"
             }
           ]
         },
@@ -3681,8 +4494,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2112,
-        592
+        3040,
+        1264
       ],
       "id": "86d0b719-c809-4fe2-8b31-20dc01c4d79f",
       "name": "6 _meses"
@@ -3708,6 +4521,12 @@
               "name": "precio_upseel",
               "value": "={{ $json['12 meses - precio renovación'] }}",
               "type": "number"
+            },
+            {
+              "id": "cfb4b756-5529-44fa-a607-00b03ba6c785",
+              "name": "=url_tally_upsell_largo",
+              "value": "={{ $('obtener registro - cliente1').item.json['URL renovacion - chatbot upseel'] }}&meses_a_renovar=12",
+              "type": "string"
             }
           ]
         },
@@ -3716,8 +4535,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2112,
-        800
+        3040,
+        1680
       ],
       "id": "4e46ec59-c170-47a8-acf1-25bbf454cf66",
       "name": "12 _meses"
@@ -3746,8 +4565,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1888,
-        224
+        2672,
+        464
       ],
       "id": "bd4d6312-edc8-4f15-9a43-6d178d82a788",
       "name": "obtener registro - precios renovacion",
@@ -3784,8 +4603,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1888,
-        400
+        2704,
+        864
       ],
       "id": "3ce310e2-42cc-4d61-8a27-33937d6685d1",
       "name": "obtener registro - precios renovacion1",
@@ -3822,8 +4641,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1888,
-        592
+        2720,
+        1264
       ],
       "id": "78fed7e0-f39c-4956-b369-ccc6c4e4c0ea",
       "name": "obtener registro - precios renovacion2",
@@ -3860,8 +4679,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1888,
-        800
+        2736,
+        1680
       ],
       "id": "5caf50bd-9ef8-42ff-9973-805ec3fa84cb",
       "name": "obtener registro - precios renovacion3",
@@ -3902,8 +4721,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2624,
-        544
+        3568,
+        1008
       ],
       "id": "da1806e3-681a-45f9-bc9c-5b2f2380de45",
       "name": "encontro precio para upsell?"
@@ -3966,8 +4785,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        2896,
-        640
+        3840,
+        1104
       ],
       "id": "0ce98e26-a229-48d9-b221-84b1fcc085d6",
       "name": "Create a row3",
@@ -4001,8 +4820,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2896,
-        448
+        3840,
+        912
       ],
       "id": "3668c4e3-d0a8-4edc-9847-5a9363805e21",
       "name": "obtener registro - grupo1",
@@ -4046,6 +4865,18 @@
               "name": "pago_restante",
               "value": "={{ $json.pago_restante }}",
               "type": "string"
+            },
+            {
+              "id": "f61cdafb-5cce-4040-a061-104a91c3a305",
+              "name": "id_short_io",
+              "value": "={{ $('obtener registro - cliente1').item.json['ID url short.io - chatbot upseel'] }}",
+              "type": "string"
+            },
+            {
+              "id": "2eedc897-6fc8-45d7-a3cf-d3f0c9ad29d1",
+              "name": "url_tally_upsell_largo",
+              "value": "={{ $json.url_tally_upsell_largo }}",
+              "type": "string"
             }
           ]
         },
@@ -4054,8 +4885,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2416,
-        544
+        3360,
+        1008
       ],
       "id": "314dbfce-4cad-4e7c-81f7-6c44b70abf0f",
       "name": "variables_3"
@@ -4067,7 +4898,13 @@
             {
               "id": "ddbf2c7e-5479-429a-83d6-b90c29867f68",
               "name": "nombre_grupo",
-              "value": "={{ $json.Nivel }}",
+              "value": "={{ $('obtener registro - grupo1').item.json.Nivel }}",
+              "type": "string"
+            },
+            {
+              "id": "e52f2540-b2f4-4f56-821f-60123bcc68ab",
+              "name": "url_acortado",
+              "value": "={{ $('crear url corto de renovacion').item.json.url_acortado }}",
               "type": "string"
             }
           ]
@@ -4077,8 +4914,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3088,
-        448
+        4864,
+        912
       ],
       "id": "8060199c-603f-4935-97eb-165fd243a9a0",
       "name": "variables_5"
@@ -4140,8 +4977,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3584,
-        448
+        5360,
+        912
       ],
       "id": "3e2fef3f-de53-42a7-868f-5d955d0a036b",
       "name": "Call 'Definir ID contacto y lead en Kommo'1"
@@ -4172,6 +5009,30 @@
             {
               "name": "tipo",
               "value": "10_dias_despues"
+            },
+            {
+              "name": "plan_inicial",
+              "value": "={{ $('variables_2').item.json.suscripcion }}"
+            },
+            {
+              "name": "plan_a_proponer",
+              "value": "={{ $('variables_3').item.json.meses_a_proponer }} meses"
+            },
+            {
+              "name": "precio_completo_nueva_propuesta",
+              "value": "={{ $('variables_3').item.json.precio_completo_nueva_propuesta }}"
+            },
+            {
+              "name": "pago_realizado_actual",
+              "value": "={{ $('variables_3').item.json.pago_realizado_actual }}"
+            },
+            {
+              "name": "pago_restante",
+              "value": "={{ $('variables_3').item.json.pago_restante }}"
+            },
+            {
+              "name": "url_cobranza",
+              "value": "={{ $('variables_5').item.json.url_acortado }}"
             }
           ]
         },
@@ -4180,8 +5041,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        3344,
-        448
+        5120,
+        912
       ],
       "id": "d9f1328c-5c7e-4ee3-b126-ef238f1c5496",
       "name": "Enviar email"
@@ -4194,14 +5055,14 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65786,\n    \"entity_id\": {{ $('Call \\'Definir ID contacto y lead en Kommo\\'').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65860,\n    \"entity_id\": {{ $('Call \\'Definir ID contacto y lead en Kommo\\'1').item.json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        4048,
-        448
+        6032,
+        912
       ],
       "id": "76ff4cff-4bed-4ba3-9478-5635eccf18d2",
       "name": "Enviar mensaje",
@@ -4219,20 +5080,32 @@
         "collection": {
           "lead": [
             {
-              "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+              "id": "={{ $('Call \\'Definir ID contacto y lead en Kommo\\'1').item.json.id_lead }}",
               "custom_fields_values": {
                 "custom_field": [
                   {
-                    "data": "{\"id\":1988418,\"type\":\"textarea\"}",
-                    "value": "={{ $('variables_2').item.json.url_de_zoom }}"
+                    "data": "{\"id\":1988474,\"type\":\"text\"}",
+                    "value": "={{ $('variables_2').item.json.suscripcion }}"
                   },
                   {
-                    "data": "{\"id\":1988420,\"type\":\"textarea\"}",
-                    "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                    "data": "{\"id\":1988476,\"type\":\"text\"}",
+                    "value": "={{ $('variables_3').item.json.meses_a_proponer }} meses"
+                  },
+                  {
+                    "data": "{\"id\":1988478,\"type\":\"text\"}",
+                    "value": "={{ $('variables_3').item.json.precio_completo_nueva_propuesta }}"
+                  },
+                  {
+                    "data": "{\"id\":1988480,\"type\":\"text\"}",
+                    "value": "={{ $('variables_3').item.json.pago_restante }}"
                   },
                   {
                     "data": "{\"id\":1988354,\"type\":\"text\"}",
-                    "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                    "value": "={{ $('variables_5').item.json.nombre_grupo }}"
+                  },
+                  {
+                    "data": "{\"id\":1988352,\"type\":\"url\"}",
+                    "value": "={{ $('variables_5').item.json.url_acortado }}"
                   }
                 ]
               }
@@ -4243,8 +5116,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        3808,
-        448
+        5584,
+        912
       ],
       "id": "e2792c5c-e57e-4c25-a310-b4909b6cbd4d",
       "name": "Update leads1",
@@ -4273,31 +5146,31 @@
             },
             {
               "fieldName": "nombre_grupo",
-              "fieldValue": "={{ $('variables_1').item.json.nombre_grupo }}"
+              "fieldValue": "={{ $('variables_5').item.json.nombre_grupo }}"
             },
             {
               "fieldName": "celular_a_enviar_upseel",
-              "fieldValue": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}"
+              "fieldValue": "={{ $('variables_2').item.json.celular_a_enviar_upseel }}"
             },
             {
               "fieldName": "correo_a_enviar_upseel",
-              "fieldValue": "={{ $('variables_1').item.json.correo_a_enviar_upseel }}"
+              "fieldValue": "={{ $('variables_2').item.json.correo_a_enviar_upseel }}"
             },
             {
               "fieldName": "nombre_a_enviar_upseel",
-              "fieldValue": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
+              "fieldValue": "={{ $('variables_2').item.json.nombre_a_enviar_upseel }}"
             },
             {
               "fieldName": "id_cliente_airtable",
-              "fieldValue": "={{ $('obtener registro - cliente').item.json.id }}"
+              "fieldValue": "={{ $('variables_2').item.json.id_cliente }}"
             },
             {
               "fieldName": "id_grupo_airtable",
-              "fieldValue": "={{ $('obtener registro - grupo').item.json.id }}"
+              "fieldValue": "={{ $('variables_2').item.json.id_grupo }}"
             },
             {
               "fieldName": "tipo",
-              "fieldValue": "2_dias_despues"
+              "fieldValue": "10_dias_despues"
             }
           ]
         }
@@ -4305,8 +5178,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4256,
-        448
+        6240,
+        912
       ],
       "id": "fe9f7e8a-95e7-4b72-8539-2f927d73ed0e",
       "name": "Create a row4",
@@ -4424,6 +5297,385 @@
           "name": "bio_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "470e5792-f40b-4cec-a35f-15453f2d0e02",
+              "leftValue": "={{ $('variables_3').item.json.id_short_io }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        4048,
+        912
+      ],
+      "id": "d507e701-570a-41d6-ae16-fd2e58805f54",
+      "name": "Url de renovacion corto vacio?"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "93a4bf70-b27e-4a3f-a503-fd0e613b0818",
+              "name": "tipo_estado",
+              "value": "con_link_acortado",
+              "type": "string"
+            },
+            {
+              "id": "bd2c0de4-6402-46ae-830b-075258160d91",
+              "name": "tipo_automatizacion",
+              "value": "chatbot_upsell",
+              "type": "string"
+            },
+            {
+              "id": "3b64a14c-c7df-4529-924d-65070cc2b0df",
+              "name": "id_short_io",
+              "value": "={{ $('variables_3').item.json.id_short_io }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4288,
+        1024
+      ],
+      "id": "534809a8-0b75-43de-958d-3f59353be067",
+      "name": "url_renovacion"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "UqJsZfAhJHkWNxvT",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/UqJsZfAhJHkWNxvT",
+          "cachedResultName": "Crear/actualizar url short.io"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "url_de_renovacion_largo": "={{ $('variables_3').item.json.url_tally_upsell_largo }}",
+            "id_registro_cliente": "={{ $('variables_2').item.json.id_cliente }}",
+            "tipo_estado": "={{ $json.tipo_estado }}",
+            "tipo_automatizacion": "={{ $json.tipo_automatizacion }}",
+            "id_short_io": "={{ $json.id_short_io }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "url_de_renovacion_largo",
+              "displayName": "url_de_renovacion_largo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_registro_cliente",
+              "displayName": "id_registro_cliente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "tipo_estado",
+              "displayName": "tipo_estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "tipo_automatizacion",
+              "displayName": "tipo_automatizacion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_short_io",
+              "displayName": "id_short_io",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        4640,
+        912
+      ],
+      "id": "61d6d58d-3edc-43a1-ba7d-e302b4a7fdc6",
+      "name": "crear url corto de renovacion"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c27d5593-762c-4c50-b011-d3968cf8148e",
+              "name": "tipo_estado",
+              "value": "sin_link_acortado",
+              "type": "string"
+            },
+            {
+              "id": "49b4a3bc-75cc-40e8-844f-7045de7e6706",
+              "name": "tipo_automatizacion",
+              "value": "chatbot_upsell",
+              "type": "string"
+            },
+            {
+              "id": "6000e332-e178-47fe-8e46-381a9e0e2b94",
+              "name": "id_short_io",
+              "value": "={{ $('variables_2').item.json.id_short_io }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4288,
+        784
+      ],
+      "id": "a9e99d03-4c99-4cc5-a136-02cfcdc910df",
+      "name": "url_renovacion1"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNCKsSLcjBVDVID",
+          "mode": "list",
+          "cachedResultName": "Precios renovacion",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblNCKsSLcjBVDVID"
+        },
+        "filterByFormula": "=AND(\n{Record ID (from Grupos)}=\"{{ $('variables_2').item.json.id_grupo }}\",\n\nOR(\n{1 mes - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\",\n{2 meses - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\",\n{3 meses - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\",\n{6 meses - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\",\n{12 meses - precio renovación}=\"{{ $('obtener registro - detalles venta').item.json.PEN }}\"\n)\n)",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1584,
+        1120
+      ],
+      "id": "de7b2e77-91eb-4d20-aa12-3b6bc0b1229a",
+      "name": "obtener registro - precios renovacion4",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4959a812-71a1-4ac1-9a80-9b254f9e0e3a",
+              "leftValue": "={{ $('obtener registro - precios renovacion4').item.json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2384,
+        352
+      ],
+      "id": "76d74d0e-8e17-421a-ba9c-58ea1dc8f493",
+      "name": "se encontro precio de renovacion?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4959a812-71a1-4ac1-9a80-9b254f9e0e3a",
+              "leftValue": "={{ $('obtener registro - precios renovacion4').item.json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2384,
+        704
+      ],
+      "id": "c9ebd26f-9dcb-4cd8-97f9-ed3897ce760d",
+      "name": "se encontro precio de renovacion?1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4959a812-71a1-4ac1-9a80-9b254f9e0e3a",
+              "leftValue": "={{ $('obtener registro - precios renovacion4').item.json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2384,
+        1024
+      ],
+      "id": "60e8afeb-43d2-429e-bc34-f6e49fc8c7ff",
+      "name": "se encontro precio de renovacion?2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "4959a812-71a1-4ac1-9a80-9b254f9e0e3a",
+              "leftValue": "={{ $('obtener registro - precios renovacion4').item.json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2384,
+        1456
+      ],
+      "id": "85b45132-e6b2-4fbb-bb0e-f1a0ae0341b4",
+      "name": "se encontro precio de renovacion?3"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        5792,
+        912
+      ],
+      "id": "eaa6ad67-24eb-4335-9448-70c727e5027d",
+      "name": "Wait",
+      "webhookId": "19188098-f35b-4b5f-85a8-12cc335c8936"
     }
   ],
   "pinData": {
@@ -4498,6 +5750,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-05T22:20:01.375Z",
-  "versionId": "228c22eb-087a-457c-84db-0a0a827448a9"
+  "updatedAt": "2026-01-07T02:37:52.220Z",
+  "versionId": "6fd9d1d5-12f4-4b64-80b7-f70a875e679a"
 }
