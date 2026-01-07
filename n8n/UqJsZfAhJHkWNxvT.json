@@ -1,27 +1,11 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-26T18:20:58.834Z",
-    "createdAt": "2025-12-26T18:14:22.941Z",
-    "versionId": "ef5307ed-e506-49b0-b05d-bc47a65ee572",
+    "updatedAt": "2026-01-06T22:54:01.910Z",
+    "createdAt": "2026-01-06T22:54:00.352Z",
+    "versionId": "54ae97b6-1dfc-404c-8986-1942647ca33d",
     "workflowId": "UqJsZfAhJHkWNxvT",
     "nodes": [
-      {
-        "parameters": {
-          "httpMethod": "POST",
-          "path": "faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.webhook",
-        "typeVersion": 2.1,
-        "position": [
-          -16,
-          -144
-        ],
-        "id": "dd54194c-b150-4c1d-b50c-e0eafb629e4c",
-        "name": "Webhook",
-        "webhookId": "faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f"
-      },
       {
         "parameters": {
           "workflowInputs": {
@@ -33,10 +17,13 @@
                 "name": "id_registro_cliente"
               },
               {
-                "name": "tipo"
+                "name": "tipo_estado"
               },
               {
-                "name": "id_link_short_io"
+                "name": "tipo_automatizacion"
+              },
+              {
+                "name": "id_short_io"
               }
             ]
           }
@@ -44,8 +31,8 @@
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "typeVersion": 1.1,
         "position": [
-          0,
-          128
+          112,
+          160
         ],
         "id": "c6d20ef4-b843-4dfe-9eb3-d8bf14a64a01",
         "name": "When Executed by Another Workflow"
@@ -57,25 +44,31 @@
               {
                 "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
                 "name": "id_registro_clientes",
-                "value": "={{ $json.body.recordId }}",
+                "value": "={{ $('When Executed by Another Workflow').item.json.id_registro_cliente }}",
                 "type": "string"
               },
               {
-                "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
-                "name": "url_renovacion",
-                "value": "={{ $json.body.url_renovacion }}",
+                "id": "d611caed-2559-45ea-98c1-3dbf8f12e02d",
+                "name": "url_de_renovacion_largo",
+                "value": "={{ $('When Executed by Another Workflow').item.json.url_de_renovacion_largo }}",
                 "type": "string"
               },
               {
-                "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
-                "name": "tipo",
-                "value": "={{ $json.body.tipo }}",
+                "id": "22fa5ae5-61fc-45b3-b9ab-89793d76cac5",
+                "name": "tipo_estado",
+                "value": "={{ $('When Executed by Another Workflow').item.json.tipo_estado }}",
                 "type": "string"
               },
               {
-                "id": "8e67a55f-7e3e-4226-af8b-adf7bbfcc6b0",
-                "name": "id_link_short_io",
-                "value": "={{ $json.body.id_link_short_io }}",
+                "id": "fd241edf-ea27-4398-ac3d-e89deea3340c",
+                "name": "tipo_automatizacion",
+                "value": "={{ $('When Executed by Another Workflow').item.json.tipo_automatizacion }}",
+                "type": "string"
+              },
+              {
+                "id": "a1c0ae54-7406-48cb-b98b-e39559c34ac2",
+                "name": "id_short_io",
+                "value": "={{ $('When Executed by Another Workflow').item.json.id_short_io }}",
                 "type": "string"
               }
             ]
@@ -85,171 +78,23 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          304,
-          -144
-        ],
-        "id": "51911006-86c9-4d9c-afbf-8152ed9ae5f8",
-        "name": "variables"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
-                "name": "id_registro_clientes",
-                "value": "={{ $json.id_registro_cliente }}",
-                "type": "string"
-              },
-              {
-                "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
-                "name": "url_renovacion",
-                "value": "={{ $json.url_de_renovacion_largo }}",
-                "type": "string"
-              },
-              {
-                "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
-                "name": "tipo",
-                "value": "={{ $json.tipo }}",
-                "type": "string"
-              },
-              {
-                "id": "a6704825-3486-4960-b5c9-bded8a96b7ae",
-                "name": "id_link_short_io",
-                "value": "={{ $json.id_link_short_io }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          304,
-          128
+          320,
+          160
         ],
         "id": "0879bcf1-5081-4eaa-a338-293c550435eb",
         "name": "variables1"
       },
       {
         "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
-                "name": "id_registro_clientes",
-                "value": "={{ $json.id_registro_clientes }}",
-                "type": "string"
-              },
-              {
-                "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
-                "name": "url_renovacion",
-                "value": "={{ $json.url_renovacion }}",
-                "type": "string"
-              },
-              {
-                "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
-                "name": "tipo",
-                "value": "={{ $json.tipo }}",
-                "type": "string"
-              },
-              {
-                "id": "217e8b52-7b01-4b73-a33e-8c92879f426a",
-                "name": "id_link_short_io",
-                "value": "={{ $json.id_link_short_io }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          624,
-          0
-        ],
-        "id": "996c26ee-cec2-48da-880b-ef78e15ea484",
-        "name": "variables_1"
-      },
-      {
-        "parameters": {
-          "rules": {
-            "values": [
-              {
-                "conditions": {
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 3
-                  },
-                  "conditions": [
-                    {
-                      "leftValue": "={{ $('variables_1').item.json.tipo }}",
-                      "rightValue": "nuevo_url",
-                      "operator": {
-                        "type": "string",
-                        "operation": "equals"
-                      },
-                      "id": "8e955291-9fbe-4096-9012-31e49ee223fe"
-                    }
-                  ],
-                  "combinator": "and"
-                },
-                "renameOutput": true,
-                "outputKey": "nuevo"
-              },
-              {
-                "conditions": {
-                  "options": {
-                    "caseSensitive": true,
-                    "leftValue": "",
-                    "typeValidation": "strict",
-                    "version": 3
-                  },
-                  "conditions": [
-                    {
-                      "id": "97b49d1d-6abb-468c-ad4f-d69d8e800ef3",
-                      "leftValue": "={{ $('variables_1').item.json.tipo }}",
-                      "rightValue": "actualizar_url",
-                      "operator": {
-                        "type": "string",
-                        "operation": "equals",
-                        "name": "filter.operator.equals"
-                      }
-                    }
-                  ],
-                  "combinator": "and"
-                },
-                "renameOutput": true,
-                "outputKey": "actualizar"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.switch",
-        "typeVersion": 3.4,
-        "position": [
-          832,
-          0
-        ],
-        "id": "7eb06ff9-d5ba-4555-b597-6192f0e98cf7",
-        "name": "Switch"
-      },
-      {
-        "parameters": {
           "operation": "createLink",
-          "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+          "originalURL": "={{ $('variables1').item.json.url_de_renovacion_largo }}",
           "additionalFields": {}
         },
         "type": "n8n-nodes-shortio.Shortio",
         "typeVersion": 1,
         "position": [
-          1344,
-          -192
+          768,
+          16
         ],
         "id": "373de5a6-a237-43b3-bf6a-ac14ac7e206a",
         "name": "Create link",
@@ -265,26 +110,28 @@
           "operation": "updateExistingLink",
           "shortLinkId": {
             "__rl": true,
-            "value": "QZoc3e",
+            "value": "={{ $('variables1').item.json.id_short_io }}",
             "mode": "path"
           },
-          "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+          "originalURL": "={{ $('variables1').item.json.url_de_renovacion_largo }}",
           "additionalFields": {}
         },
         "type": "n8n-nodes-shortio.Shortio",
         "typeVersion": 1,
         "position": [
-          1568,
-          480
+          768,
+          320
         ],
         "id": "8f2e54ee-336e-4c0b-909e-d2b055041158",
         "name": "Update existing link",
+        "alwaysOutputData": false,
         "credentials": {
           "shortioApi": {
             "id": "NUrb4eLxxnK7wHZM",
             "name": "bio_1"
           }
-        }
+        },
+        "onError": "continueRegularOutput"
       },
       {
         "parameters": {
@@ -309,8 +156,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1600,
-          -192
+          1024,
+          16
         ],
         "id": "c720a3c1-073d-49d7-a124-bce8e4938f2d",
         "name": "url_acortado"
@@ -338,8 +185,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2352,
-          80
+          2128,
+          160
         ],
         "id": "c7eeac2f-b3cd-44b9-8771-8c44a91a05aa",
         "name": "variables_2"
@@ -365,9 +212,9 @@
           "columns": {
             "mappingMode": "defineBelow",
             "value": {
-              "id": "={{ $('variables_1').item.json.id_registro_clientes }}",
-              "ID url short.io": "={{ $('variables_2').item.json.id_short_io}}",
-              "URL renovacion corto": "={{ $('variables_2').item.json.url_acortado}}"
+              "id": "={{ $('variables1').item.json.id_registro_clientes }}",
+              "URL renovacion corto - chatbot cobranzas": "={{ $('variables_2').item.json.url_acortado }}",
+              "ID url short.io - chatbot cobranzas": "={{ $('variables_2').item.json.id_short_io }}"
             },
             "matchingColumns": [
               "id"
@@ -752,7 +599,7 @@
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
                 "display": true,
-                "type": "array",
+                "type": "string",
                 "readOnly": false,
                 "removed": false
               },
@@ -1123,19 +970,19 @@
                 "removed": true
               },
               {
-                "id": "URL renovacion",
-                "displayName": "URL renovacion",
+                "id": "URL renovacion - chatbot cobranzas",
+                "displayName": "URL renovacion - chatbot cobranzas",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
                 "display": true,
                 "type": "string",
                 "readOnly": true,
-                "removed": true
+                "removed": false
               },
               {
-                "id": "URL renovacion corto",
-                "displayName": "URL renovacion corto",
+                "id": "URL renovacion corto - chatbot cobranzas",
+                "displayName": "URL renovacion corto - chatbot cobranzas",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
@@ -1145,8 +992,118 @@
                 "removed": false
               },
               {
-                "id": "ID url short.io",
-                "displayName": "ID url short.io",
+                "id": "ID url short.io - chatbot cobranzas",
+                "displayName": "ID url short.io - chatbot cobranzas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "id_record (from Cel Estudiante)",
+                "displayName": "id_record (from Cel Estudiante)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "id_record (from Cel Apoderado)",
+                "displayName": "id_record (from Cel Apoderado)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Created",
+                "displayName": "Created",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "1er pago",
+                "displayName": "1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "2 dias despues - 1er pago",
+                "displayName": "2 dias despues - 1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "10 dias despues - 1er pago",
+                "displayName": "10 dias despues - 1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "test",
+                "displayName": "test",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "URL renovacion - chatbot upseel",
+                "displayName": "URL renovacion - chatbot upseel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "URL renovacion corto - chatbot upseel",
+                "displayName": "URL renovacion corto - chatbot upseel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "ID url short.io - chatbot upseel",
+                "displayName": "ID url short.io - chatbot upseel",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
@@ -1164,8 +1121,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2560,
-          80
+          2688,
+          -48
         ],
         "id": "8d75a5e6-debd-4300-9ca2-d3f79b8c8207",
         "name": "Update record",
@@ -1175,90 +1132,6 @@
             "name": "Bioenglish_1"
           }
         }
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 3
-            },
-            "conditions": [
-              {
-                "id": "377a5ce7-7c5a-4151-bd45-a3fc0a66fbf8",
-                "leftValue": "={{ $('variables_1').item.json.id_link_short_io }}",
-                "rightValue": "",
-                "operator": {
-                  "type": "string",
-                  "operation": "empty",
-                  "singleValue": true
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.3,
-        "position": [
-          1344,
-          320
-        ],
-        "id": "f0c2c5ab-a451-4146-a232-4917ca064743",
-        "name": "esta vacio?"
-      },
-      {
-        "parameters": {
-          "operation": "createLink",
-          "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
-          "additionalFields": {}
-        },
-        "type": "n8n-nodes-shortio.Shortio",
-        "typeVersion": 1,
-        "position": [
-          1552,
-          192
-        ],
-        "id": "f34f81ba-5e7e-44e1-82d1-c95cd7284d98",
-        "name": "Create link1",
-        "credentials": {
-          "shortioApi": {
-            "id": "NUrb4eLxxnK7wHZM",
-            "name": "bio_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
-                "name": "url_acortado",
-                "value": "={{ $('Create link1').item.json.shortIoResponse.shortURL }}",
-                "type": "string"
-              },
-              {
-                "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
-                "name": "id_short_io",
-                "value": "={{ $('Create link1').item.json.shortIoResponse.path }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          1888,
-          192
-        ],
-        "id": "98e8d3d3-3156-452a-bd06-ea7a497817dd",
-        "name": "url_acortado1"
       },
       {
         "parameters": {
@@ -1283,8 +1156,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1888,
-          480
+          1856,
+          304
         ],
         "id": "8c4f9ace-e438-4004-a81d-35d02102d2c5",
         "name": "url_acortado2"
@@ -1307,19 +1180,19 @@
               },
               {
                 "fieldName": "url_renovacion",
-                "fieldValue": "={{ $('variables_1').item.json.url_renovacion }}"
+                "fieldValue": "={{ $('variables1').item.json.url_tally_acortado }}"
               },
               {
                 "fieldName": "id_cliente_airtable",
-                "fieldValue": "={{ $('variables_1').item.json.id_registro_clientes }}"
+                "fieldValue": "={{ $('variables1').item.json.id_registro_clientes }}"
               },
               {
                 "fieldName": "tipo",
-                "fieldValue": "={{ $('variables_1').item.json.tipo }}"
+                "fieldValue": "={{ $('variables1').item.json.tipo_estado }}"
               },
               {
                 "fieldName": "id_short_io",
-                "fieldValue": "={{ $('variables_2').item.json.id_short_io }}"
+                "fieldValue": "={{ $('variables1').item.json.id_short_io }}"
               }
             ]
           }
@@ -1327,8 +1200,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          2768,
-          80
+          2992,
+          144
         ],
         "id": "e703399c-3bd9-4133-9f2b-fb137eecf04c",
         "name": "Create a row",
@@ -1356,25 +1229,1183 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2976,
-          80
+          3168,
+          144
         ],
         "id": "b2a082ff-ee03-47bf-8d70-bdb25408349d",
         "name": "final"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "090a2282-095c-4c90-a8ce-d50417937fd3",
+                "leftValue": "={{ $json.shortIoResponse.path }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          1168,
+          320
+        ],
+        "id": "e644643d-61ab-402c-b18e-f389f87e4086",
+        "name": "sin errores?"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.limit",
+        "typeVersion": 1,
+        "position": [
+          976,
+          320
+        ],
+        "id": "2a1742b3-2b50-4bdf-8ba9-fb80d9734906",
+        "name": "Limit"
+      },
+      {
+        "parameters": {
+          "operation": "createLink",
+          "originalURL": "={{ $('variables1').item.json.url_de_renovacion_largo }}",
+          "additionalFields": {}
+        },
+        "type": "n8n-nodes-shortio.Shortio",
+        "typeVersion": 1,
+        "position": [
+          1392,
+          496
+        ],
+        "id": "5f3b1d4b-fc9c-42e3-baf6-1007ac95937f",
+        "name": "Create link2",
+        "credentials": {
+          "shortioApi": {
+            "id": "NUrb4eLxxnK7wHZM",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "url_acortado",
+                "value": "={{ $('Create link2').item.json.shortIoResponse.shortURL }}",
+                "type": "string"
+              },
+              {
+                "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+                "name": "id_short_io",
+                "value": "={{ $('Create link2').item.json.shortIoResponse.path }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1680,
+          496
+        ],
+        "id": "1fb22094-9ff3-4c0a-b455-3b9ec7ba1434",
+        "name": "url_acortado3"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "97b49d1d-6abb-468c-ad4f-d69d8e800ef3",
+                      "leftValue": "={{ $('variables1').item.json.tipo_estado }}",
+                      "rightValue": "sin_link_acortado",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "nuevo"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('variables1').item.json.tipo_estado }}",
+                      "rightValue": "con_link_acortado",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      },
+                      "id": "8e955291-9fbe-4096-9012-31e49ee223fe"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "actualizar"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          512,
+          160
+        ],
+        "id": "4c29e6a2-df76-4e3a-b4cf-6bfe7e68e929",
+        "name": "tipo_estado"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('variables1').item.json.tipo_automatizacion }}",
+                      "rightValue": "chatbot_cobranzas",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      },
+                      "id": "f4645b9f-126d-42d9-b270-e04afac840fe"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "chatbot_cobranzas"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "c8e0a851-1540-450e-aa14-8a3d008ba3b6",
+                      "leftValue": "={{ $('variables1').item.json.tipo_automatizacion }}",
+                      "rightValue": "chatbot_upsell",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals",
+                        "name": "filter.operator.equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "chatbot_upsell"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          2336,
+          160
+        ],
+        "id": "0e324c12-a930-4e2c-b155-b9f4f70af8ab",
+        "name": "Switch"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "update",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblkpm3CwBi8WctOZ",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id": "={{ $('variables1').item.json.id_registro_clientes }}",
+              "ID url short.io - chatbot upseel": "={{ $('variables_2').item.json.id_short_io }}",
+              "URL renovacion corto - chatbot upseel": "={{ $('variables_2').item.json.url_acortado }}"
+            },
+            "matchingColumns": [
+              "id"
+            ],
+            "schema": [
+              {
+                "id": "id",
+                "displayName": "id",
+                "required": false,
+                "defaultMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Estudiante",
+                "displayName": "Estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Usuarios",
+                "displayName": "Usuarios",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Cel Estudiante",
+                "displayName": "Cel Estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Cel Apoderado",
+                "displayName": "Cel Apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Email del estudiante",
+                "displayName": "Email del estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Magic link (from Usuarios)",
+                "displayName": "Magic link (from Usuarios)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Email del apoderado",
+                "displayName": "Email del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular Unico",
+                "displayName": "Celular Unico",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Pais Celular",
+                "displayName": "Pais Celular",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre del estudiante",
+                "displayName": "Nombre del estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Tipo",
+                "displayName": "Tipo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Adulto",
+                    "value": "Adulto"
+                  },
+                  {
+                    "name": "Menor de edad",
+                    "value": "Menor de edad"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Apoderado",
+                "displayName": "Apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular del estudiante 1",
+                "displayName": "Celular del estudiante 1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular del estudiante 2",
+                "displayName": "Celular del estudiante 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "PEN Rollup (from DetalleVentas)",
+                "displayName": "PEN Rollup (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "# Ventas",
+                "displayName": "# Ventas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "DetalleVentas",
+                "displayName": "DetalleVentas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de Pago (from DetalleVentas)",
+                "displayName": "Fecha de Pago (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha min",
+                "displayName": "Fecha min",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "ID",
+                "displayName": "ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Inicio Suscripción Actual",
+                "displayName": "Inicio Suscripción Actual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Status",
+                "displayName": "Status",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "1ra Suscripción",
+                "displayName": "1ra Suscripción",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "WA Link",
+                "displayName": "WA Link",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "#Semanas",
+                "displayName": "#Semanas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha fin",
+                "displayName": "Fecha fin",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Semanas transcurridas",
+                "displayName": "Semanas transcurridas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Dif Semanas",
+                "displayName": "Dif Semanas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Record",
+                "displayName": "Record",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Grupos (from DetalleVentas)",
+                "displayName": "Grupos (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "latestPurchaseDate",
+                "displayName": "latestPurchaseDate",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo actual",
+                "displayName": "Grupo actual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Preventa",
+                "displayName": "Preventa",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular del apoderado",
+                "displayName": "Celular del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Nivel de Ingles del Estudiante",
+                "displayName": "Nivel de Ingles del Estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Intermedio",
+                    "value": "Intermedio"
+                  },
+                  {
+                    "name": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am",
+                    "value": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am"
+                  },
+                  {
+                    "name": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm",
+                    "value": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm"
+                  },
+                  {
+                    "name": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm",
+                    "value": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm"
+                  },
+                  {
+                    "name": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm",
+                    "value": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                    "value": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                  },
+                  {
+                    "name": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm",
+                    "value": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm"
+                  },
+                  {
+                    "name": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm",
+                    "value": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm"
+                  },
+                  {
+                    "name": "Grupos presenciales (Tacna)",
+                    "value": "Grupos presenciales (Tacna)"
+                  },
+                  {
+                    "name": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm",
+                    "value": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm"
+                  },
+                  {
+                    "name": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm",
+                    "value": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm"
+                  },
+                  {
+                    "name": "KET",
+                    "value": "KET"
+                  },
+                  {
+                    "name": "KET_A2",
+                    "value": "KET_A2"
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am",
+                    "value": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am"
+                  },
+                  {
+                    "name": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am",
+                    "value": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Nivel de Ingles del apoderado",
+                "displayName": "Nivel de Ingles del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Básico",
+                    "value": "Básico"
+                  },
+                  {
+                    "name": "No se mi nivel de inglés",
+                    "value": "No se mi nivel de inglés"
+                  },
+                  {
+                    "name": "Intermedio",
+                    "value": "Intermedio"
+                  },
+                  {
+                    "name": "Nunca he estudiado inglés",
+                    "value": "Nunca he estudiado inglés"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Aula virtual",
+                "displayName": "Aula virtual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "DetalleVentas copy",
+                "displayName": "DetalleVentas copy",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "PEN SF",
+                "displayName": "PEN SF",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "ISO",
+                "displayName": "ISO",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupos Ultimo",
+                "displayName": "Grupos Ultimo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "TUSD",
+                "displayName": "TUSD",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha de Fin (from DetalleVentas)",
+                "displayName": "Fecha de Fin (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha de Inicio (from DetalleVentas)",
+                "displayName": "Fecha de Inicio (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Kommo Link WA",
+                "displayName": "Kommo Link WA",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Cantidad DV",
+                "displayName": "Cantidad DV",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Customer Success",
+                "displayName": "Customer Success",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Onboarding",
+                    "value": "Onboarding"
+                  },
+                  {
+                    "name": "Adopción",
+                    "value": "Adopción"
+                  },
+                  {
+                    "name": "Renovación",
+                    "value": "Renovación"
+                  },
+                  {
+                    "name": "Expansión",
+                    "value": "Expansión"
+                  },
+                  {
+                    "name": "Lealtad",
+                    "value": "Lealtad"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de Fin (from DetalleVentas) 2",
+                "displayName": "Fecha de Fin (from DetalleVentas) 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Record ID",
+                "displayName": "Record ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Clientes (from DetalleVentas)",
+                "displayName": "Clientes (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Preventa 2",
+                "displayName": "Preventa 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Preventa 3",
+                "displayName": "Preventa 3",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fin Suscripción Actual",
+                "displayName": "Fin Suscripción Actual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Suscripción (from DetalleVentas)",
+                "displayName": "Suscripción (from DetalleVentas)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Email F",
+                "displayName": "Email F",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre F",
+                "displayName": "Nombre F",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha de hora de envío",
+                "displayName": "Fecha de hora de envío",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "URL renovacion - chatbot cobranzas",
+                "displayName": "URL renovacion - chatbot cobranzas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "URL renovacion corto - chatbot cobranzas",
+                "displayName": "URL renovacion corto - chatbot cobranzas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "ID url short.io - chatbot cobranzas",
+                "displayName": "ID url short.io - chatbot cobranzas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "id_record (from Cel Estudiante)",
+                "displayName": "id_record (from Cel Estudiante)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "id_record (from Cel Apoderado)",
+                "displayName": "id_record (from Cel Apoderado)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Created",
+                "displayName": "Created",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "1er pago",
+                "displayName": "1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "2 dias despues - 1er pago",
+                "displayName": "2 dias despues - 1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "10 dias despues - 1er pago",
+                "displayName": "10 dias despues - 1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "test",
+                "displayName": "test",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "URL renovacion - chatbot upseel",
+                "displayName": "URL renovacion - chatbot upseel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "URL renovacion corto - chatbot upseel",
+                "displayName": "URL renovacion corto - chatbot upseel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "ID url short.io - chatbot upseel",
+                "displayName": "ID url short.io - chatbot upseel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          2688,
+          288
+        ],
+        "id": "badfc0fc-0e70-4796-8034-6609add88f4f",
+        "name": "Update record1",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
       }
     ],
     "connections": {
-      "Webhook": {
-        "main": [
-          [
-            {
-              "node": "variables",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "When Executed by Another Workflow": {
         "main": [
           [
@@ -1386,51 +2417,11 @@
           ]
         ]
       },
-      "variables": {
-        "main": [
-          [
-            {
-              "node": "variables_1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "variables1": {
         "main": [
           [
             {
-              "node": "variables_1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "variables_1": {
-        "main": [
-          [
-            {
-              "node": "Switch",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Switch": {
-        "main": [
-          [
-            {
-              "node": "Create link",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "esta vacio?",
+              "node": "tipo_estado",
               "type": "main",
               "index": 0
             }
@@ -1463,47 +2454,7 @@
         "main": [
           [
             {
-              "node": "Update record",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "esta vacio?": {
-        "main": [
-          [
-            {
-              "node": "Create link1",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Update existing link",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Create link1": {
-        "main": [
-          [
-            {
-              "node": "url_acortado1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "url_acortado1": {
-        "main": [
-          [
-            {
-              "node": "variables_2",
+              "node": "Switch",
               "type": "main",
               "index": 0
             }
@@ -1514,7 +2465,7 @@
         "main": [
           [
             {
-              "node": "url_acortado2",
+              "node": "Limit",
               "type": "main",
               "index": 0
             }
@@ -1553,26 +2504,113 @@
             }
           ]
         ]
+      },
+      "sin errores?": {
+        "main": [
+          [
+            {
+              "node": "url_acortado2",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create link2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Limit": {
+        "main": [
+          [
+            {
+              "node": "sin errores?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create link2": {
+        "main": [
+          [
+            {
+              "node": "url_acortado3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "url_acortado3": {
+        "main": [
+          [
+            {
+              "node": "url_acortado2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "tipo_estado": {
+        "main": [
+          [
+            {
+              "node": "Create link",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Update existing link",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Switch": {
+        "main": [
+          [
+            {
+              "node": "Update record",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Update record1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Update record1": {
+        "main": [
+          [
+            {
+              "node": "Create a row",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version ef5307ed",
+    "name": "Version 54ae97b6",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "ef5307ed-e506-49b0-b05d-bc47a65ee572",
+  "activeVersionId": "54ae97b6-1dfc-404c-8986-1942647ca33d",
   "connections": {
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "variables",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "When Executed by Another Workflow": {
       "main": [
         [
@@ -1584,51 +2622,11 @@
         ]
       ]
     },
-    "variables": {
-      "main": [
-        [
-          {
-            "node": "variables_1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "variables1": {
       "main": [
         [
           {
-            "node": "variables_1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "variables_1": {
-      "main": [
-        [
-          {
-            "node": "Switch",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch": {
-      "main": [
-        [
-          {
-            "node": "Create link",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "esta vacio?",
+            "node": "tipo_estado",
             "type": "main",
             "index": 0
           }
@@ -1661,47 +2659,7 @@
       "main": [
         [
           {
-            "node": "Update record",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "esta vacio?": {
-      "main": [
-        [
-          {
-            "node": "Create link1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Update existing link",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Create link1": {
-      "main": [
-        [
-          {
-            "node": "url_acortado1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "url_acortado1": {
-      "main": [
-        [
-          {
-            "node": "variables_2",
+            "node": "Switch",
             "type": "main",
             "index": 0
           }
@@ -1802,6 +2760,53 @@
           }
         ]
       ]
+    },
+    "tipo_estado": {
+      "main": [
+        [
+          {
+            "node": "Create link",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update existing link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Update record",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update record1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record1": {
+      "main": [
+        [
+          {
+            "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-21T21:07:29.873Z",
@@ -1814,22 +2819,6 @@
   "nodes": [
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2.1,
-      "position": [
-        -16,
-        -144
-      ],
-      "id": "dd54194c-b150-4c1d-b50c-e0eafb629e4c",
-      "name": "Webhook",
-      "webhookId": "faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f"
-    },
-    {
-      "parameters": {
         "workflowInputs": {
           "values": [
             {
@@ -1839,10 +2828,13 @@
               "name": "id_registro_cliente"
             },
             {
-              "name": "tipo"
+              "name": "tipo_estado"
             },
             {
-              "name": "id_link_short_io"
+              "name": "tipo_automatizacion"
+            },
+            {
+              "name": "id_short_io"
             }
           ]
         }
@@ -1850,8 +2842,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        0,
-        128
+        112,
+        160
       ],
       "id": "c6d20ef4-b843-4dfe-9eb3-d8bf14a64a01",
       "name": "When Executed by Another Workflow"
@@ -1863,25 +2855,31 @@
             {
               "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
               "name": "id_registro_clientes",
-              "value": "={{ $json.body.recordId }}",
+              "value": "={{ $('When Executed by Another Workflow').item.json.id_registro_cliente }}",
               "type": "string"
             },
             {
-              "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
-              "name": "url_renovacion",
-              "value": "={{ $json.body.url_renovacion }}",
+              "id": "d611caed-2559-45ea-98c1-3dbf8f12e02d",
+              "name": "url_de_renovacion_largo",
+              "value": "={{ $('When Executed by Another Workflow').item.json.url_de_renovacion_largo }}",
               "type": "string"
             },
             {
-              "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
-              "name": "tipo",
-              "value": "={{ $json.body.tipo }}",
+              "id": "22fa5ae5-61fc-45b3-b9ab-89793d76cac5",
+              "name": "tipo_estado",
+              "value": "={{ $('When Executed by Another Workflow').item.json.tipo_estado }}",
               "type": "string"
             },
             {
-              "id": "8e67a55f-7e3e-4226-af8b-adf7bbfcc6b0",
-              "name": "id_link_short_io",
-              "value": "={{ $json.body.id_link_short_io }}",
+              "id": "fd241edf-ea27-4398-ac3d-e89deea3340c",
+              "name": "tipo_automatizacion",
+              "value": "={{ $('When Executed by Another Workflow').item.json.tipo_automatizacion }}",
+              "type": "string"
+            },
+            {
+              "id": "a1c0ae54-7406-48cb-b98b-e39559c34ac2",
+              "name": "id_short_io",
+              "value": "={{ $('When Executed by Another Workflow').item.json.id_short_io }}",
               "type": "string"
             }
           ]
@@ -1891,171 +2889,23 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        304,
-        -144
-      ],
-      "id": "51911006-86c9-4d9c-afbf-8152ed9ae5f8",
-      "name": "variables"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
-              "name": "id_registro_clientes",
-              "value": "={{ $json.id_registro_cliente }}",
-              "type": "string"
-            },
-            {
-              "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
-              "name": "url_renovacion",
-              "value": "={{ $json.url_de_renovacion_largo }}",
-              "type": "string"
-            },
-            {
-              "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
-              "name": "tipo",
-              "value": "={{ $json.tipo }}",
-              "type": "string"
-            },
-            {
-              "id": "a6704825-3486-4960-b5c9-bded8a96b7ae",
-              "name": "id_link_short_io",
-              "value": "={{ $json.id_link_short_io }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        304,
-        128
+        320,
+        160
       ],
       "id": "0879bcf1-5081-4eaa-a338-293c550435eb",
       "name": "variables1"
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
-              "name": "id_registro_clientes",
-              "value": "={{ $json.id_registro_clientes }}",
-              "type": "string"
-            },
-            {
-              "id": "ed2b1d79-06c1-45ae-ab04-cf14d5b3e9fe",
-              "name": "url_renovacion",
-              "value": "={{ $json.url_renovacion }}",
-              "type": "string"
-            },
-            {
-              "id": "01ab2490-dcd1-4547-b80f-c92feea13b60",
-              "name": "tipo",
-              "value": "={{ $json.tipo }}",
-              "type": "string"
-            },
-            {
-              "id": "217e8b52-7b01-4b73-a33e-8c92879f426a",
-              "name": "id_link_short_io",
-              "value": "={{ $json.id_link_short_io }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        624,
-        0
-      ],
-      "id": "996c26ee-cec2-48da-880b-ef78e15ea484",
-      "name": "variables_1"
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 3
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $('variables_1').item.json.tipo }}",
-                    "rightValue": "nuevo_url",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals"
-                    },
-                    "id": "8e955291-9fbe-4096-9012-31e49ee223fe"
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "nuevo"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 3
-                },
-                "conditions": [
-                  {
-                    "id": "97b49d1d-6abb-468c-ad4f-d69d8e800ef3",
-                    "leftValue": "={{ $('variables_1').item.json.tipo }}",
-                    "rightValue": "actualizar_url",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "actualizar"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.4,
-      "position": [
-        832,
-        0
-      ],
-      "id": "7eb06ff9-d5ba-4555-b597-6192f0e98cf7",
-      "name": "Switch"
-    },
-    {
-      "parameters": {
         "operation": "createLink",
-        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+        "originalURL": "={{ $('variables1').item.json.url_de_renovacion_largo }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-shortio.Shortio",
       "typeVersion": 1,
       "position": [
-        1344,
-        -192
+        768,
+        16
       ],
       "id": "373de5a6-a237-43b3-bf6a-ac14ac7e206a",
       "name": "Create link",
@@ -2071,17 +2921,17 @@
         "operation": "updateExistingLink",
         "shortLinkId": {
           "__rl": true,
-          "value": "={{ $('variables_1').item.json.id_link_short_io }}",
+          "value": "={{ $('variables1').item.json.id_short_io }}",
           "mode": "path"
         },
-        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+        "originalURL": "={{ $('variables1').item.json.url_de_renovacion_largo }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-shortio.Shortio",
       "typeVersion": 1,
       "position": [
-        1568,
-        480
+        768,
+        320
       ],
       "id": "8f2e54ee-336e-4c0b-909e-d2b055041158",
       "name": "Update existing link",
@@ -2117,8 +2967,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1600,
-        -192
+        1024,
+        16
       ],
       "id": "c720a3c1-073d-49d7-a124-bce8e4938f2d",
       "name": "url_acortado"
@@ -2146,8 +2996,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3296,
-        64
+        2128,
+        160
       ],
       "id": "c7eeac2f-b3cd-44b9-8771-8c44a91a05aa",
       "name": "variables_2"
@@ -2173,9 +3023,9 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "id": "={{ $('variables_1').item.json.id_registro_clientes }}",
-            "ID url short.io": "={{ $('variables_2').item.json.id_short_io}}",
-            "URL renovacion corto": "={{ $('variables_2').item.json.url_acortado}}"
+            "id": "={{ $('variables1').item.json.id_registro_clientes }}",
+            "URL renovacion corto - chatbot cobranzas": "={{ $('variables_2').item.json.url_acortado }}",
+            "ID url short.io - chatbot cobranzas": "={{ $('variables_2').item.json.id_short_io }}"
           },
           "matchingColumns": [
             "id"
@@ -2560,7 +3410,7 @@
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "array",
+              "type": "string",
               "readOnly": false,
               "removed": false
             },
@@ -2931,19 +3781,19 @@
               "removed": true
             },
             {
-              "id": "URL renovacion",
-              "displayName": "URL renovacion",
+              "id": "URL renovacion - chatbot cobranzas",
+              "displayName": "URL renovacion - chatbot cobranzas",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
               "readOnly": true,
-              "removed": true
+              "removed": false
             },
             {
-              "id": "URL renovacion corto",
-              "displayName": "URL renovacion corto",
+              "id": "URL renovacion corto - chatbot cobranzas",
+              "displayName": "URL renovacion corto - chatbot cobranzas",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2953,8 +3803,118 @@
               "removed": false
             },
             {
-              "id": "ID url short.io",
-              "displayName": "ID url short.io",
+              "id": "ID url short.io - chatbot cobranzas",
+              "displayName": "ID url short.io - chatbot cobranzas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id_record (from Cel Estudiante)",
+              "displayName": "id_record (from Cel Estudiante)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "id_record (from Cel Apoderado)",
+              "displayName": "id_record (from Cel Apoderado)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "1er pago",
+              "displayName": "1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "2 dias despues - 1er pago",
+              "displayName": "2 dias despues - 1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "10 dias despues - 1er pago",
+              "displayName": "10 dias despues - 1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "test",
+              "displayName": "test",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL renovacion - chatbot upseel",
+              "displayName": "URL renovacion - chatbot upseel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "URL renovacion corto - chatbot upseel",
+              "displayName": "URL renovacion corto - chatbot upseel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ID url short.io - chatbot upseel",
+              "displayName": "ID url short.io - chatbot upseel",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -2972,8 +3932,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3504,
-        64
+        2688,
+        -48
       ],
       "id": "8d75a5e6-debd-4300-9ca2-d3f79b8c8207",
       "name": "Update record",
@@ -2983,90 +3943,6 @@
           "name": "Bioenglish_1"
         }
       }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "377a5ce7-7c5a-4151-bd45-a3fc0a66fbf8",
-              "leftValue": "={{ $('variables_1').item.json.id_link_short_io }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "empty",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        1344,
-        320
-      ],
-      "id": "f0c2c5ab-a451-4146-a232-4917ca064743",
-      "name": "esta vacio?"
-    },
-    {
-      "parameters": {
-        "operation": "createLink",
-        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-shortio.Shortio",
-      "typeVersion": 1,
-      "position": [
-        1552,
-        192
-      ],
-      "id": "f34f81ba-5e7e-44e1-82d1-c95cd7284d98",
-      "name": "Create link1",
-      "credentials": {
-        "shortioApi": {
-          "id": "NUrb4eLxxnK7wHZM",
-          "name": "bio_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
-              "name": "url_acortado",
-              "value": "={{ $('Create link1').item.json.shortIoResponse.shortURL }}",
-              "type": "string"
-            },
-            {
-              "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
-              "name": "id_short_io",
-              "value": "={{ $('Create link1').item.json.shortIoResponse.path }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        1888,
-        192
-      ],
-      "id": "98e8d3d3-3156-452a-bd06-ea7a497817dd",
-      "name": "url_acortado1"
     },
     {
       "parameters": {
@@ -3091,8 +3967,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2848,
-        448
+        1856,
+        304
       ],
       "id": "8c4f9ace-e438-4004-a81d-35d02102d2c5",
       "name": "url_acortado2"
@@ -3115,19 +3991,19 @@
             },
             {
               "fieldName": "url_renovacion",
-              "fieldValue": "={{ $('variables_1').item.json.url_renovacion }}"
+              "fieldValue": "={{ $('variables1').item.json.url_tally_acortado }}"
             },
             {
               "fieldName": "id_cliente_airtable",
-              "fieldValue": "={{ $('variables_1').item.json.id_registro_clientes }}"
+              "fieldValue": "={{ $('variables1').item.json.id_registro_clientes }}"
             },
             {
               "fieldName": "tipo",
-              "fieldValue": "={{ $('variables_1').item.json.tipo }}"
+              "fieldValue": "={{ $('variables1').item.json.tipo_estado }}"
             },
             {
               "fieldName": "id_short_io",
-              "fieldValue": "={{ $('variables_2').item.json.id_short_io }}"
+              "fieldValue": "={{ $('variables1').item.json.id_short_io }}"
             }
           ]
         }
@@ -3135,8 +4011,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3712,
-        64
+        2992,
+        144
       ],
       "id": "e703399c-3bd9-4133-9f2b-fb137eecf04c",
       "name": "Create a row",
@@ -3164,8 +4040,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3920,
-        64
+        3168,
+        144
       ],
       "id": "b2a082ff-ee03-47bf-8d70-bdb25408349d",
       "name": "final"
@@ -3198,8 +4074,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1968,
-        480
+        1168,
+        320
       ],
       "id": "e644643d-61ab-402c-b18e-f389f87e4086",
       "name": "sin errores?"
@@ -3209,8 +4085,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        1776,
-        480
+        976,
+        320
       ],
       "id": "2a1742b3-2b50-4bdf-8ba9-fb80d9734906",
       "name": "Limit"
@@ -3218,14 +4094,14 @@
     {
       "parameters": {
         "operation": "createLink",
-        "originalURL": "={{ $('variables_1').item.json.url_renovacion }}",
+        "originalURL": "={{ $('variables1').item.json.url_de_renovacion_largo }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-shortio.Shortio",
       "typeVersion": 1,
       "position": [
-        2192,
-        656
+        1392,
+        496
       ],
       "id": "5f3b1d4b-fc9c-42e3-baf6-1007ac95937f",
       "name": "Create link2",
@@ -3259,56 +4135,1097 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2480,
-        656
+        1680,
+        496
       ],
       "id": "1fb22094-9ff3-4c0a-b455-3b9ec7ba1434",
       "name": "url_acortado3"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "97b49d1d-6abb-468c-ad4f-d69d8e800ef3",
+                    "leftValue": "={{ $('variables1').item.json.tipo_estado }}",
+                    "rightValue": "sin_link_acortado",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "nuevo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('variables1').item.json.tipo_estado }}",
+                    "rightValue": "con_link_acortado",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "8e955291-9fbe-4096-9012-31e49ee223fe"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "actualizar"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        512,
+        160
+      ],
+      "id": "4c29e6a2-df76-4e3a-b4cf-6bfe7e68e929",
+      "name": "tipo_estado"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('variables1').item.json.tipo_automatizacion }}",
+                    "rightValue": "chatbot_cobranzas",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "f4645b9f-126d-42d9-b270-e04afac840fe"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "chatbot_cobranzas"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "c8e0a851-1540-450e-aa14-8a3d008ba3b6",
+                    "leftValue": "={{ $('variables1').item.json.tipo_automatizacion }}",
+                    "rightValue": "chatbot_upsell",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "chatbot_upsell"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        2336,
+        160
+      ],
+      "id": "0e324c12-a930-4e2c-b155-b9f4f70af8ab",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('variables1').item.json.id_registro_clientes }}",
+            "ID url short.io - chatbot upseel": "={{ $('variables_2').item.json.id_short_io }}",
+            "URL renovacion corto - chatbot upseel": "={{ $('variables_2').item.json.url_acortado }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Estudiante",
+              "displayName": "Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Usuarios",
+              "displayName": "Usuarios",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cel Estudiante",
+              "displayName": "Cel Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cel Apoderado",
+              "displayName": "Cel Apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email del estudiante",
+              "displayName": "Email del estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Magic link (from Usuarios)",
+              "displayName": "Magic link (from Usuarios)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Email del apoderado",
+              "displayName": "Email del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular Unico",
+              "displayName": "Celular Unico",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Pais Celular",
+              "displayName": "Pais Celular",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre del estudiante",
+              "displayName": "Nombre del estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tipo",
+              "displayName": "Tipo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Adulto",
+                  "value": "Adulto"
+                },
+                {
+                  "name": "Menor de edad",
+                  "value": "Menor de edad"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Apoderado",
+              "displayName": "Apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular del estudiante 1",
+              "displayName": "Celular del estudiante 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular del estudiante 2",
+              "displayName": "Celular del estudiante 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "PEN Rollup (from DetalleVentas)",
+              "displayName": "PEN Rollup (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "# Ventas",
+              "displayName": "# Ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "DetalleVentas",
+              "displayName": "DetalleVentas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Pago (from DetalleVentas)",
+              "displayName": "Fecha de Pago (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha min",
+              "displayName": "Fecha min",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Inicio Suscripción Actual",
+              "displayName": "Inicio Suscripción Actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "1ra Suscripción",
+              "displayName": "1ra Suscripción",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "WA Link",
+              "displayName": "WA Link",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "#Semanas",
+              "displayName": "#Semanas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha fin",
+              "displayName": "Fecha fin",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Semanas transcurridas",
+              "displayName": "Semanas transcurridas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Dif Semanas",
+              "displayName": "Dif Semanas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record",
+              "displayName": "Record",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Grupos (from DetalleVentas)",
+              "displayName": "Grupos (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "latestPurchaseDate",
+              "displayName": "latestPurchaseDate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo actual",
+              "displayName": "Grupo actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Preventa",
+              "displayName": "Preventa",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular del apoderado",
+              "displayName": "Celular del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nivel de Ingles del Estudiante",
+              "displayName": "Nivel de Ingles del Estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Intermedio",
+                  "value": "Intermedio"
+                },
+                {
+                  "name": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am",
+                  "value": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am"
+                },
+                {
+                  "name": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm",
+                  "value": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm"
+                },
+                {
+                  "name": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm",
+                  "value": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm"
+                },
+                {
+                  "name": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm",
+                  "value": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm"
+                },
+                {
+                  "name": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                  "value": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                },
+                {
+                  "name": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm",
+                  "value": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm"
+                },
+                {
+                  "name": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm",
+                  "value": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm"
+                },
+                {
+                  "name": "Grupos presenciales (Tacna)",
+                  "value": "Grupos presenciales (Tacna)"
+                },
+                {
+                  "name": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm",
+                  "value": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm"
+                },
+                {
+                  "name": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm",
+                  "value": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm"
+                },
+                {
+                  "name": "KET",
+                  "value": "KET"
+                },
+                {
+                  "name": "KET_A2",
+                  "value": "KET_A2"
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am",
+                  "value": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am"
+                },
+                {
+                  "name": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am",
+                  "value": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nivel de Ingles del apoderado",
+              "displayName": "Nivel de Ingles del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Básico",
+                  "value": "Básico"
+                },
+                {
+                  "name": "No se mi nivel de inglés",
+                  "value": "No se mi nivel de inglés"
+                },
+                {
+                  "name": "Intermedio",
+                  "value": "Intermedio"
+                },
+                {
+                  "name": "Nunca he estudiado inglés",
+                  "value": "Nunca he estudiado inglés"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Aula virtual",
+              "displayName": "Aula virtual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "DetalleVentas copy",
+              "displayName": "DetalleVentas copy",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "PEN SF",
+              "displayName": "PEN SF",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "ISO",
+              "displayName": "ISO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupos Ultimo",
+              "displayName": "Grupos Ultimo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TUSD",
+              "displayName": "TUSD",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha de Fin (from DetalleVentas)",
+              "displayName": "Fecha de Fin (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha de Inicio (from DetalleVentas)",
+              "displayName": "Fecha de Inicio (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Kommo Link WA",
+              "displayName": "Kommo Link WA",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Cantidad DV",
+              "displayName": "Cantidad DV",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Customer Success",
+              "displayName": "Customer Success",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Onboarding",
+                  "value": "Onboarding"
+                },
+                {
+                  "name": "Adopción",
+                  "value": "Adopción"
+                },
+                {
+                  "name": "Renovación",
+                  "value": "Renovación"
+                },
+                {
+                  "name": "Expansión",
+                  "value": "Expansión"
+                },
+                {
+                  "name": "Lealtad",
+                  "value": "Lealtad"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Fin (from DetalleVentas) 2",
+              "displayName": "Fecha de Fin (from DetalleVentas) 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record ID",
+              "displayName": "Record ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Clientes (from DetalleVentas)",
+              "displayName": "Clientes (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Preventa 2",
+              "displayName": "Preventa 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Preventa 3",
+              "displayName": "Preventa 3",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fin Suscripción Actual",
+              "displayName": "Fin Suscripción Actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Suscripción (from DetalleVentas)",
+              "displayName": "Suscripción (from DetalleVentas)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Email F",
+              "displayName": "Email F",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre F",
+              "displayName": "Nombre F",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha de hora de envío",
+              "displayName": "Fecha de hora de envío",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "URL renovacion - chatbot cobranzas",
+              "displayName": "URL renovacion - chatbot cobranzas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "URL renovacion corto - chatbot cobranzas",
+              "displayName": "URL renovacion corto - chatbot cobranzas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ID url short.io - chatbot cobranzas",
+              "displayName": "ID url short.io - chatbot cobranzas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id_record (from Cel Estudiante)",
+              "displayName": "id_record (from Cel Estudiante)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "id_record (from Cel Apoderado)",
+              "displayName": "id_record (from Cel Apoderado)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "1er pago",
+              "displayName": "1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "2 dias despues - 1er pago",
+              "displayName": "2 dias despues - 1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "10 dias despues - 1er pago",
+              "displayName": "10 dias despues - 1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "test",
+              "displayName": "test",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "URL renovacion - chatbot upseel",
+              "displayName": "URL renovacion - chatbot upseel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "URL renovacion corto - chatbot upseel",
+              "displayName": "URL renovacion corto - chatbot upseel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ID url short.io - chatbot upseel",
+              "displayName": "ID url short.io - chatbot upseel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2688,
+        288
+      ],
+      "id": "badfc0fc-0e70-4796-8034-6609add88f4f",
+      "name": "Update record1",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
     }
   ],
   "pinData": {
     "When Executed by Another Workflow": [
       {
         "json": {
-          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=Sergio%20Joaquin%20Arroyo&celular_estudiante=%2B51976348850&id_cliente_airtable=recHgtGgUw0BTaOYP",
-          "id_registro_cliente": "recHgtGgUw0BTaOYP",
-          "tipo": "nuevo_url",
-          "id_link_short_io": null
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "host": "primary-production-55a73.up.railway.app",
-            "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "257",
-            "accept": "*/*",
-            "accept-encoding": "gzip,deflate",
-            "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl0X4uOg8OFuB55M",
-            "x-forwarded-for": "35.172.164.244",
-            "x-forwarded-host": "primary-production-55a73.up.railway.app",
-            "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "BmenQJgMStuArHAyCx5-qw",
-            "x-real-ip": "35.172.164.244",
-            "x-request-start": "1767393998478"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "recordId": "recRjMh8Eg6cQtRkq",
-            "url_renovacion": "https://tally.so/r/A7K61k?nombre_estudiante=Catherine%20Luciana%20Soncco%20Granda&celular_estudiante=%2B51914776827&id_cliente_airtable=recRjMh8Eg6cQtRkq",
-            "tipo": "actualizar_url",
-            "id_link_short_io": "9quqAD"
-          },
-          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/faecb4a2-4f7d-48b8-98a3-7faf2d4a3e7f",
-          "executionMode": "production"
+          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=Jeonsu%20shelsye%20mamani%20castro&celular_estudiante=%2B51%20920%20030%20109&id_cliente_airtable=recijA6I20XUzYxqx",
+          "id_registro_cliente": "recijA6I20XUzYxqx",
+          "url_tally_acortado": "https://bio-english.short.gy/mJjekq",
+          "tipo_estado": "con_link_acortado",
+          "tipo_automatizacion": "chatbot_upsell",
+          "id_short_io": "mJjekq"
         },
         "pairedItem": {
           "item": 0
@@ -3337,7 +5254,7 @@
   ],
   "staticData": null,
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2026-01-02T23:03:52.069Z",
-  "versionId": "2cb7e4ca-6ca3-4885-a5dd-f1fe1f85a2e5"
+  "triggerCount": 0,
+  "updatedAt": "2026-01-06T22:54:00.338Z",
+  "versionId": "54ae97b6-1dfc-404c-8986-1942647ca33d"
 }
