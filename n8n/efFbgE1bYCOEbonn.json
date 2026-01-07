@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-04T21:47:22.257Z",
-    "createdAt": "2026-01-04T21:47:20.714Z",
-    "versionId": "393c99e4-bfb1-482e-9b91-c748d735c844",
+    "updatedAt": "2026-01-06T16:00:24.075Z",
+    "createdAt": "2026-01-06T16:00:22.363Z",
+    "versionId": "86e68ea0-e57d-4880-9172-9754d04b4f96",
     "workflowId": "efFbgE1bYCOEbonn",
     "nodes": [
       {
@@ -42,7 +42,7 @@
         "type": "n8n-nodes-base.formTrigger",
         "typeVersion": 2.4,
         "position": [
-          464,
+          -240,
           -112
         ],
         "id": "08f9137d-f800-4f9d-8951-a415bea9b881",
@@ -77,7 +77,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          672,
+          -32,
           -112
         ],
         "id": "1901249b-48f9-4ee8-8d59-bf8eda6cb773",
@@ -111,7 +111,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          1616,
+          1824,
           -128
         ],
         "id": "3423b85a-b689-449f-9312-bc6988a59db3",
@@ -142,7 +142,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1824,
+          2032,
           -128
         ],
         "id": "71fdc19b-a74d-4114-854b-84fa93718b5a",
@@ -199,7 +199,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2032,
+          2240,
           -128
         ],
         "id": "b2dc214b-41ea-4e98-8492-20fa5e8f1e4c",
@@ -214,7 +214,7 @@
         "type": "n8n-nodes-base.aggregate",
         "typeVersion": 1,
         "position": [
-          2240,
+          2448,
           -128
         ],
         "id": "0d91e0f9-5b94-4b2a-9ce6-e117d8133138",
@@ -230,7 +230,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          2960,
+          3168,
           -128
         ],
         "id": "c7f67cbf-e8b0-417b-a177-22f96b460bc6",
@@ -244,7 +244,7 @@
         "type": "n8n-nodes-base.stopAndError",
         "typeVersion": 1,
         "position": [
-          4208,
+          4416,
           48
         ],
         "id": "bd6e34ea-1f1f-434e-b478-5aade2964fbb",
@@ -274,7 +274,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3184,
+          3392,
           -128
         ],
         "id": "26ae9d6a-e166-4d16-bd2e-89baf660a695",
@@ -293,7 +293,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          1136,
+          432,
           64
         ],
         "id": "172ae1dc-7838-4e2e-8520-7e04f377b7ca",
@@ -322,7 +322,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          928,
+          224,
           64
         ],
         "name": "Call Paises - form de inscripcion",
@@ -350,7 +350,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          1376,
+          1584,
           -128
         ],
         "name": "Call Paises - form de inscripcion1",
@@ -369,37 +369,37 @@
               {
                 "id": "fa9a5dfb-47b3-4b1c-b6d7-31446ad238d4",
                 "name": "nombre_apoderado",
-                "value": "={{ $('info apoderado1').item.json['Nombre completo del apoderado'] }}",
+                "value": "={{ $('apoderado_info_final').item.json['Nombre completo del apoderado'] }}",
                 "type": "string"
               },
               {
                 "id": "01729028-f555-4464-944f-773c0bcb8d35",
                 "name": "dni_apoderado",
-                "value": "={{ $('info apoderado1').item.json['DNI del apoderado'] }}",
+                "value": "={{ $('apoderado_info_final').item.json['DNI del apoderado'] }}",
                 "type": "number"
               },
               {
                 "id": "b6524707-3d13-443f-b091-ccbe4df8975d",
                 "name": "correo_apoderado",
-                "value": "={{ $('info apoderado1').item.json['Correo electrónico del apoderado'] }}",
+                "value": "={{ $('apoderado_info_final').item.json['Correo electrónico del apoderado'] }}",
                 "type": "string"
               },
               {
                 "id": "554aeef9-0128-48cd-8551-7c1809e0a924",
                 "name": "pais_apoderado",
-                "value": "={{ $('info apoderado1').item.json.Pais }}",
+                "value": "={{ $('apoderado_info_final').item.json.Pais }}",
                 "type": "string"
               },
               {
                 "id": "4b325450-71fc-4958-bce6-fe6712321933",
                 "name": "celular_apoderado_sin_codigo",
-                "value": "={{ $('info apoderado1').item.json['Celular de apoderado - colocar sin codigo de pais'] }}",
+                "value": "={{ $('apoderado_info_final').item.json['Celular de apoderado - colocar sin codigo de pais'] }}",
                 "type": "number"
               },
               {
                 "id": "8837a6f6-6805-40d8-bf10-ceb7aaf361e2",
                 "name": "nivel_inglés_apoderado",
-                "value": "={{ $('info apoderado1').item.json['Nivel de inglés del apoderado'] }}",
+                "value": "={{ $('apoderado_info_final').item.json['Nivel de inglés del apoderado'] }}",
                 "type": "string"
               },
               {
@@ -440,7 +440,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2752,
+          2960,
           -128
         ],
         "id": "5c40ccea-43af-4cd9-9849-7b2e1068623e",
@@ -468,7 +468,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3488,
+          3696,
           -272
         ],
         "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
@@ -518,7 +518,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4000,
+          4208,
           48
         ],
         "id": "138fe642-fddd-4c29-bd33-1a0f13691026",
@@ -572,7 +572,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3904,
+          4112,
           -368
         ],
         "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
@@ -595,12 +595,171 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          2480,
+          2688,
           -128
         ],
         "id": "3da085c8-dda6-4441-b1e9-521ad257fd2f",
         "name": "comprobantes y grupo",
         "webhookId": "c4d2aac6-01be-495b-a27e-3c03ed4cb389"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "87d7d1c6-5fb1-4be3-a840-80835463cd4a",
+                "name": "Nombre completo del apoderado",
+                "value": "={{ $json['Nombre completo del apoderado'] }}",
+                "type": "string"
+              },
+              {
+                "id": "96d04884-f772-466f-9367-ae9ae642e787",
+                "name": "DNI del apoderado",
+                "value": "={{ $json['DNI del apoderado'] }}",
+                "type": "number"
+              },
+              {
+                "id": "3f9b734d-328d-4f99-a593-7731cabca8bf",
+                "name": "Correo electrónico del apoderado",
+                "value": "={{ $json['Correo electrónico del apoderado'] }}",
+                "type": "string"
+              },
+              {
+                "id": "e569dce6-3aeb-4ad5-bde3-0ab92fec9f33",
+                "name": "Pais",
+                "value": "={{ $json.Pais }}",
+                "type": "string"
+              },
+              {
+                "id": "24a6746f-a13c-40ce-adf9-e1c0390ca9e3",
+                "name": "Celular de apoderado - colocar sin codigo de pais",
+                "value": "={{ $json['Celular de apoderado - colocar sin codigo de pais'] }}",
+                "type": "number"
+              },
+              {
+                "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
+                "name": "Nivel de inglés del apoderado",
+                "value": "={{ $json['Nivel de inglés del apoderado'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          688,
+          64
+        ],
+        "id": "bc0bbc84-b3f1-4077-a7cf-67529378f58a",
+        "name": "apoderado_info"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "87d7d1c6-5fb1-4be3-a840-80835463cd4a",
+                "name": "Nombre completo del apoderado",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "96d04884-f772-466f-9367-ae9ae642e787",
+                "name": "DNI del apoderado",
+                "value": "=",
+                "type": "number"
+              },
+              {
+                "id": "3f9b734d-328d-4f99-a593-7731cabca8bf",
+                "name": "Correo electrónico del apoderado",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "e569dce6-3aeb-4ad5-bde3-0ab92fec9f33",
+                "name": "Pais",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "24a6746f-a13c-40ce-adf9-e1c0390ca9e3",
+                "name": "Celular de apoderado - colocar sin codigo de pais",
+                "value": "=",
+                "type": "number"
+              },
+              {
+                "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
+                "name": "Nivel de inglés del apoderado",
+                "value": "=",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          688,
+          -128
+        ],
+        "id": "9c956a87-7025-47ad-bbe4-3c73aaf78be0",
+        "name": "apoderado_info1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "87d7d1c6-5fb1-4be3-a840-80835463cd4a",
+                "name": "Nombre completo del apoderado",
+                "value": "={{ $json['Nombre completo del apoderado'] }}",
+                "type": "string"
+              },
+              {
+                "id": "96d04884-f772-466f-9367-ae9ae642e787",
+                "name": "DNI del apoderado",
+                "value": "={{ $json['DNI del apoderado'] }}",
+                "type": "number"
+              },
+              {
+                "id": "3f9b734d-328d-4f99-a593-7731cabca8bf",
+                "name": "Correo electrónico del apoderado",
+                "value": "={{ $json['Correo electrónico del apoderado'] }}",
+                "type": "string"
+              },
+              {
+                "id": "e569dce6-3aeb-4ad5-bde3-0ab92fec9f33",
+                "name": "Pais",
+                "value": "={{ $json.Pais }}",
+                "type": "string"
+              },
+              {
+                "id": "24a6746f-a13c-40ce-adf9-e1c0390ca9e3",
+                "name": "Celular de apoderado - colocar sin codigo de pais",
+                "value": "={{ $json['Celular de apoderado - colocar sin codigo de pais'] }}",
+                "type": "number"
+              },
+              {
+                "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
+                "name": "Nivel de inglés del apoderado",
+                "value": "={{ $json['Nivel de inglés del apoderado'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1136,
+          -128
+        ],
+        "id": "ef168513-921c-4040-acf7-2ada104b866c",
+        "name": "apoderado_info_final"
       }
     ],
     "connections": {
@@ -619,7 +778,7 @@
         "main": [
           [
             {
-              "node": "Call Paises - form de inscripcion1",
+              "node": "apoderado_info1",
               "type": "main",
               "index": 0
             }
@@ -715,7 +874,7 @@
         "main": [
           [
             {
-              "node": "Call Paises - form de inscripcion1",
+              "node": "apoderado_info",
               "type": "main",
               "index": 0
             }
@@ -794,14 +953,47 @@
             }
           ]
         ]
+      },
+      "apoderado_info": {
+        "main": [
+          [
+            {
+              "node": "apoderado_info_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "apoderado_info1": {
+        "main": [
+          [
+            {
+              "node": "apoderado_info_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "apoderado_info_final": {
+        "main": [
+          [
+            {
+              "node": "Call Paises - form de inscripcion1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 393c99e4",
+    "name": "Version 86e68ea0",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "393c99e4-bfb1-482e-9b91-c748d735c844",
+  "activeVersionId": "86e68ea0-e57d-4880-9172-9754d04b4f96",
   "connections": {
     "On form submission": {
       "main": [
@@ -818,7 +1010,7 @@
       "main": [
         [
           {
-            "node": "Call Paises - form de inscripcion1",
+            "node": "apoderado_info1",
             "type": "main",
             "index": 0
           }
@@ -914,7 +1106,7 @@
       "main": [
         [
           {
-            "node": "Call Paises - form de inscripcion1",
+            "node": "apoderado_info",
             "type": "main",
             "index": 0
           }
@@ -993,6 +1185,39 @@
           }
         ]
       ]
+    },
+    "apoderado_info": {
+      "main": [
+        [
+          {
+            "node": "apoderado_info_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "apoderado_info1": {
+      "main": [
+        [
+          {
+            "node": "apoderado_info_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "apoderado_info_final": {
+      "main": [
+        [
+          {
+            "node": "Call Paises - form de inscripcion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-31T05:18:18.673Z",
@@ -1039,7 +1264,7 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.4,
       "position": [
-        464,
+        -240,
         -112
       ],
       "id": "08f9137d-f800-4f9d-8951-a415bea9b881",
@@ -1074,7 +1299,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        672,
+        -32,
         -112
       ],
       "id": "1901249b-48f9-4ee8-8d59-bf8eda6cb773",
@@ -1108,7 +1333,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        1616,
+        1824,
         -128
       ],
       "id": "3423b85a-b689-449f-9312-bc6988a59db3",
@@ -1139,7 +1364,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1824,
+        2032,
         -128
       ],
       "id": "71fdc19b-a74d-4114-854b-84fa93718b5a",
@@ -1196,7 +1421,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2032,
+        2240,
         -128
       ],
       "id": "b2dc214b-41ea-4e98-8492-20fa5e8f1e4c",
@@ -1211,7 +1436,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2240,
+        2448,
         -128
       ],
       "id": "0d91e0f9-5b94-4b2a-9ce6-e117d8133138",
@@ -1227,7 +1452,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        2960,
+        3168,
         -128
       ],
       "id": "c7f67cbf-e8b0-417b-a177-22f96b460bc6",
@@ -1241,7 +1466,7 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        4208,
+        4416,
         48
       ],
       "id": "bd6e34ea-1f1f-434e-b478-5aade2964fbb",
@@ -1271,7 +1496,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3184,
+        3392,
         -128
       ],
       "id": "26ae9d6a-e166-4d16-bd2e-89baf660a695",
@@ -1290,7 +1515,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        1136,
+        432,
         64
       ],
       "id": "172ae1dc-7838-4e2e-8520-7e04f377b7ca",
@@ -1319,7 +1544,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        928,
+        224,
         64
       ],
       "name": "Call Paises - form de inscripcion",
@@ -1347,7 +1572,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        1376,
+        1584,
         -128
       ],
       "name": "Call Paises - form de inscripcion1",
@@ -1366,37 +1591,37 @@
             {
               "id": "fa9a5dfb-47b3-4b1c-b6d7-31446ad238d4",
               "name": "nombre_apoderado",
-              "value": "={{ $('info apoderado1').item.json['Nombre completo del apoderado'] }}",
+              "value": "={{ $('apoderado_info_final').item.json['Nombre completo del apoderado'] }}",
               "type": "string"
             },
             {
               "id": "01729028-f555-4464-944f-773c0bcb8d35",
               "name": "dni_apoderado",
-              "value": "={{ $('info apoderado1').item.json['DNI del apoderado'] }}",
+              "value": "={{ $('apoderado_info_final').item.json['DNI del apoderado'] }}",
               "type": "number"
             },
             {
               "id": "b6524707-3d13-443f-b091-ccbe4df8975d",
               "name": "correo_apoderado",
-              "value": "={{ $('info apoderado1').item.json['Correo electrónico del apoderado'] }}",
+              "value": "={{ $('apoderado_info_final').item.json['Correo electrónico del apoderado'] }}",
               "type": "string"
             },
             {
               "id": "554aeef9-0128-48cd-8551-7c1809e0a924",
               "name": "pais_apoderado",
-              "value": "={{ $('info apoderado1').item.json.Pais }}",
+              "value": "={{ $('apoderado_info_final').item.json.Pais }}",
               "type": "string"
             },
             {
               "id": "4b325450-71fc-4958-bce6-fe6712321933",
               "name": "celular_apoderado_sin_codigo",
-              "value": "={{ $('info apoderado1').item.json['Celular de apoderado - colocar sin codigo de pais'] }}",
+              "value": "={{ $('apoderado_info_final').item.json['Celular de apoderado - colocar sin codigo de pais'] }}",
               "type": "number"
             },
             {
               "id": "8837a6f6-6805-40d8-bf10-ceb7aaf361e2",
               "name": "nivel_inglés_apoderado",
-              "value": "={{ $('info apoderado1').item.json['Nivel de inglés del apoderado'] }}",
+              "value": "={{ $('apoderado_info_final').item.json['Nivel de inglés del apoderado'] }}",
               "type": "string"
             },
             {
@@ -1437,7 +1662,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2752,
+        2960,
         -128
       ],
       "id": "5c40ccea-43af-4cd9-9849-7b2e1068623e",
@@ -1465,7 +1690,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3488,
+        3696,
         -272
       ],
       "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
@@ -1515,7 +1740,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4000,
+        4208,
         48
       ],
       "id": "138fe642-fddd-4c29-bd33-1a0f13691026",
@@ -1569,7 +1794,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3904,
+        4112,
         -368
       ],
       "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
@@ -1592,20 +1817,179 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        2480,
+        2688,
         -128
       ],
       "id": "3da085c8-dda6-4441-b1e9-521ad257fd2f",
       "name": "comprobantes y grupo",
       "webhookId": "c4d2aac6-01be-495b-a27e-3c03ed4cb389"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "87d7d1c6-5fb1-4be3-a840-80835463cd4a",
+              "name": "Nombre completo del apoderado",
+              "value": "={{ $json['Nombre completo del apoderado'] }}",
+              "type": "string"
+            },
+            {
+              "id": "96d04884-f772-466f-9367-ae9ae642e787",
+              "name": "DNI del apoderado",
+              "value": "={{ $json['DNI del apoderado'] }}",
+              "type": "number"
+            },
+            {
+              "id": "3f9b734d-328d-4f99-a593-7731cabca8bf",
+              "name": "Correo electrónico del apoderado",
+              "value": "={{ $json['Correo electrónico del apoderado'] }}",
+              "type": "string"
+            },
+            {
+              "id": "e569dce6-3aeb-4ad5-bde3-0ab92fec9f33",
+              "name": "Pais",
+              "value": "={{ $json.Pais }}",
+              "type": "string"
+            },
+            {
+              "id": "24a6746f-a13c-40ce-adf9-e1c0390ca9e3",
+              "name": "Celular de apoderado - colocar sin codigo de pais",
+              "value": "={{ $json['Celular de apoderado - colocar sin codigo de pais'] }}",
+              "type": "number"
+            },
+            {
+              "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
+              "name": "Nivel de inglés del apoderado",
+              "value": "={{ $json['Nivel de inglés del apoderado'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        688,
+        64
+      ],
+      "id": "bc0bbc84-b3f1-4077-a7cf-67529378f58a",
+      "name": "apoderado_info"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "87d7d1c6-5fb1-4be3-a840-80835463cd4a",
+              "name": "Nombre completo del apoderado",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "96d04884-f772-466f-9367-ae9ae642e787",
+              "name": "DNI del apoderado",
+              "value": "=",
+              "type": "number"
+            },
+            {
+              "id": "3f9b734d-328d-4f99-a593-7731cabca8bf",
+              "name": "Correo electrónico del apoderado",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "e569dce6-3aeb-4ad5-bde3-0ab92fec9f33",
+              "name": "Pais",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "24a6746f-a13c-40ce-adf9-e1c0390ca9e3",
+              "name": "Celular de apoderado - colocar sin codigo de pais",
+              "value": "=",
+              "type": "number"
+            },
+            {
+              "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
+              "name": "Nivel de inglés del apoderado",
+              "value": "=",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        688,
+        -128
+      ],
+      "id": "9c956a87-7025-47ad-bbe4-3c73aaf78be0",
+      "name": "apoderado_info1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "87d7d1c6-5fb1-4be3-a840-80835463cd4a",
+              "name": "Nombre completo del apoderado",
+              "value": "={{ $json['Nombre completo del apoderado'] }}",
+              "type": "string"
+            },
+            {
+              "id": "96d04884-f772-466f-9367-ae9ae642e787",
+              "name": "DNI del apoderado",
+              "value": "={{ $json['DNI del apoderado'] }}",
+              "type": "number"
+            },
+            {
+              "id": "3f9b734d-328d-4f99-a593-7731cabca8bf",
+              "name": "Correo electrónico del apoderado",
+              "value": "={{ $json['Correo electrónico del apoderado'] }}",
+              "type": "string"
+            },
+            {
+              "id": "e569dce6-3aeb-4ad5-bde3-0ab92fec9f33",
+              "name": "Pais",
+              "value": "={{ $json.Pais }}",
+              "type": "string"
+            },
+            {
+              "id": "24a6746f-a13c-40ce-adf9-e1c0390ca9e3",
+              "name": "Celular de apoderado - colocar sin codigo de pais",
+              "value": "={{ $json['Celular de apoderado - colocar sin codigo de pais'] }}",
+              "type": "number"
+            },
+            {
+              "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
+              "name": "Nivel de inglés del apoderado",
+              "value": "={{ $json['Nivel de inglés del apoderado'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1136,
+        -128
+      ],
+      "id": "ef168513-921c-4040-acf7-2ada104b866c",
+      "name": "apoderado_info_final"
     }
   ],
   "pinData": {
     "On form submission": [
       {
         "json": {
-          "tipo_estudiante": "Para mi hijo/hija",
-          "submittedAt": "2026-01-03T22:51:15.438-05:00",
+          "tipo_estudiante": "Para mí",
+          "submittedAt": "2026-01-06T10:46:31.470-05:00",
           "formMode": "production"
         },
         "pairedItem": {
@@ -1636,6 +2020,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-04T21:47:20.712Z",
-  "versionId": "393c99e4-bfb1-482e-9b91-c748d735c844"
+  "updatedAt": "2026-01-06T16:13:39.392Z",
+  "versionId": "86e68ea0-e57d-4880-9172-9754d04b4f96"
 }
