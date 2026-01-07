@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-06T04:17:02.607Z",
-    "createdAt": "2026-01-06T04:17:00.911Z",
-    "versionId": "31937312-28d6-49e9-9cb0-73366935a0d5",
+    "updatedAt": "2026-01-06T15:46:49.503Z",
+    "createdAt": "2026-01-06T15:46:47.666Z",
+    "versionId": "e3c1119b-f5ef-4aaa-8075-8478af58b382",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -192,7 +192,7 @@
               {
                 "id": "d6aa80e7-4884-49bb-9899-383d823f0b17",
                 "name": "url_tally_pago_recurrente",
-                "value": "={{ $('Clientes').item.json['URL renovacion corto'] }}",
+                "value": "={{ $('Clientes').item.json['URL renovacion corto - chatbot cobranzas'] }}",
                 "type": "string"
               },
               {
@@ -258,7 +258,7 @@
               {
                 "id": "939a860f-f974-4a48-a80f-2c8d2ad7ebfd",
                 "name": "url_tally_pago_recurrente_largo",
-                "value": "={{ $('Clientes').item.json['URL renovacion'] }}",
+                "value": "={{ $('Clientes').item.json['URL renovacion - chatbot cobranzas'] }}",
                 "type": "string"
               },
               {
@@ -610,7 +610,7 @@
         "typeVersion": 3.4,
         "position": [
           3056,
-          -408
+          -416
         ],
         "id": "522d763d-a7b2-44ba-b84b-aaf4fdc3d05c",
         "name": "contact_lead"
@@ -1113,8 +1113,26 @@
             "assignments": [
               {
                 "id": "51961664-61bd-45f1-9ca2-30bc1b5189f3",
-                "name": "url_tally_pago_recurrente",
+                "name": "url_tally_acortado",
                 "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}",
+                "type": "string"
+              },
+              {
+                "id": "93a4bf70-b27e-4a3f-a503-fd0e613b0818",
+                "name": "tipo_estado",
+                "value": "con_link_acortado",
+                "type": "string"
+              },
+              {
+                "id": "bd2c0de4-6402-46ae-830b-075258160d91",
+                "name": "tipo_automatizacion",
+                "value": "chatbot_cobranzas",
+                "type": "string"
+              },
+              {
+                "id": "3b64a14c-c7df-4529-924d-65070cc2b0df",
+                "name": "id_short_io",
+                "value": "={{ $('Clientes').item.json['ID url short.io - chatbot cobranzas'] }}",
                 "type": "string"
               }
             ]
@@ -1124,8 +1142,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3952,
-          -48
+          3744,
+          -32
         ],
         "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
         "name": "url_renovacion"
@@ -1137,7 +1155,7 @@
               {
                 "id": "51961664-61bd-45f1-9ca2-30bc1b5189f3",
                 "name": "url_tally_pago_recurrente",
-                "value": "={{ $json.url_tally_pago_recurrente }}",
+                "value": "={{ $json.url_acortado }}",
                 "type": "string"
               }
             ]
@@ -1167,7 +1185,10 @@
             "value": {
               "url_de_renovacion_largo": "={{ $('Variables_2').item.json.url_tally_pago_recurrente_largo }}",
               "id_registro_cliente": "={{ $('Variables_2').item.json.id_cliente_airtable }}",
-              "tipo": "nuevo_url"
+              "url_tally_acortado": "={{ $json.url_tally_acortado }}",
+              "tipo_estado": "={{ $json.tipo_estado }}",
+              "tipo_automatizacion": "={{ $json.tipo_automatizacion }}",
+              "id_short_io": "={{ $json.id_short_io }}"
             },
             "matchingColumns": [],
             "schema": [
@@ -1192,8 +1213,8 @@
                 "removed": false
               },
               {
-                "id": "tipo",
-                "displayName": "tipo",
+                "id": "url_tally_acortado",
+                "displayName": "url_tally_acortado",
                 "required": false,
                 "defaultMatch": false,
                 "display": true,
@@ -1202,8 +1223,28 @@
                 "removed": false
               },
               {
-                "id": "id_link_short_io",
-                "displayName": "id_link_short_io",
+                "id": "tipo_estado",
+                "displayName": "tipo_estado",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "tipo_automatizacion",
+                "displayName": "tipo_automatizacion",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_short_io",
+                "displayName": "id_short_io",
                 "required": false,
                 "defaultMatch": false,
                 "display": true,
@@ -1222,8 +1263,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3728,
-          -240
+          3984,
+          -144
         ],
         "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
         "name": "crear url corto de renovacion"
@@ -1863,8 +1904,26 @@
             "assignments": [
               {
                 "id": "51961664-61bd-45f1-9ca2-30bc1b5189f3",
-                "name": "url_tally_pago_recurrente",
-                "value": "={{ $json.url_acortado }}",
+                "name": "url_tally_acortado",
+                "value": "=",
+                "type": "string"
+              },
+              {
+                "id": "c27d5593-762c-4c50-b011-d3968cf8148e",
+                "name": "tipo_estado",
+                "value": "sin_link_acortado",
+                "type": "string"
+              },
+              {
+                "id": "49b4a3bc-75cc-40e8-844f-7045de7e6706",
+                "name": "tipo_automatizacion",
+                "value": "chatbot_cobranzas",
+                "type": "string"
+              },
+              {
+                "id": "6000e332-e178-47fe-8e46-381a9e0e2b94",
+                "name": "id_short_io",
+                "value": "={{ $('Clientes').item.json['ID url short.io - chatbot cobranzas'] }}",
                 "type": "string"
               }
             ]
@@ -1874,8 +1933,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3952,
-          -240
+          3744,
+          -272
         ],
         "id": "791557b6-5113-41aa-b134-8ae81864350b",
         "name": "url_renovacion1"
@@ -1926,7 +1985,7 @@
         "typeVersion": 1,
         "position": [
           2608,
-          -312
+          -320
         ],
         "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
         "name": "Obtener info de lead",
@@ -2412,7 +2471,7 @@
         "typeVersion": 3,
         "position": [
           3056,
-          -216
+          -224
         ],
         "id": "cd74891b-2961-4751-a371-640f3faed8ea",
         "name": "Create a row1",
@@ -2451,7 +2510,7 @@
         "typeVersion": 2.3,
         "position": [
           2832,
-          -312
+          -320
         ],
         "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
         "name": "no esta en etapa perdida"
@@ -2769,7 +2828,7 @@
         "main": [
           [
             {
-              "node": "crear url corto de renovacion",
+              "node": "url_renovacion1",
               "type": "main",
               "index": 0
             }
@@ -2787,7 +2846,7 @@
         "main": [
           [
             {
-              "node": "Variables_4",
+              "node": "crear url corto de renovacion",
               "type": "main",
               "index": 0
             }
@@ -2798,7 +2857,7 @@
         "main": [
           [
             {
-              "node": "url_renovacion1",
+              "node": "Variables_4",
               "type": "main",
               "index": 0
             }
@@ -2945,7 +3004,7 @@
         "main": [
           [
             {
-              "node": "Variables_4",
+              "node": "crear url corto de renovacion",
               "type": "main",
               "index": 0
             }
@@ -3118,11 +3177,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 31937312",
+    "name": "Version e3c1119b",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "31937312-28d6-49e9-9cb0-73366935a0d5",
+  "activeVersionId": "e3c1119b-f5ef-4aaa-8075-8478af58b382",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -3435,7 +3494,7 @@
       "main": [
         [
           {
-            "node": "crear url corto de renovacion",
+            "node": "url_renovacion1",
             "type": "main",
             "index": 0
           }
@@ -3453,7 +3512,7 @@
       "main": [
         [
           {
-            "node": "Variables_4",
+            "node": "crear url corto de renovacion",
             "type": "main",
             "index": 0
           }
@@ -3464,7 +3523,7 @@
       "main": [
         [
           {
-            "node": "url_renovacion1",
+            "node": "Variables_4",
             "type": "main",
             "index": 0
           }
@@ -3611,7 +3670,7 @@
       "main": [
         [
           {
-            "node": "Variables_4",
+            "node": "crear url corto de renovacion",
             "type": "main",
             "index": 0
           }
@@ -3977,7 +4036,7 @@
             {
               "id": "d6aa80e7-4884-49bb-9899-383d823f0b17",
               "name": "url_tally_pago_recurrente",
-              "value": "={{ $('Clientes').item.json['URL renovacion corto'] }}",
+              "value": "={{ $('Clientes').item.json['URL renovacion corto - chatbot cobranzas'] }}",
               "type": "string"
             },
             {
@@ -4043,7 +4102,7 @@
             {
               "id": "939a860f-f974-4a48-a80f-2c8d2ad7ebfd",
               "name": "url_tally_pago_recurrente_largo",
-              "value": "={{ $('Clientes').item.json['URL renovacion'] }}",
+              "value": "={{ $('Clientes').item.json['URL renovacion - chatbot cobranzas'] }}",
               "type": "string"
             },
             {
@@ -4395,7 +4454,7 @@
       "typeVersion": 3.4,
       "position": [
         3056,
-        -408
+        -416
       ],
       "id": "522d763d-a7b2-44ba-b84b-aaf4fdc3d05c",
       "name": "contact_lead"
@@ -4898,8 +4957,26 @@
           "assignments": [
             {
               "id": "51961664-61bd-45f1-9ca2-30bc1b5189f3",
-              "name": "url_tally_pago_recurrente",
+              "name": "url_tally_acortado",
               "value": "={{ $('Variables_2').item.json.url_tally_pago_recurrente }}",
+              "type": "string"
+            },
+            {
+              "id": "93a4bf70-b27e-4a3f-a503-fd0e613b0818",
+              "name": "tipo_estado",
+              "value": "con_link_acortado",
+              "type": "string"
+            },
+            {
+              "id": "bd2c0de4-6402-46ae-830b-075258160d91",
+              "name": "tipo_automatizacion",
+              "value": "chatbot_cobranzas",
+              "type": "string"
+            },
+            {
+              "id": "3b64a14c-c7df-4529-924d-65070cc2b0df",
+              "name": "id_short_io",
+              "value": "={{ $('Clientes').item.json['ID url short.io - chatbot cobranzas'] }}",
               "type": "string"
             }
           ]
@@ -4909,8 +4986,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3952,
-        -48
+        3744,
+        -32
       ],
       "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
       "name": "url_renovacion"
@@ -4922,7 +4999,7 @@
             {
               "id": "51961664-61bd-45f1-9ca2-30bc1b5189f3",
               "name": "url_tally_pago_recurrente",
-              "value": "={{ $json.url_tally_pago_recurrente }}",
+              "value": "={{ $json.url_acortado }}",
               "type": "string"
             }
           ]
@@ -4952,7 +5029,10 @@
           "value": {
             "url_de_renovacion_largo": "={{ $('Variables_2').item.json.url_tally_pago_recurrente_largo }}",
             "id_registro_cliente": "={{ $('Variables_2').item.json.id_cliente_airtable }}",
-            "tipo": "nuevo_url"
+            "url_tally_acortado": "={{ $json.url_tally_acortado }}",
+            "tipo_estado": "={{ $json.tipo_estado }}",
+            "tipo_automatizacion": "={{ $json.tipo_automatizacion }}",
+            "id_short_io": "={{ $json.id_short_io }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -4977,8 +5057,8 @@
               "removed": false
             },
             {
-              "id": "tipo",
-              "displayName": "tipo",
+              "id": "url_tally_acortado",
+              "displayName": "url_tally_acortado",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4987,8 +5067,28 @@
               "removed": false
             },
             {
-              "id": "id_link_short_io",
-              "displayName": "id_link_short_io",
+              "id": "tipo_estado",
+              "displayName": "tipo_estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "tipo_automatizacion",
+              "displayName": "tipo_automatizacion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_short_io",
+              "displayName": "id_short_io",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -5007,8 +5107,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3728,
-        -240
+        3984,
+        -144
       ],
       "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
       "name": "crear url corto de renovacion"
@@ -5648,8 +5748,26 @@
           "assignments": [
             {
               "id": "51961664-61bd-45f1-9ca2-30bc1b5189f3",
-              "name": "url_tally_pago_recurrente",
-              "value": "={{ $json.url_acortado }}",
+              "name": "url_tally_acortado",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "c27d5593-762c-4c50-b011-d3968cf8148e",
+              "name": "tipo_estado",
+              "value": "sin_link_acortado",
+              "type": "string"
+            },
+            {
+              "id": "49b4a3bc-75cc-40e8-844f-7045de7e6706",
+              "name": "tipo_automatizacion",
+              "value": "chatbot_cobranzas",
+              "type": "string"
+            },
+            {
+              "id": "6000e332-e178-47fe-8e46-381a9e0e2b94",
+              "name": "id_short_io",
+              "value": "={{ $('Clientes').item.json['ID url short.io - chatbot cobranzas'] }}",
               "type": "string"
             }
           ]
@@ -5659,8 +5777,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3952,
-        -240
+        3744,
+        -272
       ],
       "id": "791557b6-5113-41aa-b134-8ae81864350b",
       "name": "url_renovacion1"
@@ -5711,7 +5829,7 @@
       "typeVersion": 1,
       "position": [
         2608,
-        -312
+        -320
       ],
       "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
       "name": "Obtener info de lead",
@@ -6197,7 +6315,7 @@
       "typeVersion": 3,
       "position": [
         3056,
-        -216
+        -224
       ],
       "id": "cd74891b-2961-4751-a371-640f3faed8ea",
       "name": "Create a row1",
@@ -6236,7 +6354,7 @@
       "typeVersion": 2.3,
       "position": [
         2832,
-        -312
+        -320
       ],
       "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
       "name": "no esta en etapa perdida"
@@ -6355,6 +6473,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-06T04:17:00.908Z",
-  "versionId": "31937312-28d6-49e9-9cb0-73366935a0d5"
+  "updatedAt": "2026-01-06T15:46:47.659Z",
+  "versionId": "e3c1119b-f5ef-4aaa-8075-8478af58b382"
 }
