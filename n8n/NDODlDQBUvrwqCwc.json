@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-04T19:03:21.212Z",
-    "createdAt": "2026-01-04T19:03:19.530Z",
-    "versionId": "4a9f23db-de92-45af-8c66-e40f25d0df82",
+    "updatedAt": "2026-01-06T18:10:50.699Z",
+    "createdAt": "2026-01-06T18:10:48.671Z",
+    "versionId": "503146b6-7441-4d55-92eb-85289eb783ed",
     "workflowId": "NDODlDQBUvrwqCwc",
     "nodes": [
       {
@@ -101,7 +101,8 @@
           0
         ],
         "name": "apoderado_codigo_de_pais",
-        "id": "a9ec0b1b-7ddd-4130-b309-b802b1b8507c"
+        "id": "a9ec0b1b-7ddd-4130-b309-b802b1b8507c",
+        "alwaysOutputData": true
       },
       {
         "parameters": {
@@ -202,6 +203,12 @@
                 "name": "edad_estudiante",
                 "value": "={{ $('When Executed by Another Workflow').item.json['Edad del estudiante'] }}",
                 "type": "number"
+              },
+              {
+                "id": "2261bf55-4b22-4420-8930-a3a910019218",
+                "name": "id_grupo_ultimo_creado",
+                "value": "={{ $('buscar registro - grupos').item.json['record_id (from Grupos mes) - ultimo creado'][0] }}",
+                "type": "string"
               }
             ]
           },
@@ -6998,7 +7005,8 @@
               "Preventa": "={{ $('id preventa').item.json.id_preventa }}",
               "Clientes": "={{ $('id cliente').item.json.id_cliente }}",
               "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-              "Grupos": "={{ $('variables_1').item.json.id_grupo }}"
+              "Grupos": "={{ $('variables_1').item.json.id_grupo }}",
+              "Canal": "=reckXjoa3cRKk3E79"
             },
             "matchingColumns": [],
             "schema": [
@@ -7912,6 +7920,17 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de inicio real",
+                "displayName": "Fecha de inicio real",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
                 "removed": false
               }
             ],
@@ -9438,7 +9457,7 @@
               "id_escenario_n8n": "={{ $workflow.id }}",
               "id_ejecucion_n8n": "={{ $execution.id }}",
               "Pais apoderado": "={{ $('variables_1').item.json.pais_apoderado }}",
-              "n8n formulario": "={{  }}",
+              "n8n formulario": "={{ true }}",
               "Edad estudiante": "={{ $('variables_1').item.json.edad_estudiante }}"
             },
             "matchingColumns": [],
@@ -10516,6 +10535,28 @@
                 "type": "number",
                 "readOnly": false,
                 "removed": false
+              },
+              {
+                "id": "Cel Estudiante (from Clientes)",
+                "displayName": "Cel Estudiante (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Cel Apoderado (from Clientes)",
+                "displayName": "Cel Apoderado (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -10658,7 +10699,8 @@
               "Preventa": "={{ $('id preventa').item.json.id_preventa }}",
               "Clientes": "={{ $('id cliente').item.json.id_cliente }}",
               "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-              "Grupos": "={{ $('variables_1').item.json.id_grupo }}"
+              "Grupos": "={{ $('variables_1').item.json.id_grupo }}",
+              "Canal": "=reckXjoa3cRKk3E79"
             },
             "matchingColumns": [],
             "schema": [
@@ -11946,6 +11988,12 @@
                 "id": "cbdf593e-6b5d-4307-b272-1ccb0e177dd4",
                 "name": "id_detalles_venta_airtable",
                 "value": "={{ $('id detalles venta').item.json.id_detalles_venta }}",
+                "type": "string"
+              },
+              {
+                "id": "3b3e08eb-fc91-4503-982a-018bf4ffeaf9",
+                "name": "id_grupo_ultimo_creado",
+                "value": "={{ $('variables_1').item.json.id_grupo_ultimo_creado }}",
                 "type": "string"
               }
             ]
@@ -14253,11 +14301,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 4a9f23db",
+    "name": "Version 503146b6",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "4a9f23db-de92-45af-8c66-e40f25d0df82",
+  "activeVersionId": "503146b6-7441-4d55-92eb-85289eb783ed",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -15249,7 +15297,8 @@
         0
       ],
       "name": "apoderado_codigo_de_pais",
-      "id": "a9ec0b1b-7ddd-4130-b309-b802b1b8507c"
+      "id": "a9ec0b1b-7ddd-4130-b309-b802b1b8507c",
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -15350,6 +15399,12 @@
               "name": "edad_estudiante",
               "value": "={{ $('When Executed by Another Workflow').item.json['Edad del estudiante'] }}",
               "type": "number"
+            },
+            {
+              "id": "2261bf55-4b22-4420-8930-a3a910019218",
+              "name": "id_grupo_ultimo_creado",
+              "value": "={{ $('buscar registro - grupos').item.json['record_id (from Grupos mes) - ultimo creado'][0] }}",
+              "type": "string"
             }
           ]
         },
@@ -22146,7 +22201,8 @@
             "Preventa": "={{ $('id preventa').item.json.id_preventa }}",
             "Clientes": "={{ $('id cliente').item.json.id_cliente }}",
             "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-            "Grupos": "={{ $('variables_1').item.json.id_grupo }}"
+            "Grupos": "={{ $('variables_1').item.json.id_grupo }}",
+            "Canal": "=reckXjoa3cRKk3E79"
           },
           "matchingColumns": [],
           "schema": [
@@ -23060,6 +23116,17 @@
               "display": true,
               "type": "array",
               "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de inicio real",
+              "displayName": "Fecha de inicio real",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
               "removed": false
             }
           ],
@@ -24586,7 +24653,7 @@
             "id_escenario_n8n": "={{ $workflow.id }}",
             "id_ejecucion_n8n": "={{ $execution.id }}",
             "Pais apoderado": "={{ $('variables_1').item.json.pais_apoderado }}",
-            "n8n formulario": "={{  }}",
+            "n8n formulario": "={{ true }}",
             "Edad estudiante": "={{ $('variables_1').item.json.edad_estudiante }}"
           },
           "matchingColumns": [],
@@ -25664,6 +25731,28 @@
               "type": "number",
               "readOnly": false,
               "removed": false
+            },
+            {
+              "id": "Cel Estudiante (from Clientes)",
+              "displayName": "Cel Estudiante (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Cel Apoderado (from Clientes)",
+              "displayName": "Cel Apoderado (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -25806,7 +25895,8 @@
             "Preventa": "={{ $('id preventa').item.json.id_preventa }}",
             "Clientes": "={{ $('id cliente').item.json.id_cliente }}",
             "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-            "Grupos": "={{ $('variables_1').item.json.id_grupo }}"
+            "Grupos": "={{ $('variables_1').item.json.id_grupo }}",
+            "Canal": "=reckXjoa3cRKk3E79"
           },
           "matchingColumns": [],
           "schema": [
@@ -27094,6 +27184,12 @@
               "id": "cbdf593e-6b5d-4307-b272-1ccb0e177dd4",
               "name": "id_detalles_venta_airtable",
               "value": "={{ $('id detalles venta').item.json.id_detalles_venta }}",
+              "type": "string"
+            },
+            {
+              "id": "3b3e08eb-fc91-4503-982a-018bf4ffeaf9",
+              "name": "id_grupo_ultimo_creado",
+              "value": "={{ $('variables_1').item.json.id_grupo_ultimo_creado }}",
               "type": "string"
             }
           ]
@@ -28516,28 +28612,28 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-8:00-9:00am )",
+          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-7:00-8:00pm )",
           "Comprobante de pago": [
             {
-              "filename": "Daniel Merino.jpg",
+              "filename": "Iker Diciembre.jpg",
               "mimetype": "image/jpeg",
-              "size": 40274
+              "size": 50985
             }
           ],
-          "submittedAt": "2026-01-04T21:35:35.764-05:00",
+          "submittedAt": "2026-01-05T10:55:24.228-05:00",
           "formMode": "production",
           "tipo_estudiante": "Para mi hijo/hija",
           "nombre_apoderado": "Lisset Pacco",
           "dni_apoderado": 48120756,
-          "correo_apoderado": "paccolisset@gmail.com",
+          "correo_apoderado": "bioenglish.22@gmail.com",
           "pais_apoderado": "Perú",
           "celular_apoderado_sin_codigo": 968601255,
           "nivel_inglés_apoderado": "Avanzado",
           "Nombre completo del estudiante": "Sadia Pacco",
-          "Correo electrónico del estudiante": "paccolisset@gmail.com",
+          "Correo electrónico del estudiante": "bioenglish.22@gmail.com",
           "Pais": "Perú",
           "Celular del estudiante - colocar sin codigo de pais": "968601255",
-          "Edad del estudiante": 9
+          "Edad del estudiante": 12
         },
         "binary": {
           "Comprobante_de_pago": {
@@ -28545,9 +28641,9 @@
             "fileType": "image",
             "fileExtension": "jpg",
             "data": "database",
-            "fileName": "Daniel Merino.jpg",
-            "id": "database:11e104c2-7c5f-4bc9-8a83-55b2b4a04faf",
-            "fileSize": "40.3 kB"
+            "fileName": "Iker Diciembre.jpg",
+            "id": "database:4279ad36-6ed8-4df8-97e1-64740829bbd8",
+            "fileSize": "51 kB"
           }
         },
         "pairedItem": {
@@ -28578,6 +28674,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-05T07:34:59.946Z",
-  "versionId": "4a9f23db-de92-45af-8c66-e40f25d0df82"
+  "updatedAt": "2026-01-06T18:10:48.666Z",
+  "versionId": "503146b6-7441-4d55-92eb-85289eb783ed"
 }
