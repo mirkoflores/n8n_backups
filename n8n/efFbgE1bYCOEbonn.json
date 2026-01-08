@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-06T16:00:24.075Z",
-    "createdAt": "2026-01-06T16:00:22.363Z",
-    "versionId": "86e68ea0-e57d-4880-9172-9754d04b4f96",
+    "updatedAt": "2026-01-07T16:27:31.697Z",
+    "createdAt": "2026-01-07T16:27:30.169Z",
+    "versionId": "5f781191-aa52-484a-9209-f7fb61b24cc4",
     "workflowId": "efFbgE1bYCOEbonn",
     "nodes": [
       {
@@ -473,7 +473,7 @@
         ],
         "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
         "name": "Call 'Enviar accesos a nuevo usuario'",
-        "alwaysOutputData": true,
+        "alwaysOutputData": false,
         "onError": "continueErrorOutput"
       },
       {
@@ -989,11 +989,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 86e68ea0",
+    "name": "Version 5f781191",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "86e68ea0-e57d-4880-9172-9754d04b4f96",
+  "activeVersionId": "5f781191-aa52-484a-9209-f7fb61b24cc4",
   "connections": {
     "On form submission": {
       "main": [
@@ -1695,7 +1695,7 @@
       ],
       "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
       "name": "Call 'Enviar accesos a nuevo usuario'",
-      "alwaysOutputData": true,
+      "alwaysOutputData": false,
       "onError": "continueErrorOutput"
     },
     {
@@ -1988,8 +1988,8 @@
     "On form submission": [
       {
         "json": {
-          "tipo_estudiante": "Para mí",
-          "submittedAt": "2026-01-06T10:46:31.470-05:00",
+          "tipo_estudiante": "Para mi hijo/hija",
+          "submittedAt": "2026-01-07T09:44:33.152-05:00",
           "formMode": "production"
         },
         "pairedItem": {
@@ -2020,6 +2020,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-06T16:13:39.392Z",
-  "versionId": "86e68ea0-e57d-4880-9172-9754d04b4f96"
+  "updatedAt": "2026-01-07T16:27:30.165Z",
+  "versionId": "5f781191-aa52-484a-9209-f7fb61b24cc4"
 }
