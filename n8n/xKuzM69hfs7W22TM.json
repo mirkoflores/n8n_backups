@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-06T22:33:36.174Z",
-    "createdAt": "2026-01-06T22:33:34.866Z",
-    "versionId": "6ecebc4b-3132-406a-a0eb-4bc97407b281",
+    "updatedAt": "2026-01-07T16:28:56.681Z",
+    "createdAt": "2026-01-07T16:28:55.299Z",
+    "versionId": "20396fa5-6899-49ea-8c10-11d0a81c088a",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -138,7 +138,7 @@
               {
                 "id": "0c6b0f8b-6bf7-4f29-be1a-b4e95795e73d",
                 "name": "magic_link",
-                "value": "={{ $('Crear usuario_2').item.json.magic_link }}",
+                "value": "={{ $('magich_link_final').item.json.magich_link }}",
                 "type": "string"
               }
             ]
@@ -2301,7 +2301,7 @@
               {
                 "id": "69a45ac9-6fa3-4aac-9519-2a7f9b59b8e1",
                 "name": "magich_link",
-                "value": "={{ $('buscar registro - usuario').item.json['Magic link'] }}",
+                "value": "={{ $('buscar registro - usuario1').item.json['Magic link'] }}",
                 "type": "string"
               }
             ]
@@ -2683,11 +2683,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 6ecebc4b",
+    "name": "Version 20396fa5",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "6ecebc4b-3132-406a-a0eb-4bc97407b281",
+  "activeVersionId": "20396fa5-6899-49ea-8c10-11d0a81c088a",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -3192,7 +3192,7 @@
             {
               "id": "0c6b0f8b-6bf7-4f29-be1a-b4e95795e73d",
               "name": "magic_link",
-              "value": "={{ $('Crear usuario_2').item.json.magic_link }}",
+              "value": "={{ $('magich_link_final').item.json.magich_link }}",
               "type": "string"
             }
           ]
@@ -5355,7 +5355,7 @@
             {
               "id": "69a45ac9-6fa3-4aac-9519-2a7f9b59b8e1",
               "name": "magich_link",
-              "value": "={{ $('buscar registro - usuario').item.json['Magic link'] }}",
+              "value": "={{ $('buscar registro - usuario1').item.json['Magic link'] }}",
               "type": "string"
             }
           ]
@@ -5381,83 +5381,6 @@
         }
       }
     ],
-    "crear registro - portal": [
-      {
-        "json": {
-          "id": "rec8i7yuqXTkGu78E",
-          "createdTime": "2026-01-06T18:17:51.000Z",
-          "fields": {
-            "ID": "ENGLISH STARTERS | Virtual | Reyma | L-M-V-5:00-6:00pm | Oct25 - mgvargaschavez97@gmail.com",
-            "Usuario": [
-              "recFCpqYu4XCMweEo"
-            ],
-            "Grupo mes": [
-              "rec5sGjCY2YzImUNZ"
-            ],
-            "Nivel (from Grupo) (from Grupo mes)": [
-              "ENGLISH STARTERS"
-            ],
-            "Horario (from Grupo) (from Grupo mes)": [
-              "L-M-V-5:00-6:00pm"
-            ],
-            "Mes (from Grupo mes)": [
-              "Oct25"
-            ],
-            "Nombre completo (from Usuario)": [
-              "Maria Guadalupe Vargas Chavez"
-            ],
-            "Fecha (from Asistencia)": [
-              "2024-01-17"
-            ],
-            "Grupo mes f": "ENGLISH%20STARTERS%20%7C%20Virtual%20%7C%20Reyma%20%7C%20L-M-V-5%3A00-6%3A00pm%20%7C%20Oct25",
-            "Grupo": [
-              "recgh7tiTPbqO2yHH"
-            ],
-            "Grupo (from Grupo mes)": [
-              "recgh7tiTPbqO2yHH"
-            ],
-            "No pago Rollup (from Usuario)": 0,
-            "Año": [
-              "2026"
-            ],
-            "Created": "2026-01-06T18:17:51.000Z",
-            "record_id (from Grupo mes)": [
-              "rec5sGjCY2YzImUNZ"
-            ],
-            "record_id (from Usuario)": [
-              "recFCpqYu4XCMweEo"
-            ],
-            "Record ID (from Grupo)": [
-              "recgh7tiTPbqO2yHH"
-            ]
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "buscar registro - portal": [
-      {
-        "json": {},
-        "pairedItem": [
-          {
-            "item": 0,
-            "input": 0
-          }
-        ]
-      }
-    ],
-    "magich_link_final": [
-      {
-        "json": {
-          "magich_link": "https://www.bioenglish.lat/magic-authentication?magic-token=a6488c372dea4ce5b06e14edc9b8fdf7"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "magich_link1": [
       {
         "json": {
@@ -5468,65 +5391,29 @@
         }
       }
     ],
-    "Crear usuario_2": [
-      {
-        "json": {
-          "full_name": "Guadalupe",
-          "email": "esther@gmail.com",
-          "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=7b52521b913640d6b562f7a511443aef",
-          "updated": "2026-01-06 22:28:11",
-          "created": "2026-01-06 22:28:11"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "buscar registro - usuario1": [
-      {
-        "json": {
-          "id": "rec2sN1bTL5tBT6Gc",
-          "createdTime": "2026-01-06T22:28:12.000Z",
-          "ID": "esther@gmail.com",
-          "Nombre completo": "Guadalupe",
-          "Email otros": "esther@gmail.com",
-          "Created": "2026-01-06T22:28:12.000Z",
-          "Magic link": "https://www.bioenglish.lat/magic-authentication?magic-token=7b52521b913640d6b562f7a511443aef",
-          "id_clientes": [],
-          "id_clientes_2": [],
-          "TEST": 8,
-          "record_id": "rec2sN1bTL5tBT6Gc"
-        },
-        "pairedItem": [
-          {
-            "item": 0
-          }
-        ]
-      }
-    ],
     "When Executed by Another Workflow": [
       {
         "json": {
-          "numero_completo_estudiante": "+51917967249",
-          "numero_completo_apoderado": "+51917967249",
-          "email_estudiante": "mgvargaschavez97@gmail.com",
-          "email_apoderado": "mgvargaschavez97@gmail.com",
-          "nombre_estudiante": "Kaory",
-          "nombre_apoderado": "Guadalupe ",
-          "monto_depositado": 295,
+          "numero_completo_estudiante": "+51968601255",
+          "numero_completo_apoderado": "+51968601255",
+          "email_estudiante": "bioenglish.22@gmail.com",
+          "email_apoderado": "bioenglish.22@gmail.com",
+          "nombre_estudiante": "Yamira Jimenez",
+          "nombre_apoderado": "Lisset Pacco",
+          "monto_depositado": 135,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
-          "id_grupo": "recgh7tiTPbqO2yHH",
+          "id_grupo": "recwezwaBjupUxNBd",
           "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 60038393,
+          "dni_apoderado": 48120756,
           "pais_apoderado": "Perú",
-          "nivel_inglés_apoderado": "Intermedio",
-          "id_contacto_apoderado_airtable": "recyKXabIUBoo2sfp",
-          "id_contacto_estudiante_airtable": "recyKXabIUBoo2sfp",
-          "id_cliente_airtable": "rec3nnM7st5UvhSuL",
-          "id_preventa_airtable": "recRIPUmpalGLqWQL",
-          "id_detalles_venta_airtable": "recZgcbJfYGyRBdFB",
-          "id_grupo_ultimo_creado": "rec5sGjCY2YzImUNZ"
+          "nivel_inglés_apoderado": "Avanzado",
+          "id_contacto_apoderado_airtable": "recXda65IrsHlVZYx",
+          "id_contacto_estudiante_airtable": "recXda65IrsHlVZYx",
+          "id_cliente_airtable": "recKavZBIcwcvj9dm",
+          "id_preventa_airtable": "recpJgHDJ6SFu7GlS",
+          "id_detalles_venta_airtable": "rec32p4QTlCf8fo9j",
+          "id_grupo_ultimo_creado": "recvhaI0fC41kXeCi"
         },
         "pairedItem": {
           "item": 0
@@ -5556,6 +5443,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-06T22:33:34.863Z",
-  "versionId": "6ecebc4b-3132-406a-a0eb-4bc97407b281"
+  "updatedAt": "2026-01-07T16:32:52.464Z",
+  "versionId": "20396fa5-6899-49ea-8c10-11d0a81c088a"
 }
