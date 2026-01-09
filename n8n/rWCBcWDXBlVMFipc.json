@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-06T22:43:36.379Z",
-    "createdAt": "2026-01-06T22:43:34.338Z",
-    "versionId": "8736c022-22df-4b93-8706-60b001933849",
+    "updatedAt": "2026-01-08T16:51:55.533Z",
+    "createdAt": "2026-01-08T16:51:53.197Z",
+    "versionId": "e5cf5650-2ed8-4862-bff5-ceb58c941547",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -1838,7 +1838,7 @@
               "PEN": "={{ $('variables_2').item.json.monto_final_depositado }}",
               "Clientes": "={{ $('variables_2').item.json.id_cliente_airtable }}",
               "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-              "Fecha de Inicio": "={{ $('variables_3').item.json.fecha_de_inicio }}",
+              "Fecha de Inicio": "=",
               "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
               "Canal": "=recg6U1VDaLmltbmF",
               "Grupos": "={{ $('variables_3').item.json.id_grupo_ultima_compra }}"
@@ -2147,6 +2147,10 @@
                   {
                     "name": "7 clases",
                     "value": "7 clases"
+                  },
+                  {
+                    "name": "S/. 232.50",
+                    "value": "S/. 232.50"
                   }
                 ],
                 "readOnly": false,
@@ -2745,6 +2749,28 @@
                 "type": "string",
                 "readOnly": true,
                 "removed": false
+              },
+              {
+                "id": "Preventa",
+                "displayName": "Preventa",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de inicio real",
+                "displayName": "Fecha de inicio real",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -2794,7 +2820,7 @@
               "Grupos": "={{ $('variables_3').item.json.id_grupo_ultima_compra }}",
               "DOL": "={{ $('variables_2').item.json.monto_final_depositado }}",
               "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-              "Fecha de Inicio": "={{ $('variables_3').item.json.fecha_de_inicio }}",
+              "Fecha de Inicio": "=",
               "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
               "Canal": "=recg6U1VDaLmltbmF"
             },
@@ -3102,6 +3128,10 @@
                   {
                     "name": "7 clases",
                     "value": "7 clases"
+                  },
+                  {
+                    "name": "S/. 232.50",
+                    "value": "S/. 232.50"
                   }
                 ],
                 "readOnly": false,
@@ -3700,6 +3730,28 @@
                 "type": "string",
                 "readOnly": true,
                 "removed": false
+              },
+              {
+                "id": "Preventa",
+                "displayName": "Preventa",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de inicio real",
+                "displayName": "Fecha de inicio real",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -3934,7 +3986,6 @@
               "PEN": "={{ $('monto final').item.json.monto_final }}",
               "Clientes": "=recdThPXpvHsGcm6H",
               "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-              "Fecha de Inicio": "=",
               "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
               "Canal": "={{ $('variables_1').item.json.canal }}",
               "Grupos": "="
@@ -4912,7 +4963,6 @@
               "Grupos": "=",
               "DOL": "={{ $('monto final').item.json.monto_final }}",
               "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-              "Fecha de Inicio": "=",
               "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
               "Canal": "={{ $('variables_1').item.json.canal }}"
             },
@@ -5098,15 +5148,41 @@
                 "removed": true
               },
               {
-                "id": "Evidencia",
-                "displayName": "Evidencia",
+                "id": "Retirados",
+                "displayName": "Retirados",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
                 "display": true,
-                "type": "array",
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Vacaciones",
+                    "value": "Vacaciones"
+                  },
+                  {
+                    "name": "No conforme",
+                    "value": "No conforme"
+                  },
+                  {
+                    "name": "cambio horario",
+                    "value": "cambio horario"
+                  },
+                  {
+                    "name": "presencial",
+                    "value": "presencial"
+                  },
+                  {
+                    "name": "falta presupuesto",
+                    "value": "falta presupuesto"
+                  },
+                  {
+                    "name": "motivos personales",
+                    "value": "motivos personales"
+                  }
+                ],
                 "readOnly": false,
-                "removed": true
+                "removed": false
               },
               {
                 "id": "ID",
@@ -5194,6 +5270,10 @@
                   {
                     "name": "7 clases",
                     "value": "7 clases"
+                  },
+                  {
+                    "name": "S/. 232.50",
+                    "value": "S/. 232.50"
                   }
                 ],
                 "readOnly": false,
@@ -5706,17 +5786,6 @@
                 "removed": true
               },
               {
-                "id": "test-1",
-                "displayName": "test-1",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "boolean",
-                "readOnly": false,
-                "removed": true
-              },
-              {
                 "id": "Renovado",
                 "displayName": "Renovado",
                 "required": false,
@@ -5736,6 +5805,94 @@
                 "display": true,
                 "type": "number",
                 "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "No renovo",
+                "displayName": "No renovo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 3 dias antes",
+                "displayName": "Fin suscripción - 3 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 1 dias antes",
+                "displayName": "Fin suscripción - 1 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 5 dias despues",
+                "displayName": "Fin suscripción - 5 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 30 dias despues",
+                "displayName": "Fin suscripción - 30 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Fin suscripción - 60 dias despues",
+                "displayName": "Fin suscripción - 60 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Preventa",
+                "displayName": "Preventa",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de inicio real",
+                "displayName": "Fecha de inicio real",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
                 "removed": false
               }
             ],
@@ -7830,11 +7987,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 8736c022",
+    "name": "Version e5cf5650",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "8736c022-22df-4b93-8706-60b001933849",
+  "activeVersionId": "e5cf5650-2ed8-4862-bff5-ceb58c941547",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -10460,7 +10617,7 @@
             "PEN": "={{ $('variables_2').item.json.monto_final_depositado }}",
             "Clientes": "={{ $('variables_2').item.json.id_cliente_airtable }}",
             "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-            "Fecha de Inicio": "={{ $('variables_3').item.json.fecha_de_inicio }}",
+            "Fecha de Inicio": "=",
             "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
             "Canal": "=recg6U1VDaLmltbmF",
             "Grupos": "={{ $('variables_3').item.json.id_grupo_ultima_compra }}"
@@ -10769,6 +10926,10 @@
                 {
                   "name": "7 clases",
                   "value": "7 clases"
+                },
+                {
+                  "name": "S/. 232.50",
+                  "value": "S/. 232.50"
                 }
               ],
               "readOnly": false,
@@ -11367,6 +11528,28 @@
               "type": "string",
               "readOnly": true,
               "removed": false
+            },
+            {
+              "id": "Preventa",
+              "displayName": "Preventa",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de inicio real",
+              "displayName": "Fecha de inicio real",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -11416,7 +11599,7 @@
             "Grupos": "={{ $('variables_3').item.json.id_grupo_ultima_compra }}",
             "DOL": "={{ $('variables_2').item.json.monto_final_depositado }}",
             "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-            "Fecha de Inicio": "={{ $('variables_3').item.json.fecha_de_inicio }}",
+            "Fecha de Inicio": "=",
             "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
             "Canal": "=recg6U1VDaLmltbmF"
           },
@@ -11724,6 +11907,10 @@
                 {
                   "name": "7 clases",
                   "value": "7 clases"
+                },
+                {
+                  "name": "S/. 232.50",
+                  "value": "S/. 232.50"
                 }
               ],
               "readOnly": false,
@@ -12322,6 +12509,28 @@
               "type": "string",
               "readOnly": true,
               "removed": false
+            },
+            {
+              "id": "Preventa",
+              "displayName": "Preventa",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de inicio real",
+              "displayName": "Fecha de inicio real",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -12556,7 +12765,6 @@
             "PEN": "={{ $('monto final').item.json.monto_final }}",
             "Clientes": "=recdThPXpvHsGcm6H",
             "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-            "Fecha de Inicio": "=",
             "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
             "Canal": "={{ $('variables_1').item.json.canal }}",
             "Grupos": "="
@@ -13534,7 +13742,6 @@
             "Grupos": "=",
             "DOL": "={{ $('monto final').item.json.monto_final }}",
             "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
-            "Fecha de Inicio": "=",
             "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
             "Canal": "={{ $('variables_1').item.json.canal }}"
           },
@@ -13720,15 +13927,41 @@
               "removed": true
             },
             {
-              "id": "Evidencia",
-              "displayName": "Evidencia",
+              "id": "Retirados",
+              "displayName": "Retirados",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
-              "type": "array",
+              "type": "options",
+              "options": [
+                {
+                  "name": "Vacaciones",
+                  "value": "Vacaciones"
+                },
+                {
+                  "name": "No conforme",
+                  "value": "No conforme"
+                },
+                {
+                  "name": "cambio horario",
+                  "value": "cambio horario"
+                },
+                {
+                  "name": "presencial",
+                  "value": "presencial"
+                },
+                {
+                  "name": "falta presupuesto",
+                  "value": "falta presupuesto"
+                },
+                {
+                  "name": "motivos personales",
+                  "value": "motivos personales"
+                }
+              ],
               "readOnly": false,
-              "removed": true
+              "removed": false
             },
             {
               "id": "ID",
@@ -13816,6 +14049,10 @@
                 {
                   "name": "7 clases",
                   "value": "7 clases"
+                },
+                {
+                  "name": "S/. 232.50",
+                  "value": "S/. 232.50"
                 }
               ],
               "readOnly": false,
@@ -14328,17 +14565,6 @@
               "removed": true
             },
             {
-              "id": "test-1",
-              "displayName": "test-1",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "boolean",
-              "readOnly": false,
-              "removed": true
-            },
-            {
               "id": "Renovado",
               "displayName": "Renovado",
               "required": false,
@@ -14358,6 +14584,94 @@
               "display": true,
               "type": "number",
               "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No renovo",
+              "displayName": "No renovo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 3 dias antes",
+              "displayName": "Fin suscripción - 3 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 1 dias antes",
+              "displayName": "Fin suscripción - 1 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 5 dias despues",
+              "displayName": "Fin suscripción - 5 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 30 dias despues",
+              "displayName": "Fin suscripción - 30 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Fin suscripción - 60 dias despues",
+              "displayName": "Fin suscripción - 60 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Preventa",
+              "displayName": "Preventa",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de inicio real",
+              "displayName": "Fecha de inicio real",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
               "removed": false
             }
           ],
@@ -15813,11 +16127,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "wa4Gzq"
+      "webhookId": "mVPYPg"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-06T22:43:34.332Z",
-  "versionId": "8736c022-22df-4b93-8706-60b001933849"
+  "updatedAt": "2026-01-08T16:51:53.191Z",
+  "versionId": "e5cf5650-2ed8-4862-bff5-ceb58c941547"
 }
