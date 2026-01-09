@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-04T23:50:19.300Z",
-    "createdAt": "2026-01-04T23:50:18.069Z",
-    "versionId": "808efef4-9ead-4912-b7bb-6cc8525af367",
+    "updatedAt": "2026-01-08T16:39:17.542Z",
+    "createdAt": "2026-01-08T16:39:16.368Z",
+    "versionId": "99c0aea8-3dd8-4f65-8ff1-da7719eae212",
     "workflowId": "FUqVaG3kGGb2Eqpm",
     "nodes": [
       {
@@ -72,8 +72,8 @@
             "lead": [
               {
                 "name": "={{ $('Start').item.json.nombre }}",
-                "pipeline_id": "={{ $('Start').item.json.lead_etapa }}",
-                "status_id": 68677523,
+                "pipeline_id": 8756191,
+                "status_id": "={{ $('Start').item.json.lead_etapa }}",
                 "_embedded": {
                   "contacts": [
                     {
@@ -622,11 +622,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 808efef4",
+    "name": "Version 99c0aea8",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "808efef4-9ead-4912-b7bb-6cc8525af367",
+  "activeVersionId": "99c0aea8-3dd8-4f65-8ff1-da7719eae212",
   "connections": {
     "Get list of contacts": {
       "main": [
@@ -874,8 +874,8 @@
           "lead": [
             {
               "name": "={{ $('Start').item.json.nombre }}",
-              "pipeline_id": "={{ $('Start').item.json.lead_etapa }}",
-              "status_id": 68677523,
+              "pipeline_id": 8756191,
+              "status_id": "={{ $('Start').item.json.lead_etapa }}",
               "_embedded": {
                 "contacts": [
                   {
@@ -1248,7 +1248,20 @@
       ]
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Start": [
+      {
+        "json": {
+          "celular": "+51982606161",
+          "nombre": "SIDNEY BENANCIA ARÁMBULO AYALA",
+          "lead_etapa": 68677515
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
@@ -1268,6 +1281,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-04T23:50:18.065Z",
-  "versionId": "808efef4-9ead-4912-b7bb-6cc8525af367"
+  "updatedAt": "2026-01-08T16:39:16.364Z",
+  "versionId": "99c0aea8-3dd8-4f65-8ff1-da7719eae212"
 }
