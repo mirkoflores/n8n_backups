@@ -1,0 +1,79 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-08T21:45:50.163Z",
+    "createdAt": "2026-01-08T21:45:47.083Z",
+    "versionId": "28fa821d-66f2-4e9e-b24d-dfd0a674191c",
+    "workflowId": "zaLCk9wVJdQf5WvY",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "b60764ba-3958-4783-ab68-d8b4e3f841cf",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "4ed7d5f5-05cc-4c9e-b9fd-55cf2a2ce2c7",
+        "name": "Webhook",
+        "webhookId": "b60764ba-3958-4783-ab68-d8b4e3f841cf"
+      }
+    ],
+    "connections": {},
+    "authors": "Bioenglish Lat",
+    "name": "Version 28fa821d",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "28fa821d-66f2-4e9e-b24d-dfd0a674191c",
+  "connections": {},
+  "createdAt": "2026-01-08T21:45:47.083Z",
+  "id": "zaLCk9wVJdQf5WvY",
+  "isArchived": false,
+  "meta": null,
+  "name": "webhook kommo",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b60764ba-3958-4783-ab68-d8b4e3f841cf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4ed7d5f5-05cc-4c9e-b9fd-55cf2a2ce2c7",
+      "name": "Webhook",
+      "webhookId": "b60764ba-3958-4783-ab68-d8b4e3f841cf"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-08T21:45:47.083Z",
+      "createdAt": "2026-01-08T21:45:47.083Z",
+      "role": "workflow:owner",
+      "workflowId": "zaLCk9wVJdQf5WvY",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-08T21:45:53.037Z",
+  "versionId": "28fa821d-66f2-4e9e-b24d-dfd0a674191c"
+}
