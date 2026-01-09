@@ -5679,7 +5679,7 @@
     }
   ],
   "pinData": {
-    "Call 'Definir ID contacto y lead en Kommo'": [
+    "Call 'Definir ID contacto y lead en Kommo'1": [
       {
         "json": {
           "id_contacto": 28244998,
@@ -5697,33 +5697,28 @@
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflF0v8TmvsCxuuSu",
-            "x-forwarded-for": "13.222.11.74",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfldl7yzI3ssaUmA8",
+            "x-forwarded-for": "3.84.118.24",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "sjrLTEEdSa-BO0SwBT7zVQ",
-            "x-real-ip": "13.222.11.74",
-            "x-request-start": "1767577923594"
+            "x-railway-request-id": "ZFQJtGdhRm2NOsOXBT7zVQ",
+            "x-real-ip": "3.84.118.24",
+            "x-request-start": "1767848706135"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_upselling"
           },
           "body": {
-            "recordId": "recijA6I20XUzYxqx",
-            "Tipo": "10_dias_despues"
+            "recordId": "recWDa0FNqQkxer0Q",
+            "Tipo": "2_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
-        }
-      }
-    ],
-    "Call 'Definir ID contacto y lead en Kommo'1": [
-      {
-        "json": {
-          "id_contacto": 28244998,
-          "id_lead": 24692538
+        },
+        "pairedItem": {
+          "item": 0
         }
       }
     ]
@@ -5750,6 +5745,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-07T02:37:52.220Z",
+  "updatedAt": "2026-01-08T16:39:23.714Z",
   "versionId": "6fd9d1d5-12f4-4b64-80b7-f70a875e679a"
 }
