@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-06T18:10:50.699Z",
-    "createdAt": "2026-01-06T18:10:48.671Z",
-    "versionId": "503146b6-7441-4d55-92eb-85289eb783ed",
+    "updatedAt": "2026-01-08T16:48:23.834Z",
+    "createdAt": "2026-01-08T16:48:21.632Z",
+    "versionId": "504c9d83-4734-4dd3-a7fa-2f36de50aaa1",
     "workflowId": "NDODlDQBUvrwqCwc",
     "nodes": [
       {
@@ -11006,6 +11006,10 @@
                   {
                     "name": "7 clases",
                     "value": "7 clases"
+                  },
+                  {
+                    "name": "S/. 232.50",
+                    "value": "S/. 232.50"
                   }
                 ],
                 "readOnly": false,
@@ -11614,6 +11618,17 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de inicio real",
+                "displayName": "Fecha de inicio real",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
                 "removed": false
               }
             ],
@@ -14301,11 +14316,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 503146b6",
+    "name": "Version 504c9d83",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "503146b6-7441-4d55-92eb-85289eb783ed",
+  "activeVersionId": "504c9d83-4734-4dd3-a7fa-2f36de50aaa1",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -26202,6 +26217,10 @@
                 {
                   "name": "7 clases",
                   "value": "7 clases"
+                },
+                {
+                  "name": "S/. 232.50",
+                  "value": "S/. 232.50"
                 }
               ],
               "readOnly": false,
@@ -26810,6 +26829,17 @@
               "display": true,
               "type": "array",
               "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de inicio real",
+              "displayName": "Fecha de inicio real",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
               "removed": false
             }
           ],
@@ -28612,38 +28642,38 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-7:00-8:00pm )",
+          "Grupo y horario al que desea inscribirse": "ENGLISH FLYERS_A2 ( L-M-V-5:45-7:15 pm )",
           "Comprobante de pago": [
             {
-              "filename": "Iker Diciembre.jpg",
-              "mimetype": "image/jpeg",
-              "size": 50985
+              "filename": "Captura de pantalla 2026-01-07 143036.png",
+              "mimetype": "image/png",
+              "size": 139352
             }
           ],
-          "submittedAt": "2026-01-05T10:55:24.228-05:00",
+          "submittedAt": "2026-01-07T14:31:02.018-05:00",
           "formMode": "production",
           "tipo_estudiante": "Para mi hijo/hija",
-          "nombre_apoderado": "Lisset Pacco",
-          "dni_apoderado": 48120756,
-          "correo_apoderado": "bioenglish.22@gmail.com",
+          "nombre_apoderado": "SIDNEY BENANCIA ARÁMBULO AYALA",
+          "dni_apoderado": 29588189,
+          "correo_apoderado": "sidcargo550@gmail.com",
           "pais_apoderado": "Perú",
-          "celular_apoderado_sin_codigo": 968601255,
-          "nivel_inglés_apoderado": "Avanzado",
-          "Nombre completo del estudiante": "Sadia Pacco",
-          "Correo electrónico del estudiante": "bioenglish.22@gmail.com",
+          "celular_apoderado_sin_codigo": 982606161,
+          "nivel_inglés_apoderado": "No se mi nivel de inglés",
+          "Nombre completo del estudiante": "SIDNEY SOFIA ROJAS ARÁMBULO",
+          "Correo electrónico del estudiante": "sidcargo550@gmail.com",
           "Pais": "Perú",
-          "Celular del estudiante - colocar sin codigo de pais": "968601255",
+          "Celular del estudiante - colocar sin codigo de pais": "961776678",
           "Edad del estudiante": 12
         },
         "binary": {
           "Comprobante_de_pago": {
-            "mimeType": "image/jpeg",
+            "mimeType": "image/png",
             "fileType": "image",
-            "fileExtension": "jpg",
+            "fileExtension": "png",
             "data": "database",
-            "fileName": "Iker Diciembre.jpg",
-            "id": "database:4279ad36-6ed8-4df8-97e1-64740829bbd8",
-            "fileSize": "51 kB"
+            "fileName": "Captura de pantalla 2026-01-07 143036.png",
+            "id": "database:f2f9b3e7-26f3-4272-b78f-fe69163e0793",
+            "fileSize": "139 kB"
           }
         },
         "pairedItem": {
@@ -28674,6 +28704,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-06T18:10:48.666Z",
-  "versionId": "503146b6-7441-4d55-92eb-85289eb783ed"
+  "updatedAt": "2026-01-08T16:48:21.627Z",
+  "versionId": "504c9d83-4734-4dd3-a7fa-2f36de50aaa1"
 }
