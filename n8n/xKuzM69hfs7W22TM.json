@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-07T16:28:56.681Z",
-    "createdAt": "2026-01-07T16:28:55.299Z",
-    "versionId": "20396fa5-6899-49ea-8c10-11d0a81c088a",
+    "updatedAt": "2026-01-08T17:24:16.444Z",
+    "createdAt": "2026-01-08T17:24:14.509Z",
+    "versionId": "f2992cad-d764-4c76-ab62-adefd1df5433",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -26,7 +26,7 @@
               {
                 "id": "1f10df29-6a99-4d6b-89f0-e1b93cadd314",
                 "name": "nombre_a_dar_accesos",
-                "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.nombre_estudiante,$('When Executed by Another Workflow').item.json.nombre_apoderado\n) }}",
+                "value": "={{ $('When Executed by Another Workflow').item.json.nombre_estudiante }}",
                 "type": "string"
               },
               {
@@ -44,7 +44,7 @@
               {
                 "id": "bbf3ca4c-c194-40c2-ae5e-a6508d88c06e",
                 "name": "email_a_dar_accesos",
-                "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.email_estudiante,$('When Executed by Another Workflow').item.json.email_apoderado\n) }}",
+                "value": "={{ $if(\n\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",\n$('When Executed by Another Workflow').item.json.email_estudiante,\n\n$('When Executed by Another Workflow').item.json.email_apoderado + \", \" + $('When Executed by Another Workflow').item.json.email_estudiante\n\n) }}",
                 "type": "string"
               },
               {
@@ -63,6 +63,12 @@
                 "id": "1dfc78eb-64b0-4609-adb5-b559774d8722",
                 "name": "id_cliente_airtable",
                 "value": "={{ $('When Executed by Another Workflow').item.json.id_cliente_airtable }}",
+                "type": "string"
+              },
+              {
+                "id": "0d279488-44c2-4e5c-b212-07369d77ad63",
+                "name": "nombre_de_dueño_numero",
+                "value": "={{ $if( $('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.nombre_estudiante,$('When Executed by Another Workflow').item.json.nombre_apoderado ) }}",
                 "type": "string"
               }
             ]
@@ -291,72 +297,6 @@
       },
       {
         "parameters": {
-          "workflowId": {
-            "__rl": true,
-            "value": "FUqVaG3kGGb2Eqpm",
-            "mode": "list",
-            "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
-            "cachedResultName": "Definir ID contacto y lead en Kommo"
-          },
-          "workflowInputs": {
-            "mappingMode": "defineBelow",
-            "value": {
-              "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
-              "nombre": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}",
-              "lead_etapa": 68677515
-            },
-            "matchingColumns": [
-              "cel_estudiante",
-              "nombre_estudiante"
-            ],
-            "schema": [
-              {
-                "id": "celular",
-                "displayName": "celular",
-                "required": false,
-                "defaultMatch": false,
-                "display": true,
-                "canBeUsedToMatch": true,
-                "type": "string",
-                "removed": false
-              },
-              {
-                "id": "nombre",
-                "displayName": "nombre",
-                "required": false,
-                "defaultMatch": false,
-                "display": true,
-                "canBeUsedToMatch": true,
-                "type": "string",
-                "removed": false
-              },
-              {
-                "id": "lead_etapa",
-                "displayName": "lead_etapa",
-                "required": false,
-                "defaultMatch": false,
-                "display": true,
-                "canBeUsedToMatch": true,
-                "type": "number",
-                "removed": false
-              }
-            ],
-            "attemptToConvertTypes": false,
-            "convertFieldsToString": true
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.executeWorkflow",
-        "typeVersion": 1.2,
-        "position": [
-          3216,
-          16
-        ],
-        "name": "Call Definir ID contacto y lead en Kommo",
-        "id": "130e48f4-0974-43ef-b71c-9e864def9eca"
-      },
-      {
-        "parameters": {
           "method": "POST",
           "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
           "authentication": "genericCredentialType",
@@ -489,7 +429,7 @@
             "mappingMode": "defineBelow",
             "value": {
               "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
-              "nombre": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}",
+              "nombre": "={{ $('variables_1').item.json['nombre_de_dueño_numero'] }}",
               "lead_etapa": 68677515
             },
             "matchingColumns": [
@@ -2316,6 +2256,72 @@
         ],
         "id": "5ad4d724-ca99-43d3-93cd-8dca5237aba1",
         "name": "magich_link2"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "FUqVaG3kGGb2Eqpm",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
+            "cachedResultName": "Definir ID contacto y lead en Kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
+              "nombre": "={{ $('variables_1').item.json['nombre_de_dueño_numero'] }}",
+              "lead_etapa": 68677515
+            },
+            "matchingColumns": [
+              "cel_estudiante",
+              "nombre_estudiante"
+            ],
+            "schema": [
+              {
+                "id": "celular",
+                "displayName": "celular",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "nombre",
+                "displayName": "nombre",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "lead_etapa",
+                "displayName": "lead_etapa",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          3216,
+          16
+        ],
+        "name": "Call Definir ID contacto y lead en Kommo",
+        "id": "130e48f4-0974-43ef-b71c-9e864def9eca"
       }
     ],
     "connections": {
@@ -2397,17 +2403,6 @@
           [
             {
               "node": "Enviar email",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Call Definir ID contacto y lead en Kommo": {
-        "main": [
-          [
-            {
-              "node": "Update leads",
               "type": "main",
               "index": 0
             }
@@ -2680,14 +2675,25 @@
             }
           ]
         ]
+      },
+      "Call Definir ID contacto y lead en Kommo": {
+        "main": [
+          [
+            {
+              "node": "Update leads",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 20396fa5",
+    "name": "Version f2992cad",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "20396fa5-6899-49ea-8c10-11d0a81c088a",
+  "activeVersionId": "f2992cad-d764-4c76-ab62-adefd1df5433",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2767,17 +2773,6 @@
         [
           {
             "node": "Enviar email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Call Definir ID contacto y lead en Kommo": {
-      "main": [
-        [
-          {
-            "node": "Update leads",
             "type": "main",
             "index": 0
           }
@@ -3050,6 +3045,17 @@
           }
         ]
       ]
+    },
+    "Call Definir ID contacto y lead en Kommo": {
+      "main": [
+        [
+          {
+            "node": "Update leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-04T03:45:54.729Z",
@@ -3080,7 +3086,7 @@
             {
               "id": "1f10df29-6a99-4d6b-89f0-e1b93cadd314",
               "name": "nombre_a_dar_accesos",
-              "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.nombre_estudiante,$('When Executed by Another Workflow').item.json.nombre_apoderado\n) }}",
+              "value": "={{ $('When Executed by Another Workflow').item.json.nombre_estudiante }}",
               "type": "string"
             },
             {
@@ -3098,7 +3104,7 @@
             {
               "id": "bbf3ca4c-c194-40c2-ae5e-a6508d88c06e",
               "name": "email_a_dar_accesos",
-              "value": "={{ $if(\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.email_estudiante,$('When Executed by Another Workflow').item.json.email_apoderado\n) }}",
+              "value": "={{ $if(\n\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",\n$('When Executed by Another Workflow').item.json.email_estudiante,\n\n$('When Executed by Another Workflow').item.json.email_apoderado + \", \" + $('When Executed by Another Workflow').item.json.email_estudiante\n\n) }}",
               "type": "string"
             },
             {
@@ -3117,6 +3123,12 @@
               "id": "1dfc78eb-64b0-4609-adb5-b559774d8722",
               "name": "id_cliente_airtable",
               "value": "={{ $('When Executed by Another Workflow').item.json.id_cliente_airtable }}",
+              "type": "string"
+            },
+            {
+              "id": "0d279488-44c2-4e5c-b212-07369d77ad63",
+              "name": "nombre_de_dueño_numero",
+              "value": "={{ $if( $('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.nombre_estudiante,$('When Executed by Another Workflow').item.json.nombre_apoderado ) }}",
               "type": "string"
             }
           ]
@@ -3345,72 +3357,6 @@
     },
     {
       "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "FUqVaG3kGGb2Eqpm",
-          "mode": "list",
-          "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
-          "cachedResultName": "Definir ID contacto y lead en Kommo"
-        },
-        "workflowInputs": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
-            "nombre": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}",
-            "lead_etapa": 68677515
-          },
-          "matchingColumns": [
-            "cel_estudiante",
-            "nombre_estudiante"
-          ],
-          "schema": [
-            {
-              "id": "celular",
-              "displayName": "celular",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            },
-            {
-              "id": "nombre",
-              "displayName": "nombre",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            },
-            {
-              "id": "lead_etapa",
-              "displayName": "lead_etapa",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "number",
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": true
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.2,
-      "position": [
-        3216,
-        16
-      ],
-      "name": "Call Definir ID contacto y lead en Kommo",
-      "id": "130e48f4-0974-43ef-b71c-9e864def9eca"
-    },
-    {
-      "parameters": {
         "method": "POST",
         "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
         "authentication": "genericCredentialType",
@@ -3543,7 +3489,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
-            "nombre": "={{ $('variables_1').item.json.nombre_a_dar_accesos }}",
+            "nombre": "={{ $('variables_1').item.json['nombre_de_dueño_numero'] }}",
             "lead_etapa": 68677515
           },
           "matchingColumns": [
@@ -5370,17 +5316,75 @@
       ],
       "id": "5ad4d724-ca99-43d3-93cd-8dca5237aba1",
       "name": "magich_link2"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "FUqVaG3kGGb2Eqpm",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/FUqVaG3kGGb2Eqpm",
+          "cachedResultName": "Definir ID contacto y lead en Kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "celular": "={{ $('variables_1').item.json.numero_a_dar_accesos }}",
+            "nombre": "={{ $('variables_1').item.json['nombre_de_dueño_numero'] }}",
+            "lead_etapa": 68677515
+          },
+          "matchingColumns": [
+            "cel_estudiante",
+            "nombre_estudiante"
+          ],
+          "schema": [
+            {
+              "id": "celular",
+              "displayName": "celular",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "nombre",
+              "displayName": "nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "lead_etapa",
+              "displayName": "lead_etapa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        3216,
+        16
+      ],
+      "name": "Call Definir ID contacto y lead en Kommo",
+      "id": "130e48f4-0974-43ef-b71c-9e864def9eca"
     }
   ],
   "pinData": {
-    "Call Definir ID contacto y lead en Kommo1": [
-      {
-        "json": {
-          "id_contacto": 28244998,
-          "id_lead": 24692538
-        }
-      }
-    ],
     "magich_link1": [
       {
         "json": {
@@ -5394,26 +5398,26 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "numero_completo_estudiante": "+51968601255",
-          "numero_completo_apoderado": "+51968601255",
-          "email_estudiante": "bioenglish.22@gmail.com",
-          "email_apoderado": "bioenglish.22@gmail.com",
-          "nombre_estudiante": "Yamira Jimenez",
-          "nombre_apoderado": "Lisset Pacco",
+          "numero_completo_estudiante": "+5151935671809",
+          "numero_completo_apoderado": "+5151935671809",
+          "email_estudiante": "fisioterapialex@gmail.com",
+          "email_apoderado": "fisioterapialex@gmail.com",
+          "nombre_estudiante": "Adriano samin huallpa serrano",
+          "nombre_apoderado": "Alexander ",
           "monto_depositado": 135,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
-          "id_grupo": "recwezwaBjupUxNBd",
+          "id_grupo": "recCQu4kBTPckc3rT",
           "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 48120756,
+          "dni_apoderado": 41589844,
           "pais_apoderado": "Perú",
-          "nivel_inglés_apoderado": "Avanzado",
-          "id_contacto_apoderado_airtable": "recXda65IrsHlVZYx",
-          "id_contacto_estudiante_airtable": "recXda65IrsHlVZYx",
-          "id_cliente_airtable": "recKavZBIcwcvj9dm",
-          "id_preventa_airtable": "recpJgHDJ6SFu7GlS",
-          "id_detalles_venta_airtable": "rec32p4QTlCf8fo9j",
-          "id_grupo_ultimo_creado": "recvhaI0fC41kXeCi"
+          "nivel_inglés_apoderado": "Básico",
+          "id_contacto_apoderado_airtable": "recfI6kXOnuORk98b",
+          "id_contacto_estudiante_airtable": "recfI6kXOnuORk98b",
+          "id_cliente_airtable": "recIQYXh63DpEbebZ",
+          "id_preventa_airtable": "recDn4knhmerTmO3K",
+          "id_detalles_venta_airtable": "rec67LxcZDsYica4p",
+          "id_grupo_ultimo_creado": "recENKQNfDi7EqqQv"
         },
         "pairedItem": {
           "item": 0
@@ -5443,6 +5447,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-07T16:32:52.464Z",
-  "versionId": "20396fa5-6899-49ea-8c10-11d0a81c088a"
+  "updatedAt": "2026-01-08T17:24:14.506Z",
+  "versionId": "f2992cad-d764-4c76-ab62-adefd1df5433"
 }
