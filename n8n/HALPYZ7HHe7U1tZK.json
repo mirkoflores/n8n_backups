@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-07T02:37:54.152Z",
-    "createdAt": "2026-01-07T02:37:52.221Z",
-    "versionId": "6fd9d1d5-12f4-4b64-80b7-f70a875e679a",
+    "updatedAt": "2026-01-10T02:08:16.158Z",
+    "createdAt": "2026-01-10T02:08:14.357Z",
+    "versionId": "53fa13f8-3e95-4aaa-b4b4-38218638bca6",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -27,8 +27,8 @@
         "type": "n8n-nodes-base.rabbitmqTrigger",
         "typeVersion": 1,
         "position": [
-          -352,
-          48
+          -432,
+          288
         ],
         "id": "fcab0a63-2837-4795-b55b-4ed2e2273d42",
         "name": "RabbitMQ Trigger",
@@ -99,8 +99,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          -144,
-          48
+          -224,
+          288
         ],
         "id": "6be829f7-3ac9-4247-afd4-753da1225f7a",
         "name": "tipo"
@@ -128,8 +128,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          400,
-          -496
+          336,
+          -96
         ],
         "id": "69da828d-2f11-465c-9abb-d755e930d26c",
         "name": "obtener registro - cliente",
@@ -166,8 +166,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          608,
-          -496
+          544,
+          -96
         ],
         "id": "1e6aa1e8-3f99-40c8-ac8d-cbfa8411c83f",
         "name": "obtener registro - grupo",
@@ -213,8 +213,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          816,
-          -496
+          752,
+          -96
         ],
         "id": "8857b9b7-3bf4-4faa-9211-8b2a98d3dc31",
         "name": "variables_1"
@@ -231,7 +231,7 @@
           "workflowInputs": {
             "mappingMode": "defineBelow",
             "value": {
-              "lead_etapa": "=68677515",
+              "lead_etapa": 68677515,
               "celular": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}",
               "nombre": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
             },
@@ -276,8 +276,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          1280,
-          -496
+          1216,
+          -96
         ],
         "id": "653c70e5-2027-48f4-8aaa-c76800021e50",
         "name": "Call 'Definir ID contacto y lead en Kommo'"
@@ -334,8 +334,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          1040,
-          -496
+          976,
+          -96
         ],
         "id": "38e0ea79-a258-4305-82e0-ae6266e492aa",
         "name": "Enviar email1"
@@ -354,8 +354,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          1744,
-          -496
+          1888,
+          -96
         ],
         "id": "7fc09309-e765-45a7-9112-5411a66bb710",
         "name": "Enviar mensaje1",
@@ -373,20 +373,16 @@
           "collection": {
             "lead": [
               {
-                "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+                "id": "={{ $('Call \\'Definir ID contacto y lead en Kommo\\'').item.json.id_lead }}",
                 "custom_fields_values": {
                   "custom_field": [
                     {
-                      "data": "{\"id\":1988418,\"type\":\"textarea\"}",
-                      "value": "={{ $('variables_2').item.json.url_de_zoom }}"
-                    },
-                    {
-                      "data": "{\"id\":1988420,\"type\":\"textarea\"}",
-                      "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                      "data": "{\"id\":1988350,\"type\":\"text\"}",
+                      "value": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
                     },
                     {
                       "data": "{\"id\":1988354,\"type\":\"text\"}",
-                      "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                      "value": "={{ $('variables_1').item.json.nombre_grupo }}"
                     }
                   ]
                 }
@@ -397,8 +393,8 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1504,
-          -496
+          1440,
+          -96
         ],
         "id": "cf252b35-68b6-46b8-835f-30c60d4c96ae",
         "name": "Update leads",
@@ -432,8 +428,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          192,
-          304
+          176,
+          736
         ],
         "id": "20c2c03f-e9dc-43b9-a9a8-7e7d6668e643",
         "name": "obtener registro - cliente1",
@@ -477,8 +473,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          400,
-          304
+          384,
+          736
         ],
         "id": "dcd85f61-dd1e-4a90-99b0-bde925865b4e",
         "name": "obtener registro - detalles venta",
@@ -517,8 +513,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1312,
-          304
+          1296,
+          736
         ],
         "id": "89fffdac-5ca3-4793-a399-cd18a0078279",
         "name": "pago que hizo es de 1 año?"
@@ -588,8 +584,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1072,
-          304
+          1056,
+          736
         ],
         "id": "6d061b8a-de09-49ab-bea0-3faa8c6a2948",
         "name": "variables_2"
@@ -644,8 +640,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          1952,
-          -496
+          2096,
+          -96
         ],
         "id": "737d7bb5-3d64-4353-8a49-ea1e05845a34",
         "name": "Create a row",
@@ -714,8 +710,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          1632,
-          64
+          1616,
+          496
         ],
         "id": "1389f773-7f67-4f3d-b574-637bb1529292",
         "name": "Create a row1",
@@ -1531,9 +1527,9 @@
           "workflowInputs": {
             "mappingMode": "defineBelow",
             "value": {
-              "lead_etapa": "=68677515",
-              "celular": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}",
-              "nombre": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
+              "lead_etapa": 68677515,
+              "celular": "={{ $('variables_2').item.json.celular_a_enviar_upseel }}",
+              "nombre": "={{ $('variables_2').item.json.nombre_a_enviar_upseel }}"
             },
             "matchingColumns": [],
             "schema": [
@@ -1817,8 +1813,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          608,
-          304
+          592,
+          736
         ],
         "id": "dc9152c9-40c0-4e6e-8c58-1d3a922aecdf",
         "name": "son soles?"
@@ -1885,8 +1881,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          832,
-          432
+          816,
+          864
         ],
         "id": "0a8e751c-662b-4f27-8285-3d942fb16ae9",
         "name": "Create a row5",
@@ -2275,6 +2271,18 @@
         "id": "eaa6ad67-24eb-4335-9448-70c727e5027d",
         "name": "Wait",
         "webhookId": "19188098-f35b-4b5f-85a8-12cc335c8936"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          1648,
+          -96
+        ],
+        "id": "668b8dfa-02d7-4f4b-bf52-36c2b81f153e",
+        "name": "Wait1",
+        "webhookId": "a72bbf02-d4ee-4684-83ff-3acdf801c2db"
       }
     ],
     "connections": {
@@ -2355,7 +2363,7 @@
         "main": [
           [
             {
-              "node": "Enviar mensaje1",
+              "node": "Wait1",
               "type": "main",
               "index": 0
             }
@@ -2833,14 +2841,25 @@
             }
           ]
         ]
+      },
+      "Wait1": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 6fd9d1d5",
+    "name": "Version 53fa13f8",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "6fd9d1d5-12f4-4b64-80b7-f70a875e679a",
+  "activeVersionId": "53fa13f8-3e95-4aaa-b4b4-38218638bca6",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -2919,7 +2938,7 @@
       "main": [
         [
           {
-            "node": "Enviar mensaje1",
+            "node": "Wait1",
             "type": "main",
             "index": 0
           }
@@ -3397,6 +3416,17 @@
           }
         ]
       ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-05T00:30:31.045Z",
@@ -3428,8 +3458,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -352,
-        48
+        -432,
+        288
       ],
       "id": "fcab0a63-2837-4795-b55b-4ed2e2273d42",
       "name": "RabbitMQ Trigger",
@@ -3500,8 +3530,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        -144,
-        48
+        -224,
+        288
       ],
       "id": "6be829f7-3ac9-4247-afd4-753da1225f7a",
       "name": "tipo"
@@ -3529,8 +3559,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        400,
-        -496
+        336,
+        -96
       ],
       "id": "69da828d-2f11-465c-9abb-d755e930d26c",
       "name": "obtener registro - cliente",
@@ -3567,8 +3597,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        608,
-        -496
+        544,
+        -96
       ],
       "id": "1e6aa1e8-3f99-40c8-ac8d-cbfa8411c83f",
       "name": "obtener registro - grupo",
@@ -3614,8 +3644,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        816,
-        -496
+        752,
+        -96
       ],
       "id": "8857b9b7-3bf4-4faa-9211-8b2a98d3dc31",
       "name": "variables_1"
@@ -3632,7 +3662,7 @@
         "workflowInputs": {
           "mappingMode": "defineBelow",
           "value": {
-            "lead_etapa": "=68677515",
+            "lead_etapa": 68677515,
             "celular": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}",
             "nombre": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
           },
@@ -3677,8 +3707,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        1280,
-        -496
+        1216,
+        -96
       ],
       "id": "653c70e5-2027-48f4-8aaa-c76800021e50",
       "name": "Call 'Definir ID contacto y lead en Kommo'"
@@ -3735,8 +3765,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        1040,
-        -496
+        976,
+        -96
       ],
       "id": "38e0ea79-a258-4305-82e0-ae6266e492aa",
       "name": "Enviar email1"
@@ -3755,8 +3785,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        1744,
-        -496
+        1888,
+        -96
       ],
       "id": "7fc09309-e765-45a7-9112-5411a66bb710",
       "name": "Enviar mensaje1",
@@ -3774,20 +3804,16 @@
         "collection": {
           "lead": [
             {
-              "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+              "id": "={{ $('Call \\'Definir ID contacto y lead en Kommo\\'').item.json.id_lead }}",
               "custom_fields_values": {
                 "custom_field": [
                   {
-                    "data": "{\"id\":1988418,\"type\":\"textarea\"}",
-                    "value": "={{ $('variables_2').item.json.url_de_zoom }}"
-                  },
-                  {
-                    "data": "{\"id\":1988420,\"type\":\"textarea\"}",
-                    "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                    "data": "{\"id\":1988350,\"type\":\"text\"}",
+                    "value": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
                   },
                   {
                     "data": "{\"id\":1988354,\"type\":\"text\"}",
-                    "value": "={{ $('variables_2').item.json.nombre_grupo }}"
+                    "value": "={{ $('variables_1').item.json.nombre_grupo }}"
                   }
                 ]
               }
@@ -3798,8 +3824,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1504,
-        -496
+        1440,
+        -96
       ],
       "id": "cf252b35-68b6-46b8-835f-30c60d4c96ae",
       "name": "Update leads",
@@ -3833,8 +3859,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        192,
-        304
+        176,
+        736
       ],
       "id": "20c2c03f-e9dc-43b9-a9a8-7e7d6668e643",
       "name": "obtener registro - cliente1",
@@ -3878,8 +3904,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        400,
-        304
+        384,
+        736
       ],
       "id": "dcd85f61-dd1e-4a90-99b0-bde925865b4e",
       "name": "obtener registro - detalles venta",
@@ -3918,8 +3944,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1312,
-        304
+        1296,
+        736
       ],
       "id": "89fffdac-5ca3-4793-a399-cd18a0078279",
       "name": "pago que hizo es de 1 año?"
@@ -3989,8 +4015,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1072,
-        304
+        1056,
+        736
       ],
       "id": "6d061b8a-de09-49ab-bea0-3faa8c6a2948",
       "name": "variables_2"
@@ -4045,8 +4071,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        1952,
-        -496
+        2096,
+        -96
       ],
       "id": "737d7bb5-3d64-4353-8a49-ea1e05845a34",
       "name": "Create a row",
@@ -4115,8 +4141,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        1632,
-        64
+        1616,
+        496
       ],
       "id": "1389f773-7f67-4f3d-b574-637bb1529292",
       "name": "Create a row1",
@@ -4932,9 +4958,9 @@
         "workflowInputs": {
           "mappingMode": "defineBelow",
           "value": {
-            "lead_etapa": "=68677515",
-            "celular": "={{ $('variables_1').item.json.celular_a_enviar_upseel }}",
-            "nombre": "={{ $('variables_1').item.json.nombre_a_enviar_upseel }}"
+            "lead_etapa": 68677515,
+            "celular": "={{ $('variables_2').item.json.celular_a_enviar_upseel }}",
+            "nombre": "={{ $('variables_2').item.json.nombre_a_enviar_upseel }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -5218,8 +5244,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        608,
-        304
+        592,
+        736
       ],
       "id": "dc9152c9-40c0-4e6e-8c58-1d3a922aecdf",
       "name": "son soles?"
@@ -5286,8 +5312,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        832,
-        432
+        816,
+        864
       ],
       "id": "0a8e751c-662b-4f27-8285-3d942fb16ae9",
       "name": "Create a row5",
@@ -5676,6 +5702,18 @@
       "id": "eaa6ad67-24eb-4335-9448-70c727e5027d",
       "name": "Wait",
       "webhookId": "19188098-f35b-4b5f-85a8-12cc335c8936"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1648,
+        -96
+      ],
+      "id": "668b8dfa-02d7-4f4b-bf52-36c2b81f153e",
+      "name": "Wait1",
+      "webhookId": "a72bbf02-d4ee-4684-83ff-3acdf801c2db"
     }
   ],
   "pinData": {
@@ -5698,20 +5736,20 @@
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wfldl7yzI3ssaUmA8",
-            "x-forwarded-for": "3.84.118.24",
+            "x-forwarded-for": "54.152.111.121",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "ZFQJtGdhRm2NOsOXBT7zVQ",
-            "x-real-ip": "3.84.118.24",
-            "x-request-start": "1767848706135"
+            "x-railway-request-id": "hN3uJViJRYCBTu0WPvyhXg",
+            "x-real-ip": "54.152.111.121",
+            "x-request-start": "1767935103051"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_upselling"
           },
           "body": {
-            "recordId": "recWDa0FNqQkxer0Q",
+            "recordId": "rec3wnaFBmOiYsbqJ",
             "Tipo": "2_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
@@ -5745,6 +5783,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-08T16:39:23.714Z",
-  "versionId": "6fd9d1d5-12f4-4b64-80b7-f70a875e679a"
+  "updatedAt": "2026-01-10T02:08:14.351Z",
+  "versionId": "53fa13f8-3e95-4aaa-b4b4-38218638bca6"
 }
