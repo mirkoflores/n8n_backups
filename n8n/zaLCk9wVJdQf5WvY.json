@@ -1,35 +1,7 @@
 {
-  "active": true,
-  "activeVersion": {
-    "updatedAt": "2026-01-08T21:45:50.163Z",
-    "createdAt": "2026-01-08T21:45:47.083Z",
-    "versionId": "28fa821d-66f2-4e9e-b24d-dfd0a674191c",
-    "workflowId": "zaLCk9wVJdQf5WvY",
-    "nodes": [
-      {
-        "parameters": {
-          "httpMethod": "POST",
-          "path": "b60764ba-3958-4783-ab68-d8b4e3f841cf",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.webhook",
-        "typeVersion": 2.1,
-        "position": [
-          0,
-          0
-        ],
-        "id": "4ed7d5f5-05cc-4c9e-b9fd-55cf2a2ce2c7",
-        "name": "Webhook",
-        "webhookId": "b60764ba-3958-4783-ab68-d8b4e3f841cf"
-      }
-    ],
-    "connections": {},
-    "authors": "Bioenglish Lat",
-    "name": "Version 28fa821d",
-    "description": "",
-    "autosaved": false
-  },
-  "activeVersionId": "28fa821d-66f2-4e9e-b24d-dfd0a674191c",
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
   "connections": {},
   "createdAt": "2026-01-08T21:45:47.083Z",
   "id": "zaLCk9wVJdQf5WvY",
@@ -54,7 +26,57 @@
       "webhookId": "b60764ba-3958-4783-ab68-d8b4e3f841cf"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "amoCRM-Webhooks/3.0",
+            "content-length": "1087",
+            "accept-encoding": "gzip",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-amocrm-requestid": "2979aea8-2319-4fbb-bd77-0157735556fd",
+            "x-forwarded-for": "142.0.207.172",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "6-UNNaPER4qro19jwoOzXw",
+            "x-real-ip": "142.0.207.172",
+            "x-request-start": "1767911349396"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "account[subdomain]": "bioenglish22",
+            "account[id]": "32863847",
+            "account[_links][self]": "https://bioenglish22.amocrm.com",
+            "message[add][0][id]": "72e0443f-26b3-4f55-a3d0-d903501d96a4",
+            "message[add][0][chat_id]": "7eacb9a8-52b9-47d1-b5c2-1933e68ca17d",
+            "message[add][0][talk_id]": "15327",
+            "message[add][0][contact_id]": "28374362",
+            "message[add][0][text]": "S",
+            "message[add][0][created_at]": "1767911348",
+            "message[add][0][element_type]": "2",
+            "message[add][0][entity_type]": "lead",
+            "message[add][0][element_id]": "24818180",
+            "message[add][0][entity_id]": "24818180",
+            "message[add][0][type]": "incoming",
+            "message[add][0][author][id]": "d9a02ce0-d0ac-42d0-862a-87bbf03adf7a",
+            "message[add][0][author][type]": "external",
+            "message[add][0][author][name]": "Gianmarco Rusher",
+            "message[add][0][author][avatar_url]": "https://amojo.kommo.com/attachments/profiles/d9a02ce0-d0ac-42d0-862a-87bbf03adf7a/MnvsmxYHUN.jpg",
+            "message[add][0][origin]": "facebook"
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/b60764ba-3958-4783-ab68-d8b4e3f841cf",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
@@ -74,6 +96,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-08T21:45:53.037Z",
+  "updatedAt": "2026-01-09T14:14:58.462Z",
   "versionId": "28fa821d-66f2-4e9e-b24d-dfd0a674191c"
 }
