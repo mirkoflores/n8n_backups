@@ -5220,12 +5220,11 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=Jeonsu%20shelsye%20mamani%20castro&celular_estudiante=%2B51%20920%20030%20109&id_cliente_airtable=recijA6I20XUzYxqx",
-          "id_registro_cliente": "recijA6I20XUzYxqx",
-          "url_tally_acortado": "https://bio-english.short.gy/mJjekq",
+          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=RODRIGO%20DE%20KALEP%20GUERRA%20ARAUJO&celular_estudiante=%2B51987859706&id_cliente_airtable=recisKC647gNqAaoH",
+          "id_registro_cliente": "recisKC647gNqAaoH",
           "tipo_estado": "con_link_acortado",
-          "tipo_automatizacion": "chatbot_upsell",
-          "id_short_io": "mJjekq"
+          "tipo_automatizacion": "chatbot_cobranzas",
+          "id_short_io": "e2SlmM"
         },
         "pairedItem": {
           "item": 0
@@ -5255,6 +5254,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-06T22:54:00.338Z",
+  "updatedAt": "2026-01-10T02:20:06.546Z",
   "versionId": "54ae97b6-1dfc-404c-8986-1942647ca33d"
 }
