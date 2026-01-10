@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-08T17:24:16.444Z",
-    "createdAt": "2026-01-08T17:24:14.509Z",
-    "versionId": "f2992cad-d764-4c76-ab62-adefd1df5433",
+    "updatedAt": "2026-01-10T01:28:15.086Z",
+    "createdAt": "2026-01-10T01:28:13.151Z",
+    "versionId": "22eedf2a-8dfb-4c85-94cf-1c37e87a22ab",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -44,7 +44,7 @@
               {
                 "id": "bbf3ca4c-c194-40c2-ae5e-a6508d88c06e",
                 "name": "email_a_dar_accesos",
-                "value": "={{ $if(\n\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",\n$('When Executed by Another Workflow').item.json.email_estudiante,\n\n$('When Executed by Another Workflow').item.json.email_apoderado + \", \" + $('When Executed by Another Workflow').item.json.email_estudiante\n\n) }}",
+                "value": "={{ $('When Executed by Another Workflow').item.json.email_estudiante}}",
                 "type": "string"
               },
               {
@@ -69,6 +69,12 @@
                 "id": "0d279488-44c2-4e5c-b212-07369d77ad63",
                 "name": "nombre_de_dueño_numero",
                 "value": "={{ $if( $('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.nombre_estudiante,$('When Executed by Another Workflow').item.json.nombre_apoderado ) }}",
+                "type": "string"
+              },
+              {
+                "id": "8a54eb52-1eca-4c86-b60e-f981fec7ccd2",
+                "name": "emails_a_enviar_info",
+                "value": "={{ $if(  $('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\", $('When Executed by Another Workflow').item.json.email_estudiante,  $('When Executed by Another Workflow').item.json.email_apoderado + \", \" + $('When Executed by Another Workflow').item.json.email_estudiante  ) }}",
                 "type": "string"
               }
             ]
@@ -256,7 +262,7 @@
             "parameters": [
               {
                 "name": "email_a_enviar",
-                "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                "value": "={{ $('variables_1').item.json.emails_a_enviar_info }}"
               },
               {
                 "name": "nombre",
@@ -377,7 +383,7 @@
             "parameters": [
               {
                 "name": "email_a_enviar",
-                "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+                "value": "={{ $('variables_1').item.json.emails_a_enviar_info }}"
               },
               {
                 "name": "nombre",
@@ -981,6 +987,17 @@
                 "type": "string",
                 "readOnly": true,
                 "removed": true
+              },
+              {
+                "id": "record_id",
+                "displayName": "record_id",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -1810,7 +1827,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1008,
+          1024,
           400
         ],
         "id": "c7e5e3e0-2d70-4776-8ba8-ff7f73aee976",
@@ -2689,11 +2706,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version f2992cad",
+    "name": "Version 22eedf2a",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "f2992cad-d764-4c76-ab62-adefd1df5433",
+  "activeVersionId": "22eedf2a-8dfb-4c85-94cf-1c37e87a22ab",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -3104,7 +3121,7 @@
             {
               "id": "bbf3ca4c-c194-40c2-ae5e-a6508d88c06e",
               "name": "email_a_dar_accesos",
-              "value": "={{ $if(\n\n$('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",\n$('When Executed by Another Workflow').item.json.email_estudiante,\n\n$('When Executed by Another Workflow').item.json.email_apoderado + \", \" + $('When Executed by Another Workflow').item.json.email_estudiante\n\n) }}",
+              "value": "={{ $('When Executed by Another Workflow').item.json.email_estudiante}}",
               "type": "string"
             },
             {
@@ -3129,6 +3146,12 @@
               "id": "0d279488-44c2-4e5c-b212-07369d77ad63",
               "name": "nombre_de_dueño_numero",
               "value": "={{ $if( $('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\",$('When Executed by Another Workflow').item.json.nombre_estudiante,$('When Executed by Another Workflow').item.json.nombre_apoderado ) }}",
+              "type": "string"
+            },
+            {
+              "id": "8a54eb52-1eca-4c86-b60e-f981fec7ccd2",
+              "name": "emails_a_enviar_info",
+              "value": "={{ $if(  $('When Executed by Another Workflow').item.json.tipo_estudiante == \"Para mí\", $('When Executed by Another Workflow').item.json.email_estudiante,  $('When Executed by Another Workflow').item.json.email_apoderado + \", \" + $('When Executed by Another Workflow').item.json.email_estudiante  ) }}",
               "type": "string"
             }
           ]
@@ -3316,7 +3339,7 @@
           "parameters": [
             {
               "name": "email_a_enviar",
-              "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+              "value": "={{ $('variables_1').item.json.emails_a_enviar_info }}"
             },
             {
               "name": "nombre",
@@ -3437,7 +3460,7 @@
           "parameters": [
             {
               "name": "email_a_enviar",
-              "value": "={{ $('variables_1').item.json.email_a_dar_accesos }}"
+              "value": "={{ $('variables_1').item.json.emails_a_enviar_info }}"
             },
             {
               "name": "nombre",
@@ -4041,6 +4064,17 @@
               "type": "string",
               "readOnly": true,
               "removed": true
+            },
+            {
+              "id": "record_id",
+              "displayName": "record_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -4870,7 +4904,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1008,
+        1024,
         400
       ],
       "id": "c7e5e3e0-2d70-4776-8ba8-ff7f73aee976",
@@ -5402,12 +5436,12 @@
           "numero_completo_apoderado": "+5151935671809",
           "email_estudiante": "fisioterapialex@gmail.com",
           "email_apoderado": "fisioterapialex@gmail.com",
-          "nombre_estudiante": "Adriano samin huallpa serrano",
-          "nombre_apoderado": "Alexander ",
-          "monto_depositado": 135,
+          "nombre_estudiante": "Astrid Sofia Huallpa Belzuzarri",
+          "nombre_apoderado": "Alexander Simón huallpa Quispe ",
+          "monto_depositado": 120,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
-          "id_grupo": "recCQu4kBTPckc3rT",
+          "id_grupo": "recLjlYfPNPlTEIOb",
           "tipo_estudiante": "Para mi hijo/hija",
           "dni_apoderado": 41589844,
           "pais_apoderado": "Perú",
@@ -5415,9 +5449,9 @@
           "id_contacto_apoderado_airtable": "recfI6kXOnuORk98b",
           "id_contacto_estudiante_airtable": "recfI6kXOnuORk98b",
           "id_cliente_airtable": "recIQYXh63DpEbebZ",
-          "id_preventa_airtable": "recDn4knhmerTmO3K",
-          "id_detalles_venta_airtable": "rec67LxcZDsYica4p",
-          "id_grupo_ultimo_creado": "recENKQNfDi7EqqQv"
+          "id_preventa_airtable": "recECXUMRrBtaF10x",
+          "id_detalles_venta_airtable": "recdwT4wZo0D2lVZZ",
+          "id_grupo_ultimo_creado": "recS3OFuokb8s6h6P"
         },
         "pairedItem": {
           "item": 0
@@ -5447,6 +5481,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-08T17:24:14.506Z",
-  "versionId": "f2992cad-d764-4c76-ab62-adefd1df5433"
+  "updatedAt": "2026-01-10T01:28:13.148Z",
+  "versionId": "22eedf2a-8dfb-4c85-94cf-1c37e87a22ab"
 }
