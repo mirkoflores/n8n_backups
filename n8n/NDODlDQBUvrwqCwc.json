@@ -28642,38 +28642,38 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "Grupo y horario al que desea inscribirse": "ENGLISH FLYERS_A2 ( L-M-V-5:45-7:15 pm )",
+          "Grupo y horario al que desea inscribirse": "ENGLISH PRE STARTERS KIDS ( L-M-V-4:30-5:30 pm )",
           "Comprobante de pago": [
             {
-              "filename": "Captura de pantalla 2026-01-07 143036.png",
-              "mimetype": "image/png",
-              "size": 139352
+              "filename": "42113.jpg",
+              "mimetype": "image/jpeg",
+              "size": 59697
             }
           ],
-          "submittedAt": "2026-01-07T14:31:02.018-05:00",
+          "submittedAt": "2026-01-09T19:26:22.496-05:00",
           "formMode": "production",
           "tipo_estudiante": "Para mi hijo/hija",
-          "nombre_apoderado": "SIDNEY BENANCIA ARÁMBULO AYALA",
-          "dni_apoderado": 29588189,
-          "correo_apoderado": "sidcargo550@gmail.com",
+          "nombre_apoderado": "Alexander Simón huallpa Quispe ",
+          "dni_apoderado": 41589844,
+          "correo_apoderado": "fisioterapialex@gmail.com",
           "pais_apoderado": "Perú",
-          "celular_apoderado_sin_codigo": 982606161,
-          "nivel_inglés_apoderado": "No se mi nivel de inglés",
-          "Nombre completo del estudiante": "SIDNEY SOFIA ROJAS ARÁMBULO",
-          "Correo electrónico del estudiante": "sidcargo550@gmail.com",
+          "celular_apoderado_sin_codigo": 51935671809,
+          "nivel_inglés_apoderado": "Básico",
+          "Nombre completo del estudiante": "Astrid Sofia Huallpa Belzuzarri",
+          "Correo electrónico del estudiante": "fisioterapialex@gmail.com",
           "Pais": "Perú",
-          "Celular del estudiante - colocar sin codigo de pais": "961776678",
-          "Edad del estudiante": 12
+          "Celular del estudiante - colocar sin codigo de pais": "51935671809",
+          "Edad del estudiante": 6
         },
         "binary": {
           "Comprobante_de_pago": {
-            "mimeType": "image/png",
+            "mimeType": "image/jpeg",
             "fileType": "image",
-            "fileExtension": "png",
+            "fileExtension": "jpg",
             "data": "database",
-            "fileName": "Captura de pantalla 2026-01-07 143036.png",
-            "id": "database:f2f9b3e7-26f3-4272-b78f-fe69163e0793",
-            "fileSize": "139 kB"
+            "fileName": "42113.jpg",
+            "id": "database:44aaaa19-8f16-473e-a550-b868c5347930",
+            "fileSize": "59.7 kB"
           }
         },
         "pairedItem": {
@@ -28704,6 +28704,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-08T16:48:21.627Z",
+  "updatedAt": "2026-01-10T01:22:14.888Z",
   "versionId": "504c9d83-4734-4dd3-a7fa-2f36de50aaa1"
 }
