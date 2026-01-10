@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-08T17:29:11.981Z",
-    "createdAt": "2026-01-08T17:29:10.022Z",
-    "versionId": "def8dc7d-ef80-44ec-bc11-5ee8c3102a8f",
+    "updatedAt": "2026-01-10T01:38:06.642Z",
+    "createdAt": "2026-01-10T01:38:04.484Z",
+    "versionId": "a7225d4d-b7b5-4d5a-945c-fb962fc7858f",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -1144,7 +1144,6 @@
             "value": {
               "url_de_renovacion_largo": "={{ $('Variables_2').item.json.url_tally_pago_recurrente_largo }}",
               "id_registro_cliente": "={{ $('Variables_2').item.json.id_cliente_airtable }}",
-              "url_tally_acortado": "={{ $json.url_tally_acortado }}",
               "tipo_estado": "={{ $json.tipo_estado }}",
               "tipo_automatizacion": "={{ $json.tipo_automatizacion }}",
               "id_short_io": "={{ $json.id_short_io }}"
@@ -1164,16 +1163,6 @@
               {
                 "id": "id_registro_cliente",
                 "displayName": "id_registro_cliente",
-                "required": false,
-                "defaultMatch": false,
-                "display": true,
-                "canBeUsedToMatch": true,
-                "type": "string",
-                "removed": false
-              },
-              {
-                "id": "url_tally_acortado",
-                "displayName": "url_tally_acortado",
                 "required": false,
                 "defaultMatch": false,
                 "display": true,
@@ -3190,11 +3179,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version def8dc7d",
+    "name": "Version a7225d4d",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "def8dc7d-ef80-44ec-bc11-5ee8c3102a8f",
+  "activeVersionId": "a7225d4d-b7b5-4d5a-945c-fb962fc7858f",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -4989,7 +4978,6 @@
           "value": {
             "url_de_renovacion_largo": "={{ $('Variables_2').item.json.url_tally_pago_recurrente_largo }}",
             "id_registro_cliente": "={{ $('Variables_2').item.json.id_cliente_airtable }}",
-            "url_tally_acortado": "={{ $json.url_tally_acortado }}",
             "tipo_estado": "={{ $json.tipo_estado }}",
             "tipo_automatizacion": "={{ $json.tipo_automatizacion }}",
             "id_short_io": "={{ $json.id_short_io }}"
@@ -5009,16 +4997,6 @@
             {
               "id": "id_registro_cliente",
               "displayName": "id_registro_cliente",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "canBeUsedToMatch": true,
-              "type": "string",
-              "removed": false
-            },
-            {
-              "id": "url_tally_acortado",
-              "displayName": "url_tally_acortado",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -6449,26 +6427,26 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "54",
+            "content-length": "53",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
-            "x-forwarded-for": "44.223.73.180",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfla0ErPJisLonnYg",
+            "x-forwarded-for": "35.168.36.254",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "921UbCQYQaGuS8hLCx5-qw",
-            "x-real-ip": "44.223.73.180",
-            "x-request-start": "1767848701229"
+            "x-railway-request-id": "yRHF_GYtQCOzIyJOBT7zVQ",
+            "x-real-ip": "35.168.36.254",
+            "x-request-start": "1767935106594"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recbsMbqgPg3UGSsH",
-            "Tipo": "3_dias_antes"
+            "recordId": "recmtobfc6ZH3QvoR",
+            "Tipo": "1_dia_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -6501,6 +6479,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-08T17:29:10.020Z",
-  "versionId": "def8dc7d-ef80-44ec-bc11-5ee8c3102a8f"
+  "updatedAt": "2026-01-10T01:38:04.480Z",
+  "versionId": "a7225d4d-b7b5-4d5a-945c-fb962fc7858f"
 }
