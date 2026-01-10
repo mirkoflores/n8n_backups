@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-07T16:27:31.697Z",
-    "createdAt": "2026-01-07T16:27:30.169Z",
-    "versionId": "5f781191-aa52-484a-9209-f7fb61b24cc4",
+    "updatedAt": "2026-01-10T01:13:28.517Z",
+    "createdAt": "2026-01-10T01:13:26.512Z",
+    "versionId": "de76f2d9-9a2e-4146-bdf0-005e5354cf4c",
     "workflowId": "efFbgE1bYCOEbonn",
     "nodes": [
       {
@@ -42,7 +42,7 @@
         "type": "n8n-nodes-base.formTrigger",
         "typeVersion": 2.4,
         "position": [
-          -240,
+          224,
           -112
         ],
         "id": "08f9137d-f800-4f9d-8951-a415bea9b881",
@@ -77,7 +77,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          -32,
+          432,
           -112
         ],
         "id": "1901249b-48f9-4ee8-8d59-bf8eda6cb773",
@@ -103,7 +103,7 @@
       {
         "parameters": {
           "defineForm": "json",
-          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del estudiante\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion1').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular del estudiante - colocar sin codigo de pais\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Edad del estudiante\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  }\n]\n",
+          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del estudiante\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion1').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular del estudiante - colocar sin codigo de pais\",\n    \"placeholder\": \"colocar sin codigo de pais\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Edad del estudiante\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  }\n]\n",
           "options": {
             "formTitle": "Datos del estudiante"
           }
@@ -224,7 +224,7 @@
         "parameters": {
           "operation": "completion",
           "completionTitle": "Bienvenid@ a Bioenglish!",
-          "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json['Correo electrónico del estudiante'] }}\n y numero de celular {{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}.",
+          "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json['Correo electrónico del estudiante'] }} y numero de celular {{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}.",
           "options": {}
         },
         "type": "n8n-nodes-base.form",
@@ -285,7 +285,7 @@
       {
         "parameters": {
           "defineForm": "json",
-          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del apoderado\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"DNI del apoderado\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del apoderado\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular de apoderado - colocar sin codigo de pais\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Nivel de inglés del apoderado\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": {\n      \"values\": [\n        {\n          \"option\": \"Básico\"\n        },\n        {\n          \"option\": \"Intermedio\"\n        },\n        {\n          \"option\": \"Avanzado\"\n        },\n        {\n          \"option\": \"Nunca he estudiado inglés\"\n        },\n        {\n          \"option\": \"No se mi nivel de inglés\"\n        }\n      ]\n    },\n    \"requiredField\": true\n  }\n]\n",
+          "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del apoderado\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"DNI del apoderado\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del apoderado\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular de apoderado - colocar sin codigo de pais\",\n    \"placeholder\": \"colocar sin codigo de pais\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Nivel de inglés del apoderado\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": {\n      \"values\": [\n        {\n          \"option\": \"Básico\"\n        },\n        {\n          \"option\": \"Intermedio\"\n        },\n        {\n          \"option\": \"Avanzado\"\n        },\n        {\n          \"option\": \"Nunca he estudiado inglés\"\n        },\n        {\n          \"option\": \"No se mi nivel de inglés\"\n        }\n      ]\n    },\n    \"requiredField\": true\n  }\n]\n",
           "options": {
             "formTitle": "Datos del apoderado"
           }
@@ -293,7 +293,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          432,
+          896,
           64
         ],
         "id": "172ae1dc-7838-4e2e-8520-7e04f377b7ca",
@@ -322,7 +322,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          224,
+          688,
           64
         ],
         "name": "Call Paises - form de inscripcion",
@@ -350,7 +350,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          1584,
+          1616,
           -128
         ],
         "name": "Call Paises - form de inscripcion1",
@@ -649,7 +649,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          688,
+          1152,
           64
         ],
         "id": "bc0bbc84-b3f1-4077-a7cf-67529378f58a",
@@ -702,7 +702,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          688,
+          1152,
           -128
         ],
         "id": "9c956a87-7025-47ad-bbe4-3c73aaf78be0",
@@ -755,7 +755,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1136,
+          1392,
           -128
         ],
         "id": "ef168513-921c-4040-acf7-2ada104b866c",
@@ -989,11 +989,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 5f781191",
+    "name": "Version de76f2d9",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "5f781191-aa52-484a-9209-f7fb61b24cc4",
+  "activeVersionId": "de76f2d9-9a2e-4146-bdf0-005e5354cf4c",
   "connections": {
     "On form submission": {
       "main": [
@@ -1264,7 +1264,7 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.4,
       "position": [
-        -240,
+        224,
         -112
       ],
       "id": "08f9137d-f800-4f9d-8951-a415bea9b881",
@@ -1299,7 +1299,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -32,
+        432,
         -112
       ],
       "id": "1901249b-48f9-4ee8-8d59-bf8eda6cb773",
@@ -1325,7 +1325,7 @@
     {
       "parameters": {
         "defineForm": "json",
-        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del estudiante\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion1').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular del estudiante - colocar sin codigo de pais\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Edad del estudiante\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  }\n]\n",
+        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del estudiante\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion1').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular del estudiante - colocar sin codigo de pais\",\n    \"placeholder\": \"colocar sin codigo de pais\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Edad del estudiante\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  }\n]\n",
         "options": {
           "formTitle": "Datos del estudiante"
         }
@@ -1446,7 +1446,7 @@
       "parameters": {
         "operation": "completion",
         "completionTitle": "Bienvenid@ a Bioenglish!",
-        "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json['Correo electrónico del estudiante'] }}\n y numero de celular {{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}.",
+        "completionMessage": "=Tu inscripción se ha completado con éxito, revisa las indicaciones de como entrar a tus clases en tu correo {{ $('variables_1').item.json['Correo electrónico del estudiante'] }} y numero de celular {{ $('variables_1').item.json['Celular del estudiante - colocar sin codigo de pais'] }}.",
         "options": {}
       },
       "type": "n8n-nodes-base.form",
@@ -1507,7 +1507,7 @@
     {
       "parameters": {
         "defineForm": "json",
-        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del apoderado\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"DNI del apoderado\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del apoderado\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular de apoderado - colocar sin codigo de pais\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Nivel de inglés del apoderado\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": {\n      \"values\": [\n        {\n          \"option\": \"Básico\"\n        },\n        {\n          \"option\": \"Intermedio\"\n        },\n        {\n          \"option\": \"Avanzado\"\n        },\n        {\n          \"option\": \"Nunca he estudiado inglés\"\n        },\n        {\n          \"option\": \"No se mi nivel de inglés\"\n        }\n      ]\n    },\n    \"requiredField\": true\n  }\n]\n",
+        "jsonOutput": "=[\n  {\n    \"fieldLabel\": \"Nombre completo del apoderado\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"DNI del apoderado\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Correo electrónico del apoderado\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Pais\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": { \"values\":\n{{ $('Call Paises - form de inscripcion').item.json.values }}\n                    },\n    \"defaultValue\": [\"Perú\"],\n    \"requiredField\": true\n},\n  {\n    \"fieldLabel\": \"Celular de apoderado - colocar sin codigo de pais\",\n    \"placeholder\": \"colocar sin codigo de pais\",\n    \"fieldType\": \"number\",\n    \"requiredField\": true\n  },\n  {\n    \"fieldLabel\": \"Nivel de inglés del apoderado\",\n    \"fieldType\": \"dropdown\",\n    \"fieldOptions\": {\n      \"values\": [\n        {\n          \"option\": \"Básico\"\n        },\n        {\n          \"option\": \"Intermedio\"\n        },\n        {\n          \"option\": \"Avanzado\"\n        },\n        {\n          \"option\": \"Nunca he estudiado inglés\"\n        },\n        {\n          \"option\": \"No se mi nivel de inglés\"\n        }\n      ]\n    },\n    \"requiredField\": true\n  }\n]\n",
         "options": {
           "formTitle": "Datos del apoderado"
         }
@@ -1515,7 +1515,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        432,
+        896,
         64
       ],
       "id": "172ae1dc-7838-4e2e-8520-7e04f377b7ca",
@@ -1544,7 +1544,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        224,
+        688,
         64
       ],
       "name": "Call Paises - form de inscripcion",
@@ -1572,7 +1572,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        1584,
+        1616,
         -128
       ],
       "name": "Call Paises - form de inscripcion1",
@@ -1871,7 +1871,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        688,
+        1152,
         64
       ],
       "id": "bc0bbc84-b3f1-4077-a7cf-67529378f58a",
@@ -1924,7 +1924,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        688,
+        1152,
         -128
       ],
       "id": "9c956a87-7025-47ad-bbe4-3c73aaf78be0",
@@ -1977,7 +1977,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1136,
+        1392,
         -128
       ],
       "id": "ef168513-921c-4040-acf7-2ada104b866c",
@@ -1989,7 +1989,7 @@
       {
         "json": {
           "tipo_estudiante": "Para mi hijo/hija",
-          "submittedAt": "2026-01-07T14:26:16.393-05:00",
+          "submittedAt": "2026-01-09T19:22:14.597-05:00",
           "formMode": "production"
         },
         "pairedItem": {
@@ -2020,6 +2020,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-08T16:48:27.108Z",
-  "versionId": "5f781191-aa52-484a-9209-f7fb61b24cc4"
+  "updatedAt": "2026-01-10T01:13:26.507Z",
+  "versionId": "de76f2d9-9a2e-4146-bdf0-005e5354cf4c"
 }
