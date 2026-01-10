@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-08T16:38:01.719Z",
-    "createdAt": "2026-01-08T16:38:00.152Z",
-    "versionId": "69162e99-410e-4395-8e98-28481df228a7",
+    "updatedAt": "2026-01-10T01:30:44.453Z",
+    "createdAt": "2026-01-10T01:30:43.051Z",
+    "versionId": "e868351f-ba8d-4f93-aa17-9c4783d67dd8",
     "workflowId": "n7YQBYWTrYNhhdvy",
     "nodes": [
       {
@@ -125,26 +125,6 @@
       },
       {
         "parameters": {
-          "queue": "chatbot_upselling",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.rabbitmq",
-        "typeVersion": 1.1,
-        "position": [
-          464,
-          -128
-        ],
-        "id": "90ae4dd0-1523-4e6b-8d18-b2162766c162",
-        "name": "chatbot cobranzas1",
-        "credentials": {
-          "rabbitmq": {
-            "id": "0rr5PL45GTNhamch",
-            "name": "bio_1"
-          }
-        }
-      },
-      {
-        "parameters": {
           "amount": 9,
           "unit": "hours"
         },
@@ -157,6 +137,26 @@
         "id": "7ba682f1-bf0a-429c-8c67-741b57db161a",
         "name": "Wait1",
         "webhookId": "63b27213-b7d7-4aa0-8088-4af10b5d523a"
+      },
+      {
+        "parameters": {
+          "queue": "chatbot_upselling",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.rabbitmq",
+        "typeVersion": 1.1,
+        "position": [
+          464,
+          -128
+        ],
+        "id": "90ae4dd0-1523-4e6b-8d18-b2162766c162",
+        "name": "chatbot upselling",
+        "credentials": {
+          "rabbitmq": {
+            "id": "0rr5PL45GTNhamch",
+            "name": "bio_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -204,7 +204,7 @@
         "main": [
           [
             {
-              "node": "chatbot cobranzas1",
+              "node": "chatbot upselling",
               "type": "main",
               "index": 0
             }
@@ -213,11 +213,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 69162e99",
+    "name": "Version e868351f",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "69162e99-410e-4395-8e98-28481df228a7",
+  "activeVersionId": "e868351f-ba8d-4f93-aa17-9c4783d67dd8",
   "connections": {
     "Webhook": {
       "main": [
@@ -263,7 +263,7 @@
       "main": [
         [
           {
-            "node": "chatbot cobranzas1",
+            "node": "chatbot upselling",
             "type": "main",
             "index": 0
           }
@@ -398,26 +398,6 @@
     },
     {
       "parameters": {
-        "queue": "chatbot_upselling",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.rabbitmq",
-      "typeVersion": 1.1,
-      "position": [
-        464,
-        -128
-      ],
-      "id": "90ae4dd0-1523-4e6b-8d18-b2162766c162",
-      "name": "chatbot cobranzas1",
-      "credentials": {
-        "rabbitmq": {
-          "id": "0rr5PL45GTNhamch",
-          "name": "bio_1"
-        }
-      }
-    },
-    {
-      "parameters": {
         "amount": 9,
         "unit": "hours"
       },
@@ -430,6 +410,26 @@
       "id": "7ba682f1-bf0a-429c-8c67-741b57db161a",
       "name": "Wait1",
       "webhookId": "63b27213-b7d7-4aa0-8088-4af10b5d523a"
+    },
+    {
+      "parameters": {
+        "queue": "chatbot_upselling",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rabbitmq",
+      "typeVersion": 1.1,
+      "position": [
+        464,
+        -128
+      ],
+      "id": "90ae4dd0-1523-4e6b-8d18-b2162766c162",
+      "name": "chatbot upselling",
+      "credentials": {
+        "rabbitmq": {
+          "id": "0rr5PL45GTNhamch",
+          "name": "bio_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -491,6 +491,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-08T16:38:00.149Z",
-  "versionId": "69162e99-410e-4395-8e98-28481df228a7"
+  "updatedAt": "2026-01-10T01:30:43.046Z",
+  "versionId": "e868351f-ba8d-4f93-aa17-9c4783d67dd8"
 }
