@@ -293,17 +293,38 @@
       {
         "json": {
           "execution": {
-            "id": "979",
-            "url": "https://primary-production-55a73.up.railway.app/workflow/efFbgE1bYCOEbonn/executions/979",
+            "id": "2545",
+            "url": "https://primary-production-55a73.up.railway.app/workflow/HALPYZ7HHe7U1tZK/executions/2545",
             "error": {
-              "message": "Error: Cannot read properties of undefined (reading 'execute')",
-              "stack": "Error: Error: Cannot read properties of undefined (reading 'execute')\n    at Queue.onFailed (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/bull@4.16.4_patch_hash=a4b6d56db16fe5870646929938466d6a5c668435fd1551bed6a93fffb597ba42/node_modules/bull/lib/job.js:523:18)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)"
+              "level": "warning",
+              "tags": {},
+              "description": "'lead_etapa' expects a number but we got '68677515'",
+              "timestamp": 1767967504933,
+              "context": {
+                "runIndex": 0,
+                "itemIndex": 0,
+                "nodeCause": "Call 'Definir ID contacto y lead en Kommo'"
+              },
+              "functionality": "regular",
+              "name": "ExpressionError",
+              "message": "Invalid input for 'lead_etapa' [item 0]",
+              "stack": "ExpressionError: Invalid input for 'lead_etapa' [item 0]\n    at validateValueAgainstSchema (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_ec37920eb95917b28efaa783206b20f3/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/validate-value-against-schema.ts:206:9)\n    at ExecuteContext._getNodeParameter (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_ec37920eb95917b28efaa783206b20f3/node_modules/n8n-core/src/execution-engine/node-execution-context/node-execution-context.ts:506:42)\n    at ExecuteContext.getNodeParameter (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_ec37920eb95917b28efaa783206b20f3/node_modules/n8n-core/src/execution-engine/node-execution-context/execute-context.ts:128:9)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/utils/workflowInputsResourceMapping/GenericFunctions.ts:127:32\n    at Array.map (<anonymous>)\n    at ExecuteContext.getWorkflowInputValues (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/utils/workflowInputsResourceMapping/GenericFunctions.ts:126:19)\n    at ExecuteContext.getCurrentWorkflowInputData (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/utils/workflowInputsResourceMapping/GenericFunctions.ts:148:65)\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/ExecuteWorkflow/ExecuteWorkflow/ExecuteWorkflow.node.ts:294:45)\n    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_ec37920eb95917b28efaa783206b20f3/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1045:31)\n    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+sdk-trace-base@1.30_ec37920eb95917b28efaa783206b20f3/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1226:22)"
             },
-            "mode": "webhook"
+            "lastNodeExecuted": "Call 'Definir ID contacto y lead en Kommo'",
+            "mode": "trigger",
+            "executionContext": {
+              "version": 1,
+              "establishedAt": 1767967503482,
+              "source": "trigger",
+              "triggerNode": {
+                "name": "RabbitMQ Trigger",
+                "type": "n8n-nodes-base.rabbitmqTrigger"
+              }
+            }
           },
           "workflow": {
-            "id": "efFbgE1bYCOEbonn",
-            "name": "Formulario de inscripcion"
+            "id": "HALPYZ7HHe7U1tZK",
+            "name": "chatbot upselling"
           }
         },
         "pairedItem": {
@@ -330,6 +351,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-31T17:17:21.543Z",
+  "updatedAt": "2026-01-10T00:45:06.776Z",
   "versionId": "ace4d48d-9b5e-445b-a936-769e9757e60c"
 }
