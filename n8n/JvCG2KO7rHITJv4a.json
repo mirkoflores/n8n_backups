@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-26T18:08:14.181Z",
-    "createdAt": "2025-12-25T22:52:06.432Z",
-    "versionId": "bf25b07f-91fe-4c8e-a3d4-d57ab82ed624",
+    "updatedAt": "2026-01-12T03:06:52.351Z",
+    "createdAt": "2026-01-12T03:06:50.948Z",
+    "versionId": "937b022c-3a27-4e1b-b6b9-8d218419f87a",
     "workflowId": "JvCG2KO7rHITJv4a",
     "nodes": [
       {
@@ -73,6 +73,9 @@
         ],
         "id": "a718475d-a80c-4254-b3d0-7ec53c46d151",
         "name": "Detalles venta",
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
         "credentials": {
           "airtableOAuth2Api": {
             "id": "mylJqD7auLJ9sN2T",
@@ -112,6 +115,9 @@
         "id": "59039ea7-5b97-4534-83f9-0347dcd77e26",
         "name": "buscar registro - usuario",
         "alwaysOutputData": true,
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
         "credentials": {
           "airtableOAuth2Api": {
             "id": "mylJqD7auLJ9sN2T",
@@ -508,6 +514,9 @@
         ],
         "id": "a7080e7c-4a20-4438-abf8-d23445871d3a",
         "name": "Update record",
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
         "credentials": {
           "airtableOAuth2Api": {
             "id": "mylJqD7auLJ9sN2T",
@@ -762,11 +771,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version bf25b07f",
+    "name": "Version 937b022c",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "bf25b07f-91fe-4c8e-a3d4-d57ab82ed624",
+  "activeVersionId": "937b022c-3a27-4e1b-b6b9-8d218419f87a",
   "connections": {
     "Webhook": {
       "main": [
@@ -939,6 +948,9 @@
       ],
       "id": "a718475d-a80c-4254-b3d0-7ec53c46d151",
       "name": "Detalles venta",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "credentials": {
         "airtableOAuth2Api": {
           "id": "mylJqD7auLJ9sN2T",
@@ -978,6 +990,9 @@
       "id": "59039ea7-5b97-4534-83f9-0347dcd77e26",
       "name": "buscar registro - usuario",
       "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "credentials": {
         "airtableOAuth2Api": {
           "id": "mylJqD7auLJ9sN2T",
@@ -1374,6 +1389,9 @@
       ],
       "id": "a7080e7c-4a20-4438-abf8-d23445871d3a",
       "name": "Update record",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "credentials": {
         "airtableOAuth2Api": {
           "id": "mylJqD7auLJ9sN2T",
@@ -1542,18 +1560,18 @@
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wflPceQWVpvNbelUW",
-            "x-forwarded-for": "18.209.168.158",
+            "x-forwarded-for": "34.224.72.71",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "sWT3nGUIRUqCHAG9Cx5-qw",
-            "x-real-ip": "18.209.168.158",
-            "x-request-start": "1766701149065"
+            "x-railway-request-id": "d4PnOIU1TWGIUi5CCx5-qw",
+            "x-real-ip": "34.224.72.71",
+            "x-request-start": "1768176184043"
           },
           "params": {},
           "query": {},
           "body": {
-            "recordId": "reciXhL5RxzDcpw2v"
+            "recordId": "recbsMbqgPg3UGSsH"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/fbbd7e9d-0813-40e4-bd86-559b18cea74d",
           "executionMode": "production"
@@ -1586,6 +1604,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-25T22:52:06.429Z",
-  "versionId": "bf25b07f-91fe-4c8e-a3d4-d57ab82ed624"
+  "updatedAt": "2026-01-12T03:06:50.945Z",
+  "versionId": "937b022c-3a27-4e1b-b6b9-8d218419f87a"
 }
