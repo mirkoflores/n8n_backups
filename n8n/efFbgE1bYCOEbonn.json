@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-10T01:13:28.517Z",
-    "createdAt": "2026-01-10T01:13:26.512Z",
-    "versionId": "de76f2d9-9a2e-4146-bdf0-005e5354cf4c",
+    "updatedAt": "2026-01-12T15:23:38.968Z",
+    "createdAt": "2026-01-12T15:23:37.452Z",
+    "versionId": "dd9e3320-62b7-44d2-bd19-ec774cb51516",
     "workflowId": "efFbgE1bYCOEbonn",
     "nodes": [
       {
@@ -468,8 +468,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3696,
-          -272
+          3760,
+          -256
         ],
         "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
         "name": "Call 'Enviar accesos a nuevo usuario'",
@@ -572,7 +572,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4112,
+          4048,
           -368
         ],
         "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
@@ -760,6 +760,32 @@
         ],
         "id": "ef168513-921c-4040-acf7-2ada104b866c",
         "name": "apoderado_info_final"
+      },
+      {
+        "parameters": {
+          "mode": "raw",
+          "jsonOutput": "\n  {\n    \"numero_completo_estudiante\": \"+51927359233\",\n    \"numero_completo_apoderado\": \"+51913970963\",\n    \"email_estudiante\": \"rrolando_0802@hotmail.com\",\n    \"email_apoderado\": \"rrolando_0802@hotmail.com\",\n    \"nombre_estudiante\": \"NAZHI MIDORI ATAO LAZARO\",\n    \"nombre_apoderado\": \"ROLANDO WILDER ATAO BAUTISTA\",\n    \"monto_depositado\": 1300,\n    \"tipo_de_moneda\": \"soles peruanos\",\n    \"pais_estudiante\": \"Perú\",\n    \"id_grupo\": \"receonj6Q7JxAIMCb\",\n    \"tipo_estudiante\": \"Para mi hijo/hija\",\n    \"dni_apoderado\": 28714544,\n    \"pais_apoderado\": \"Perú\",\n    \"nivel_inglés_apoderado\": \"Básico\",\n    \"id_contacto_apoderado_airtable\": \"recZiInfpRBViCyqQ\",\n    \"id_contacto_estudiante_airtable\": \"recB1jPZjf44iI5cf\",\n    \"id_cliente_airtable\": \"recuD294o4MRBPrnN\",\n    \"id_preventa_airtable\": \"rec3baVlpuVmMWDJB\",\n    \"id_detalles_venta_airtable\": \"recwQW6smnwtz7BxE\",\n    \"id_grupo_ultimo_creado\": \"recK265idoIna33Wg\"\n  }\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          3536,
+          -544
+        ],
+        "id": "7358a772-1e82-42ef-a851-dd820b696c82",
+        "name": "Edit Fields"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          3296,
+          -544
+        ],
+        "id": "a8543964-7762-45ad-9a1a-9104c0a50662",
+        "name": "When clicking ‘Execute workflow’"
       }
     ],
     "connections": {
@@ -923,13 +949,7 @@
               "index": 0
             }
           ],
-          [
-            {
-              "node": "Create a row",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "Create a row": {
@@ -986,14 +1006,30 @@
             }
           ]
         ]
+      },
+      "Edit Fields": {
+        "main": [
+          []
+        ]
+      },
+      "When clicking ‘Execute workflow’": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version de76f2d9",
+    "name": "Version dd9e3320",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "de76f2d9-9a2e-4146-bdf0-005e5354cf4c",
+  "activeVersionId": "dd9e3320-62b7-44d2-bd19-ec774cb51516",
   "connections": {
     "On form submission": {
       "main": [
@@ -1155,13 +1191,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "Create a row",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Create a row": {
@@ -1213,6 +1243,22 @@
         [
           {
             "node": "Call Paises - form de inscripcion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        []
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
@@ -1690,8 +1736,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3696,
-        -272
+        3760,
+        -256
       ],
       "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
       "name": "Call 'Enviar accesos a nuevo usuario'",
@@ -1794,7 +1840,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4112,
+        4048,
         -368
       ],
       "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
@@ -1982,6 +2028,32 @@
       ],
       "id": "ef168513-921c-4040-acf7-2ada104b866c",
       "name": "apoderado_info_final"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "\n  {\n    \"numero_completo_estudiante\": \"+51927359233\",\n    \"numero_completo_apoderado\": \"+51913970963\",\n    \"email_estudiante\": \"rrolando_0802@hotmail.com\",\n    \"email_apoderado\": \"rrolando_0802@hotmail.com\",\n    \"nombre_estudiante\": \"NAZHI MIDORI ATAO LAZARO\",\n    \"nombre_apoderado\": \"ROLANDO WILDER ATAO BAUTISTA\",\n    \"monto_depositado\": 1300,\n    \"tipo_de_moneda\": \"soles peruanos\",\n    \"pais_estudiante\": \"Perú\",\n    \"id_grupo\": \"receonj6Q7JxAIMCb\",\n    \"tipo_estudiante\": \"Para mi hijo/hija\",\n    \"dni_apoderado\": 28714544,\n    \"pais_apoderado\": \"Perú\",\n    \"nivel_inglés_apoderado\": \"Básico\",\n    \"id_contacto_apoderado_airtable\": \"recZiInfpRBViCyqQ\",\n    \"id_contacto_estudiante_airtable\": \"recB1jPZjf44iI5cf\",\n    \"id_cliente_airtable\": \"recuD294o4MRBPrnN\",\n    \"id_preventa_airtable\": \"rec3baVlpuVmMWDJB\",\n    \"id_detalles_venta_airtable\": \"recwQW6smnwtz7BxE\",\n    \"id_grupo_ultimo_creado\": \"recK265idoIna33Wg\"\n  }\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3536,
+        -544
+      ],
+      "id": "7358a772-1e82-42ef-a851-dd820b696c82",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        3296,
+        -544
+      ],
+      "id": "a8543964-7762-45ad-9a1a-9104c0a50662",
+      "name": "When clicking ‘Execute workflow’"
     }
   ],
   "pinData": {
@@ -1989,7 +2061,7 @@
       {
         "json": {
           "tipo_estudiante": "Para mi hijo/hija",
-          "submittedAt": "2026-01-09T19:22:14.597-05:00",
+          "submittedAt": "2026-01-12T08:56:02.760-05:00",
           "formMode": "production"
         },
         "pairedItem": {
@@ -2020,6 +2092,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-10T01:13:26.507Z",
-  "versionId": "de76f2d9-9a2e-4146-bdf0-005e5354cf4c"
+  "updatedAt": "2026-01-12T15:23:37.447Z",
+  "versionId": "dd9e3320-62b7-44d2-bd19-ec774cb51516"
 }
