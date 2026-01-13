@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-08T16:48:23.834Z",
-    "createdAt": "2026-01-08T16:48:21.632Z",
-    "versionId": "504c9d83-4734-4dd3-a7fa-2f36de50aaa1",
+    "updatedAt": "2026-01-12T15:22:08.928Z",
+    "createdAt": "2026-01-12T15:19:33.279Z",
+    "versionId": "ce07e625-aadb-4444-bb3d-50cea6a05458",
     "workflowId": "NDODlDQBUvrwqCwc",
     "nodes": [
       {
@@ -13336,6 +13336,9 @@
         ],
         "id": "32156400-4593-464c-adc5-0e6e7d1a92c2",
         "name": "Analyze an image1",
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
         "credentials": {
           "googlePalmApi": {
             "id": "FoIB4En6xxOUD6lX",
@@ -14316,11 +14319,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 504c9d83",
+    "name": "Version ce07e625",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "504c9d83-4734-4dd3-a7fa-2f36de50aaa1",
+  "activeVersionId": "ce07e625-aadb-4444-bb3d-50cea6a05458",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -28547,6 +28550,9 @@
       ],
       "id": "32156400-4593-464c-adc5-0e6e7d1a92c2",
       "name": "Analyze an image1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "credentials": {
         "googlePalmApi": {
           "id": "FoIB4En6xxOUD6lX",
@@ -28642,28 +28648,28 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "Grupo y horario al que desea inscribirse": "ENGLISH PRE STARTERS KIDS ( L-M-V-4:30-5:30 pm )",
+          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-8:00-9:00am )",
           "Comprobante de pago": [
             {
-              "filename": "42113.jpg",
+              "filename": "Screenshot_2026-01-12-09-05-07-783_com.whatsapp-edit.jpg",
               "mimetype": "image/jpeg",
-              "size": 59697
+              "size": 255328
             }
           ],
-          "submittedAt": "2026-01-09T19:26:22.496-05:00",
+          "submittedAt": "2026-01-12T09:08:21.476-05:00",
           "formMode": "production",
           "tipo_estudiante": "Para mi hijo/hija",
-          "nombre_apoderado": "Alexander Simón huallpa Quispe ",
-          "dni_apoderado": 41589844,
-          "correo_apoderado": "fisioterapialex@gmail.com",
+          "nombre_apoderado": "ROLANDO WILDER ATAO BAUTISTA",
+          "dni_apoderado": 28714544,
+          "correo_apoderado": "rrolando_0802@hotmail.com",
           "pais_apoderado": "Perú",
-          "celular_apoderado_sin_codigo": 51935671809,
+          "celular_apoderado_sin_codigo": 913970963,
           "nivel_inglés_apoderado": "Básico",
-          "Nombre completo del estudiante": "Astrid Sofia Huallpa Belzuzarri",
-          "Correo electrónico del estudiante": "fisioterapialex@gmail.com",
+          "Nombre completo del estudiante": "NAZHI MIDORI ATAO LAZARO",
+          "Correo electrónico del estudiante": "rrolando_0802@hotmail.com",
           "Pais": "Perú",
-          "Celular del estudiante - colocar sin codigo de pais": "51935671809",
-          "Edad del estudiante": 6
+          "Celular del estudiante - colocar sin codigo de pais": "927359233",
+          "Edad del estudiante": 8
         },
         "binary": {
           "Comprobante_de_pago": {
@@ -28671,9 +28677,9 @@
             "fileType": "image",
             "fileExtension": "jpg",
             "data": "database",
-            "fileName": "42113.jpg",
-            "id": "database:44aaaa19-8f16-473e-a550-b868c5347930",
-            "fileSize": "59.7 kB"
+            "fileName": "Screenshot_2026-01-12-09-05-07-783_com.whatsapp-edit.jpg",
+            "id": "database:6cba583d-7cd2-4cf4-8811-dd94df140abb",
+            "fileSize": "255 kB"
           }
         },
         "pairedItem": {
@@ -28704,6 +28710,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-10T01:22:14.888Z",
-  "versionId": "504c9d83-4734-4dd3-a7fa-2f36de50aaa1"
+  "updatedAt": "2026-01-12T15:19:33.272Z",
+  "versionId": "ce07e625-aadb-4444-bb3d-50cea6a05458"
 }
