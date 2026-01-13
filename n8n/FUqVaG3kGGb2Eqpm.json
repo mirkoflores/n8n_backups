@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-08T16:39:17.542Z",
-    "createdAt": "2026-01-08T16:39:16.368Z",
-    "versionId": "99c0aea8-3dd8-4f65-8ff1-da7719eae212",
+    "updatedAt": "2026-01-12T15:23:19.701Z",
+    "createdAt": "2026-01-12T15:22:39.641Z",
+    "versionId": "44ced65b-79a9-4d40-8cf5-bbf6547bda5a",
     "workflowId": "FUqVaG3kGGb2Eqpm",
     "nodes": [
       {
@@ -417,7 +417,8 @@
           -400
         ],
         "id": "cb938d7b-8381-4c0b-8342-1c4f7484de0a",
-        "name": "no esta en etapa perdida"
+        "name": "no esta en etapa perdida",
+        "disabled": true
       },
       {
         "parameters": {
@@ -622,11 +623,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 99c0aea8",
+    "name": "Version 44ced65b",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "99c0aea8-3dd8-4f65-8ff1-da7719eae212",
+  "activeVersionId": "44ced65b-79a9-4d40-8cf5-bbf6547bda5a",
   "connections": {
     "Get list of contacts": {
       "main": [
@@ -1219,7 +1220,8 @@
         -400
       ],
       "id": "cb938d7b-8381-4c0b-8342-1c4f7484de0a",
-      "name": "no esta en etapa perdida"
+      "name": "no esta en etapa perdida",
+      "disabled": true
     },
     {
       "parameters": {
@@ -1252,8 +1254,8 @@
     "Start": [
       {
         "json": {
-          "celular": "+51982606161",
-          "nombre": "SIDNEY BENANCIA ARÁMBULO AYALA",
+          "celular": "+51913970963",
+          "nombre": "ROLANDO WILDER ATAO BAUTISTA",
           "lead_etapa": 68677515
         },
         "pairedItem": {
@@ -1281,6 +1283,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-08T16:39:16.364Z",
-  "versionId": "99c0aea8-3dd8-4f65-8ff1-da7719eae212"
+  "updatedAt": "2026-01-12T15:22:39.638Z",
+  "versionId": "44ced65b-79a9-4d40-8cf5-bbf6547bda5a"
 }
