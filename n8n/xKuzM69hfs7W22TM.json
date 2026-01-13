@@ -5432,26 +5432,26 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "numero_completo_estudiante": "+5151935671809",
-          "numero_completo_apoderado": "+5151935671809",
-          "email_estudiante": "fisioterapialex@gmail.com",
-          "email_apoderado": "fisioterapialex@gmail.com",
-          "nombre_estudiante": "Astrid Sofia Huallpa Belzuzarri",
-          "nombre_apoderado": "Alexander Simón huallpa Quispe ",
-          "monto_depositado": 120,
+          "numero_completo_estudiante": "+51927359233",
+          "numero_completo_apoderado": "+51913970963",
+          "email_estudiante": "rrolando_0802@hotmail.com",
+          "email_apoderado": "rrolando_0802@hotmail.com",
+          "nombre_estudiante": "NAZHI MIDORI ATAO LAZARO",
+          "nombre_apoderado": "ROLANDO WILDER ATAO BAUTISTA",
+          "monto_depositado": 1300,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
-          "id_grupo": "recLjlYfPNPlTEIOb",
+          "id_grupo": "receonj6Q7JxAIMCb",
           "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 41589844,
+          "dni_apoderado": 28714544,
           "pais_apoderado": "Perú",
           "nivel_inglés_apoderado": "Básico",
-          "id_contacto_apoderado_airtable": "recfI6kXOnuORk98b",
-          "id_contacto_estudiante_airtable": "recfI6kXOnuORk98b",
-          "id_cliente_airtable": "recIQYXh63DpEbebZ",
-          "id_preventa_airtable": "recECXUMRrBtaF10x",
-          "id_detalles_venta_airtable": "recdwT4wZo0D2lVZZ",
-          "id_grupo_ultimo_creado": "recS3OFuokb8s6h6P"
+          "id_contacto_apoderado_airtable": "recZiInfpRBViCyqQ",
+          "id_contacto_estudiante_airtable": "recB1jPZjf44iI5cf",
+          "id_cliente_airtable": "recuD294o4MRBPrnN",
+          "id_preventa_airtable": "rec3baVlpuVmMWDJB",
+          "id_detalles_venta_airtable": "recwQW6smnwtz7BxE",
+          "id_grupo_ultimo_creado": "recK265idoIna33Wg"
         },
         "pairedItem": {
           "item": 0
@@ -5481,6 +5481,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-10T01:28:13.148Z",
+  "updatedAt": "2026-01-12T15:22:53.471Z",
   "versionId": "22eedf2a-8dfb-4c85-94cf-1c37e87a22ab"
 }
