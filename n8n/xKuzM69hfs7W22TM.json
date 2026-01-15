@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-10T01:28:15.086Z",
-    "createdAt": "2026-01-10T01:28:13.151Z",
-    "versionId": "22eedf2a-8dfb-4c85-94cf-1c37e87a22ab",
+    "updatedAt": "2026-01-14T18:08:05.049Z",
+    "createdAt": "2026-01-14T18:08:03.614Z",
+    "versionId": "c8abb23e-a8c2-459a-9624-4dc896a1cafa",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -262,7 +262,7 @@
             "parameters": [
               {
                 "name": "email_a_enviar",
-                "value": "={{ $('variables_1').item.json.emails_a_enviar_info }}"
+                "value": "={{ [...new Set($('variables_1').item.json.emails_a_enviar_info.split(',').map(i => i.trim()))].join(', ') }}"
               },
               {
                 "name": "nombre",
@@ -2706,11 +2706,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 22eedf2a",
+    "name": "Version c8abb23e",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "22eedf2a-8dfb-4c85-94cf-1c37e87a22ab",
+  "activeVersionId": "c8abb23e-a8c2-459a-9624-4dc896a1cafa",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -3339,7 +3339,7 @@
           "parameters": [
             {
               "name": "email_a_enviar",
-              "value": "={{ $('variables_1').item.json.emails_a_enviar_info }}"
+              "value": "={{ [...new Set($('variables_1').item.json.emails_a_enviar_info.split(',').map(i => i.trim()))].join(', ') }}"
             },
             {
               "name": "nombre",
@@ -5432,26 +5432,26 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "numero_completo_estudiante": "+51927359233",
-          "numero_completo_apoderado": "+51913970963",
-          "email_estudiante": "rrolando_0802@hotmail.com",
-          "email_apoderado": "rrolando_0802@hotmail.com",
-          "nombre_estudiante": "NAZHI MIDORI ATAO LAZARO",
-          "nombre_apoderado": "ROLANDO WILDER ATAO BAUTISTA",
-          "monto_depositado": 1300,
+          "numero_completo_estudiante": "+51901060818",
+          "numero_completo_apoderado": "+51901060818",
+          "email_estudiante": "velasquezmirian3008@gmail.com",
+          "email_apoderado": "velasquezmirian3008@gmail.com",
+          "nombre_estudiante": "Yamira Jimenez",
+          "nombre_apoderado": "Mirian Velasquez",
+          "monto_depositado": 135,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
-          "id_grupo": "receonj6Q7JxAIMCb",
+          "id_grupo": "rec4n6QNoq0nkBT3E",
           "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 28714544,
+          "dni_apoderado": 503324,
           "pais_apoderado": "Perú",
-          "nivel_inglés_apoderado": "Básico",
-          "id_contacto_apoderado_airtable": "recZiInfpRBViCyqQ",
-          "id_contacto_estudiante_airtable": "recB1jPZjf44iI5cf",
-          "id_cliente_airtable": "recuD294o4MRBPrnN",
-          "id_preventa_airtable": "rec3baVlpuVmMWDJB",
-          "id_detalles_venta_airtable": "recwQW6smnwtz7BxE",
-          "id_grupo_ultimo_creado": "recK265idoIna33Wg"
+          "nivel_inglés_apoderado": "Nunca he estudiado inglés",
+          "id_contacto_apoderado_airtable": "recXda65IrsHlVZYx",
+          "id_contacto_estudiante_airtable": "recVOS7bZYt1DaLr8",
+          "id_cliente_airtable": "recKavZBIcwcvj9dm",
+          "id_preventa_airtable": "rec9MvO1HUIlyqFxX",
+          "id_detalles_venta_airtable": "recxsqA8H31EmG29y",
+          "id_grupo_ultimo_creado": "recOGXcrr837oFIN2"
         },
         "pairedItem": {
           "item": 0
@@ -5481,6 +5481,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-12T15:22:53.471Z",
-  "versionId": "22eedf2a-8dfb-4c85-94cf-1c37e87a22ab"
+  "updatedAt": "2026-01-14T18:08:03.609Z",
+  "versionId": "c8abb23e-a8c2-459a-9624-4dc896a1cafa"
 }
