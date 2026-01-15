@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-10T01:38:06.642Z",
-    "createdAt": "2026-01-10T01:38:04.484Z",
-    "versionId": "a7225d4d-b7b5-4d5a-945c-fb962fc7858f",
+    "updatedAt": "2026-01-14T15:36:20.157Z",
+    "createdAt": "2026-01-14T15:36:18.568Z",
+    "versionId": "b5c28f14-fafd-44b7-ba11-ec8f2d96d4fa",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -2403,14 +2403,6 @@
               {
                 "fieldName": "id_grupo_airtable",
                 "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-              },
-              {
-                "fieldName": "id_contact_kommo",
-                "fieldValue": "="
-              },
-              {
-                "fieldName": "id_lead_kommo",
-                "fieldValue": "="
               }
             ]
           }
@@ -3179,11 +3171,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version a7225d4d",
+    "name": "Version b5c28f14",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "a7225d4d-b7b5-4d5a-945c-fb962fc7858f",
+  "activeVersionId": "b5c28f14-fafd-44b7-ba11-ec8f2d96d4fa",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -6237,14 +6229,6 @@
             {
               "fieldName": "id_grupo_airtable",
               "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-            },
-            {
-              "fieldName": "id_contact_kommo",
-              "fieldValue": "="
-            },
-            {
-              "fieldName": "id_lead_kommo",
-              "fieldValue": "="
             }
           ]
         }
@@ -6427,26 +6411,26 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "53",
+            "content-length": "54",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfla0ErPJisLonnYg",
-            "x-forwarded-for": "35.168.36.254",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
+            "x-forwarded-for": "100.31.200.119",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "yRHF_GYtQCOzIyJOBT7zVQ",
-            "x-real-ip": "35.168.36.254",
-            "x-request-start": "1767935106594"
+            "x-railway-request-id": "GRbDPVD3R3Kk2gOnezItjw",
+            "x-real-ip": "100.31.200.119",
+            "x-request-start": "1768366828635"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recmtobfc6ZH3QvoR",
-            "Tipo": "1_dia_antes"
+            "recordId": "reccZ2lTETMSxZTBw",
+            "Tipo": "3_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -6479,6 +6463,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-10T01:38:04.480Z",
-  "versionId": "a7225d4d-b7b5-4d5a-945c-fb962fc7858f"
+  "updatedAt": "2026-01-14T15:36:18.566Z",
+  "versionId": "b5c28f14-fafd-44b7-ba11-ec8f2d96d4fa"
 }
