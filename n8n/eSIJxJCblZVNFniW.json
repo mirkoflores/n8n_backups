@@ -1,0 +1,544 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-14T21:28:16.460Z",
+    "createdAt": "2026-01-14T21:28:15.147Z",
+    "versionId": "20596559-04d2-411c-be63-275ce5083844",
+    "workflowId": "eSIJxJCblZVNFniW",
+    "nodes": [
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblkpm3CwBi8WctOZ",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+          },
+          "filterByFormula": "={Email del estudiante}=\"{{$('verificar si existe estudiante').item.json.correo}}\"",
+          "returnAll": false,
+          "limit": 1,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          480,
+          352
+        ],
+        "id": "2eae95fa-db36-4b67-bb47-bdbfcbc04aea",
+        "name": "buscar cliente apoderado",
+        "alwaysOutputData": true,
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "cffabbb8-c79b-4ecd-9af2-18f94b4e8b93",
+                "leftValue": "={{ $json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          688,
+          352
+        ],
+        "id": "f7b17f30-ba1d-423c-a9c2-b03ec5ee57d7",
+        "name": "encontro?3"
+      },
+      {
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "correo"
+              }
+            ]
+          }
+        },
+        "id": "ba9887d4-8e90-4444-9de6-f0be62954746",
+        "typeVersion": 1.1,
+        "name": "verificar si existe estudiante",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "position": [
+          272,
+          352
+        ]
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+                "name": "nombre_apoderado",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+                "name": "correo_apoderado",
+                "value": "",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          896,
+          448
+        ],
+        "id": "eea9c3ad-5f07-45be-8787-6dd28cda4874",
+        "name": "info_estudiante"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+                "name": "nombre_estudiante",
+                "value": "={{ $('buscar cliente apoderado').item.json['Nombre del estudiante'] }}",
+                "type": "string"
+              },
+              {
+                "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+                "name": "correo_estudiante",
+                "value": "={{ $('buscar cliente apoderado').item.json['Email del estudiante'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          896,
+          224
+        ],
+        "id": "20f8130d-8ee1-410c-82a0-4415141d1494",
+        "name": "info_estudiante1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+                "name": "nombre_estudiante",
+                "value": "={{ $json.nombre_estudiante }}",
+                "type": "string"
+              },
+              {
+                "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+                "name": "correo_estudiante",
+                "value": "={{ $json.correo_estudiante }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1152,
+          352
+        ],
+        "id": "edcc877a-cc3c-4560-a1fc-66b253f627db",
+        "name": "info_estudiante_final"
+      }
+    ],
+    "connections": {
+      "buscar cliente apoderado": {
+        "main": [
+          [
+            {
+              "node": "encontro?3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "encontro?3": {
+        "main": [
+          [
+            {
+              "node": "info_estudiante1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "info_estudiante",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "verificar si existe estudiante": {
+        "main": [
+          [
+            {
+              "node": "buscar cliente apoderado",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "info_estudiante": {
+        "main": [
+          [
+            {
+              "node": "info_estudiante_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "info_estudiante1": {
+        "main": [
+          [
+            {
+              "node": "info_estudiante_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version 20596559",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "20596559-04d2-411c-be63-275ce5083844",
+  "connections": {
+    "buscar cliente apoderado": {
+      "main": [
+        [
+          {
+            "node": "encontro?3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontro?3": {
+      "main": [
+        [
+          {
+            "node": "info_estudiante1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "info_estudiante",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "verificar si existe estudiante": {
+      "main": [
+        [
+          {
+            "node": "buscar cliente apoderado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "info_estudiante": {
+      "main": [
+        [
+          {
+            "node": "info_estudiante_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "info_estudiante1": {
+      "main": [
+        [
+          {
+            "node": "info_estudiante_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-14T21:13:28.983Z",
+  "id": "eSIJxJCblZVNFniW",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "verificar si existe estudiante",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "filterByFormula": "={Email del estudiante}=\"{{$('verificar si existe estudiante').item.json.correo}}\"",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        352
+      ],
+      "id": "2eae95fa-db36-4b67-bb47-bdbfcbc04aea",
+      "name": "buscar cliente apoderado",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cffabbb8-c79b-4ecd-9af2-18f94b4e8b93",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        688,
+        352
+      ],
+      "id": "f7b17f30-ba1d-423c-a9c2-b03ec5ee57d7",
+      "name": "encontro?3"
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "correo"
+            }
+          ]
+        }
+      },
+      "id": "ba9887d4-8e90-4444-9de6-f0be62954746",
+      "typeVersion": 1.1,
+      "name": "verificar si existe estudiante",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        272,
+        352
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+              "name": "nombre_apoderado",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+              "name": "correo_apoderado",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        896,
+        448
+      ],
+      "id": "eea9c3ad-5f07-45be-8787-6dd28cda4874",
+      "name": "info_estudiante"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+              "name": "nombre_estudiante",
+              "value": "={{ $('buscar cliente apoderado').item.json['Nombre del estudiante'] }}",
+              "type": "string"
+            },
+            {
+              "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+              "name": "correo_estudiante",
+              "value": "={{ $('buscar cliente apoderado').item.json['Email del estudiante'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        896,
+        224
+      ],
+      "id": "20f8130d-8ee1-410c-82a0-4415141d1494",
+      "name": "info_estudiante1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+              "name": "nombre_estudiante",
+              "value": "={{ $json.nombre_estudiante }}",
+              "type": "string"
+            },
+            {
+              "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+              "name": "correo_estudiante",
+              "value": "={{ $json.correo_estudiante }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1152,
+        352
+      ],
+      "id": "edcc877a-cc3c-4560-a1fc-66b253f627db",
+      "name": "info_estudiante_final"
+    }
+  ],
+  "pinData": {
+    "verificar si existe estudiante": [
+      {
+        "json": {
+          "correo": "bmorocharavaldez@gmail.com"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-14T21:13:28.983Z",
+      "createdAt": "2026-01-14T21:13:28.983Z",
+      "role": "workflow:owner",
+      "workflowId": "eSIJxJCblZVNFniW",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-14T21:28:15.145Z",
+  "versionId": "20596559-04d2-411c-be63-275ce5083844"
+}
