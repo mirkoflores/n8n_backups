@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-12T15:22:08.928Z",
-    "createdAt": "2026-01-12T15:19:33.279Z",
-    "versionId": "ce07e625-aadb-4444-bb3d-50cea6a05458",
+    "updatedAt": "2026-01-14T18:39:05.510Z",
+    "createdAt": "2026-01-14T18:39:03.866Z",
+    "versionId": "4c1f955a-6a01-43ee-96f0-c1f05abb95b0",
     "workflowId": "NDODlDQBUvrwqCwc",
     "nodes": [
       {
@@ -6099,8 +6099,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5872,
-          -304
+          5856,
+          -528
         ],
         "id": "116688db-cc15-4b86-a141-f963f951b2bd",
         "name": "variables_1.1"
@@ -6888,19 +6888,19 @@
                 "removed": true
               },
               {
-                "id": "URL renovacion",
-                "displayName": "URL renovacion",
+                "id": "URL renovacion - chatbot cobranzas",
+                "displayName": "URL renovacion - chatbot cobranzas",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
                 "display": true,
                 "type": "string",
                 "readOnly": true,
-                "removed": true
+                "removed": false
               },
               {
-                "id": "URL renovacion corto",
-                "displayName": "URL renovacion corto",
+                "id": "URL renovacion corto - chatbot cobranzas",
+                "displayName": "URL renovacion corto - chatbot cobranzas",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
@@ -6910,8 +6910,8 @@
                 "removed": false
               },
               {
-                "id": "ID url short.io",
-                "displayName": "ID url short.io",
+                "id": "ID url short.io - chatbot cobranzas",
+                "displayName": "ID url short.io - chatbot cobranzas",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
@@ -6952,6 +6952,83 @@
                 "type": "string",
                 "readOnly": true,
                 "removed": false
+              },
+              {
+                "id": "1er pago",
+                "displayName": "1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "2 dias despues - 1er pago",
+                "displayName": "2 dias despues - 1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "10 dias despues - 1er pago",
+                "displayName": "10 dias despues - 1er pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "test",
+                "displayName": "test",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "URL renovacion - chatbot upseel",
+                "displayName": "URL renovacion - chatbot upseel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "URL renovacion corto - chatbot upseel",
+                "displayName": "URL renovacion corto - chatbot upseel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "ID url short.io - chatbot upseel",
+                "displayName": "ID url short.io - chatbot upseel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -6964,8 +7041,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          6144,
-          -304
+          6128,
+          -528
         ],
         "id": "f023e1ac-fa72-4137-987c-a7b5b5695510",
         "name": "Update record",
@@ -14319,11 +14396,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version ce07e625",
+    "name": "Version 4c1f955a",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "ce07e625-aadb-4444-bb3d-50cea6a05458",
+  "activeVersionId": "4c1f955a-6a01-43ee-96f0-c1f05abb95b0",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -21313,8 +21390,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5872,
-        -304
+        5856,
+        -528
       ],
       "id": "116688db-cc15-4b86-a141-f963f951b2bd",
       "name": "variables_1.1"
@@ -22102,19 +22179,19 @@
               "removed": true
             },
             {
-              "id": "URL renovacion",
-              "displayName": "URL renovacion",
+              "id": "URL renovacion - chatbot cobranzas",
+              "displayName": "URL renovacion - chatbot cobranzas",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
               "display": true,
               "type": "string",
               "readOnly": true,
-              "removed": true
+              "removed": false
             },
             {
-              "id": "URL renovacion corto",
-              "displayName": "URL renovacion corto",
+              "id": "URL renovacion corto - chatbot cobranzas",
+              "displayName": "URL renovacion corto - chatbot cobranzas",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -22124,8 +22201,8 @@
               "removed": false
             },
             {
-              "id": "ID url short.io",
-              "displayName": "ID url short.io",
+              "id": "ID url short.io - chatbot cobranzas",
+              "displayName": "ID url short.io - chatbot cobranzas",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -22166,6 +22243,83 @@
               "type": "string",
               "readOnly": true,
               "removed": false
+            },
+            {
+              "id": "1er pago",
+              "displayName": "1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "2 dias despues - 1er pago",
+              "displayName": "2 dias despues - 1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "10 dias despues - 1er pago",
+              "displayName": "10 dias despues - 1er pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "test",
+              "displayName": "test",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "URL renovacion - chatbot upseel",
+              "displayName": "URL renovacion - chatbot upseel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "URL renovacion corto - chatbot upseel",
+              "displayName": "URL renovacion corto - chatbot upseel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ID url short.io - chatbot upseel",
+              "displayName": "ID url short.io - chatbot upseel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -22178,8 +22332,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        6144,
-        -304
+        6128,
+        -528
       ],
       "id": "f023e1ac-fa72-4137-987c-a7b5b5695510",
       "name": "Update record",
@@ -28648,27 +28802,27 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-8:00-9:00am )",
+          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-4:30-5:30 pm )",
           "Comprobante de pago": [
             {
-              "filename": "Screenshot_2026-01-12-09-05-07-783_com.whatsapp-edit.jpg",
+              "filename": "Jeremy Noviembre.jpg",
               "mimetype": "image/jpeg",
-              "size": 255328
+              "size": 63363
             }
           ],
-          "submittedAt": "2026-01-12T09:08:21.476-05:00",
+          "submittedAt": "2026-01-14T10:26:13.613-05:00",
           "formMode": "production",
           "tipo_estudiante": "Para mi hijo/hija",
-          "nombre_apoderado": "ROLANDO WILDER ATAO BAUTISTA",
-          "dni_apoderado": 28714544,
-          "correo_apoderado": "rrolando_0802@hotmail.com",
+          "nombre_apoderado": "Mirian Velasquez",
+          "dni_apoderado": 503324,
+          "correo_apoderado": "velasquezmirian3008@gmail.com",
           "pais_apoderado": "Perú",
-          "celular_apoderado_sin_codigo": 913970963,
-          "nivel_inglés_apoderado": "Básico",
-          "Nombre completo del estudiante": "NAZHI MIDORI ATAO LAZARO",
-          "Correo electrónico del estudiante": "rrolando_0802@hotmail.com",
+          "celular_apoderado_sin_codigo": 901060818,
+          "nivel_inglés_apoderado": "Nunca he estudiado inglés",
+          "Nombre completo del estudiante": "Yamira Jimenez",
+          "Correo electrónico del estudiante": "velasquezmirian3008@gmail.com",
           "Pais": "Perú",
-          "Celular del estudiante - colocar sin codigo de pais": "927359233",
+          "Celular del estudiante - colocar sin codigo de pais": "901060818",
           "Edad del estudiante": 8
         },
         "binary": {
@@ -28677,9 +28831,9 @@
             "fileType": "image",
             "fileExtension": "jpg",
             "data": "database",
-            "fileName": "Screenshot_2026-01-12-09-05-07-783_com.whatsapp-edit.jpg",
-            "id": "database:6cba583d-7cd2-4cf4-8811-dd94df140abb",
-            "fileSize": "255 kB"
+            "fileName": "Jeremy Noviembre.jpg",
+            "id": "database:943153b4-e6f4-4046-959e-2a26d23b8e51",
+            "fileSize": "63.4 kB"
           }
         },
         "pairedItem": {
@@ -28710,6 +28864,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-12T15:19:33.272Z",
-  "versionId": "ce07e625-aadb-4444-bb3d-50cea6a05458"
+  "updatedAt": "2026-01-14T18:39:03.861Z",
+  "versionId": "4c1f955a-6a01-43ee-96f0-c1f05abb95b0"
 }
