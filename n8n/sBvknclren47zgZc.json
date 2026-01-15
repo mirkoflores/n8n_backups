@@ -1,0 +1,541 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-01-14T21:08:12.913Z",
+    "createdAt": "2026-01-14T21:08:11.754Z",
+    "versionId": "194d5ad0-d0ff-4ee9-89a3-b7597c750ad4",
+    "workflowId": "sBvknclren47zgZc",
+    "nodes": [
+      {
+        "parameters": {
+          "workflowInputs": {
+            "values": [
+              {
+                "name": "correo"
+              }
+            ]
+          }
+        },
+        "id": "c055762a-8fe7-4141-a639-df2372f30060",
+        "typeVersion": 1.1,
+        "name": "verificar si existe apoderado",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "position": [
+          272,
+          352
+        ]
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblkpm3CwBi8WctOZ",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+          },
+          "filterByFormula": "={Email del apoderado}=\"{{$('verificar si existe apoderado').item.json.correo}}\"",
+          "returnAll": false,
+          "limit": 1,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          480,
+          352
+        ],
+        "id": "00ccc632-85fa-4ddf-9823-32dbb825eb67",
+        "name": "buscar cliente apoderado",
+        "alwaysOutputData": true,
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "cffabbb8-c79b-4ecd-9af2-18f94b4e8b93",
+                "leftValue": "={{ $json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          688,
+          352
+        ],
+        "id": "5325d716-8684-4633-86b1-ca9516074b51",
+        "name": "encontro?3"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+                "name": "nombre_apoderado",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+                "name": "correo_apoderado",
+                "value": "",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          896,
+          448
+        ],
+        "id": "242738de-37e8-4a5f-89c1-3118b91fe030",
+        "name": "info_apoderado"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+                "name": "nombre_apoderado",
+                "value": "={{ $('buscar cliente apoderado').item.json.Apoderado }}",
+                "type": "string"
+              },
+              {
+                "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+                "name": "correo_apoderado",
+                "value": "={{ $('buscar cliente apoderado').item.json['Email del apoderado'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          896,
+          224
+        ],
+        "id": "4946e018-e6aa-468c-b603-86e72bdd0ab0",
+        "name": "info_apoderado1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+                "name": "nombre_apoderado",
+                "value": "={{ $json.nombre_apoderado }}",
+                "type": "string"
+              },
+              {
+                "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+                "name": "correo_apoderado",
+                "value": "={{ $json.correo_apoderado }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1152,
+          352
+        ],
+        "id": "b064dd4e-404c-4355-b16e-f69f8acd8caa",
+        "name": "info_apoderado_final"
+      }
+    ],
+    "connections": {
+      "verificar si existe apoderado": {
+        "main": [
+          [
+            {
+              "node": "buscar cliente apoderado",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "buscar cliente apoderado": {
+        "main": [
+          [
+            {
+              "node": "encontro?3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "encontro?3": {
+        "main": [
+          [
+            {
+              "node": "info_apoderado1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "info_apoderado",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "info_apoderado": {
+        "main": [
+          [
+            {
+              "node": "info_apoderado_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "info_apoderado1": {
+        "main": [
+          [
+            {
+              "node": "info_apoderado_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version 194d5ad0",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "194d5ad0-d0ff-4ee9-89a3-b7597c750ad4",
+  "connections": {
+    "verificar si existe apoderado": {
+      "main": [
+        [
+          {
+            "node": "buscar cliente apoderado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar cliente apoderado": {
+      "main": [
+        [
+          {
+            "node": "encontro?3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontro?3": {
+      "main": [
+        [
+          {
+            "node": "info_apoderado1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "info_apoderado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "info_apoderado": {
+      "main": [
+        [
+          {
+            "node": "info_apoderado_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "info_apoderado1": {
+      "main": [
+        [
+          {
+            "node": "info_apoderado_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-14T21:02:31.040Z",
+  "id": "sBvknclren47zgZc",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "verificar si existe apoderado",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "correo"
+            }
+          ]
+        }
+      },
+      "id": "c055762a-8fe7-4141-a639-df2372f30060",
+      "typeVersion": 1.1,
+      "name": "verificar si existe apoderado",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        272,
+        352
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "filterByFormula": "={Email del apoderado}=\"{{$('verificar si existe apoderado').item.json.correo}}\"",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        352
+      ],
+      "id": "00ccc632-85fa-4ddf-9823-32dbb825eb67",
+      "name": "buscar cliente apoderado",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cffabbb8-c79b-4ecd-9af2-18f94b4e8b93",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        688,
+        352
+      ],
+      "id": "5325d716-8684-4633-86b1-ca9516074b51",
+      "name": "encontro?3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+              "name": "nombre_apoderado",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+              "name": "correo_apoderado",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        896,
+        448
+      ],
+      "id": "242738de-37e8-4a5f-89c1-3118b91fe030",
+      "name": "info_apoderado"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+              "name": "nombre_apoderado",
+              "value": "={{ $('buscar cliente apoderado').item.json.Apoderado }}",
+              "type": "string"
+            },
+            {
+              "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+              "name": "correo_apoderado",
+              "value": "={{ $('buscar cliente apoderado').item.json['Email del apoderado'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        896,
+        224
+      ],
+      "id": "4946e018-e6aa-468c-b603-86e72bdd0ab0",
+      "name": "info_apoderado1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
+              "name": "nombre_apoderado",
+              "value": "={{ $json.nombre_apoderado }}",
+              "type": "string"
+            },
+            {
+              "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
+              "name": "correo_apoderado",
+              "value": "={{ $json.correo_apoderado }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1152,
+        352
+      ],
+      "id": "b064dd4e-404c-4355-b16e-f69f8acd8caa",
+      "name": "info_apoderado_final"
+    }
+  ],
+  "pinData": {
+    "verificar si existe apoderado": [
+      {
+        "json": {
+          "correo": "bmorocharavaldez@gmail.com"
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-14T21:02:31.040Z",
+      "createdAt": "2026-01-14T21:02:31.040Z",
+      "role": "workflow:owner",
+      "workflowId": "sBvknclren47zgZc",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-14T21:08:11.752Z",
+  "versionId": "194d5ad0-d0ff-4ee9-89a3-b7597c750ad4"
+}
