@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-08T16:51:55.533Z",
-    "createdAt": "2026-01-08T16:51:53.197Z",
-    "versionId": "e5cf5650-2ed8-4862-bff5-ceb58c941547",
+    "updatedAt": "2026-01-15T17:09:40.255Z",
+    "createdAt": "2026-01-15T17:09:38.023Z",
+    "versionId": "8b97b556-7da1-40ce-a183-911e11e15153",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -484,9 +484,7 @@
               "Pasados a pixel": false,
               "Enviar correo": false,
               "Renovado": true,
-              "PEN": 0,
-              "id": "={{ $('variables_3').item.json.id_detalles_venta_ultima_compra }}",
-              "DOL": 0
+              "id": "={{ $('variables_3').item.json.id_detalles_venta_ultima_compra }}"
             },
             "matchingColumns": [
               "id"
@@ -555,7 +553,7 @@
                 "display": true,
                 "type": "number",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Cuenta",
@@ -804,6 +802,10 @@
                   {
                     "name": "7 clases",
                     "value": "7 clases"
+                  },
+                  {
+                    "name": "S/. 232.50",
+                    "value": "S/. 232.50"
                   }
                 ],
                 "readOnly": false,
@@ -1335,7 +1337,7 @@
                 "display": true,
                 "type": "number",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "No renovo",
@@ -1395,6 +1397,28 @@
               {
                 "id": "Fin suscripción - 60 dias despues",
                 "displayName": "Fin suscripción - 60 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Preventa",
+                "displayName": "Preventa",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de inicio real",
+                "displayName": "Fecha de inicio real",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
@@ -7987,11 +8011,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version e5cf5650",
+    "name": "Version 8b97b556",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "e5cf5650-2ed8-4862-bff5-ceb58c941547",
+  "activeVersionId": "8b97b556-7da1-40ce-a183-911e11e15153",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -9263,9 +9287,7 @@
             "Pasados a pixel": false,
             "Enviar correo": false,
             "Renovado": true,
-            "PEN": 0,
-            "id": "={{ $('variables_3').item.json.id_detalles_venta_ultima_compra }}",
-            "DOL": 0
+            "id": "={{ $('variables_3').item.json.id_detalles_venta_ultima_compra }}"
           },
           "matchingColumns": [
             "id"
@@ -9334,7 +9356,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Cuenta",
@@ -9583,6 +9605,10 @@
                 {
                   "name": "7 clases",
                   "value": "7 clases"
+                },
+                {
+                  "name": "S/. 232.50",
+                  "value": "S/. 232.50"
                 }
               ],
               "readOnly": false,
@@ -10114,7 +10140,7 @@
               "display": true,
               "type": "number",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "No renovo",
@@ -10174,6 +10200,28 @@
             {
               "id": "Fin suscripción - 60 dias despues",
               "displayName": "Fin suscripción - 60 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Preventa",
+              "displayName": "Preventa",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de inicio real",
+              "displayName": "Fecha de inicio real",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -16127,11 +16175,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "mVPYPg"
+      "webhookId": "mKxvj8"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-08T16:51:53.191Z",
-  "versionId": "e5cf5650-2ed8-4862-bff5-ceb58c941547"
+  "updatedAt": "2026-01-15T17:09:38.018Z",
+  "versionId": "8b97b556-7da1-40ce-a183-911e11e15153"
 }
