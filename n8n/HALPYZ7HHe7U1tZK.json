@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-10T02:08:16.158Z",
-    "createdAt": "2026-01-10T02:08:14.357Z",
-    "versionId": "53fa13f8-3e95-4aaa-b4b4-38218638bca6",
+    "updatedAt": "2026-01-15T18:22:01.946Z",
+    "createdAt": "2026-01-15T18:21:59.845Z",
+    "versionId": "b4576153-5e7c-4533-a10f-977846d2db1a",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -1031,9 +1031,21 @@
               },
               {
                 "id": "c3b8faaa-c653-44b9-ae7f-a6ff04c5fef0",
-                "name": "precio_upseel",
+                "name": "precio_completo_nueva_propuesta",
                 "value": "={{ $json['3 meses - precio renovación'] }}",
                 "type": "number"
+              },
+              {
+                "id": "a9f088e0-4741-4a09-8504-a89e756625fc",
+                "name": "pago_realizado_actual",
+                "value": "={{ $('obtener registro - detalles venta').item.json.PEN }}",
+                "type": "string"
+              },
+              {
+                "id": "a7d0e537-941a-425e-bf72-a3a43ed2faa2",
+                "name": "pago_restante",
+                "value": "={{ $json['3 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN}}",
+                "type": "string"
               },
               {
                 "id": "e2a2b6e9-bea4-4607-84a1-9e64f7b62464",
@@ -1072,9 +1084,21 @@
               },
               {
                 "id": "c0034da5-b78c-44a1-ac80-3d4ab427a8e4",
-                "name": "precio_upseel",
+                "name": "precio_completo_nueva_propuesta",
                 "value": "={{ $json['6 meses - precio renovación'] }}",
                 "type": "number"
+              },
+              {
+                "id": "1f690fdd-1e82-46f9-b8d5-dbf8396a94b5",
+                "name": "pago_realizado_actual",
+                "value": "={{ $('obtener registro - detalles venta').item.json.PEN }}",
+                "type": "string"
+              },
+              {
+                "id": "6afe7698-358d-46f0-8d08-238405fd70d5",
+                "name": "pago_restante",
+                "value": "={{ $json['6 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN}}",
+                "type": "string"
               },
               {
                 "id": "b242234a-b72e-4c91-a7dd-1716aba5b952",
@@ -1113,9 +1137,21 @@
               },
               {
                 "id": "3fe6bc26-79b2-42c4-8248-733a30e5d84d",
-                "name": "precio_upseel",
+                "name": "precio_completo_nueva_propuesta",
                 "value": "={{ $json['12 meses - precio renovación'] }}",
                 "type": "number"
+              },
+              {
+                "id": "c5fb2f64-e0b4-40a0-a935-e9210c0e01c0",
+                "name": "pago_realizado_actual",
+                "value": "={{ $('obtener registro - detalles venta').item.json.PEN }}",
+                "type": "string"
+              },
+              {
+                "id": "9923f7b4-d8ef-4628-8c9e-025b3681259f",
+                "name": "pago_restante",
+                "value": "={{ $json['6 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN}}",
+                "type": "string"
               },
               {
                 "id": "cfb4b756-5529-44fa-a607-00b03ba6c785",
@@ -2855,11 +2891,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 53fa13f8",
+    "name": "Version b4576153",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "53fa13f8-3e95-4aaa-b4b4-38218638bca6",
+  "activeVersionId": "b4576153-5e7c-4533-a10f-977846d2db1a",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -4462,9 +4498,21 @@
             },
             {
               "id": "c3b8faaa-c653-44b9-ae7f-a6ff04c5fef0",
-              "name": "precio_upseel",
+              "name": "precio_completo_nueva_propuesta",
               "value": "={{ $json['3 meses - precio renovación'] }}",
               "type": "number"
+            },
+            {
+              "id": "a9f088e0-4741-4a09-8504-a89e756625fc",
+              "name": "pago_realizado_actual",
+              "value": "={{ $('obtener registro - detalles venta').item.json.PEN }}",
+              "type": "string"
+            },
+            {
+              "id": "a7d0e537-941a-425e-bf72-a3a43ed2faa2",
+              "name": "pago_restante",
+              "value": "={{ $json['3 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN}}",
+              "type": "string"
             },
             {
               "id": "e2a2b6e9-bea4-4607-84a1-9e64f7b62464",
@@ -4503,9 +4551,21 @@
             },
             {
               "id": "c0034da5-b78c-44a1-ac80-3d4ab427a8e4",
-              "name": "precio_upseel",
+              "name": "precio_completo_nueva_propuesta",
               "value": "={{ $json['6 meses - precio renovación'] }}",
               "type": "number"
+            },
+            {
+              "id": "1f690fdd-1e82-46f9-b8d5-dbf8396a94b5",
+              "name": "pago_realizado_actual",
+              "value": "={{ $('obtener registro - detalles venta').item.json.PEN }}",
+              "type": "string"
+            },
+            {
+              "id": "6afe7698-358d-46f0-8d08-238405fd70d5",
+              "name": "pago_restante",
+              "value": "={{ $json['6 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN}}",
+              "type": "string"
             },
             {
               "id": "b242234a-b72e-4c91-a7dd-1716aba5b952",
@@ -4544,9 +4604,21 @@
             },
             {
               "id": "3fe6bc26-79b2-42c4-8248-733a30e5d84d",
-              "name": "precio_upseel",
+              "name": "precio_completo_nueva_propuesta",
               "value": "={{ $json['12 meses - precio renovación'] }}",
               "type": "number"
+            },
+            {
+              "id": "c5fb2f64-e0b4-40a0-a935-e9210c0e01c0",
+              "name": "pago_realizado_actual",
+              "value": "={{ $('obtener registro - detalles venta').item.json.PEN }}",
+              "type": "string"
+            },
+            {
+              "id": "9923f7b4-d8ef-4628-8c9e-025b3681259f",
+              "name": "pago_restante",
+              "value": "={{ $json['6 meses - precio renovación'] - $('obtener registro - detalles venta').item.json.PEN}}",
+              "type": "string"
             },
             {
               "id": "cfb4b756-5529-44fa-a607-00b03ba6c785",
@@ -5717,40 +5789,32 @@
     }
   ],
   "pinData": {
-    "Call 'Definir ID contacto y lead en Kommo'1": [
-      {
-        "json": {
-          "id_contacto": 28244998,
-          "id_lead": 24692538
-        }
-      }
-    ],
     "RabbitMQ Trigger": [
       {
         "json": {
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "56",
+            "content-length": "57",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfldl7yzI3ssaUmA8",
-            "x-forwarded-for": "54.152.111.121",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflF0v8TmvsCxuuSu",
+            "x-forwarded-for": "52.87.203.54",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "hN3uJViJRYCBTu0WPvyhXg",
-            "x-real-ip": "54.152.111.121",
-            "x-request-start": "1767935103051"
+            "x-railway-request-id": "ihBVS2LIR7OjWzk5g4a9AQ",
+            "x-real-ip": "52.87.203.54",
+            "x-request-start": "1768453483851"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_upselling"
           },
           "body": {
-            "recordId": "rec3wnaFBmOiYsbqJ",
-            "Tipo": "2_dias_despues"
+            "recordId": "recvtiHpR180a4fAu",
+            "Tipo": "10_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -5783,6 +5847,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-10T02:08:14.351Z",
-  "versionId": "53fa13f8-3e95-4aaa-b4b4-38218638bca6"
+  "updatedAt": "2026-01-15T18:21:59.843Z",
+  "versionId": "b4576153-5e7c-4533-a10f-977846d2db1a"
 }
