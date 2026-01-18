@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-14T18:08:05.049Z",
-    "createdAt": "2026-01-14T18:08:03.614Z",
-    "versionId": "c8abb23e-a8c2-459a-9624-4dc896a1cafa",
+    "updatedAt": "2026-01-17T19:30:07.406Z",
+    "createdAt": "2026-01-17T19:30:06.064Z",
+    "versionId": "2ba62ead-abd9-4923-8046-0b5b0b96627e",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -1558,7 +1558,7 @@
             "cachedResultName": "Usuarios",
             "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblDjNe8g5pL5RTE2"
           },
-          "filterByFormula": "=AND({ID}=\"{{$('variables_1').item.json.email_a_dar_accesos}}\",{Magic link}!=BLANK())",
+          "filterByFormula": "=AND({ID}=\"{{$('variables_1').item.json.email_a_dar_accesos.toLowerCase()}}\",{Magic link}!=BLANK())",
           "returnAll": false,
           "limit": 1,
           "options": {}
@@ -2706,11 +2706,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version c8abb23e",
+    "name": "Version 2ba62ead",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "c8abb23e-a8c2-459a-9624-4dc896a1cafa",
+  "activeVersionId": "2ba62ead-abd9-4923-8046-0b5b0b96627e",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -4635,7 +4635,7 @@
           "cachedResultName": "Usuarios",
           "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblDjNe8g5pL5RTE2"
         },
-        "filterByFormula": "=AND({ID}=\"{{$('variables_1').item.json.email_a_dar_accesos}}\",{Magic link}!=BLANK())",
+        "filterByFormula": "=AND({ID}=\"{{$('variables_1').item.json.email_a_dar_accesos.toLowerCase()}}\",{Magic link}!=BLANK())",
         "returnAll": false,
         "limit": 1,
         "options": {}
@@ -5432,26 +5432,40 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "numero_completo_estudiante": "+51901060818",
-          "numero_completo_apoderado": "+51901060818",
-          "email_estudiante": "velasquezmirian3008@gmail.com",
-          "email_apoderado": "velasquezmirian3008@gmail.com",
-          "nombre_estudiante": "Yamira Jimenez",
-          "nombre_apoderado": "Mirian Velasquez",
+          "numero_completo_estudiante": "+51907654638",
+          "numero_completo_apoderado": "+51907654638",
+          "email_estudiante": "Ruthescalante0215@gmail.com",
+          "email_apoderado": "ruthescalante0215@gmail.com",
+          "nombre_estudiante": "Marco Rogelio campos escalante ",
+          "nombre_apoderado": "Ruth escalante huamanlazo ",
           "monto_depositado": 135,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
-          "id_grupo": "rec4n6QNoq0nkBT3E",
+          "id_grupo": "recy200OHQdD39qRV",
           "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 503324,
+          "dni_apoderado": 46012567,
           "pais_apoderado": "Perú",
-          "nivel_inglés_apoderado": "Nunca he estudiado inglés",
-          "id_contacto_apoderado_airtable": "recXda65IrsHlVZYx",
-          "id_contacto_estudiante_airtable": "recVOS7bZYt1DaLr8",
-          "id_cliente_airtable": "recKavZBIcwcvj9dm",
-          "id_preventa_airtable": "rec9MvO1HUIlyqFxX",
-          "id_detalles_venta_airtable": "recxsqA8H31EmG29y",
-          "id_grupo_ultimo_creado": "recOGXcrr837oFIN2"
+          "nivel_inglés_apoderado": "Básico",
+          "id_contacto_apoderado_airtable": "recucHVhm47Z1PwKO",
+          "id_contacto_estudiante_airtable": "recucHVhm47Z1PwKO",
+          "id_cliente_airtable": "recrfJYfxPuIlls6O",
+          "id_preventa_airtable": "recX6fVjy3Vz2YdnR",
+          "id_detalles_venta_airtable": "rec7dlqcHP1pKFzP5",
+          "id_grupo_ultimo_creado": "recVrTsP9XEcmvpc8"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Crear usuario_2": [
+      {
+        "json": {
+          "full_name": "Marco Rogelio campos escalante",
+          "email": "ruthescalante0215@gmail.com",
+          "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=3d45badbc253425485726a8f172bbf2e",
+          "updated": "2026-01-16 18:20:33",
+          "created": "2026-01-16 18:20:33"
         },
         "pairedItem": {
           "item": 0
@@ -5481,6 +5495,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-14T18:08:03.609Z",
-  "versionId": "c8abb23e-a8c2-459a-9624-4dc896a1cafa"
+  "updatedAt": "2026-01-17T19:30:06.061Z",
+  "versionId": "2ba62ead-abd9-4923-8046-0b5b0b96627e"
 }
