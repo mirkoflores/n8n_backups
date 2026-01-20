@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-15T18:22:01.946Z",
-    "createdAt": "2026-01-15T18:21:59.845Z",
-    "versionId": "b4576153-5e7c-4533-a10f-977846d2db1a",
+    "updatedAt": "2026-01-20T01:29:13.802Z",
+    "createdAt": "2026-01-20T01:29:11.918Z",
+    "versionId": "0958d519-b1db-4e2e-bbf6-fc37655c961c",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -54,7 +54,7 @@
                   "conditions": [
                     {
                       "leftValue": "={{ $('RabbitMQ Trigger').item.json.body.Tipo }}",
-                      "rightValue": "2_dias_despues",
+                      "rightValue": "3_dias_despues",
                       "operator": {
                         "type": "string",
                         "operation": "equals"
@@ -65,7 +65,7 @@
                   "combinator": "and"
                 },
                 "renameOutput": true,
-                "outputKey": "2_dias_despues"
+                "outputKey": "3_dias_despues"
               },
               {
                 "conditions": {
@@ -79,7 +79,7 @@
                     {
                       "id": "3e142f2b-88d5-4e0e-ab06-3287a8f1118a",
                       "leftValue": "={{ $('RabbitMQ Trigger').item.json.body.Tipo }}",
-                      "rightValue": "10_dias_despues",
+                      "rightValue": "13_dias_despues",
                       "operator": {
                         "type": "string",
                         "operation": "equals",
@@ -90,7 +90,7 @@
                   "combinator": "and"
                 },
                 "renameOutput": true,
-                "outputKey": "10_dias_despues"
+                "outputKey": "13_dias_despues"
               }
             ]
           },
@@ -2891,11 +2891,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version b4576153",
+    "name": "Version 0958d519",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "b4576153-5e7c-4533-a10f-977846d2db1a",
+  "activeVersionId": "0958d519-b1db-4e2e-bbf6-fc37655c961c",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -3521,7 +3521,7 @@
                 "conditions": [
                   {
                     "leftValue": "={{ $('RabbitMQ Trigger').item.json.body.Tipo }}",
-                    "rightValue": "2_dias_despues",
+                    "rightValue": "3_dias_despues",
                     "operator": {
                       "type": "string",
                       "operation": "equals"
@@ -3532,7 +3532,7 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "2_dias_despues"
+              "outputKey": "3_dias_despues"
             },
             {
               "conditions": {
@@ -3546,7 +3546,7 @@
                   {
                     "id": "3e142f2b-88d5-4e0e-ab06-3287a8f1118a",
                     "leftValue": "={{ $('RabbitMQ Trigger').item.json.body.Tipo }}",
-                    "rightValue": "10_dias_despues",
+                    "rightValue": "13_dias_despues",
                     "operator": {
                       "type": "string",
                       "operation": "equals",
@@ -3557,7 +3557,7 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "10_dias_despues"
+              "outputKey": "13_dias_despues"
             }
           ]
         },
@@ -5847,6 +5847,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-15T18:21:59.843Z",
-  "versionId": "b4576153-5e7c-4533-a10f-977846d2db1a"
+  "updatedAt": "2026-01-20T01:29:11.913Z",
+  "versionId": "0958d519-b1db-4e2e-bbf6-fc37655c961c"
 }
