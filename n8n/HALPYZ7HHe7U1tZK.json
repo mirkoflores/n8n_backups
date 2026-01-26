@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-20T01:29:13.802Z",
-    "createdAt": "2026-01-20T01:29:11.918Z",
-    "versionId": "0958d519-b1db-4e2e-bbf6-fc37655c961c",
+    "updatedAt": "2026-01-25T19:13:21.069Z",
+    "createdAt": "2026-01-25T19:12:36.346Z",
+    "versionId": "e655e9c0-f8e5-461a-9cd2-09f602be6c0e",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -27,7 +27,7 @@
         "type": "n8n-nodes-base.rabbitmqTrigger",
         "typeVersion": 1,
         "position": [
-          -432,
+          -480,
           288
         ],
         "id": "fcab0a63-2837-4795-b55b-4ed2e2273d42",
@@ -99,7 +99,7 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          -224,
+          -16,
           288
         ],
         "id": "6be829f7-3ac9-4247-afd4-753da1225f7a",
@@ -128,7 +128,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          336,
+          544,
           -96
         ],
         "id": "69da828d-2f11-465c-9abb-d755e930d26c",
@@ -166,7 +166,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          544,
+          752,
           -96
         ],
         "id": "1e6aa1e8-3f99-40c8-ac8d-cbfa8411c83f",
@@ -213,7 +213,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          752,
+          960,
           -96
         ],
         "id": "8857b9b7-3bf4-4faa-9211-8b2a98d3dc31",
@@ -276,7 +276,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          1216,
+          1424,
           -96
         ],
         "id": "653c70e5-2027-48f4-8aaa-c76800021e50",
@@ -334,7 +334,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          976,
+          1184,
           -96
         ],
         "id": "38e0ea79-a258-4305-82e0-ae6266e492aa",
@@ -354,7 +354,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          1888,
+          2096,
           -96
         ],
         "id": "7fc09309-e765-45a7-9112-5411a66bb710",
@@ -393,7 +393,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          1440,
+          1648,
           -96
         ],
         "id": "cf252b35-68b6-46b8-835f-30c60d4c96ae",
@@ -428,11 +428,14 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          176,
+          384,
           736
         ],
         "id": "20c2c03f-e9dc-43b9-a9a8-7e7d6668e643",
         "name": "obtener registro - cliente1",
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
         "credentials": {
           "airtableOAuth2Api": {
             "id": "mylJqD7auLJ9sN2T",
@@ -473,7 +476,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          384,
+          592,
           736
         ],
         "id": "dcd85f61-dd1e-4a90-99b0-bde925865b4e",
@@ -513,7 +516,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1296,
+          1504,
           736
         ],
         "id": "89fffdac-5ca3-4793-a399-cd18a0078279",
@@ -584,7 +587,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1056,
+          1264,
           736
         ],
         "id": "6d061b8a-de09-49ab-bea0-3faa8c6a2948",
@@ -640,7 +643,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          2096,
+          2304,
           -96
         ],
         "id": "737d7bb5-3d64-4353-8a49-ea1e05845a34",
@@ -710,7 +713,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          1616,
+          1824,
           496
         ],
         "id": "1389f773-7f67-4f3d-b574-637bb1529292",
@@ -884,7 +887,7 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          1824,
+          2032,
           1040
         ],
         "id": "fe95589e-5f05-41ee-bcae-cdb1a17b477a",
@@ -948,7 +951,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          2400,
+          2608,
           1968
         ],
         "id": "b09e0af8-055b-4b94-ba5d-7b49aebc0781",
@@ -1007,7 +1010,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3056,
+          3264,
           384
         ],
         "id": "4b61bfd7-993e-4650-a910-3dcd6e09f2d5",
@@ -1060,7 +1063,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3056,
+          3264,
           864
         ],
         "id": "6d93b6ab-4f4e-4dc6-ab0b-c63d8c18592e",
@@ -1113,7 +1116,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3040,
+          3248,
           1264
         ],
         "id": "86d0b719-c809-4fe2-8b31-20dc01c4d79f",
@@ -1166,7 +1169,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3040,
+          3248,
           1680
         ],
         "id": "4e46ec59-c170-47a8-acf1-25bbf454cf66",
@@ -1196,7 +1199,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2672,
+          2880,
           464
         ],
         "id": "bd4d6312-edc8-4f15-9a43-6d178d82a788",
@@ -1234,7 +1237,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2704,
+          2912,
           864
         ],
         "id": "3ce310e2-42cc-4d61-8a27-33937d6685d1",
@@ -1272,7 +1275,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2720,
+          2928,
           1264
         ],
         "id": "78fed7e0-f39c-4956-b369-ccc6c4e4c0ea",
@@ -1310,7 +1313,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2736,
+          2944,
           1680
         ],
         "id": "5caf50bd-9ef8-42ff-9973-805ec3fa84cb",
@@ -1352,7 +1355,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3568,
+          3776,
           1008
         ],
         "id": "da1806e3-681a-45f9-bc9c-5b2f2380de45",
@@ -1416,7 +1419,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3840,
+          4048,
           1104
         ],
         "id": "0ce98e26-a229-48d9-b221-84b1fcc085d6",
@@ -1451,7 +1454,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          3840,
+          4048,
           912
         ],
         "id": "3668c4e3-d0a8-4edc-9847-5a9363805e21",
@@ -1516,7 +1519,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3360,
+          3568,
           1008
         ],
         "id": "314dbfce-4cad-4e7c-81f7-6c44b70abf0f",
@@ -1545,7 +1548,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4864,
+          5072,
           912
         ],
         "id": "8060199c-603f-4935-97eb-165fd243a9a0",
@@ -1608,7 +1611,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          5360,
+          5568,
           912
         ],
         "id": "3e2fef3f-de53-42a7-868f-5d955d0a036b",
@@ -1672,7 +1675,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5120,
+          5328,
           912
         ],
         "id": "d9f1328c-5c7e-4ee3-b126-ef238f1c5496",
@@ -1692,7 +1695,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          6032,
+          6240,
           912
         ],
         "id": "76ff4cff-4bed-4ba3-9478-5635eccf18d2",
@@ -1747,7 +1750,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          5584,
+          5792,
           912
         ],
         "id": "e2792c5c-e57e-4c25-a310-b4909b6cbd4d",
@@ -1809,7 +1812,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          6240,
+          6448,
           912
         ],
         "id": "fe9f7e8a-95e7-4b72-8539-2f927d73ed0e",
@@ -1849,7 +1852,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          592,
+          800,
           736
         ],
         "id": "dc9152c9-40c0-4e6e-8c58-1d3a922aecdf",
@@ -1917,7 +1920,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          816,
+          1024,
           864
         ],
         "id": "0a8e751c-662b-4f27-8285-3d942fb16ae9",
@@ -1957,7 +1960,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          4048,
+          4256,
           912
         ],
         "id": "d507e701-570a-41d6-ae16-fd2e58805f54",
@@ -1992,7 +1995,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4288,
+          4496,
           1024
         ],
         "id": "534809a8-0b75-43de-958d-3f59353be067",
@@ -2079,7 +2082,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          4640,
+          4848,
           912
         ],
         "id": "61d6d58d-3edc-43a1-ba7d-e302b4a7fdc6",
@@ -2114,7 +2117,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4288,
+          4496,
           784
         ],
         "id": "a9e99d03-4c99-4cc5-a136-02cfcdc910df",
@@ -2146,7 +2149,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1584,
+          1792,
           1120
         ],
         "id": "de7b2e77-91eb-4d20-aa12-3b6bc0b1229a",
@@ -2188,7 +2191,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2384,
+          2592,
           352
         ],
         "id": "76d74d0e-8e17-421a-ba9c-58ea1dc8f493",
@@ -2222,7 +2225,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2384,
+          2592,
           704
         ],
         "id": "c9ebd26f-9dcb-4cd8-97f9-ed3897ce760d",
@@ -2256,7 +2259,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2384,
+          2592,
           1024
         ],
         "id": "60e8afeb-43d2-429e-bc34-f6e49fc8c7ff",
@@ -2290,7 +2293,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2384,
+          2592,
           1456
         ],
         "id": "85b45132-e6b2-4fbb-bb0e-f1a0ae0341b4",
@@ -2301,7 +2304,7 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          5792,
+          6000,
           912
         ],
         "id": "eaa6ad67-24eb-4335-9448-70c727e5027d",
@@ -2313,12 +2316,24 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          1648,
+          1856,
           -96
         ],
         "id": "668b8dfa-02d7-4f4b-bf52-36c2b81f153e",
         "name": "Wait1",
         "webhookId": "a72bbf02-d4ee-4684-83ff-3acdf801c2db"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          -272,
+          288
+        ],
+        "id": "576643bf-3a1f-4810-bc6f-ccc740deb938",
+        "name": "Wait2",
+        "webhookId": "62b86db7-186b-47bf-8968-cc84a27c2143"
       }
     ],
     "connections": {
@@ -2326,7 +2341,7 @@
         "main": [
           [
             {
-              "node": "tipo",
+              "node": "Wait2",
               "type": "main",
               "index": 0
             }
@@ -2888,20 +2903,31 @@
             }
           ]
         ]
+      },
+      "Wait2": {
+        "main": [
+          [
+            {
+              "node": "tipo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 0958d519",
+    "name": "Version e655e9c0",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "0958d519-b1db-4e2e-bbf6-fc37655c961c",
+  "activeVersionId": "e655e9c0-f8e5-461a-9cd2-09f602be6c0e",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
         [
           {
-            "node": "tipo",
+            "node": "Wait2",
             "type": "main",
             "index": 0
           }
@@ -3463,6 +3489,17 @@
           }
         ]
       ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "tipo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-05T00:30:31.045Z",
@@ -3494,7 +3531,7 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        -432,
+        -480,
         288
       ],
       "id": "fcab0a63-2837-4795-b55b-4ed2e2273d42",
@@ -3566,7 +3603,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        -224,
+        -16,
         288
       ],
       "id": "6be829f7-3ac9-4247-afd4-753da1225f7a",
@@ -3595,7 +3632,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        336,
+        544,
         -96
       ],
       "id": "69da828d-2f11-465c-9abb-d755e930d26c",
@@ -3633,7 +3670,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        544,
+        752,
         -96
       ],
       "id": "1e6aa1e8-3f99-40c8-ac8d-cbfa8411c83f",
@@ -3680,7 +3717,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        752,
+        960,
         -96
       ],
       "id": "8857b9b7-3bf4-4faa-9211-8b2a98d3dc31",
@@ -3743,7 +3780,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        1216,
+        1424,
         -96
       ],
       "id": "653c70e5-2027-48f4-8aaa-c76800021e50",
@@ -3801,7 +3838,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        976,
+        1184,
         -96
       ],
       "id": "38e0ea79-a258-4305-82e0-ae6266e492aa",
@@ -3821,7 +3858,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        1888,
+        2096,
         -96
       ],
       "id": "7fc09309-e765-45a7-9112-5411a66bb710",
@@ -3860,7 +3897,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        1440,
+        1648,
         -96
       ],
       "id": "cf252b35-68b6-46b8-835f-30c60d4c96ae",
@@ -3895,11 +3932,14 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        176,
+        384,
         736
       ],
       "id": "20c2c03f-e9dc-43b9-a9a8-7e7d6668e643",
       "name": "obtener registro - cliente1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "credentials": {
         "airtableOAuth2Api": {
           "id": "mylJqD7auLJ9sN2T",
@@ -3940,7 +3980,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        384,
+        592,
         736
       ],
       "id": "dcd85f61-dd1e-4a90-99b0-bde925865b4e",
@@ -3980,7 +4020,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1296,
+        1504,
         736
       ],
       "id": "89fffdac-5ca3-4793-a399-cd18a0078279",
@@ -4051,7 +4091,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1056,
+        1264,
         736
       ],
       "id": "6d061b8a-de09-49ab-bea0-3faa8c6a2948",
@@ -4107,7 +4147,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        2096,
+        2304,
         -96
       ],
       "id": "737d7bb5-3d64-4353-8a49-ea1e05845a34",
@@ -4177,7 +4217,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        1616,
+        1824,
         496
       ],
       "id": "1389f773-7f67-4f3d-b574-637bb1529292",
@@ -4351,7 +4391,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        1824,
+        2032,
         1040
       ],
       "id": "fe95589e-5f05-41ee-bcae-cdb1a17b477a",
@@ -4415,7 +4455,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        2400,
+        2608,
         1968
       ],
       "id": "b09e0af8-055b-4b94-ba5d-7b49aebc0781",
@@ -4474,7 +4514,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3056,
+        3264,
         384
       ],
       "id": "4b61bfd7-993e-4650-a910-3dcd6e09f2d5",
@@ -4527,7 +4567,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3056,
+        3264,
         864
       ],
       "id": "6d93b6ab-4f4e-4dc6-ab0b-c63d8c18592e",
@@ -4580,7 +4620,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3040,
+        3248,
         1264
       ],
       "id": "86d0b719-c809-4fe2-8b31-20dc01c4d79f",
@@ -4633,7 +4673,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3040,
+        3248,
         1680
       ],
       "id": "4e46ec59-c170-47a8-acf1-25bbf454cf66",
@@ -4663,7 +4703,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2672,
+        2880,
         464
       ],
       "id": "bd4d6312-edc8-4f15-9a43-6d178d82a788",
@@ -4701,7 +4741,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2704,
+        2912,
         864
       ],
       "id": "3ce310e2-42cc-4d61-8a27-33937d6685d1",
@@ -4739,7 +4779,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2720,
+        2928,
         1264
       ],
       "id": "78fed7e0-f39c-4956-b369-ccc6c4e4c0ea",
@@ -4777,7 +4817,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2736,
+        2944,
         1680
       ],
       "id": "5caf50bd-9ef8-42ff-9973-805ec3fa84cb",
@@ -4819,7 +4859,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3568,
+        3776,
         1008
       ],
       "id": "da1806e3-681a-45f9-bc9c-5b2f2380de45",
@@ -4883,7 +4923,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3840,
+        4048,
         1104
       ],
       "id": "0ce98e26-a229-48d9-b221-84b1fcc085d6",
@@ -4918,7 +4958,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3840,
+        4048,
         912
       ],
       "id": "3668c4e3-d0a8-4edc-9847-5a9363805e21",
@@ -4983,7 +5023,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3360,
+        3568,
         1008
       ],
       "id": "314dbfce-4cad-4e7c-81f7-6c44b70abf0f",
@@ -5012,7 +5052,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4864,
+        5072,
         912
       ],
       "id": "8060199c-603f-4935-97eb-165fd243a9a0",
@@ -5075,7 +5115,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        5360,
+        5568,
         912
       ],
       "id": "3e2fef3f-de53-42a7-868f-5d955d0a036b",
@@ -5139,7 +5179,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5120,
+        5328,
         912
       ],
       "id": "d9f1328c-5c7e-4ee3-b126-ef238f1c5496",
@@ -5159,7 +5199,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        6032,
+        6240,
         912
       ],
       "id": "76ff4cff-4bed-4ba3-9478-5635eccf18d2",
@@ -5214,7 +5254,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        5584,
+        5792,
         912
       ],
       "id": "e2792c5c-e57e-4c25-a310-b4909b6cbd4d",
@@ -5276,7 +5316,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        6240,
+        6448,
         912
       ],
       "id": "fe9f7e8a-95e7-4b72-8539-2f927d73ed0e",
@@ -5316,7 +5356,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        592,
+        800,
         736
       ],
       "id": "dc9152c9-40c0-4e6e-8c58-1d3a922aecdf",
@@ -5384,7 +5424,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        816,
+        1024,
         864
       ],
       "id": "0a8e751c-662b-4f27-8285-3d942fb16ae9",
@@ -5424,7 +5464,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        4048,
+        4256,
         912
       ],
       "id": "d507e701-570a-41d6-ae16-fd2e58805f54",
@@ -5459,7 +5499,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4288,
+        4496,
         1024
       ],
       "id": "534809a8-0b75-43de-958d-3f59353be067",
@@ -5546,7 +5586,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        4640,
+        4848,
         912
       ],
       "id": "61d6d58d-3edc-43a1-ba7d-e302b4a7fdc6",
@@ -5581,7 +5621,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4288,
+        4496,
         784
       ],
       "id": "a9e99d03-4c99-4cc5-a136-02cfcdc910df",
@@ -5613,7 +5653,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1584,
+        1792,
         1120
       ],
       "id": "de7b2e77-91eb-4d20-aa12-3b6bc0b1229a",
@@ -5655,7 +5695,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2384,
+        2592,
         352
       ],
       "id": "76d74d0e-8e17-421a-ba9c-58ea1dc8f493",
@@ -5689,7 +5729,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2384,
+        2592,
         704
       ],
       "id": "c9ebd26f-9dcb-4cd8-97f9-ed3897ce760d",
@@ -5723,7 +5763,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2384,
+        2592,
         1024
       ],
       "id": "60e8afeb-43d2-429e-bc34-f6e49fc8c7ff",
@@ -5757,7 +5797,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2384,
+        2592,
         1456
       ],
       "id": "85b45132-e6b2-4fbb-bb0e-f1a0ae0341b4",
@@ -5768,7 +5808,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        5792,
+        6000,
         912
       ],
       "id": "eaa6ad67-24eb-4335-9448-70c727e5027d",
@@ -5780,12 +5820,24 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1648,
+        1856,
         -96
       ],
       "id": "668b8dfa-02d7-4f4b-bf52-36c2b81f153e",
       "name": "Wait1",
       "webhookId": "a72bbf02-d4ee-4684-83ff-3acdf801c2db"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -272,
+        288
+      ],
+      "id": "576643bf-3a1f-4810-bc6f-ccc740deb938",
+      "name": "Wait2",
+      "webhookId": "62b86db7-186b-47bf-8968-cc84a27c2143"
     }
   ],
   "pinData": {
@@ -5800,21 +5852,21 @@
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wflF0v8TmvsCxuuSu",
-            "x-forwarded-for": "52.87.203.54",
+            "x-forwarded-for": "3.218.247.254",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "ihBVS2LIR7OjWzk5g4a9AQ",
-            "x-real-ip": "52.87.203.54",
-            "x-request-start": "1768453483851"
+            "x-railway-request-id": "PYLoSVkHQl2cVulOwoOzXw",
+            "x-real-ip": "3.218.247.254",
+            "x-request-start": "1769231775197"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_upselling"
           },
           "body": {
-            "recordId": "recvtiHpR180a4fAu",
-            "Tipo": "10_dias_despues"
+            "recordId": "recowTqtqItjLRnBH",
+            "Tipo": "13_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -5847,6 +5899,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-20T01:29:11.913Z",
-  "versionId": "0958d519-b1db-4e2e-bbf6-fc37655c961c"
+  "updatedAt": "2026-01-25T19:12:36.342Z",
+  "versionId": "e655e9c0-f8e5-461a-9cd2-09f602be6c0e"
 }
