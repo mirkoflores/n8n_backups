@@ -1,0 +1,694 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "Get list of contacts": {
+      "main": [
+        [
+          {
+            "node": "existe contacto?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe contacto?": {
+      "main": [
+        [
+          {
+            "node": "Update contacts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create new contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tiene leads?": {
+      "main": [
+        [
+          {
+            "node": "Obtener info de lead",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "id_contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new contacts": {
+      "main": [
+        [
+          {
+            "node": "id_contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create new leads": {
+      "main": [
+        [
+          {
+            "node": "contact_lead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact": {
+      "main": [
+        [
+          {
+            "node": "id_contact2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact1": {
+      "main": [
+        [
+          {
+            "node": "id_contact2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update contacts": {
+      "main": [
+        [
+          {
+            "node": "tiene leads?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contact_lead": {
+      "main": [
+        [
+          {
+            "node": "Variables_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contact_lead1": {
+      "main": [
+        [
+          {
+            "node": "Variables_3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "id_contact2": {
+      "main": [
+        [
+          {
+            "node": "Create new leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Variables_3": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener info de lead": {
+      "main": [
+        [
+          {
+            "node": "no esta en etapa perdida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "no esta en etapa perdida": {
+      "main": [
+        [
+          {
+            "node": "contact_lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Get list of contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-30T17:13:28.387Z",
+  "id": "YJ6308qhBlbDliLk",
+  "isArchived": false,
+  "meta": null,
+  "name": "Definir ID contacto y lead en Kommo - asesoria envio de mensaje",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "contacts",
+        "operation": "createContacts",
+        "collection": {
+          "contact": [
+            {
+              "name": "={{ $('Start').item.json.nombre }}",
+              "custom_fields_values": {
+                "custom_field": [
+                  {
+                    "data": "{\"id\":1303680,\"type\":\"multitext\"}",
+                    "value": "={{ $('Start').item.json.celular }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        1968,
+        16
+      ],
+      "id": "6d6dc56f-eb2f-425b-ade7-86e214df7797",
+      "name": "Create new contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $json._embedded.contacts[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2752,
+        16
+      ],
+      "id": "a7731886-72ec-44bc-8494-db71df77d9b9",
+      "name": "id_contact1"
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "operation": "createLeads",
+        "collection": {
+          "lead": [
+            {
+              "name": "={{ $('Start').item.json.nombre }}",
+              "pipeline_id": 8756191,
+              "status_id": "={{ $('Start').item.json.lead_etapa }}",
+              "_embedded": {
+                "contacts": [
+                  {
+                    "id": {
+                      "contact": [
+                        {
+                          "id": "={{ $json.id_contact }}"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        3536,
+        -128
+      ],
+      "id": "0094f162-2362-4a12-ab8b-7559b095237f",
+      "name": "Create new leads",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $('id_contact2').item.json.id_contact }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $json._embedded.leads[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3776,
+        -128
+      ],
+      "id": "e3034384-1c81-44b2-b018-7ad70cf7eef6",
+      "name": "contact_lead1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $json.id_contact }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3280,
+        -128
+      ],
+      "id": "406adaf6-335d-43a0-ac68-00e51abf14b1",
+      "name": "id_contact2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
+              "name": "id_contact",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2960,
+        -176
+      ],
+      "id": "68530cca-5e2f-46e2-b3bb-d938982ca797",
+      "name": "id_contact"
+    },
+    {
+      "parameters": {
+        "resource": "contacts",
+        "filter": {
+          "query": "={{ $('Start').item.json.celular }}"
+        },
+        "options": {
+          "with": [
+            "leads"
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        1488,
+        -192
+      ],
+      "id": "2d420728-1f8e-4f19-8e7b-af093d210b7e",
+      "name": "Get list of contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "fc632a6e-e3be-4b43-8535-83bfe0fa949c",
+              "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1696,
+        -192
+      ],
+      "id": "e77d250d-7db7-41e5-97aa-804cae02e90a",
+      "name": "existe contacto?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e76c1e07-8bf3-4d90-b985-7702d222ece7",
+              "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2512,
+        -272
+      ],
+      "id": "8d93cc95-1a34-4f58-a5d1-1e15d56adba9",
+      "name": "tiene leads?"
+    },
+    {
+      "parameters": {
+        "resource": "contacts",
+        "operation": "updateContacts",
+        "collection": {
+          "contact": [
+            {
+              "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        2160,
+        -272
+      ],
+      "id": "7b41651d-c201-4fa1-90f5-dff02273063b",
+      "name": "Update contacts",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $json.id_contacto }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $json.id_lead }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4240,
+        -272
+      ],
+      "id": "64b956ed-37f4-4852-9649-1bdb99d7c73b",
+      "name": "Variables_3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
+              "name": "id_contacto",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
+              "type": "number"
+            },
+            {
+              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
+              "name": "id_lead",
+              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3984,
+        -400
+      ],
+      "id": "42b17704-fbb4-4ee7-be33-6055923c5544",
+      "name": "contact_lead"
+    },
+    {
+      "parameters": {
+        "resource": "leads",
+        "filter": {
+          "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads[0].id }}"
+        },
+        "options": {},
+        "limit": 1
+      },
+      "type": "n8n-nodes-kommo.kommo",
+      "typeVersion": 1,
+      "position": [
+        2944,
+        -400
+      ],
+      "id": "3251f168-2895-4f29-9a73-59b3b24ec335",
+      "name": "Obtener info de lead",
+      "credentials": {
+        "kommoOAuth2Api": {
+          "id": "yjgoywi6EgfDZmcO",
+          "name": "kommo_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "80f066bb-bb15-46f9-b9c3-9ab5bbd0ba4f",
+              "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+              "rightValue": 143,
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        3296,
+        -400
+      ],
+      "id": "6c138ae7-9113-40e1-801c-fc61953d8d47",
+      "name": "no esta en etapa perdida",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "celular"
+            },
+            {
+              "name": "nombre"
+            },
+            {
+              "name": "lead_etapa",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "id": "6a332783-87c7-40ce-a1d3-ca719a87fcc8",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        1280,
+        -192
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 65860,\n    \"entity_id\": {{ $json.id_lead }},\n    \"entity_type\": 2\n  }\n] ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        4496,
+        -272
+      ],
+      "id": "c4606086-a33e-43f3-9270-80261a439ac0",
+      "name": "Enviar mensaje",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Start": [
+      {
+        "json": {
+          "celular": "+513",
+          "nombre": "Yamilet Gomez",
+          "lead_etapa": 68677515
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-01-30T17:13:28.387Z",
+      "createdAt": "2026-01-30T17:13:28.387Z",
+      "role": "workflow:owner",
+      "workflowId": "YJ6308qhBlbDliLk",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-30T17:20:03.720Z",
+  "versionId": "84660856-39e3-496c-8f76-f2e89e47ec43"
+}
