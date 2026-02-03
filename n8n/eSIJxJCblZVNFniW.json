@@ -1,50 +1,11 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-14T21:28:16.460Z",
-    "createdAt": "2026-01-14T21:28:15.147Z",
-    "versionId": "20596559-04d2-411c-be63-275ce5083844",
+    "updatedAt": "2026-02-03T03:28:39.751Z",
+    "createdAt": "2026-02-03T03:28:38.280Z",
+    "versionId": "b84a8ed2-bffa-4989-82a2-d25ffd80cc56",
     "workflowId": "eSIJxJCblZVNFniW",
     "nodes": [
-      {
-        "parameters": {
-          "authentication": "airtableOAuth2Api",
-          "operation": "search",
-          "base": {
-            "__rl": true,
-            "value": "appBCL3CWLhCwIjnP",
-            "mode": "list",
-            "cachedResultName": "BioEnglish",
-            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
-          },
-          "table": {
-            "__rl": true,
-            "value": "tblkpm3CwBi8WctOZ",
-            "mode": "list",
-            "cachedResultName": "Clientes",
-            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
-          },
-          "filterByFormula": "={Email del estudiante}=\"{{$('verificar si existe estudiante').item.json.correo}}\"",
-          "returnAll": false,
-          "limit": 1,
-          "options": {}
-        },
-        "type": "n8n-nodes-base.airtable",
-        "typeVersion": 2.1,
-        "position": [
-          480,
-          352
-        ],
-        "id": "2eae95fa-db36-4b67-bb47-bdbfcbc04aea",
-        "name": "buscar cliente apoderado",
-        "alwaysOutputData": true,
-        "credentials": {
-          "airtableOAuth2Api": {
-            "id": "mylJqD7auLJ9sN2T",
-            "name": "Bioenglish_1"
-          }
-        }
-      },
       {
         "parameters": {
           "conditions": {
@@ -134,13 +95,13 @@
               {
                 "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
                 "name": "nombre_estudiante",
-                "value": "={{ $('buscar cliente apoderado').item.json['Nombre del estudiante'] }}",
+                "value": "={{ $('buscar cliente estudiante').item.json['Nombre del estudiante'] }}",
                 "type": "string"
               },
               {
                 "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
                 "name": "correo_estudiante",
-                "value": "={{ $('buscar cliente apoderado').item.json['Email del estudiante'] }}",
+                "value": "={{ $('buscar cliente estudiante').item.json['Email del estudiante'] }}",
                 "type": "string"
               }
             ]
@@ -184,20 +145,48 @@
         ],
         "id": "edcc877a-cc3c-4560-a1fc-66b253f627db",
         "name": "info_estudiante_final"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblkpm3CwBi8WctOZ",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+          },
+          "filterByFormula": "={Email del estudiante}=\"{{$('verificar si existe estudiante').item.json.correo}}\"",
+          "returnAll": false,
+          "limit": 1,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          480,
+          352
+        ],
+        "id": "2eae95fa-db36-4b67-bb47-bdbfcbc04aea",
+        "name": "buscar cliente estudiante",
+        "alwaysOutputData": true,
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
       }
     ],
     "connections": {
-      "buscar cliente apoderado": {
-        "main": [
-          [
-            {
-              "node": "encontro?3",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "encontro?3": {
         "main": [
           [
@@ -220,7 +209,7 @@
         "main": [
           [
             {
-              "node": "buscar cliente apoderado",
+              "node": "buscar cliente estudiante",
               "type": "main",
               "index": 0
             }
@@ -248,26 +237,26 @@
             }
           ]
         ]
+      },
+      "buscar cliente estudiante": {
+        "main": [
+          [
+            {
+              "node": "encontro?3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 20596559",
+    "name": "Version b84a8ed2",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "20596559-04d2-411c-be63-275ce5083844",
+  "activeVersionId": "b84a8ed2-bffa-4989-82a2-d25ffd80cc56",
   "connections": {
-    "buscar cliente apoderado": {
-      "main": [
-        [
-          {
-            "node": "encontro?3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "encontro?3": {
       "main": [
         [
@@ -290,7 +279,7 @@
       "main": [
         [
           {
-            "node": "buscar cliente apoderado",
+            "node": "buscar cliente estudiante",
             "type": "main",
             "index": 0
           }
@@ -318,6 +307,17 @@
           }
         ]
       ]
+    },
+    "buscar cliente estudiante": {
+      "main": [
+        [
+          {
+            "node": "encontro?3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-14T21:13:28.983Z",
@@ -328,45 +328,6 @@
   },
   "name": "verificar si existe estudiante",
   "nodes": [
-    {
-      "parameters": {
-        "authentication": "airtableOAuth2Api",
-        "operation": "search",
-        "base": {
-          "__rl": true,
-          "value": "appBCL3CWLhCwIjnP",
-          "mode": "list",
-          "cachedResultName": "BioEnglish",
-          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblkpm3CwBi8WctOZ",
-          "mode": "list",
-          "cachedResultName": "Clientes",
-          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
-        },
-        "filterByFormula": "={Email del estudiante}=\"{{$('verificar si existe estudiante').item.json.correo}}\"",
-        "returnAll": false,
-        "limit": 1,
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        480,
-        352
-      ],
-      "id": "2eae95fa-db36-4b67-bb47-bdbfcbc04aea",
-      "name": "buscar cliente apoderado",
-      "alwaysOutputData": true,
-      "credentials": {
-        "airtableOAuth2Api": {
-          "id": "mylJqD7auLJ9sN2T",
-          "name": "Bioenglish_1"
-        }
-      }
-    },
     {
       "parameters": {
         "conditions": {
@@ -456,13 +417,13 @@
             {
               "id": "78d30251-c3ad-462a-8366-bac1f6216f98",
               "name": "nombre_estudiante",
-              "value": "={{ $('buscar cliente apoderado').item.json['Nombre del estudiante'] }}",
+              "value": "={{ $('buscar cliente estudiante').item.json['Nombre del estudiante'] }}",
               "type": "string"
             },
             {
               "id": "9fea6775-4cf2-4cd1-8d53-f6cb9e1d4746",
               "name": "correo_estudiante",
-              "value": "={{ $('buscar cliente apoderado').item.json['Email del estudiante'] }}",
+              "value": "={{ $('buscar cliente estudiante').item.json['Email del estudiante'] }}",
               "type": "string"
             }
           ]
@@ -506,6 +467,45 @@
       ],
       "id": "edcc877a-cc3c-4560-a1fc-66b253f627db",
       "name": "info_estudiante_final"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "filterByFormula": "={Email del estudiante}=\"{{$('verificar si existe estudiante').item.json.correo}}\"",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        352
+      ],
+      "id": "2eae95fa-db36-4b67-bb47-bdbfcbc04aea",
+      "name": "buscar cliente estudiante",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -539,6 +539,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-14T21:28:15.145Z",
-  "versionId": "20596559-04d2-411c-be63-275ce5083844"
+  "updatedAt": "2026-02-03T03:28:38.276Z",
+  "versionId": "b84a8ed2-bffa-4989-82a2-d25ffd80cc56"
 }
