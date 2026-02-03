@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-14T18:39:05.510Z",
-    "createdAt": "2026-01-14T18:39:03.866Z",
-    "versionId": "4c1f955a-6a01-43ee-96f0-c1f05abb95b0",
+    "updatedAt": "2026-02-03T03:27:02.784Z",
+    "createdAt": "2026-02-03T03:27:00.433Z",
+    "versionId": "050f0833-546a-495a-96fe-5c400aed5298",
     "workflowId": "NDODlDQBUvrwqCwc",
     "nodes": [
       {
@@ -13,8 +13,8 @@
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "typeVersion": 1.1,
         "position": [
-          -1872,
-          96
+          -2304,
+          112
         ],
         "id": "a6793cd7-5705-48dd-b277-cd80dc2aaa62",
         "name": "When Executed by Another Workflow"
@@ -55,8 +55,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          928,
-          0
+          496,
+          16
         ],
         "name": "estudiante_codigo_de_pais",
         "id": "747c66b0-d99d-4861-9a56-dfd97b78da1d"
@@ -97,8 +97,8 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          1168,
-          0
+          928,
+          -208
         ],
         "name": "apoderado_codigo_de_pais",
         "id": "a9ec0b1b-7ddd-4130-b309-b802b1b8507c",
@@ -117,7 +117,7 @@
               {
                 "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
                 "name": "numero_completo_apoderado",
-                "value": "=+{{ $('apoderado_codigo_de_pais').item.json.codigo_de_pais }}{{ $('When Executed by Another Workflow').item.json.celular_apoderado_sin_codigo }}",
+                "value": "={{ $('celular_apoderado_completo_final').item.json.numero_completo_apoderado }}",
                 "type": "string"
               },
               {
@@ -217,8 +217,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1632,
-          0
+          1888,
+          -48
         ],
         "id": "f428c7a4-e52a-42f9-ad74-e9cbb2259979",
         "name": "variables_1"
@@ -249,8 +249,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          5360,
-          -176
+          5616,
+          -224
         ],
         "id": "c012a86a-1091-4db3-8303-87d8dc5853de",
         "name": "buscar - cliente - numero estudiante",
@@ -290,8 +290,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1888,
-          0
+          2144,
+          -48
         ],
         "id": "947a5b48-dc95-49ff-b9ec-74d041478614",
         "name": "tiene info de apoderado?"
@@ -324,8 +324,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2320,
-          -160
+          2576,
+          -208
         ],
         "id": "8f3d8f17-eafa-4422-9107-cd68574874c2",
         "name": "encontro?"
@@ -356,8 +356,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2112,
-          -160
+          2368,
+          -208
         ],
         "id": "cd2b7a95-30a8-49a9-8adf-f5f9fb531f0c",
         "name": "buscar contacto - celular - apoderado",
@@ -395,8 +395,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2544,
-          -32
+          2800,
+          -80
         ],
         "id": "ea7be072-1f18-4eeb-bf2f-deec539cad5f",
         "name": "buscar contacto - correo - apoderado",
@@ -436,8 +436,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2736,
-          -32
+          2992,
+          -80
         ],
         "id": "8e7303c2-26bc-4a47-bf31-06614671b073",
         "name": "encontro?1"
@@ -464,597 +464,12 @@
             "mappingMode": "defineBelow",
             "value": {
               "Celular": "={{ $('variables_1').item.json.numero_completo_apoderado }}",
-              "Email": "={{ $('variables_1').item.json.email_apoderado }}"
+              "Email": "={{ $('variables_1').item.json.email_apoderado }}",
+              "DNI apoderado": "={{ $('variables_1').item.json.dni_apoderado }}",
+              "nivel ingles apoderado": "={{ $('variables_1').item.json['nivel_inglés_apoderado'] }}"
             },
             "matchingColumns": [],
             "schema": [
-              {
-                "id": "Celular",
-                "displayName": "Celular",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Ultima Int.",
-                "displayName": "Ultima Int.",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Nombre (from OPT)",
-                "displayName": "Nombre (from OPT)",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Para quien Last",
-                "displayName": "Para quien Last",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Nivel",
-                "displayName": "Nivel",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Embudo",
-                "displayName": "Embudo",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "options",
-                "options": [
-                  {
-                    "name": "1. Contactado",
-                    "value": "1. Contactado"
-                  },
-                  {
-                    "name": "2. Seguimiento",
-                    "value": "2. Seguimiento"
-                  },
-                  {
-                    "name": "3. Agendó",
-                    "value": "3. Agendó"
-                  },
-                  {
-                    "name": "4. Asistió",
-                    "value": "4. Asistió"
-                  },
-                  {
-                    "name": "5. Reagendó",
-                    "value": "5. Reagendó"
-                  },
-                  {
-                    "name": "6. No asistió",
-                    "value": "6. No asistió"
-                  },
-                  {
-                    "name": "7. Promesa",
-                    "value": "7. Promesa"
-                  },
-                  {
-                    "name": "8. Ganado",
-                    "value": "8. Ganado"
-                  },
-                  {
-                    "name": "9. Perdido",
-                    "value": "9. Perdido"
-                  },
-                  {
-                    "name": "10. Cel_inválido",
-                    "value": "10. Cel_inválido"
-                  }
-                ],
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Last modified Embudo",
-                "displayName": "Last modified Embudo",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Grupo I",
-                "displayName": "Grupo I",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "options",
-                "options": [
-                  {
-                    "name": "Pre Starters-P",
-                    "value": "Pre Starters-P"
-                  },
-                  {
-                    "name": "Starters-B",
-                    "value": "Starters-B"
-                  },
-                  {
-                    "name": "Movers-B",
-                    "value": "Movers-B"
-                  },
-                  {
-                    "name": "Flyers-PI",
-                    "value": "Flyers-PI"
-                  },
-                  {
-                    "name": "L en I-B",
-                    "value": "L en I-B"
-                  },
-                  {
-                    "name": "YLEA1+-B",
-                    "value": "YLEA1+-B"
-                  },
-                  {
-                    "name": "KET A2-PI",
-                    "value": "KET A2-PI"
-                  },
-                  {
-                    "name": "PET B1-I",
-                    "value": "PET B1-I"
-                  },
-                  {
-                    "name": "FCE B2-IA",
-                    "value": "FCE B2-IA"
-                  },
-                  {
-                    "name": "C en I-B",
-                    "value": "C en I-B"
-                  },
-                  {
-                    "name": "C en I-I",
-                    "value": "C en I-I"
-                  },
-                  {
-                    "name": "Kinder-P",
-                    "value": "Kinder-P"
-                  },
-                  {
-                    "name": "YLE A1",
-                    "value": "YLE A1"
-                  }
-                ],
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "WA Boton",
-                "displayName": "WA Boton",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Cuándo?",
-                "displayName": "Cuándo?",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Calculation",
-                "displayName": "Calculation",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Clientes",
-                "displayName": "Clientes",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "array",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Clientes 2",
-                "displayName": "Clientes 2",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "array",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Email (from OPT)",
-                "displayName": "Email (from OPT)",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "CM",
-                "displayName": "CM",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "array",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Created",
-                "displayName": "Created",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "OPT",
-                "displayName": "OPT",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "array",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Nombre Last",
-                "displayName": "Nombre Last",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Para quien (from OPT)",
-                "displayName": "Para quien (from OPT)",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Nivel last",
-                "displayName": "Nivel last",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Email",
-                "displayName": "Email",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Ultima Int. ISO",
-                "displayName": "Ultima Int. ISO",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "WA Link",
-                "displayName": "WA Link",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "F",
-                "displayName": "F",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Grupo",
-                "displayName": "Grupo",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "array",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Fecha Clase Modelo",
-                "displayName": "Fecha Clase Modelo",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "dateTime",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Nombre hijo",
-                "displayName": "Nombre hijo",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Comentario",
-                "displayName": "Comentario",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "Pais Celular",
-                "displayName": "Pais Celular",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Funnel",
-                "displayName": "Funnel",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Last Modified",
-                "displayName": "Last Modified",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "OPT F (from OPT)",
-                "displayName": "OPT F (from OPT)",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "Calculation 2",
-                "displayName": "Calculation 2",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "OPT F (texto)",
-                "displayName": "OPT F (texto)",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": false
-              }
-            ],
-            "attemptToConvertTypes": false,
-            "convertFieldsToString": false
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.airtable",
-        "typeVersion": 2.1,
-        "position": [
-          2976,
-          112
-        ],
-        "id": "da7adc80-b9f4-445f-9e96-3da8a6604e90",
-        "name": "Crear contacto - apoderado",
-        "credentials": {
-          "airtableOAuth2Api": {
-            "id": "mylJqD7auLJ9sN2T",
-            "name": "Bioenglish_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "95db29f1-61eb-46be-81b4-b9b67f5933f3",
-                "name": "id_contacto_apoderado",
-                "value": "={{ $json.id }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          3488,
-          -192
-        ],
-        "id": "95a744ef-a4a8-41d9-81e0-2ebf30b33cff",
-        "name": "id contacto apoderado"
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 3
-            },
-            "conditions": [
-              {
-                "id": "f8a7e466-c719-4c42-8b29-a78e340278b6",
-                "leftValue": "={{ $json.Email }}",
-                "rightValue": "",
-                "operator": {
-                  "type": "string",
-                  "operation": "exists",
-                  "singleValue": true
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.3,
-        "position": [
-          2592,
-          -464
-        ],
-        "id": "7f941cf8-d44d-45fa-9a02-7c9f4612783b",
-        "name": "contacto tiene correo?"
-      },
-      {
-        "parameters": {
-          "authentication": "airtableOAuth2Api",
-          "operation": "update",
-          "base": {
-            "__rl": true,
-            "value": "appBCL3CWLhCwIjnP",
-            "mode": "list",
-            "cachedResultName": "BioEnglish",
-            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
-          },
-          "table": {
-            "__rl": true,
-            "value": "tblJJ8rZMUm9669EK",
-            "mode": "list",
-            "cachedResultName": "Contactos",
-            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblJJ8rZMUm9669EK"
-          },
-          "columns": {
-            "mappingMode": "defineBelow",
-            "value": {
-              "id": "={{ $json.id }}",
-              "Celular 2": "=",
-              "Email": "={{ $('variables_1').item.json.email_apoderado }}"
-            },
-            "matchingColumns": [
-              "id"
-            ],
-            "schema": [
-              {
-                "id": "id",
-                "displayName": "id",
-                "required": false,
-                "defaultMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": false
-              },
               {
                 "id": "Celular",
                 "displayName": "Celular",
@@ -1535,6 +950,50 @@
                 "type": "string",
                 "readOnly": false,
                 "removed": false
+              },
+              {
+                "id": "Email 2",
+                "displayName": "Email 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "id_record",
+                "displayName": "id_record",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "DNI apoderado",
+                "displayName": "DNI apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "nivel ingles apoderado",
+                "displayName": "nivel ingles apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -1545,17 +1004,40 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2976,
-          -368
+          3232,
+          64
         ],
-        "id": "51c29ec7-bfec-4097-8b80-861ad19a2439",
-        "name": "contacto - actualizar correo",
+        "id": "da7adc80-b9f4-445f-9e96-3da8a6604e90",
+        "name": "Crear contacto - apoderado",
         "credentials": {
           "airtableOAuth2Api": {
             "id": "mylJqD7auLJ9sN2T",
             "name": "Bioenglish_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "95db29f1-61eb-46be-81b4-b9b67f5933f3",
+                "name": "id_contacto_apoderado",
+                "value": "={{ $json.id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          3744,
+          -240
+        ],
+        "id": "95a744ef-a4a8-41d9-81e0-2ebf30b33cff",
+        "name": "id contacto apoderado"
       },
       {
         "parameters": {
@@ -1570,10 +1052,11 @@
               {
                 "id": "f8a7e466-c719-4c42-8b29-a78e340278b6",
                 "leftValue": "={{ $json.Email }}",
-                "rightValue": "={{ $('variables_1').item.json.email_apoderado }}",
+                "rightValue": "",
                 "operator": {
                   "type": "string",
-                  "operation": "equals"
+                  "operation": "exists",
+                  "singleValue": true
                 }
               }
             ],
@@ -1584,11 +1067,11 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3136,
-          -800
+          2848,
+          -512
         ],
-        "id": "ca6fcb41-7c87-4219-bbd8-7c792cc559d7",
-        "name": "es igual al correo que se tiene del apoderado?"
+        "id": "7f941cf8-d44d-45fa-9a02-7c9f4612783b",
+        "name": "contacto tiene correo?"
       },
       {
         "parameters": {
@@ -1613,8 +1096,9 @@
             "value": {
               "id": "={{ $json.id }}",
               "Celular 2": "=",
-              "Email": "=",
-              "Email 2": "={{ $('variables_1').item.json.email_apoderado }}"
+              "Email": "={{ $('variables_1').item.json.email_apoderado }}",
+              "DNI apoderado": "={{ $('variables_1').item.json.dni_apoderado }}",
+              "nivel ingles apoderado": "={{ $('variables_1').item.json['nivel_inglés_apoderado'] }}"
             },
             "matchingColumns": [
               "id"
@@ -2121,6 +1605,39 @@
                 "type": "string",
                 "readOnly": false,
                 "removed": false
+              },
+              {
+                "id": "id_record",
+                "displayName": "id_record",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "DNI apoderado",
+                "displayName": "DNI apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "nivel ingles apoderado",
+                "displayName": "nivel ingles apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -2131,8 +1648,629 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          3136,
-          -560
+          3232,
+          -416
+        ],
+        "id": "51c29ec7-bfec-4097-8b80-861ad19a2439",
+        "name": "contacto - actualizar correo",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "f8a7e466-c719-4c42-8b29-a78e340278b6",
+                "leftValue": "={{ $json.Email }}",
+                "rightValue": "={{ $('variables_1').item.json.email_apoderado }}",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          3392,
+          -848
+        ],
+        "id": "ca6fcb41-7c87-4219-bbd8-7c792cc559d7",
+        "name": "es igual al correo que se tiene del apoderado?"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "update",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblJJ8rZMUm9669EK",
+            "mode": "list",
+            "cachedResultName": "Contactos",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblJJ8rZMUm9669EK"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id": "={{ $json.id }}",
+              "Celular 2": "=",
+              "Email": "=",
+              "Email 2": "={{ $('variables_1').item.json.email_apoderado }}",
+              "DNI apoderado": "={{ $('variables_1').item.json.dni_apoderado }}",
+              "nivel ingles apoderado": "={{ $('variables_1').item.json['nivel_inglés_apoderado'] }}"
+            },
+            "matchingColumns": [
+              "id"
+            ],
+            "schema": [
+              {
+                "id": "id",
+                "displayName": "id",
+                "required": false,
+                "defaultMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Celular",
+                "displayName": "Celular",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Ultima Int.",
+                "displayName": "Ultima Int.",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre (from OPT)",
+                "displayName": "Nombre (from OPT)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Para quien Last",
+                "displayName": "Para quien Last",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nivel",
+                "displayName": "Nivel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Embudo",
+                "displayName": "Embudo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "1. Contactado",
+                    "value": "1. Contactado"
+                  },
+                  {
+                    "name": "2. Seguimiento",
+                    "value": "2. Seguimiento"
+                  },
+                  {
+                    "name": "3. Agendó",
+                    "value": "3. Agendó"
+                  },
+                  {
+                    "name": "4. Asistió",
+                    "value": "4. Asistió"
+                  },
+                  {
+                    "name": "5. Reagendó",
+                    "value": "5. Reagendó"
+                  },
+                  {
+                    "name": "6. No asistió",
+                    "value": "6. No asistió"
+                  },
+                  {
+                    "name": "7. Promesa",
+                    "value": "7. Promesa"
+                  },
+                  {
+                    "name": "8. Ganado",
+                    "value": "8. Ganado"
+                  },
+                  {
+                    "name": "9. Perdido",
+                    "value": "9. Perdido"
+                  },
+                  {
+                    "name": "10. Cel_inválido",
+                    "value": "10. Cel_inválido"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Last modified Embudo",
+                "displayName": "Last modified Embudo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo I",
+                "displayName": "Grupo I",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Pre Starters-P",
+                    "value": "Pre Starters-P"
+                  },
+                  {
+                    "name": "Starters-B",
+                    "value": "Starters-B"
+                  },
+                  {
+                    "name": "Movers-B",
+                    "value": "Movers-B"
+                  },
+                  {
+                    "name": "Flyers-PI",
+                    "value": "Flyers-PI"
+                  },
+                  {
+                    "name": "L en I-B",
+                    "value": "L en I-B"
+                  },
+                  {
+                    "name": "YLEA1+-B",
+                    "value": "YLEA1+-B"
+                  },
+                  {
+                    "name": "KET A2-PI",
+                    "value": "KET A2-PI"
+                  },
+                  {
+                    "name": "PET B1-I",
+                    "value": "PET B1-I"
+                  },
+                  {
+                    "name": "FCE B2-IA",
+                    "value": "FCE B2-IA"
+                  },
+                  {
+                    "name": "C en I-B",
+                    "value": "C en I-B"
+                  },
+                  {
+                    "name": "C en I-I",
+                    "value": "C en I-I"
+                  },
+                  {
+                    "name": "Kinder-P",
+                    "value": "Kinder-P"
+                  },
+                  {
+                    "name": "YLE A1",
+                    "value": "YLE A1"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "WA Boton",
+                "displayName": "WA Boton",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Cuándo?",
+                "displayName": "Cuándo?",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Calculation",
+                "displayName": "Calculation",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Clientes",
+                "displayName": "Clientes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Clientes 2",
+                "displayName": "Clientes 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Email (from OPT)",
+                "displayName": "Email (from OPT)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "CM",
+                "displayName": "CM",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Created",
+                "displayName": "Created",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "OPT",
+                "displayName": "OPT",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Nombre Last",
+                "displayName": "Nombre Last",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Para quien (from OPT)",
+                "displayName": "Para quien (from OPT)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nivel last",
+                "displayName": "Nivel last",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Email",
+                "displayName": "Email",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Ultima Int. ISO",
+                "displayName": "Ultima Int. ISO",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "WA Link",
+                "displayName": "WA Link",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "F",
+                "displayName": "F",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo",
+                "displayName": "Grupo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha Clase Modelo",
+                "displayName": "Fecha Clase Modelo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "dateTime",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Nombre hijo",
+                "displayName": "Nombre hijo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Comentario",
+                "displayName": "Comentario",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Pais Celular",
+                "displayName": "Pais Celular",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Funnel",
+                "displayName": "Funnel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Last Modified",
+                "displayName": "Last Modified",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "OPT F (from OPT)",
+                "displayName": "OPT F (from OPT)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Calculation 2",
+                "displayName": "Calculation 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "OPT F (texto)",
+                "displayName": "OPT F (texto)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular 2",
+                "displayName": "Celular 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Email 2",
+                "displayName": "Email 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "id_record",
+                "displayName": "id_record",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "DNI apoderado",
+                "displayName": "DNI apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "nivel ingles apoderado",
+                "displayName": "nivel ingles apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          3392,
+          -608
         ],
         "id": "b23155d1-ff84-48eb-bf3c-7b805d31d9d2",
         "name": "contacto - actualizar correo1",
@@ -2169,8 +2307,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          3728,
-          -192
+          3984,
+          -240
         ],
         "id": "73df5b80-320d-4632-8694-7644aa6e5dd3",
         "name": "buscar contacto - celular - estudiante",
@@ -2199,8 +2337,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2976,
-          320
+          3232,
+          272
         ],
         "id": "3fd208f2-2185-4584-a464-f5ccf5897c6c",
         "name": "id vacio"
@@ -2233,8 +2371,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3984,
-          -192
+          4240,
+          -240
         ],
         "id": "54f19a75-f8e6-4f71-b33a-4d947e3e5d02",
         "name": "encontro?2"
@@ -2265,8 +2403,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          4240,
-          -32
+          4496,
+          -80
         ],
         "id": "ad6697a1-5cc8-4f08-9443-fc5ec9acdce1",
         "name": "buscar contacto - correo - estudiante",
@@ -2306,8 +2444,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          4464,
-          -32
+          4720,
+          -80
         ],
         "id": "bdfe8651-a912-4b26-a8d1-ea9361c223b2",
         "name": "encontro?3"
@@ -2841,8 +2979,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          4752,
-          112
+          5008,
+          64
         ],
         "id": "ee0f0acf-4c42-4384-947f-737abe424be8",
         "name": "Crear contacto - estudiante",
@@ -2875,7 +3013,9 @@
             "mappingMode": "defineBelow",
             "value": {
               "id": "={{ $json.id }}",
-              "Celular 2": "={{ $('variables_1').item.json.numero_completo_apoderado }}"
+              "Celular 2": "={{ $('variables_1').item.json.numero_completo_apoderado }}",
+              "DNI apoderado": "={{ $('variables_1').item.json.dni_apoderado }}",
+              "nivel ingles apoderado": "={{ $('variables_1').item.json['nivel_inglés_apoderado'] }}"
             },
             "matchingColumns": [
               "id"
@@ -3382,6 +3522,39 @@
                 "type": "string",
                 "readOnly": false,
                 "removed": false
+              },
+              {
+                "id": "id_record",
+                "displayName": "id_record",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "DNI apoderado",
+                "displayName": "DNI apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "nivel ingles apoderado",
+                "displayName": "nivel ingles apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -3392,8 +3565,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2976,
-          -144
+          3232,
+          -192
         ],
         "id": "a39e06da-2dac-44c6-910f-506d38fb8c47",
         "name": "actualizar contacto - apoderado",
@@ -3954,8 +4127,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          4752,
-          -176
+          5008,
+          -224
         ],
         "id": "f700bf71-d2b1-4050-9dd8-7171b26d48c1",
         "name": "actualizar contacto - apoderado1",
@@ -3994,8 +4167,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          4256,
-          -496
+          4512,
+          -544
         ],
         "id": "eb4f1f05-3576-4523-983b-c804efea254b",
         "name": "contacto tiene correo?1"
@@ -4551,8 +4724,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          4720,
-          -416
+          4976,
+          -464
         ],
         "id": "9204ec50-2c5b-4337-8eaa-d2c8049e1353",
         "name": "contacto - actualizar correo2",
@@ -4590,8 +4763,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          4720,
-          -864
+          4976,
+          -912
         ],
         "id": "6e02bef9-2871-4962-8126-0ab6aedee466",
         "name": "es igual al correo que se tiene del apoderado?1"
@@ -5137,8 +5310,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          4720,
-          -624
+          4976,
+          -672
         ],
         "id": "f61d0603-1365-4164-a52d-aec0e3d19362",
         "name": "contacto - agregar correo3",
@@ -5166,8 +5339,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5104,
-          -176
+          5360,
+          -224
         ],
         "id": "554ab9c8-a46f-4d79-8532-1f5419bc0084",
         "name": "id contacto estudiante"
@@ -5200,8 +5373,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5584,
-          -176
+          5840,
+          -224
         ],
         "id": "511d8593-3a47-4bc0-9266-18c969ac9ac0",
         "name": "encontro?4"
@@ -6041,8 +6214,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          5888,
-          0
+          6144,
+          -48
         ],
         "id": "f7544fbc-9685-45e7-99c8-5582b965ee11",
         "name": "crear - cliente - estudiante",
@@ -6070,8 +6243,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          6480,
-          -160
+          6736,
+          -208
         ],
         "id": "d0ebfdcb-8406-4f2f-851c-fde5455e72c7",
         "name": "id cliente"
@@ -6099,8 +6272,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          5856,
-          -528
+          6112,
+          -576
         ],
         "id": "116688db-cc15-4b86-a141-f963f951b2bd",
         "name": "variables_1.1"
@@ -7041,8 +7214,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          6128,
-          -528
+          6384,
+          -576
         ],
         "id": "f023e1ac-fa72-4137-987c-a7b5b5695510",
         "name": "Update record",
@@ -8021,8 +8194,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          7728,
-          -336
+          7984,
+          -384
         ],
         "id": "8dcb2b96-aa1e-49e9-987c-8c837cddd1bf",
         "name": "crear registro - detalles ventas",
@@ -9163,8 +9336,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          6976,
-          -352
+          7232,
+          -400
         ],
         "id": "9aad9e8f-b8ba-48fc-b67b-564ce7e4dc76",
         "name": "Crear registro - preventa",
@@ -9193,8 +9366,8 @@
         "type": "@n8n/n8n-nodes-langchain.googleGemini",
         "typeVersion": 1,
         "position": [
-          112,
-          560
+          -320,
+          576
         ],
         "id": "5d463641-b934-4320-adff-5547bf422f3c",
         "name": "Analyze an image",
@@ -9215,8 +9388,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          -1328,
-          336
+          -1760,
+          352
         ],
         "id": "6aab9d39-6698-49d5-a8af-6a2f8d499849",
         "name": "Split Out"
@@ -9228,8 +9401,8 @@
         "type": "n8n-nodes-base.splitInBatches",
         "typeVersion": 3,
         "position": [
-          -160,
-          336
+          -592,
+          352
         ],
         "id": "910ff7e0-cffc-402b-b2f0-d9fa804e6cea",
         "name": "Loop Over Items"
@@ -9257,8 +9430,8 @@
         "type": "@n8n/n8n-nodes-langchain.informationExtractor",
         "typeVersion": 1.2,
         "position": [
-          320,
-          560
+          -112,
+          576
         ],
         "id": "babd4bb4-27c9-436b-a224-ac91a729413b",
         "name": "Information Extractor"
@@ -9270,8 +9443,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
         "typeVersion": 1,
         "position": [
-          256,
-          768
+          -176,
+          784
         ],
         "id": "e3f5f9a2-33b4-48ab-9f81-0b82ebafe37a",
         "name": "Google Gemini Chat Model",
@@ -9311,8 +9484,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          688,
-          560
+          256,
+          576
         ],
         "id": "79a55533-e779-442f-a355-2e22f0b24633",
         "name": "monto"
@@ -9337,8 +9510,8 @@
         "type": "n8n-nodes-base.aggregate",
         "typeVersion": 1,
         "position": [
-          160,
-          224
+          -272,
+          240
         ],
         "id": "a7be4496-d206-4128-a7b9-874fe86e2ff3",
         "name": "Aggregate"
@@ -9384,8 +9557,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -432,
-          336
+          -864,
+          352
         ],
         "id": "8b6c2ee8-be7b-4ab9-8705-ba01516d488f",
         "name": "comprobantes"
@@ -9416,8 +9589,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1376,
-          0
+          1648,
+          -48
         ],
         "id": "cade41ea-bdd3-49fa-a772-26fd5ea27a75",
         "name": "buscar registro - grupos",
@@ -9488,8 +9661,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          6688,
-          -160
+          6944,
+          -208
         ],
         "id": "bace7359-5fd4-40a1-a54e-3a9b3047df8c",
         "name": "Switch"
@@ -10646,8 +10819,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          6976,
-          0
+          7232,
+          -48
         ],
         "id": "34ae15fb-f215-4a1f-915d-e7cfe1959914",
         "name": "Crear registro - preventa1",
@@ -10675,8 +10848,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          7216,
-          -176
+          7472,
+          -224
         ],
         "id": "e3e66c8a-0a07-427e-8daa-34f3cab426f7",
         "name": "id preventa"
@@ -10741,8 +10914,8 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          7440,
-          -176
+          7696,
+          -224
         ],
         "id": "e34d1670-0602-4ac4-a585-c7d36de45e99",
         "name": "Switch1"
@@ -11719,8 +11892,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          7728,
-          -64
+          7984,
+          -112
         ],
         "id": "92cf4861-0adf-4313-bba2-dd3148620cdb",
         "name": "crear registro - detalles ventas1",
@@ -11748,8 +11921,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          8048,
-          -176
+          8304,
+          -224
         ],
         "id": "989a536c-0aa8-4d9f-aa22-ff87a1f9fbb4",
         "name": "id detalles venta"
@@ -11762,8 +11935,8 @@
         "type": "n8n-nodes-base.splitOut",
         "typeVersion": 1,
         "position": [
-          8480,
-          -176
+          8736,
+          -224
         ],
         "id": "083be193-da80-45b2-933e-b570cab0204c",
         "name": "Split Out1"
@@ -11775,8 +11948,8 @@
         "type": "n8n-nodes-base.splitInBatches",
         "typeVersion": 3,
         "position": [
-          8704,
-          -176
+          8960,
+          -224
         ],
         "id": "33bd378b-8b3d-4165-84da-65d7e65ae1c4",
         "name": "Loop Over Items1"
@@ -11798,8 +11971,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          8288,
-          -176
+          8544,
+          -224
         ],
         "id": "da7a3c7b-0d95-4f7c-a4b1-9a42fc28b369",
         "name": "comprobantes de pago"
@@ -11814,8 +11987,8 @@
         "type": "n8n-nodes-base.extractFromFile",
         "typeVersion": 1.1,
         "position": [
-          -1104,
-          336
+          -1536,
+          352
         ],
         "id": "d1d36db3-0dfc-4102-b96d-0abebb87c326",
         "name": "Extract from File1"
@@ -11837,8 +12010,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -880,
-          336
+          -1312,
+          352
         ],
         "id": "c1d78db7-54d2-4900-9a91-c656bb325537",
         "name": "comprobantes con base 64"
@@ -11852,8 +12025,8 @@
         "type": "n8n-nodes-base.convertToFile",
         "typeVersion": 1.1,
         "position": [
-          -672,
-          336
+          -1104,
+          352
         ],
         "id": "fcfc2780-36fe-454c-9180-ea8c94940030",
         "name": "Convert to File"
@@ -11887,8 +12060,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          384,
-          224
+          -48,
+          240
         ],
         "id": "afc2c9cd-5dd6-479f-95b3-f95df27ec1e5",
         "name": "monto final e imagenes"
@@ -11907,8 +12080,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          8976,
-          -16
+          9232,
+          -64
         ],
         "id": "73b56866-6585-4ea3-af8f-cb28d5c5b333",
         "name": "Agregar imagenes - detalles venta",
@@ -11937,8 +12110,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          9216,
-          -16
+          9472,
+          -64
         ],
         "id": "737abf85-249d-4067-a02d-c739a1c9d009",
         "name": "Agregar imagenes - preventa",
@@ -11958,8 +12131,8 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          8976,
-          -320
+          9232,
+          -368
         ],
         "id": "7b9ed264-2aa6-4899-af33-e5dff9e64593",
         "name": "Limit1"
@@ -12095,8 +12268,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          9216,
-          -320
+          9472,
+          -368
         ],
         "id": "eac1dcf8-6419-4255-a619-aef33821227f",
         "name": "variables_2"
@@ -13208,8 +13381,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          7120,
-          240
+          7376,
+          192
         ],
         "id": "06367827-5a1a-4fc1-8f73-2fa5c301aca0",
         "name": "Crear registro - preventa2",
@@ -13249,8 +13422,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          672,
-          0
+          240,
+          16
         ],
         "id": "590df07a-1c63-4166-9bd0-0d28512d2408",
         "name": "monto final e imagenes final"
@@ -13283,8 +13456,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          -1664,
-          96
+          -2096,
+          112
         ],
         "id": "4d051be7-dc02-4d7f-88d4-17c8ae15dbe4",
         "name": "solo tiene 1 imagen?"
@@ -13330,8 +13503,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -672,
-          -176
+          -1104,
+          -160
         ],
         "id": "ff804a82-0cf4-4b61-9018-86985be7bdc9",
         "name": "comprobantes1"
@@ -13346,8 +13519,8 @@
         "type": "n8n-nodes-base.extractFromFile",
         "typeVersion": 1.1,
         "position": [
-          -1328,
-          -176
+          -1760,
+          -160
         ],
         "id": "17aaf999-0c24-46be-a579-e065a1848785",
         "name": "Extract from File"
@@ -13369,8 +13542,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -1120,
-          -176
+          -1552,
+          -160
         ],
         "id": "41b49fd1-d545-42f7-adfe-6a22efddb6a6",
         "name": "comprobantes con base "
@@ -13384,8 +13557,8 @@
         "type": "n8n-nodes-base.convertToFile",
         "typeVersion": 1.1,
         "position": [
-          -912,
-          -176
+          -1344,
+          -160
         ],
         "id": "2063d6e4-d549-47cc-888f-4eda1f63dc5b",
         "name": "Convert to File1"
@@ -13408,8 +13581,8 @@
         "type": "@n8n/n8n-nodes-langchain.googleGemini",
         "typeVersion": 1,
         "position": [
-          -432,
-          -176
+          -864,
+          -160
         ],
         "id": "32156400-4593-464c-adc5-0e6e7d1a92c2",
         "name": "Analyze an image1",
@@ -13446,8 +13619,8 @@
         "type": "@n8n/n8n-nodes-langchain.informationExtractor",
         "typeVersion": 1.2,
         "position": [
-          -224,
-          -176
+          -656,
+          -160
         ],
         "id": "8a90faef-fd94-47cc-b132-e85c96845384",
         "name": "Information Extractor1"
@@ -13459,8 +13632,8 @@
         "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
         "typeVersion": 1,
         "position": [
-          -288,
-          32
+          -720,
+          48
         ],
         "id": "36b7f630-6317-45d0-b7d6-cf68cdaa4504",
         "name": "Google Gemini Chat Model1",
@@ -13500,11 +13673,114 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          384,
-          -176
+          -48,
+          -160
         ],
         "id": "352e5647-98c4-4d89-9ff2-76bcbd6b8b5b",
         "name": "monto final e imagenes final1"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "edc6d2c0-5007-4977-b1e8-ba3f4b383a87",
+                "leftValue": "={{ $('When Executed by Another Workflow').item.json.celular_apoderado_completo }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          704,
+          16
+        ],
+        "id": "a39817dd-ff27-47a8-8976-c7b21d7cc9f6",
+        "name": "esta vacio celular_apoderado_completo?"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
+                "name": "numero_completo_apoderado",
+                "value": "=+{{ $('apoderado_codigo_de_pais').item.json.codigo_de_pais }}{{ $('When Executed by Another Workflow').item.json.celular_apoderado_sin_codigo }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1152,
+          -208
+        ],
+        "id": "aa07f7a0-c058-4750-bc03-0ec883b1fbf9",
+        "name": "celular_apoderado_completo"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
+                "name": "numero_completo_apoderado",
+                "value": "={{ $('When Executed by Another Workflow').item.json.celular_apoderado_completo }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1152,
+          128
+        ],
+        "id": "e74a21aa-574a-40b8-bf2a-ebb557979311",
+        "name": "celular_apoderado_completo1"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
+                "name": "numero_completo_apoderado",
+                "value": "={{ $json.numero_completo_apoderado }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1408,
+          -48
+        ],
+        "id": "c0adb2ae-d4e8-4878-af50-ec57f98079c8",
+        "name": "celular_apoderado_completo_final"
       }
     ],
     "connections": {
@@ -13523,7 +13799,7 @@
         "main": [
           [
             {
-              "node": "apoderado_codigo_de_pais",
+              "node": "esta vacio celular_apoderado_completo?",
               "type": "main",
               "index": 0
             }
@@ -13534,7 +13810,7 @@
         "main": [
           [
             {
-              "node": "buscar registro - grupos",
+              "node": "celular_apoderado_completo",
               "type": "main",
               "index": 0
             }
@@ -14393,14 +14669,65 @@
             }
           ]
         ]
+      },
+      "esta vacio celular_apoderado_completo?": {
+        "main": [
+          [
+            {
+              "node": "apoderado_codigo_de_pais",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "celular_apoderado_completo1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "celular_apoderado_completo1": {
+        "main": [
+          [
+            {
+              "node": "celular_apoderado_completo_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "celular_apoderado_completo": {
+        "main": [
+          [
+            {
+              "node": "celular_apoderado_completo_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "celular_apoderado_completo_final": {
+        "main": [
+          [
+            {
+              "node": "buscar registro - grupos",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 4c1f955a",
+    "name": "Version 050f0833",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "4c1f955a-6a01-43ee-96f0-c1f05abb95b0",
+  "activeVersionId": "050f0833-546a-495a-96fe-5c400aed5298",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -14417,7 +14744,7 @@
       "main": [
         [
           {
-            "node": "apoderado_codigo_de_pais",
+            "node": "esta vacio celular_apoderado_completo?",
             "type": "main",
             "index": 0
           }
@@ -14428,7 +14755,7 @@
       "main": [
         [
           {
-            "node": "buscar registro - grupos",
+            "node": "celular_apoderado_completo",
             "type": "main",
             "index": 0
           }
@@ -15287,6 +15614,57 @@
           }
         ]
       ]
+    },
+    "esta vacio celular_apoderado_completo?": {
+      "main": [
+        [
+          {
+            "node": "apoderado_codigo_de_pais",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "celular_apoderado_completo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "celular_apoderado_completo1": {
+      "main": [
+        [
+          {
+            "node": "celular_apoderado_completo_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "celular_apoderado_completo": {
+      "main": [
+        [
+          {
+            "node": "celular_apoderado_completo_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "celular_apoderado_completo_final": {
+      "main": [
+        [
+          {
+            "node": "buscar registro - grupos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-31T18:24:53.266Z",
@@ -15304,8 +15682,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        -1872,
-        96
+        -2304,
+        112
       ],
       "id": "a6793cd7-5705-48dd-b277-cd80dc2aaa62",
       "name": "When Executed by Another Workflow"
@@ -15346,8 +15724,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        928,
-        0
+        496,
+        16
       ],
       "name": "estudiante_codigo_de_pais",
       "id": "747c66b0-d99d-4861-9a56-dfd97b78da1d"
@@ -15388,8 +15766,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        1168,
-        0
+        928,
+        -208
       ],
       "name": "apoderado_codigo_de_pais",
       "id": "a9ec0b1b-7ddd-4130-b309-b802b1b8507c",
@@ -15408,7 +15786,7 @@
             {
               "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
               "name": "numero_completo_apoderado",
-              "value": "=+{{ $('apoderado_codigo_de_pais').item.json.codigo_de_pais }}{{ $('When Executed by Another Workflow').item.json.celular_apoderado_sin_codigo }}",
+              "value": "={{ $('celular_apoderado_completo_final').item.json.numero_completo_apoderado }}",
               "type": "string"
             },
             {
@@ -15508,8 +15886,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1632,
-        0
+        1888,
+        -48
       ],
       "id": "f428c7a4-e52a-42f9-ad74-e9cbb2259979",
       "name": "variables_1"
@@ -15540,8 +15918,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        5360,
-        -176
+        5616,
+        -224
       ],
       "id": "c012a86a-1091-4db3-8303-87d8dc5853de",
       "name": "buscar - cliente - numero estudiante",
@@ -15581,8 +15959,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1888,
-        0
+        2144,
+        -48
       ],
       "id": "947a5b48-dc95-49ff-b9ec-74d041478614",
       "name": "tiene info de apoderado?"
@@ -15615,8 +15993,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2320,
-        -160
+        2576,
+        -208
       ],
       "id": "8f3d8f17-eafa-4422-9107-cd68574874c2",
       "name": "encontro?"
@@ -15647,8 +16025,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2112,
-        -160
+        2368,
+        -208
       ],
       "id": "cd2b7a95-30a8-49a9-8adf-f5f9fb531f0c",
       "name": "buscar contacto - celular - apoderado",
@@ -15686,8 +16064,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2544,
-        -32
+        2800,
+        -80
       ],
       "id": "ea7be072-1f18-4eeb-bf2f-deec539cad5f",
       "name": "buscar contacto - correo - apoderado",
@@ -15727,8 +16105,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2736,
-        -32
+        2992,
+        -80
       ],
       "id": "8e7303c2-26bc-4a47-bf31-06614671b073",
       "name": "encontro?1"
@@ -15755,597 +16133,12 @@
           "mappingMode": "defineBelow",
           "value": {
             "Celular": "={{ $('variables_1').item.json.numero_completo_apoderado }}",
-            "Email": "={{ $('variables_1').item.json.email_apoderado }}"
+            "Email": "={{ $('variables_1').item.json.email_apoderado }}",
+            "DNI apoderado": "={{ $('variables_1').item.json.dni_apoderado }}",
+            "nivel ingles apoderado": "={{ $('variables_1').item.json['nivel_inglés_apoderado'] }}"
           },
           "matchingColumns": [],
           "schema": [
-            {
-              "id": "Celular",
-              "displayName": "Celular",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Ultima Int.",
-              "displayName": "Ultima Int.",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Nombre (from OPT)",
-              "displayName": "Nombre (from OPT)",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Para quien Last",
-              "displayName": "Para quien Last",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Nivel",
-              "displayName": "Nivel",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Embudo",
-              "displayName": "Embudo",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "options",
-              "options": [
-                {
-                  "name": "1. Contactado",
-                  "value": "1. Contactado"
-                },
-                {
-                  "name": "2. Seguimiento",
-                  "value": "2. Seguimiento"
-                },
-                {
-                  "name": "3. Agendó",
-                  "value": "3. Agendó"
-                },
-                {
-                  "name": "4. Asistió",
-                  "value": "4. Asistió"
-                },
-                {
-                  "name": "5. Reagendó",
-                  "value": "5. Reagendó"
-                },
-                {
-                  "name": "6. No asistió",
-                  "value": "6. No asistió"
-                },
-                {
-                  "name": "7. Promesa",
-                  "value": "7. Promesa"
-                },
-                {
-                  "name": "8. Ganado",
-                  "value": "8. Ganado"
-                },
-                {
-                  "name": "9. Perdido",
-                  "value": "9. Perdido"
-                },
-                {
-                  "name": "10. Cel_inválido",
-                  "value": "10. Cel_inválido"
-                }
-              ],
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Last modified Embudo",
-              "displayName": "Last modified Embudo",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Grupo I",
-              "displayName": "Grupo I",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "options",
-              "options": [
-                {
-                  "name": "Pre Starters-P",
-                  "value": "Pre Starters-P"
-                },
-                {
-                  "name": "Starters-B",
-                  "value": "Starters-B"
-                },
-                {
-                  "name": "Movers-B",
-                  "value": "Movers-B"
-                },
-                {
-                  "name": "Flyers-PI",
-                  "value": "Flyers-PI"
-                },
-                {
-                  "name": "L en I-B",
-                  "value": "L en I-B"
-                },
-                {
-                  "name": "YLEA1+-B",
-                  "value": "YLEA1+-B"
-                },
-                {
-                  "name": "KET A2-PI",
-                  "value": "KET A2-PI"
-                },
-                {
-                  "name": "PET B1-I",
-                  "value": "PET B1-I"
-                },
-                {
-                  "name": "FCE B2-IA",
-                  "value": "FCE B2-IA"
-                },
-                {
-                  "name": "C en I-B",
-                  "value": "C en I-B"
-                },
-                {
-                  "name": "C en I-I",
-                  "value": "C en I-I"
-                },
-                {
-                  "name": "Kinder-P",
-                  "value": "Kinder-P"
-                },
-                {
-                  "name": "YLE A1",
-                  "value": "YLE A1"
-                }
-              ],
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "WA Boton",
-              "displayName": "WA Boton",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Cuándo?",
-              "displayName": "Cuándo?",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Calculation",
-              "displayName": "Calculation",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Clientes",
-              "displayName": "Clientes",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "array",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Clientes 2",
-              "displayName": "Clientes 2",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "array",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Email (from OPT)",
-              "displayName": "Email (from OPT)",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "CM",
-              "displayName": "CM",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "array",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Created",
-              "displayName": "Created",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "OPT",
-              "displayName": "OPT",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "array",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Nombre Last",
-              "displayName": "Nombre Last",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Para quien (from OPT)",
-              "displayName": "Para quien (from OPT)",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Nivel last",
-              "displayName": "Nivel last",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Email",
-              "displayName": "Email",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Ultima Int. ISO",
-              "displayName": "Ultima Int. ISO",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "WA Link",
-              "displayName": "WA Link",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "F",
-              "displayName": "F",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Grupo",
-              "displayName": "Grupo",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "array",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Fecha Clase Modelo",
-              "displayName": "Fecha Clase Modelo",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "dateTime",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Nombre hijo",
-              "displayName": "Nombre hijo",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Comentario",
-              "displayName": "Comentario",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "Pais Celular",
-              "displayName": "Pais Celular",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Funnel",
-              "displayName": "Funnel",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Last Modified",
-              "displayName": "Last Modified",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "OPT F (from OPT)",
-              "displayName": "OPT F (from OPT)",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "Calculation 2",
-              "displayName": "Calculation 2",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "OPT F (texto)",
-              "displayName": "OPT F (texto)",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        2976,
-        112
-      ],
-      "id": "da7adc80-b9f4-445f-9e96-3da8a6604e90",
-      "name": "Crear contacto - apoderado",
-      "credentials": {
-        "airtableOAuth2Api": {
-          "id": "mylJqD7auLJ9sN2T",
-          "name": "Bioenglish_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "95db29f1-61eb-46be-81b4-b9b67f5933f3",
-              "name": "id_contacto_apoderado",
-              "value": "={{ $json.id }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        3488,
-        -192
-      ],
-      "id": "95a744ef-a4a8-41d9-81e0-2ebf30b33cff",
-      "name": "id contacto apoderado"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "f8a7e466-c719-4c42-8b29-a78e340278b6",
-              "leftValue": "={{ $json.Email }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        2592,
-        -464
-      ],
-      "id": "7f941cf8-d44d-45fa-9a02-7c9f4612783b",
-      "name": "contacto tiene correo?"
-    },
-    {
-      "parameters": {
-        "authentication": "airtableOAuth2Api",
-        "operation": "update",
-        "base": {
-          "__rl": true,
-          "value": "appBCL3CWLhCwIjnP",
-          "mode": "list",
-          "cachedResultName": "BioEnglish",
-          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblJJ8rZMUm9669EK",
-          "mode": "list",
-          "cachedResultName": "Contactos",
-          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblJJ8rZMUm9669EK"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "id": "={{ $json.id }}",
-            "Celular 2": "=",
-            "Email": "={{ $('variables_1').item.json.email_apoderado }}"
-          },
-          "matchingColumns": [
-            "id"
-          ],
-          "schema": [
-            {
-              "id": "id",
-              "displayName": "id",
-              "required": false,
-              "defaultMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": false
-            },
             {
               "id": "Celular",
               "displayName": "Celular",
@@ -16826,6 +16619,50 @@
               "type": "string",
               "readOnly": false,
               "removed": false
+            },
+            {
+              "id": "Email 2",
+              "displayName": "Email 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id_record",
+              "displayName": "id_record",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "DNI apoderado",
+              "displayName": "DNI apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nivel ingles apoderado",
+              "displayName": "nivel ingles apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -16836,17 +16673,40 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2976,
-        -368
+        3232,
+        64
       ],
-      "id": "51c29ec7-bfec-4097-8b80-861ad19a2439",
-      "name": "contacto - actualizar correo",
+      "id": "da7adc80-b9f4-445f-9e96-3da8a6604e90",
+      "name": "Crear contacto - apoderado",
       "credentials": {
         "airtableOAuth2Api": {
           "id": "mylJqD7auLJ9sN2T",
           "name": "Bioenglish_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "95db29f1-61eb-46be-81b4-b9b67f5933f3",
+              "name": "id_contacto_apoderado",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3744,
+        -240
+      ],
+      "id": "95a744ef-a4a8-41d9-81e0-2ebf30b33cff",
+      "name": "id contacto apoderado"
     },
     {
       "parameters": {
@@ -16861,10 +16721,11 @@
             {
               "id": "f8a7e466-c719-4c42-8b29-a78e340278b6",
               "leftValue": "={{ $json.Email }}",
-              "rightValue": "={{ $('variables_1').item.json.email_apoderado }}",
+              "rightValue": "",
               "operator": {
                 "type": "string",
-                "operation": "equals"
+                "operation": "exists",
+                "singleValue": true
               }
             }
           ],
@@ -16875,11 +16736,11 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3136,
-        -800
+        2848,
+        -512
       ],
-      "id": "ca6fcb41-7c87-4219-bbd8-7c792cc559d7",
-      "name": "es igual al correo que se tiene del apoderado?"
+      "id": "7f941cf8-d44d-45fa-9a02-7c9f4612783b",
+      "name": "contacto tiene correo?"
     },
     {
       "parameters": {
@@ -16904,8 +16765,9 @@
           "value": {
             "id": "={{ $json.id }}",
             "Celular 2": "=",
-            "Email": "=",
-            "Email 2": "={{ $('variables_1').item.json.email_apoderado }}"
+            "Email": "={{ $('variables_1').item.json.email_apoderado }}",
+            "DNI apoderado": "={{ $('variables_1').item.json.dni_apoderado }}",
+            "nivel ingles apoderado": "={{ $('variables_1').item.json['nivel_inglés_apoderado'] }}"
           },
           "matchingColumns": [
             "id"
@@ -17412,6 +17274,39 @@
               "type": "string",
               "readOnly": false,
               "removed": false
+            },
+            {
+              "id": "id_record",
+              "displayName": "id_record",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "DNI apoderado",
+              "displayName": "DNI apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nivel ingles apoderado",
+              "displayName": "nivel ingles apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -17422,8 +17317,629 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3136,
-        -560
+        3232,
+        -416
+      ],
+      "id": "51c29ec7-bfec-4097-8b80-861ad19a2439",
+      "name": "contacto - actualizar correo",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "f8a7e466-c719-4c42-8b29-a78e340278b6",
+              "leftValue": "={{ $json.Email }}",
+              "rightValue": "={{ $('variables_1').item.json.email_apoderado }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3392,
+        -848
+      ],
+      "id": "ca6fcb41-7c87-4219-bbd8-7c792cc559d7",
+      "name": "es igual al correo que se tiene del apoderado?"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJJ8rZMUm9669EK",
+          "mode": "list",
+          "cachedResultName": "Contactos",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblJJ8rZMUm9669EK"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "Celular 2": "=",
+            "Email": "=",
+            "Email 2": "={{ $('variables_1').item.json.email_apoderado }}",
+            "DNI apoderado": "={{ $('variables_1').item.json.dni_apoderado }}",
+            "nivel ingles apoderado": "={{ $('variables_1').item.json['nivel_inglés_apoderado'] }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Celular",
+              "displayName": "Celular",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Ultima Int.",
+              "displayName": "Ultima Int.",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre (from OPT)",
+              "displayName": "Nombre (from OPT)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Para quien Last",
+              "displayName": "Para quien Last",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nivel",
+              "displayName": "Nivel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Embudo",
+              "displayName": "Embudo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "1. Contactado",
+                  "value": "1. Contactado"
+                },
+                {
+                  "name": "2. Seguimiento",
+                  "value": "2. Seguimiento"
+                },
+                {
+                  "name": "3. Agendó",
+                  "value": "3. Agendó"
+                },
+                {
+                  "name": "4. Asistió",
+                  "value": "4. Asistió"
+                },
+                {
+                  "name": "5. Reagendó",
+                  "value": "5. Reagendó"
+                },
+                {
+                  "name": "6. No asistió",
+                  "value": "6. No asistió"
+                },
+                {
+                  "name": "7. Promesa",
+                  "value": "7. Promesa"
+                },
+                {
+                  "name": "8. Ganado",
+                  "value": "8. Ganado"
+                },
+                {
+                  "name": "9. Perdido",
+                  "value": "9. Perdido"
+                },
+                {
+                  "name": "10. Cel_inválido",
+                  "value": "10. Cel_inválido"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Last modified Embudo",
+              "displayName": "Last modified Embudo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo I",
+              "displayName": "Grupo I",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Pre Starters-P",
+                  "value": "Pre Starters-P"
+                },
+                {
+                  "name": "Starters-B",
+                  "value": "Starters-B"
+                },
+                {
+                  "name": "Movers-B",
+                  "value": "Movers-B"
+                },
+                {
+                  "name": "Flyers-PI",
+                  "value": "Flyers-PI"
+                },
+                {
+                  "name": "L en I-B",
+                  "value": "L en I-B"
+                },
+                {
+                  "name": "YLEA1+-B",
+                  "value": "YLEA1+-B"
+                },
+                {
+                  "name": "KET A2-PI",
+                  "value": "KET A2-PI"
+                },
+                {
+                  "name": "PET B1-I",
+                  "value": "PET B1-I"
+                },
+                {
+                  "name": "FCE B2-IA",
+                  "value": "FCE B2-IA"
+                },
+                {
+                  "name": "C en I-B",
+                  "value": "C en I-B"
+                },
+                {
+                  "name": "C en I-I",
+                  "value": "C en I-I"
+                },
+                {
+                  "name": "Kinder-P",
+                  "value": "Kinder-P"
+                },
+                {
+                  "name": "YLE A1",
+                  "value": "YLE A1"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "WA Boton",
+              "displayName": "WA Boton",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Cuándo?",
+              "displayName": "Cuándo?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Calculation",
+              "displayName": "Calculation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Clientes",
+              "displayName": "Clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Clientes 2",
+              "displayName": "Clientes 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email (from OPT)",
+              "displayName": "Email (from OPT)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "CM",
+              "displayName": "CM",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "OPT",
+              "displayName": "OPT",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nombre Last",
+              "displayName": "Nombre Last",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Para quien (from OPT)",
+              "displayName": "Para quien (from OPT)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nivel last",
+              "displayName": "Nivel last",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Ultima Int. ISO",
+              "displayName": "Ultima Int. ISO",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "WA Link",
+              "displayName": "WA Link",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "F",
+              "displayName": "F",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo",
+              "displayName": "Grupo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha Clase Modelo",
+              "displayName": "Fecha Clase Modelo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nombre hijo",
+              "displayName": "Nombre hijo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Comentario",
+              "displayName": "Comentario",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Pais Celular",
+              "displayName": "Pais Celular",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Funnel",
+              "displayName": "Funnel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "OPT F (from OPT)",
+              "displayName": "OPT F (from OPT)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Calculation 2",
+              "displayName": "Calculation 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "OPT F (texto)",
+              "displayName": "OPT F (texto)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular 2",
+              "displayName": "Celular 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email 2",
+              "displayName": "Email 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id_record",
+              "displayName": "id_record",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "DNI apoderado",
+              "displayName": "DNI apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nivel ingles apoderado",
+              "displayName": "nivel ingles apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        3392,
+        -608
       ],
       "id": "b23155d1-ff84-48eb-bf3c-7b805d31d9d2",
       "name": "contacto - actualizar correo1",
@@ -17460,8 +17976,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3728,
-        -192
+        3984,
+        -240
       ],
       "id": "73df5b80-320d-4632-8694-7644aa6e5dd3",
       "name": "buscar contacto - celular - estudiante",
@@ -17490,8 +18006,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2976,
-        320
+        3232,
+        272
       ],
       "id": "3fd208f2-2185-4584-a464-f5ccf5897c6c",
       "name": "id vacio"
@@ -17524,8 +18040,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3984,
-        -192
+        4240,
+        -240
       ],
       "id": "54f19a75-f8e6-4f71-b33a-4d947e3e5d02",
       "name": "encontro?2"
@@ -17556,8 +18072,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4240,
-        -32
+        4496,
+        -80
       ],
       "id": "ad6697a1-5cc8-4f08-9443-fc5ec9acdce1",
       "name": "buscar contacto - correo - estudiante",
@@ -17597,8 +18113,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        4464,
-        -32
+        4720,
+        -80
       ],
       "id": "bdfe8651-a912-4b26-a8d1-ea9361c223b2",
       "name": "encontro?3"
@@ -18132,8 +18648,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4752,
-        112
+        5008,
+        64
       ],
       "id": "ee0f0acf-4c42-4384-947f-737abe424be8",
       "name": "Crear contacto - estudiante",
@@ -18166,7 +18682,9 @@
           "mappingMode": "defineBelow",
           "value": {
             "id": "={{ $json.id }}",
-            "Celular 2": "={{ $('variables_1').item.json.numero_completo_apoderado }}"
+            "Celular 2": "={{ $('variables_1').item.json.numero_completo_apoderado }}",
+            "DNI apoderado": "={{ $('variables_1').item.json.dni_apoderado }}",
+            "nivel ingles apoderado": "={{ $('variables_1').item.json['nivel_inglés_apoderado'] }}"
           },
           "matchingColumns": [
             "id"
@@ -18673,6 +19191,39 @@
               "type": "string",
               "readOnly": false,
               "removed": false
+            },
+            {
+              "id": "id_record",
+              "displayName": "id_record",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "DNI apoderado",
+              "displayName": "DNI apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "nivel ingles apoderado",
+              "displayName": "nivel ingles apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -18683,8 +19234,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2976,
-        -144
+        3232,
+        -192
       ],
       "id": "a39e06da-2dac-44c6-910f-506d38fb8c47",
       "name": "actualizar contacto - apoderado",
@@ -19245,8 +19796,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4752,
-        -176
+        5008,
+        -224
       ],
       "id": "f700bf71-d2b1-4050-9dd8-7171b26d48c1",
       "name": "actualizar contacto - apoderado1",
@@ -19285,8 +19836,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        4256,
-        -496
+        4512,
+        -544
       ],
       "id": "eb4f1f05-3576-4523-983b-c804efea254b",
       "name": "contacto tiene correo?1"
@@ -19842,8 +20393,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4720,
-        -416
+        4976,
+        -464
       ],
       "id": "9204ec50-2c5b-4337-8eaa-d2c8049e1353",
       "name": "contacto - actualizar correo2",
@@ -19881,8 +20432,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        4720,
-        -864
+        4976,
+        -912
       ],
       "id": "6e02bef9-2871-4962-8126-0ab6aedee466",
       "name": "es igual al correo que se tiene del apoderado?1"
@@ -20428,8 +20979,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4720,
-        -624
+        4976,
+        -672
       ],
       "id": "f61d0603-1365-4164-a52d-aec0e3d19362",
       "name": "contacto - agregar correo3",
@@ -20457,8 +21008,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5104,
-        -176
+        5360,
+        -224
       ],
       "id": "554ab9c8-a46f-4d79-8532-1f5419bc0084",
       "name": "id contacto estudiante"
@@ -20491,8 +21042,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5584,
-        -176
+        5840,
+        -224
       ],
       "id": "511d8593-3a47-4bc0-9266-18c969ac9ac0",
       "name": "encontro?4"
@@ -21332,8 +21883,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        5888,
-        0
+        6144,
+        -48
       ],
       "id": "f7544fbc-9685-45e7-99c8-5582b965ee11",
       "name": "crear - cliente - estudiante",
@@ -21361,8 +21912,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6480,
-        -160
+        6736,
+        -208
       ],
       "id": "d0ebfdcb-8406-4f2f-851c-fde5455e72c7",
       "name": "id cliente"
@@ -21390,8 +21941,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5856,
-        -528
+        6112,
+        -576
       ],
       "id": "116688db-cc15-4b86-a141-f963f951b2bd",
       "name": "variables_1.1"
@@ -22332,8 +22883,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        6128,
-        -528
+        6384,
+        -576
       ],
       "id": "f023e1ac-fa72-4137-987c-a7b5b5695510",
       "name": "Update record",
@@ -23312,8 +23863,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        7728,
-        -336
+        7984,
+        -384
       ],
       "id": "8dcb2b96-aa1e-49e9-987c-8c837cddd1bf",
       "name": "crear registro - detalles ventas",
@@ -24454,8 +25005,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        6976,
-        -352
+        7232,
+        -400
       ],
       "id": "9aad9e8f-b8ba-48fc-b67b-564ce7e4dc76",
       "name": "Crear registro - preventa",
@@ -24484,8 +25035,8 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1,
       "position": [
-        112,
-        560
+        -320,
+        576
       ],
       "id": "5d463641-b934-4320-adff-5547bf422f3c",
       "name": "Analyze an image",
@@ -24506,8 +25057,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -1328,
-        336
+        -1760,
+        352
       ],
       "id": "6aab9d39-6698-49d5-a8af-6a2f8d499849",
       "name": "Split Out"
@@ -24519,8 +25070,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -160,
-        336
+        -592,
+        352
       ],
       "id": "910ff7e0-cffc-402b-b2f0-d9fa804e6cea",
       "name": "Loop Over Items"
@@ -24548,8 +25099,8 @@
       "type": "@n8n/n8n-nodes-langchain.informationExtractor",
       "typeVersion": 1.2,
       "position": [
-        320,
-        560
+        -112,
+        576
       ],
       "id": "babd4bb4-27c9-436b-a224-ac91a729413b",
       "name": "Information Extractor"
@@ -24561,8 +25112,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        256,
-        768
+        -176,
+        784
       ],
       "id": "e3f5f9a2-33b4-48ab-9f81-0b82ebafe37a",
       "name": "Google Gemini Chat Model",
@@ -24602,8 +25153,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        688,
-        560
+        256,
+        576
       ],
       "id": "79a55533-e779-442f-a355-2e22f0b24633",
       "name": "monto"
@@ -24628,8 +25179,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        160,
-        224
+        -272,
+        240
       ],
       "id": "a7be4496-d206-4128-a7b9-874fe86e2ff3",
       "name": "Aggregate"
@@ -24675,8 +25226,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -432,
-        336
+        -864,
+        352
       ],
       "id": "8b6c2ee8-be7b-4ab9-8705-ba01516d488f",
       "name": "comprobantes"
@@ -24707,8 +25258,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1376,
-        0
+        1648,
+        -48
       ],
       "id": "cade41ea-bdd3-49fa-a772-26fd5ea27a75",
       "name": "buscar registro - grupos",
@@ -24779,8 +25330,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        6688,
-        -160
+        6944,
+        -208
       ],
       "id": "bace7359-5fd4-40a1-a54e-3a9b3047df8c",
       "name": "Switch"
@@ -25937,8 +26488,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        6976,
-        0
+        7232,
+        -48
       ],
       "id": "34ae15fb-f215-4a1f-915d-e7cfe1959914",
       "name": "Crear registro - preventa1",
@@ -25966,8 +26517,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        7216,
-        -176
+        7472,
+        -224
       ],
       "id": "e3e66c8a-0a07-427e-8daa-34f3cab426f7",
       "name": "id preventa"
@@ -26032,8 +26583,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        7440,
-        -176
+        7696,
+        -224
       ],
       "id": "e34d1670-0602-4ac4-a585-c7d36de45e99",
       "name": "Switch1"
@@ -27010,8 +27561,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        7728,
-        -64
+        7984,
+        -112
       ],
       "id": "92cf4861-0adf-4313-bba2-dd3148620cdb",
       "name": "crear registro - detalles ventas1",
@@ -27039,8 +27590,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        8048,
-        -176
+        8304,
+        -224
       ],
       "id": "989a536c-0aa8-4d9f-aa22-ff87a1f9fbb4",
       "name": "id detalles venta"
@@ -27053,8 +27604,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        8480,
-        -176
+        8736,
+        -224
       ],
       "id": "083be193-da80-45b2-933e-b570cab0204c",
       "name": "Split Out1"
@@ -27066,8 +27617,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        8704,
-        -176
+        8960,
+        -224
       ],
       "id": "33bd378b-8b3d-4165-84da-65d7e65ae1c4",
       "name": "Loop Over Items1"
@@ -27089,8 +27640,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        8288,
-        -176
+        8544,
+        -224
       ],
       "id": "da7a3c7b-0d95-4f7c-a4b1-9a42fc28b369",
       "name": "comprobantes de pago"
@@ -27105,8 +27656,8 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        -1104,
-        336
+        -1536,
+        352
       ],
       "id": "d1d36db3-0dfc-4102-b96d-0abebb87c326",
       "name": "Extract from File1"
@@ -27128,8 +27679,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -880,
-        336
+        -1312,
+        352
       ],
       "id": "c1d78db7-54d2-4900-9a91-c656bb325537",
       "name": "comprobantes con base 64"
@@ -27143,8 +27694,8 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        -672,
-        336
+        -1104,
+        352
       ],
       "id": "fcfc2780-36fe-454c-9180-ea8c94940030",
       "name": "Convert to File"
@@ -27178,8 +27729,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        384,
-        224
+        -48,
+        240
       ],
       "id": "afc2c9cd-5dd6-479f-95b3-f95df27ec1e5",
       "name": "monto final e imagenes"
@@ -27198,8 +27749,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        8976,
-        -16
+        9232,
+        -64
       ],
       "id": "73b56866-6585-4ea3-af8f-cb28d5c5b333",
       "name": "Agregar imagenes - detalles venta",
@@ -27228,8 +27779,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        9216,
-        -16
+        9472,
+        -64
       ],
       "id": "737abf85-249d-4067-a02d-c739a1c9d009",
       "name": "Agregar imagenes - preventa",
@@ -27249,8 +27800,8 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        8976,
-        -320
+        9232,
+        -368
       ],
       "id": "7b9ed264-2aa6-4899-af33-e5dff9e64593",
       "name": "Limit1"
@@ -27386,8 +27937,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        9216,
-        -320
+        9472,
+        -368
       ],
       "id": "eac1dcf8-6419-4255-a619-aef33821227f",
       "name": "variables_2"
@@ -28499,8 +29050,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        7120,
-        240
+        7376,
+        192
       ],
       "id": "06367827-5a1a-4fc1-8f73-2fa5c301aca0",
       "name": "Crear registro - preventa2",
@@ -28540,8 +29091,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        672,
-        0
+        240,
+        16
       ],
       "id": "590df07a-1c63-4166-9bd0-0d28512d2408",
       "name": "monto final e imagenes final"
@@ -28574,8 +29125,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -1664,
-        96
+        -2096,
+        112
       ],
       "id": "4d051be7-dc02-4d7f-88d4-17c8ae15dbe4",
       "name": "solo tiene 1 imagen?"
@@ -28621,8 +29172,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -672,
-        -176
+        -1104,
+        -160
       ],
       "id": "ff804a82-0cf4-4b61-9018-86985be7bdc9",
       "name": "comprobantes1"
@@ -28637,8 +29188,8 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        -1328,
-        -176
+        -1760,
+        -160
       ],
       "id": "17aaf999-0c24-46be-a579-e065a1848785",
       "name": "Extract from File"
@@ -28660,8 +29211,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1120,
-        -176
+        -1552,
+        -160
       ],
       "id": "41b49fd1-d545-42f7-adfe-6a22efddb6a6",
       "name": "comprobantes con base "
@@ -28675,8 +29226,8 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        -912,
-        -176
+        -1344,
+        -160
       ],
       "id": "2063d6e4-d549-47cc-888f-4eda1f63dc5b",
       "name": "Convert to File1"
@@ -28699,8 +29250,8 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1,
       "position": [
-        -432,
-        -176
+        -864,
+        -160
       ],
       "id": "32156400-4593-464c-adc5-0e6e7d1a92c2",
       "name": "Analyze an image1",
@@ -28737,8 +29288,8 @@
       "type": "@n8n/n8n-nodes-langchain.informationExtractor",
       "typeVersion": 1.2,
       "position": [
-        -224,
-        -176
+        -656,
+        -160
       ],
       "id": "8a90faef-fd94-47cc-b132-e85c96845384",
       "name": "Information Extractor1"
@@ -28750,8 +29301,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -288,
-        32
+        -720,
+        48
       ],
       "id": "36b7f630-6317-45d0-b7d6-cf68cdaa4504",
       "name": "Google Gemini Chat Model1",
@@ -28791,39 +29342,142 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        384,
-        -176
+        -48,
+        -160
       ],
       "id": "352e5647-98c4-4d89-9ff2-76bcbd6b8b5b",
       "name": "monto final e imagenes final1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "edc6d2c0-5007-4977-b1e8-ba3f4b383a87",
+              "leftValue": "={{ $('When Executed by Another Workflow').item.json.celular_apoderado_completo }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        704,
+        16
+      ],
+      "id": "a39817dd-ff27-47a8-8976-c7b21d7cc9f6",
+      "name": "esta vacio celular_apoderado_completo?"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
+              "name": "numero_completo_apoderado",
+              "value": "=+{{ $('apoderado_codigo_de_pais').item.json.codigo_de_pais }}{{ $('When Executed by Another Workflow').item.json.celular_apoderado_sin_codigo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1152,
+        -208
+      ],
+      "id": "aa07f7a0-c058-4750-bc03-0ec883b1fbf9",
+      "name": "celular_apoderado_completo"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
+              "name": "numero_completo_apoderado",
+              "value": "={{ $('When Executed by Another Workflow').item.json.celular_apoderado_completo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1152,
+        128
+      ],
+      "id": "e74a21aa-574a-40b8-bf2a-ebb557979311",
+      "name": "celular_apoderado_completo1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c6338a2-3236-45bf-9b20-418241e9050c",
+              "name": "numero_completo_apoderado",
+              "value": "={{ $json.numero_completo_apoderado }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1408,
+        -48
+      ],
+      "id": "c0adb2ae-d4e8-4878-af50-ec57f98079c8",
+      "name": "celular_apoderado_completo_final"
     }
   ],
   "pinData": {
     "When Executed by Another Workflow": [
       {
         "json": {
-          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-4:30-5:30 pm )",
+          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-7:00-8:00pm )",
           "Comprobante de pago": [
             {
-              "filename": "Jeremy Noviembre.jpg",
+              "filename": "IMG-20260202-WA0010.jpg",
               "mimetype": "image/jpeg",
-              "size": 63363
+              "size": 38133
             }
           ],
-          "submittedAt": "2026-01-14T10:26:13.613-05:00",
+          "submittedAt": "2026-02-02T22:12:40.166-05:00",
           "formMode": "production",
           "tipo_estudiante": "Para mi hijo/hija",
-          "nombre_apoderado": "Mirian Velasquez",
-          "dni_apoderado": 503324,
-          "correo_apoderado": "velasquezmirian3008@gmail.com",
+          "nombre_apoderado": "Solan Magaly De La Cruz Y.",
+          "dni_apoderado": 43783234,
+          "correo_apoderado": "solandelacruz770@gmail.com",
           "pais_apoderado": "Perú",
-          "celular_apoderado_sin_codigo": 901060818,
+          "celular_apoderado_sin_codigo": 957134712,
           "nivel_inglés_apoderado": "Nunca he estudiado inglés",
-          "Nombre completo del estudiante": "Yamira Jimenez",
-          "Correo electrónico del estudiante": "velasquezmirian3008@gmail.com",
+          "Nombre completo del estudiante": "Angelica Quijada De La Cruz",
+          "Correo electrónico del estudiante": "angelicaquijada@gmail.com",
           "Pais": "Perú",
-          "Celular del estudiante - colocar sin codigo de pais": "901060818",
-          "Edad del estudiante": 8
+          "Celular del estudiante - colocar sin codigo de pais": "957134712",
+          "Edad del estudiante": 11
         },
         "binary": {
           "Comprobante_de_pago": {
@@ -28831,14 +29485,162 @@
             "fileType": "image",
             "fileExtension": "jpg",
             "data": "database",
-            "fileName": "Jeremy Noviembre.jpg",
-            "id": "database:943153b4-e6f4-4046-959e-2a26d23b8e51",
-            "fileSize": "63.4 kB"
+            "fileName": "IMG-20260202-WA0010.jpg",
+            "id": "database:b3d7e011-87e4-4c1f-a24a-ed6389038e8c",
+            "fileSize": "38.1 kB"
           }
         },
         "pairedItem": {
           "item": 0
         }
+      }
+    ],
+    "buscar registro - grupos": [
+      {
+        "json": {
+          "id": "reccjiyZ19rxAWkYG",
+          "createdTime": "2025-12-23T21:52:33.000Z",
+          "Grupos": "ENGLISH STARTERS | Virtual | Fiorella | L-M-V-7:00-8:00pm",
+          "DetalleVentas": [
+            "recT34GUF1QSleCDB",
+            "recFvPvVAVPZwtlNm",
+            "recElTjMiuaToA5fb",
+            "recXKFdZtLLsvAJ2R",
+            "recFmZIMK3StA0g48",
+            "recRv691zpKKYpm6q",
+            "reczmCCgmjYhxsNzj"
+          ],
+          "Feb23": 0,
+          "Feb23 PEN": 0,
+          "Modalidad": "Virtual",
+          "Nivel": "ENGLISH STARTERS",
+          "Horario": "L-M-V-7:00-8:00pm",
+          "Mar23": 0,
+          "Mar23 PEN": 0,
+          "Docente": "Teacher Fiorela",
+          "Ene23 A": 0,
+          "Ene23 PEN": 0,
+          "Abr23": 0,
+          "Abr23 PEN": 0,
+          "Ahora": 4,
+          "Status": "Rentable",
+          "Edades": "9 a 12 años",
+          "Teachers horarios": [
+            "recnbtAvYbi8mXauL"
+          ],
+          "From Teachers (from Teachers horarios)": [
+            "recfg9XPKbOe8teyv"
+          ],
+          "May23 PEN": 0,
+          "May23": 0,
+          "Jun23 PEN": 0,
+          "Jun23": 0,
+          "Jul23 PEN": 0,
+          "Ago23 PEN": 0,
+          "Sep23 PEN": 0,
+          "Oct23 PEN": 0,
+          "Jul23": 0,
+          "Sep23": 0,
+          "Oct23": 0,
+          "Ago23": 0,
+          "Grupos mes": [
+            "recSLTUU0b8o7TLgK"
+          ],
+          "Nov23 PEN": 0,
+          "Total": 1260,
+          "Total from Mar23": 1260,
+          "Year2024": "2026",
+          "Nov23": 0,
+          "Dic23": 0,
+          "Ene24": 0,
+          "Dic23 PEN": 0,
+          "Ene24 PEN": 0,
+          "Grabaciones": [
+            "recfQTvCcykxZg0fj",
+            "recmNe6K6tzofVjZC",
+            "recXjr3hydFHC9Ukt",
+            "recM5wPvUpgtqlLc6",
+            "rechYhT1ZcZVcZ9ZZ",
+            "rec7cYc4raDFVv6Sn",
+            "rechoNDdqWqgA9pXc",
+            "recfJUvJkvoS7UKTX",
+            "recIxV6OYkEciUUcd",
+            "rec7PuODmzQ67E9z1",
+            "recgYTp40I3NCI30X",
+            "recMfJhSyRCL0kFgi",
+            "recn2fIZv9FZJnw3K"
+          ],
+          "Portal": [
+            "rec6uHAZM42f4o0eN",
+            "rectqTKmuCWZ8NQSE",
+            "recQuOFw7fmU7Uokk",
+            "rec7ySK0qONIko38H",
+            "recyVJ6cjrOWMFd6n",
+            "rec8kSW9QZOyk43MN",
+            "reckEh1OYKBen2cDO",
+            "recmHfpEAlFeheN5D",
+            "recnaX1D8qGeyEeqH"
+          ],
+          "Portal Docente": [
+            "recbrrxr11KhqmaIc"
+          ],
+          "Format": " para jovenes y adultos",
+          "WA": "https://api.whatsapp.com/send?phone=51900570149&text=Hola%20Bio%20English%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20Grupo%3A%20%20para%20jovenes%20y%20adultos",
+          "Recursos": [
+            "recqsc0oXgw7AmVvn",
+            "recQ8h6yrnD88lxu1",
+            "recOcIVY63maQLoTn",
+            "recHRJ4LWt8HJsaDR",
+            "recO8uYk9nvpIs8Fx",
+            "recVqJeAzDOfum9Xp"
+          ],
+          "Apr24 PEN": 0,
+          "GRUPOS ACTIVOS": "activo",
+          "Feb24": 0,
+          "Feb24 PEN": 0,
+          "Mar24": 0,
+          "Mar24 PEN": 0,
+          "Abr24": 0,
+          "May24 PEN": 0,
+          "May24": 0,
+          "Jun24": 0,
+          "Jun24 PEN": 0,
+          "Jul24": 0,
+          "Jul24 PEN": 0,
+          "Jun 24 %": 0,
+          "Jun24 C": 0,
+          "Tipo Grupo": "Niños",
+          "Record ID": "reccjiyZ19rxAWkYG",
+          "SOLO ZOOM DE RECURSOS": [
+            "https://us02web.zoom.us/j/88454014025?pwd=4H86pdMtluAhew5ziawv2F9sbu8PfQ.1"
+          ],
+          "Nombre de grupo - mensajes renovación": "ENGLISH STARTERS",
+          "Nombre de grupo - form inscripcion": "ENGLISH STARTERS ( L-M-V-7:00-8:00pm )",
+          "test": true,
+          "Precios renovacion": [
+            "recKGdVeaGzibgSMc",
+            "recliLM6ciVo3K4Z3"
+          ],
+          "Preventa": [
+            "recKQsikxuKcabdVI",
+            "recAlD62dD7hEHGP4"
+          ],
+          "Edad minima": 9,
+          "Edad maxima": 12,
+          "Aparece en el formulario?": "🟢 Grupo aparece en formulario de inscripcion",
+          "1 mes - precio renovación (from Precios renovacion)": [
+            135,
+            155
+          ],
+          "record_id (from Grupos mes) - ultimo creado": [
+            "recSLTUU0b8o7TLgK"
+          ]
+        },
+        "pairedItem": [
+          {
+            "item": 0
+          }
+        ]
       }
     ]
   },
@@ -28864,6 +29666,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-14T18:39:03.861Z",
-  "versionId": "4c1f955a-6a01-43ee-96f0-c1f05abb95b0"
+  "updatedAt": "2026-02-03T03:27:00.426Z",
+  "versionId": "050f0833-546a-495a-96fe-5c400aed5298"
 }
