@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-15T17:26:07.274Z",
-    "createdAt": "2026-01-15T17:26:05.664Z",
-    "versionId": "2dd2585c-f22a-4ce4-8353-18e456b0382b",
+    "updatedAt": "2026-02-03T03:19:50.396Z",
+    "createdAt": "2026-02-03T03:19:48.743Z",
+    "versionId": "499bf879-dfa1-49c1-835f-e907db09e8ed",
     "workflowId": "efFbgE1bYCOEbonn",
     "nodes": [
       {
@@ -294,8 +294,8 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          -144,
-          64
+          -176,
+          -304
         ],
         "id": "172ae1dc-7838-4e2e-8520-7e04f377b7ca",
         "name": "info apoderado1",
@@ -432,6 +432,12 @@
                 "name": "Edad del estudiante",
                 "value": "={{ $('info_estudiante_final').item.json.edad_estudiante }}",
                 "type": "number"
+              },
+              {
+                "id": "81120197-b6cb-4b33-bc22-2a7ae54e3a79",
+                "name": "celular_apoderado_completo",
+                "value": "={{ $('apoderado_info_final').item.json.celular_apoderado_completo }}",
+                "type": "string"
               }
             ]
           },
@@ -616,7 +622,7 @@
               {
                 "id": "96d04884-f772-466f-9367-ae9ae642e787",
                 "name": "DNI del apoderado",
-                "value": "={{ $json['DNI del apoderado'] }}",
+                "value": "={{ $('verificar si existe apoderado').item.json.dni_apoderado }}",
                 "type": "number"
               },
               {
@@ -628,19 +634,31 @@
               {
                 "id": "e569dce6-3aeb-4ad5-bde3-0ab92fec9f33",
                 "name": "Pais",
-                "value": "={{ $json.Pais }}",
+                "value": "=",
                 "type": "string"
               },
               {
                 "id": "24a6746f-a13c-40ce-adf9-e1c0390ca9e3",
                 "name": "Celular de apoderado - colocar sin codigo de pais",
-                "value": "={{ $json['Celular de apoderado - colocar sin codigo de pais'] }}",
+                "value": "=",
                 "type": "number"
               },
               {
                 "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
                 "name": "Nivel de inglés del apoderado",
-                "value": "={{ $json['Nivel de inglés del apoderado'] }}",
+                "value": "={{ $('verificar si existe apoderado').item.json.nivel_ingles_apoderado }}",
+                "type": "string"
+              },
+              {
+                "id": "fd1cb878-b731-45e0-b99c-761cdad16a46",
+                "name": "titulo_formulario_estudiante",
+                "value": "=Bienvenido {{ $('verificar si existe apoderado').item.json.nombre_apoderado }}, ingrese los datos de su {{ $if(\n\n$('On form submission').item.json.tipo_estudiante == \"Para mi hijo/hija\" , \"hijo/hija\",\"\"\n\n) }}{{ $if(\n\n$('On form submission').item.json.tipo_estudiante == \"Para un familiar o amig@\" , \"familiar o amig@\",\"\"\n\n) }}",
+                "type": "string"
+              },
+              {
+                "id": "038092f5-bc18-49cb-8024-a33a0bd9f4cd",
+                "name": "celular_apoderado_completo",
+                "value": "={{ $('verificar si existe apoderado').item.json.numero_completo_apoderado }}",
                 "type": "string"
               }
             ]
@@ -695,6 +713,18 @@
                 "name": "Nivel de inglés del apoderado",
                 "value": "=",
                 "type": "string"
+              },
+              {
+                "id": "faf25645-c758-4bd5-9494-84ef859928c7",
+                "name": "titulo_formulario_estudiante",
+                "value": "Datos del estudiante",
+                "type": "string"
+              },
+              {
+                "id": "22f1c13a-6c2d-4188-b860-0bdd06f7ede7",
+                "name": "celular_apoderado_completo",
+                "value": "",
+                "type": "string"
               }
             ]
           },
@@ -703,7 +733,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          0,
+          80,
           -128
         ],
         "id": "9c956a87-7025-47ad-bbe4-3c73aaf78be0",
@@ -747,6 +777,18 @@
                 "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
                 "name": "Nivel de inglés del apoderado",
                 "value": "={{ $json['Nivel de inglés del apoderado'] }}",
+                "type": "string"
+              },
+              {
+                "id": "c56c355e-b74b-4f98-96bb-679d918aa1e1",
+                "name": "titulo_formulario_estudiante",
+                "value": "={{ $json.titulo_formulario_estudiante }}",
+                "type": "string"
+              },
+              {
+                "id": "01b7ebf9-1a61-4d38-940a-950c7f41edf8",
+                "name": "celular_apoderado_completo",
+                "value": "={{ $json.celular_apoderado_completo }}",
                 "type": "string"
               }
             ]
@@ -922,6 +964,18 @@
                 "name": "Nivel de inglés del apoderado",
                 "value": "={{ $json['Nivel de inglés del apoderado'] }}",
                 "type": "string"
+              },
+              {
+                "id": "2b1942be-57ed-475a-9743-97f07cd35421",
+                "name": "titulo_formulario_estudiante",
+                "value": "=Datos de su {{ $if(\n\n$('On form submission').item.json.tipo_estudiante == \"Para mi hijo/hija\" , \"hijo/hija\",\"\"\n\n) }}{{ $if(\n\n$('On form submission').item.json.tipo_estudiante == \"Para un familiar o amig@\" , \"familiar o amig@\",\"\"\n\n) }}",
+                "type": "string"
+              },
+              {
+                "id": "b3cf3d9f-6cc5-44bf-acee-0b29527ee8fd",
+                "name": "celular_apoderado_completo",
+                "value": "",
+                "type": "string"
               }
             ]
           },
@@ -941,7 +995,7 @@
           "defineForm": "json",
           "jsonOutput": "=[\n  \n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  }\n]\n",
           "options": {
-            "formTitle": "Datos del estudiante"
+            "formTitle": "=Datos del estudiante"
           }
         },
         "type": "n8n-nodes-base.form",
@@ -1319,13 +1373,7 @@
       },
       "info apoderado1": {
         "main": [
-          [
-            {
-              "node": "apoderado_info",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "Call Paises - form de inscripcion": {
@@ -1459,7 +1507,7 @@
         "main": [
           [
             {
-              "node": "info apoderado1",
+              "node": "apoderado_info",
               "type": "main",
               "index": 0
             }
@@ -1592,11 +1640,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 2dd2585c",
+    "name": "Version 499bf879",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "2dd2585c-f22a-4ce4-8353-18e456b0382b",
+  "activeVersionId": "499bf879-dfa1-49c1-835f-e907db09e8ed",
   "connections": {
     "On form submission": {
       "main": [
@@ -1707,13 +1755,7 @@
     },
     "info apoderado1": {
       "main": [
-        [
-          {
-            "node": "apoderado_info",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Call Paises - form de inscripcion": {
@@ -1847,7 +1889,7 @@
       "main": [
         [
           {
-            "node": "info apoderado1",
+            "node": "apoderado_info",
             "type": "main",
             "index": 0
           }
@@ -2275,8 +2317,8 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        -144,
-        64
+        -176,
+        -304
       ],
       "id": "172ae1dc-7838-4e2e-8520-7e04f377b7ca",
       "name": "info apoderado1",
@@ -2413,6 +2455,12 @@
               "name": "Edad del estudiante",
               "value": "={{ $('info_estudiante_final').item.json.edad_estudiante }}",
               "type": "number"
+            },
+            {
+              "id": "81120197-b6cb-4b33-bc22-2a7ae54e3a79",
+              "name": "celular_apoderado_completo",
+              "value": "={{ $('apoderado_info_final').item.json.celular_apoderado_completo }}",
+              "type": "string"
             }
           ]
         },
@@ -2597,7 +2645,7 @@
             {
               "id": "96d04884-f772-466f-9367-ae9ae642e787",
               "name": "DNI del apoderado",
-              "value": "={{ $json['DNI del apoderado'] }}",
+              "value": "={{ $('verificar si existe apoderado').item.json.dni_apoderado }}",
               "type": "number"
             },
             {
@@ -2609,19 +2657,31 @@
             {
               "id": "e569dce6-3aeb-4ad5-bde3-0ab92fec9f33",
               "name": "Pais",
-              "value": "={{ $json.Pais }}",
+              "value": "=",
               "type": "string"
             },
             {
               "id": "24a6746f-a13c-40ce-adf9-e1c0390ca9e3",
               "name": "Celular de apoderado - colocar sin codigo de pais",
-              "value": "={{ $json['Celular de apoderado - colocar sin codigo de pais'] }}",
+              "value": "=",
               "type": "number"
             },
             {
               "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
               "name": "Nivel de inglés del apoderado",
-              "value": "={{ $json['Nivel de inglés del apoderado'] }}",
+              "value": "={{ $('verificar si existe apoderado').item.json.nivel_ingles_apoderado }}",
+              "type": "string"
+            },
+            {
+              "id": "fd1cb878-b731-45e0-b99c-761cdad16a46",
+              "name": "titulo_formulario_estudiante",
+              "value": "=Bienvenido {{ $('verificar si existe apoderado').item.json.nombre_apoderado }}, ingrese los datos de su {{ $if(\n\n$('On form submission').item.json.tipo_estudiante == \"Para mi hijo/hija\" , \"hijo/hija\",\"\"\n\n) }}{{ $if(\n\n$('On form submission').item.json.tipo_estudiante == \"Para un familiar o amig@\" , \"familiar o amig@\",\"\"\n\n) }}",
+              "type": "string"
+            },
+            {
+              "id": "038092f5-bc18-49cb-8024-a33a0bd9f4cd",
+              "name": "celular_apoderado_completo",
+              "value": "={{ $('verificar si existe apoderado').item.json.numero_completo_apoderado }}",
               "type": "string"
             }
           ]
@@ -2676,6 +2736,18 @@
               "name": "Nivel de inglés del apoderado",
               "value": "=",
               "type": "string"
+            },
+            {
+              "id": "faf25645-c758-4bd5-9494-84ef859928c7",
+              "name": "titulo_formulario_estudiante",
+              "value": "Datos del estudiante",
+              "type": "string"
+            },
+            {
+              "id": "22f1c13a-6c2d-4188-b860-0bdd06f7ede7",
+              "name": "celular_apoderado_completo",
+              "value": "",
+              "type": "string"
             }
           ]
         },
@@ -2684,7 +2756,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        0,
+        80,
         -128
       ],
       "id": "9c956a87-7025-47ad-bbe4-3c73aaf78be0",
@@ -2728,6 +2800,18 @@
               "id": "3ad5b3a0-c7bd-4c5b-9d7f-9bd793367d7d",
               "name": "Nivel de inglés del apoderado",
               "value": "={{ $json['Nivel de inglés del apoderado'] }}",
+              "type": "string"
+            },
+            {
+              "id": "c56c355e-b74b-4f98-96bb-679d918aa1e1",
+              "name": "titulo_formulario_estudiante",
+              "value": "={{ $json.titulo_formulario_estudiante }}",
+              "type": "string"
+            },
+            {
+              "id": "01b7ebf9-1a61-4d38-940a-950c7f41edf8",
+              "name": "celular_apoderado_completo",
+              "value": "={{ $json.celular_apoderado_completo }}",
               "type": "string"
             }
           ]
@@ -2903,6 +2987,18 @@
               "name": "Nivel de inglés del apoderado",
               "value": "={{ $json['Nivel de inglés del apoderado'] }}",
               "type": "string"
+            },
+            {
+              "id": "2b1942be-57ed-475a-9743-97f07cd35421",
+              "name": "titulo_formulario_estudiante",
+              "value": "=Datos de su {{ $if(\n\n$('On form submission').item.json.tipo_estudiante == \"Para mi hijo/hija\" , \"hijo/hija\",\"\"\n\n) }}{{ $if(\n\n$('On form submission').item.json.tipo_estudiante == \"Para un familiar o amig@\" , \"familiar o amig@\",\"\"\n\n) }}",
+              "type": "string"
+            },
+            {
+              "id": "b3cf3d9f-6cc5-44bf-acee-0b29527ee8fd",
+              "name": "celular_apoderado_completo",
+              "value": "",
+              "type": "string"
             }
           ]
         },
@@ -2922,7 +3018,7 @@
         "defineForm": "json",
         "jsonOutput": "=[\n  \n  {\n    \"fieldLabel\": \"Correo electrónico del estudiante\",\n    \"fieldType\": \"email\",\n    \"requiredField\": true\n  }\n]\n",
         "options": {
-          "formTitle": "Datos del estudiante"
+          "formTitle": "=Datos del estudiante"
         }
       },
       "type": "n8n-nodes-base.form",
@@ -3190,7 +3286,35 @@
       "name": "info_estudiante_final"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "tipo_estudiante": "Para mi hijo/hija",
+          "submittedAt": "2026-02-02T18:05:52.303-05:00",
+          "formMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "info apoderado1": [
+      {
+        "json": {
+          "DNI del apoderado": 46642450,
+          "Pais": "Perú",
+          "Celular de apoderado - colocar sin codigo de pais": 997812416,
+          "Nivel de inglés del apoderado": "Básico",
+          "submittedAt": "2026-02-02T18:06:19.536-05:00",
+          "formMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
@@ -3213,6 +3337,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-15T17:26:05.661Z",
-  "versionId": "2dd2585c-f22a-4ce4-8353-18e456b0382b"
+  "updatedAt": "2026-02-03T03:27:35.979Z",
+  "versionId": "499bf879-dfa1-49c1-835f-e907db09e8ed"
 }
