@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-17T19:30:07.406Z",
-    "createdAt": "2026-01-17T19:30:06.064Z",
-    "versionId": "2ba62ead-abd9-4923-8046-0b5b0b96627e",
+    "updatedAt": "2026-02-03T02:15:48.722Z",
+    "createdAt": "2026-02-03T02:15:46.583Z",
+    "versionId": "76d5e9ba-684c-4d30-9efc-02e80d279641",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -335,6 +335,8 @@
             "lead": [
               {
                 "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+                "pipeline_id": 8756191,
+                "status_id": 68677515,
                 "custom_fields_values": {
                   "custom_field": [
                     {
@@ -522,6 +524,8 @@
             "lead": [
               {
                 "id": "={{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }}",
+                "pipeline_id": 8756235,
+                "status_id": 68677515,
                 "custom_fields_values": {
                   "custom_field": [
                     {
@@ -2706,11 +2710,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 2ba62ead",
+    "name": "Version 76d5e9ba",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "2ba62ead-abd9-4923-8046-0b5b0b96627e",
+  "activeVersionId": "76d5e9ba-684c-4d30-9efc-02e80d279641",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -3412,6 +3416,8 @@
           "lead": [
             {
               "id": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}",
+              "pipeline_id": 8756191,
+              "status_id": 68677515,
               "custom_fields_values": {
                 "custom_field": [
                   {
@@ -3599,6 +3605,8 @@
           "lead": [
             {
               "id": "={{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }}",
+              "pipeline_id": 8756235,
+              "status_id": 68677515,
               "custom_fields_values": {
                 "custom_field": [
                   {
@@ -5495,6 +5503,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-17T19:30:06.061Z",
-  "versionId": "2ba62ead-abd9-4923-8046-0b5b0b96627e"
+  "updatedAt": "2026-02-03T02:15:46.577Z",
+  "versionId": "76d5e9ba-684c-4d30-9efc-02e80d279641"
 }
