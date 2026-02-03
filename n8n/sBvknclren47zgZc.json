@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-14T21:08:12.913Z",
-    "createdAt": "2026-01-14T21:08:11.754Z",
-    "versionId": "194d5ad0-d0ff-4ee9-89a3-b7597c750ad4",
+    "updatedAt": "2026-02-03T02:50:44.717Z",
+    "createdAt": "2026-02-03T02:50:42.744Z",
+    "versionId": "a34150e2-df51-4bea-9b58-0769fac690ca",
     "workflowId": "sBvknclren47zgZc",
     "nodes": [
       {
@@ -113,6 +113,24 @@
                 "name": "correo_apoderado",
                 "value": "",
                 "type": "string"
+              },
+              {
+                "id": "81c0a5e8-9275-4f4b-bfaf-2fa9c499087c",
+                "name": "dni_apoderado",
+                "value": 0,
+                "type": "number"
+              },
+              {
+                "id": "95e33bdf-ce03-482e-909b-0daef1d6e693",
+                "name": "numero_completo_apoderado",
+                "value": "",
+                "type": "string"
+              },
+              {
+                "id": "b8b6bc5a-b72d-44b8-932a-e4aafe016986",
+                "name": "nivel_ingles_apoderado",
+                "value": "",
+                "type": "string"
               }
             ]
           },
@@ -121,7 +139,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          896,
+          1168,
           448
         ],
         "id": "242738de-37e8-4a5f-89c1-3118b91fe030",
@@ -142,6 +160,24 @@
                 "name": "correo_apoderado",
                 "value": "={{ $('buscar cliente apoderado').item.json['Email del apoderado'] }}",
                 "type": "string"
+              },
+              {
+                "id": "0f64df28-a03b-461a-a281-c51f1e7e8135",
+                "name": "dni_apoderado",
+                "value": "={{ $json['DNI apoderado'] ?? 0 }}",
+                "type": "number"
+              },
+              {
+                "id": "8bf29c9f-e6fb-48bf-b4a2-9181ebedf3e9",
+                "name": "=numero_completo_apoderado",
+                "value": "={{ $json.Celular }}",
+                "type": "string"
+              },
+              {
+                "id": "cc3bbc45-c4a4-463f-8941-60c2f8252ba9",
+                "name": "nivel_ingles_apoderado",
+                "value": "={{ $json['nivel ingles apoderado'] ?? \"\" }}",
+                "type": "string"
               }
             ]
           },
@@ -150,7 +186,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          896,
+          1168,
           224
         ],
         "id": "4946e018-e6aa-468c-b603-86e72bdd0ab0",
@@ -171,6 +207,24 @@
                 "name": "correo_apoderado",
                 "value": "={{ $json.correo_apoderado }}",
                 "type": "string"
+              },
+              {
+                "id": "f5b1b59e-4f60-4361-ab78-d75174a550a1",
+                "name": "dni_apoderado",
+                "value": "={{ $json.dni_apoderado }}",
+                "type": "number"
+              },
+              {
+                "id": "4ede2bbc-6db2-486d-b90a-780d92c4fd37",
+                "name": "numero_completo_apoderado",
+                "value": "={{ $json.numero_completo_apoderado }}",
+                "type": "string"
+              },
+              {
+                "id": "d24a4154-0216-45dd-b626-1ab835cdc935",
+                "name": "nivel_ingles_apoderado",
+                "value": "={{ $json.nivel_ingles_apoderado }}",
+                "type": "string"
               }
             ]
           },
@@ -179,11 +233,46 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1152,
-          352
+          1680,
+          336
         ],
         "id": "b064dd4e-404c-4355-b16e-f69f8acd8caa",
         "name": "info_apoderado_final"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblJJ8rZMUm9669EK",
+            "mode": "list",
+            "cachedResultName": "Contactos",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblJJ8rZMUm9669EK"
+          },
+          "id": "={{ $('buscar cliente apoderado').item.json['Cel Apoderado'][0] }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          912,
+          224
+        ],
+        "id": "c60b7548-8a00-4149-872d-b1cadaf90b42",
+        "name": "buscar contacto apoderado",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -213,7 +302,7 @@
         "main": [
           [
             {
-              "node": "info_apoderado1",
+              "node": "buscar contacto apoderado",
               "type": "main",
               "index": 0
             }
@@ -248,14 +337,25 @@
             }
           ]
         ]
+      },
+      "buscar contacto apoderado": {
+        "main": [
+          [
+            {
+              "node": "info_apoderado1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 194d5ad0",
+    "name": "Version a34150e2",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "194d5ad0-d0ff-4ee9-89a3-b7597c750ad4",
+  "activeVersionId": "a34150e2-df51-4bea-9b58-0769fac690ca",
   "connections": {
     "verificar si existe apoderado": {
       "main": [
@@ -283,7 +383,7 @@
       "main": [
         [
           {
-            "node": "info_apoderado1",
+            "node": "buscar contacto apoderado",
             "type": "main",
             "index": 0
           }
@@ -313,6 +413,17 @@
         [
           {
             "node": "info_apoderado_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar contacto apoderado": {
+      "main": [
+        [
+          {
+            "node": "info_apoderado1",
             "type": "main",
             "index": 0
           }
@@ -435,6 +546,24 @@
               "name": "correo_apoderado",
               "value": "",
               "type": "string"
+            },
+            {
+              "id": "81c0a5e8-9275-4f4b-bfaf-2fa9c499087c",
+              "name": "dni_apoderado",
+              "value": 0,
+              "type": "number"
+            },
+            {
+              "id": "95e33bdf-ce03-482e-909b-0daef1d6e693",
+              "name": "numero_completo_apoderado",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "b8b6bc5a-b72d-44b8-932a-e4aafe016986",
+              "name": "nivel_ingles_apoderado",
+              "value": "",
+              "type": "string"
             }
           ]
         },
@@ -443,7 +572,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        896,
+        1168,
         448
       ],
       "id": "242738de-37e8-4a5f-89c1-3118b91fe030",
@@ -464,6 +593,24 @@
               "name": "correo_apoderado",
               "value": "={{ $('buscar cliente apoderado').item.json['Email del apoderado'] }}",
               "type": "string"
+            },
+            {
+              "id": "0f64df28-a03b-461a-a281-c51f1e7e8135",
+              "name": "dni_apoderado",
+              "value": "={{ $json['DNI apoderado'] ?? 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "8bf29c9f-e6fb-48bf-b4a2-9181ebedf3e9",
+              "name": "=numero_completo_apoderado",
+              "value": "={{ $json.Celular }}",
+              "type": "string"
+            },
+            {
+              "id": "cc3bbc45-c4a4-463f-8941-60c2f8252ba9",
+              "name": "nivel_ingles_apoderado",
+              "value": "={{ $json['nivel ingles apoderado'] ?? \"\" }}",
+              "type": "string"
             }
           ]
         },
@@ -472,7 +619,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        896,
+        1168,
         224
       ],
       "id": "4946e018-e6aa-468c-b603-86e72bdd0ab0",
@@ -493,6 +640,24 @@
               "name": "correo_apoderado",
               "value": "={{ $json.correo_apoderado }}",
               "type": "string"
+            },
+            {
+              "id": "f5b1b59e-4f60-4361-ab78-d75174a550a1",
+              "name": "dni_apoderado",
+              "value": "={{ $json.dni_apoderado }}",
+              "type": "number"
+            },
+            {
+              "id": "4ede2bbc-6db2-486d-b90a-780d92c4fd37",
+              "name": "numero_completo_apoderado",
+              "value": "={{ $json.numero_completo_apoderado }}",
+              "type": "string"
+            },
+            {
+              "id": "d24a4154-0216-45dd-b626-1ab835cdc935",
+              "name": "nivel_ingles_apoderado",
+              "value": "={{ $json.nivel_ingles_apoderado }}",
+              "type": "string"
             }
           ]
         },
@@ -501,11 +666,46 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1152,
-        352
+        1680,
+        336
       ],
       "id": "b064dd4e-404c-4355-b16e-f69f8acd8caa",
       "name": "info_apoderado_final"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJJ8rZMUm9669EK",
+          "mode": "list",
+          "cachedResultName": "Contactos",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblJJ8rZMUm9669EK"
+        },
+        "id": "={{ $('buscar cliente apoderado').item.json['Cel Apoderado'][0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        912,
+        224
+      ],
+      "id": "c60b7548-8a00-4149-872d-b1cadaf90b42",
+      "name": "buscar contacto apoderado",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -536,6 +736,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-14T21:08:11.752Z",
-  "versionId": "194d5ad0-d0ff-4ee9-89a3-b7597c750ad4"
+  "updatedAt": "2026-02-03T02:50:42.740Z",
+  "versionId": "a34150e2-df51-4bea-9b58-0769fac690ca"
 }
