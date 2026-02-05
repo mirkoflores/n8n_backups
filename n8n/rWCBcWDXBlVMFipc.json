@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-15T17:09:40.255Z",
-    "createdAt": "2026-01-15T17:09:38.023Z",
-    "versionId": "8b97b556-7da1-40ce-a183-911e11e15153",
+    "updatedAt": "2026-02-04T14:50:23.592Z",
+    "createdAt": "2026-02-04T14:50:21.154Z",
+    "versionId": "703744bc-738a-4d5c-9e09-6cd259d3749a",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -6533,7 +6533,7 @@
             "cachedResultName": "Clientes",
             "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
           },
-          "filterByFormula": "={Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\"",
+          "filterByFormula": "=AND({Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\",{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\")",
           "returnAll": false,
           "limit": 1,
           "options": {}
@@ -8011,11 +8011,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 8b97b556",
+    "name": "Version 703744bc",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "8b97b556-7da1-40ce-a183-911e11e15153",
+  "activeVersionId": "703744bc-738a-4d5c-9e09-6cd259d3749a",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -15336,7 +15336,7 @@
           "cachedResultName": "Clientes",
           "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
         },
-        "filterByFormula": "={Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\"",
+        "filterByFormula": "=AND({Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\",{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\")",
         "returnAll": false,
         "limit": 1,
         "options": {}
@@ -16082,44 +16082,44 @@
     "Tally Trigger": [
       {
         "json": {
-          "id": "2E9gEzj",
+          "id": "q49rvq2",
           "formId": "A7K61k",
           "formName": "Bioenglish - renovacion",
-          "respondentId": "RGDENKJ",
-          "createdAt": "2026-01-06T15:48:50.000Z",
+          "respondentId": "kXR4B1",
+          "createdAt": "2026-02-03T20:06:00.000Z",
           "question_zqjAMq": {
             "label": "Nombre del estudiante\n",
-            "value": "Brayan Isaid Espino Franco ",
+            "value": "Anthonny amir blanco pinedo ",
             "type": "INPUT_TEXT"
           },
           "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
             "label": "nombre_estudiante",
-            "value": "Brayan Isaid Espino Franco ",
+            "value": "Rafael Montoya Yomona ",
             "type": "HIDDEN_FIELDS"
           },
           "question_d6Eo0A": {
             "label": "Celular del estudiante\n",
-            "value": "+51941017121",
+            "value": "+51945865432",
             "type": "INPUT_PHONE_NUMBER"
           },
           "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
             "label": "celular_estudiante",
-            "value": "+51941017121",
+            "value": "+51959876746",
             "type": "HIDDEN_FIELDS"
           },
           "question_jy6Vg4": {
             "label": "id_cliente_airtable",
-            "value": "rec0sOMVnsuv1s2Ql",
+            "value": "recW8Wmkm3ap1lIyF",
             "type": "INPUT_TEXT"
           },
           "question_lyeEgv_fc65a15c-b459-43f2-8bdd-2ba80612f4fa": {
             "label": "id_cliente_airtable",
-            "value": "rec0sOMVnsuv1s2Ql",
+            "value": "recW8Wmkm3ap1lIyF",
             "type": "HIDDEN_FIELDS"
           },
           "question_5zbY9d": {
             "label": "Edad del estudiante (indica sólo el número)",
-            "value": 12,
+            "value": 11,
             "type": "INPUT_NUMBER"
           },
           "question_pKrE8Z": {
@@ -16129,22 +16129,22 @@
           },
           "question_oyB6x5_752c0b80-1d47-40f4-b1df-b20854ca1a65": {
             "label": "meses_a_renovar",
-            "value": "2",
+            "value": null,
             "type": "HIDDEN_FIELDS"
           },
           "question_Gz1v7Q": {
             "label": "tipo_de_formulario",
-            "value": "chatbot_upsell",
+            "value": "",
             "type": "INPUT_TEXT"
           },
           "question_OzP1Vk_490d8b92-9402-40c7-8bc7-ae1f0fbe881f": {
             "label": "tipo_de_formulario",
-            "value": "chatbot_upsell",
+            "value": null,
             "type": "HIDDEN_FIELDS"
           },
           "question_YQPbGd": {
             "label": "Comprobante de pago\n",
-            "value": "https://storage.tally.so/private/Imagen-de-WhatsApp-2025-11-07-a-las-09.08.00_ed87bd03.jpg?id=EvV2ZX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkV2VjJaWCIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc2NzcxNDUzMH0.Oh0UpDPUC9zYaX-PqVjy_qETX7zs-N5cEN5l9xtU_QM&signature=7ebea3b7fb527353de883faf3d94c650f4a49d76cde7c79d5b24d0f45c169002",
+            "value": "https://storage.tally.so/private/IMG-20260203-WA0064.jpg?id=LaAJEj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhQUpFaiIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3MDE0OTE2MX0.1H57A7xRFxp6JLZchvcS9fiJ9JhcZctWwX49Br235iw&signature=837cb22a44ad768dd60550ae8ae453e6314a014dfcb2854594d24637da58d4ee",
             "type": "FILE_UPLOAD"
           }
         },
@@ -16175,11 +16175,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "mKxvj8"
+      "webhookId": "w59W2o"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-15T17:09:38.018Z",
-  "versionId": "8b97b556-7da1-40ce-a183-911e11e15153"
+  "updatedAt": "2026-02-04T14:50:21.148Z",
+  "versionId": "703744bc-738a-4d5c-9e09-6cd259d3749a"
 }
