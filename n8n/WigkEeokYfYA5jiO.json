@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-14T15:36:20.157Z",
-    "createdAt": "2026-01-14T15:36:18.568Z",
-    "versionId": "b5c28f14-fafd-44b7-ba11-ec8f2d96d4fa",
+    "updatedAt": "2026-02-06T00:34:48.629Z",
+    "createdAt": "2026-02-06T00:34:46.525Z",
+    "versionId": "11dfeef9-e9df-4201-9862-c023883b76e3",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -29,8 +29,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1056,
-          -512
+          384,
+          -528
         ],
         "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
         "name": "Detalles venta",
@@ -67,7 +67,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1504,
+          1712,
           -512
         ],
         "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
@@ -102,7 +102,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1728,
+          1936,
           -512
         ],
         "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
@@ -141,6 +141,12 @@
                 "name": "id_registro_grupo",
                 "value": "={{ $('Detalles venta').item.json.Grupos[0] }}",
                 "type": "string"
+              },
+              {
+                "id": "01379d2c-c9e0-4d61-93c1-e49c56aee154",
+                "name": "created_time",
+                "value": "={{ $('Detalles venta').item.json.createdTime }}",
+                "type": "string"
               }
             ]
           },
@@ -149,8 +155,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1280,
-          -512
+          592,
+          -528
         ],
         "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
         "name": "Variables_1"
@@ -262,7 +268,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2400,
+          2608,
           -32
         ],
         "id": "9ec0bb18-6870-408b-84cb-c8aac21ee542",
@@ -310,7 +316,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5648,
+          5856,
           -928
         ],
         "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -649,7 +655,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2832,
+          3040,
           -32
         ],
         "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
@@ -669,7 +675,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5424,
+          5632,
           -928
         ],
         "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -732,7 +738,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          4400,
+          4608,
           -240
         ],
         "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
@@ -749,7 +755,7 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          4624,
+          4832,
           -240
         ],
         "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
@@ -916,7 +922,7 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          4848,
+          5056,
           -304
         ],
         "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
@@ -964,7 +970,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5648,
+          5856,
           -1120
         ],
         "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
@@ -984,7 +990,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5424,
+          5632,
           -1120
         ],
         "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
@@ -1019,7 +1025,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          5872,
+          6080,
           -1120
         ],
         "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
@@ -1060,7 +1066,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3504,
+          3712,
           -144
         ],
         "id": "937effc5-d55b-4e41-bb82-647f9266837d",
@@ -1101,7 +1107,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3744,
+          3952,
           -32
         ],
         "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -1124,7 +1130,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4176,
+          4384,
           -144
         ],
         "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
@@ -1211,7 +1217,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3984,
+          4192,
           -144
         ],
         "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
@@ -1259,7 +1265,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4400,
+          4608,
           -48
         ],
         "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
@@ -1334,7 +1340,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5200,
+          5408,
           -1024
         ],
         "id": "2c710983-a029-4447-872b-b00631d26014",
@@ -1382,7 +1388,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5648,
+          5856,
           -544
         ],
         "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
@@ -1402,7 +1408,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5424,
+          5632,
           -544
         ],
         "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
@@ -1456,7 +1462,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5648,
+          5856,
           -736
         ],
         "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
@@ -1476,7 +1482,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5424,
+          5632,
           -736
         ],
         "id": "0db36230-0d0d-49bb-943a-dc011650676e",
@@ -1511,7 +1517,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          5872,
+          6080,
           -736
         ],
         "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
@@ -1587,7 +1593,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5200,
+          5408,
           -640
         ],
         "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
@@ -1635,7 +1641,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5648,
+          5856,
           -160
         ],
         "id": "fb04a892-10f5-4269-b116-17194a984389",
@@ -1655,7 +1661,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5424,
+          5632,
           -160
         ],
         "id": "82504058-e135-4182-8768-a13266255ada",
@@ -1709,7 +1715,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5648,
+          5856,
           -352
         ],
         "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
@@ -1729,7 +1735,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5424,
+          5632,
           -352
         ],
         "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
@@ -1764,7 +1770,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          5872,
+          6080,
           -352
         ],
         "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
@@ -1840,7 +1846,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5200,
+          5408,
           -256
         ],
         "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
@@ -1881,7 +1887,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3744,
+          3952,
           -272
         ],
         "id": "791557b6-5113-41aa-b134-8ae81864350b",
@@ -1908,8 +1914,8 @@
         "type": "n8n-nodes-base.rabbitmqTrigger",
         "typeVersion": 1,
         "position": [
-          832,
-          -512
+          144,
+          -528
         ],
         "id": "8d9574ec-975e-4724-a561-0e4d57603596",
         "name": "Webhook",
@@ -1932,7 +1938,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          3024,
+          3232,
           -32
         ],
         "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
@@ -1968,7 +1974,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2176,
+          2384,
           -512
         ],
         "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
@@ -1998,7 +2004,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1952,
+          2160,
           -512
         ],
         "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
@@ -2022,7 +2028,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1104,
+          1312,
           -112
         ],
         "id": "eded776a-4999-4cf5-8a75-21cef8d9d006",
@@ -2056,7 +2062,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          880,
+          1088,
           -112
         ],
         "id": "023db1c4-7a67-4833-81af-407461e9fe80",
@@ -2089,7 +2095,7 @@
         "type": "n8n-nodes-base.filter",
         "typeVersion": 2.3,
         "position": [
-          1328,
+          1536,
           -112
         ],
         "id": "b63a8355-67c0-4e5b-89c6-6c9442e6e1e4",
@@ -2100,7 +2106,7 @@
         "type": "n8n-nodes-base.limit",
         "typeVersion": 1,
         "position": [
-          1552,
+          1760,
           -112
         ],
         "id": "fbca6dbb-58ce-453c-95b2-5769a23587b2",
@@ -2133,7 +2139,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1776,
+          1984,
           -112
         ],
         "id": "d03fb4e8-add6-4f83-ac82-2d16d2787efd",
@@ -2186,7 +2192,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2144,
+          2352,
           160
         ],
         "id": "5e78f3b8-3154-40ef-84da-a000d79be981",
@@ -2239,7 +2245,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2144,
+          2352,
           -224
         ],
         "id": "b54ae000-1a58-4b98-a283-1f3489ee7ce0",
@@ -2292,7 +2298,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2144,
+          2352,
           -32
         ],
         "id": "4571803b-4ece-4e49-acb1-60f78184297c",
@@ -2312,7 +2318,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5200,
+          5408,
           -64
         ],
         "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
@@ -2338,7 +2344,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5200,
+          5408,
           128
         ],
         "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
@@ -2364,7 +2370,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5200,
+          5408,
           320
         ],
         "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
@@ -2410,7 +2416,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3472,
+          3680,
           64
         ],
         "id": "cd74891b-2961-4751-a371-640f3faed8ea",
@@ -2449,7 +2455,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3248,
+          3456,
           -32
         ],
         "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
@@ -2515,11 +2521,1245 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          2624,
+          2832,
           -32
         ],
         "name": "Call Definir ID contacto y lead en Kommo",
         "id": "3560a129-930a-4c67-9721-ce4e06ebacc2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "98b5ba04-6ef6-4bf2-bc1b-ff9750eac831",
+                "name": "id_detalles_venta",
+                "value": "={{ $('Webhook').item.json.body.recordId }}",
+                "type": "string"
+              },
+              {
+                "id": "9a3677ac-ce76-447d-a79d-a4b07b732af4",
+                "name": "tipo_recordatorio_pago",
+                "value": "={{ $('Webhook').item.json.body.Tipo }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          -64,
+          -1008
+        ],
+        "id": "d1bb2b8f-53e0-471c-b9ad-44925249c3f5",
+        "name": "Variables_0"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblr6JOWFdK3kOAfo",
+            "mode": "list",
+            "cachedResultName": "DetalleVentas",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblr6JOWFdK3kOAfo"
+          },
+          "filterByFormula": "=AND({Record ID Rollup (from Clientes)}=\"{{ $('Variables_1').item.json.id_registro_clientes }}\",{Record ID} != \"{{ $('Variables_1').item.json.id_detalles_venta }}\", {Created time - unix time} > {{ DateTime.fromFormat($('Variables_1').item.json.created_time, 'yyyy-mm-dd', { zone: 'utc' }).toSeconds() }} )",
+          "returnAll": false,
+          "limit": 1,
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          1136,
+          -688
+        ],
+        "id": "380ad9a5-f3cb-41be-b723-8471e13518fe",
+        "name": "Buscar Detalles venta nuevo",
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "0d16b210-c422-4803-8886-3e23a620eaef",
+                "leftValue": "={{ $json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          1328,
+          -688
+        ],
+        "id": "c5837ea6-0b1e-4c24-a5a3-1a5aa921d6e8",
+        "name": "existe?1"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "update",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblr6JOWFdK3kOAfo",
+            "mode": "list",
+            "cachedResultName": "DetalleVentas",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblr6JOWFdK3kOAfo"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Pasados a pixel": false,
+              "Enviar correo": false,
+              "Renovado": true,
+              "PEN": 0,
+              "DOL": 0,
+              "id": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+            },
+            "matchingColumns": [
+              "id"
+            ],
+            "schema": [
+              {
+                "id": "id",
+                "displayName": "id",
+                "required": false,
+                "defaultMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Detalle",
+                "displayName": "Detalle",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Clientes",
+                "displayName": "Clientes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Email del estudiante (from Clientes)",
+                "displayName": "Email del estudiante (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Cel Estudiante (from Clientes)",
+                "displayName": "Cel Estudiante (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "PEN",
+                "displayName": "PEN",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Cuenta",
+                "displayName": "Cuenta",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Interbank",
+                    "value": "Interbank"
+                  },
+                  {
+                    "name": "BCP",
+                    "value": "BCP"
+                  },
+                  {
+                    "name": "Efectivo",
+                    "value": "Efectivo"
+                  },
+                  {
+                    "name": "Cuenta Chilena",
+                    "value": "Cuenta Chilena"
+                  },
+                  {
+                    "name": "Gadiel y Gareth Abril.jpeg (https://dl.airtable.com/.attachments/0f22ad1b240c2b8348a8a712805f154f/06cd9617/GadielyGarethAbril.jpeg)",
+                    "value": "Gadiel y Gareth Abril.jpeg (https://dl.airtable.com/.attachments/0f22ad1b240c2b8348a8a712805f154f/06cd9617/GadielyGarethAbril.jpeg)"
+                  },
+                  {
+                    "name": "Paypal",
+                    "value": "Paypal"
+                  },
+                  {
+                    "name": "Screenshot_20230526-173709_Yape.jpg (https://dl.airtable.com/.attachments/7f3692a23cb446871c28baba55b9d78a/dc5d42ff/Screenshot_20230526-173709_Yape.jpg)",
+                    "value": "Screenshot_20230526-173709_Yape.jpg (https://dl.airtable.com/.attachments/7f3692a23cb446871c28baba55b9d78a/dc5d42ff/Screenshot_20230526-173709_Yape.jpg)"
+                  },
+                  {
+                    "name": "IMG-20230708-WA0008.jpg (https://dl.airtable.com/.attachments/5e105354562fa4ce7a5b1616c1cb8d8f/0f042eaf/IMG-20230708-WA0008.jpg)",
+                    "value": "IMG-20230708-WA0008.jpg (https://dl.airtable.com/.attachments/5e105354562fa4ce7a5b1616c1cb8d8f/0f042eaf/IMG-20230708-WA0008.jpg)"
+                  },
+                  {
+                    "name": "Western Union",
+                    "value": "Western Union"
+                  },
+                  {
+                    "name": "FACTURA CENTRY",
+                    "value": "FACTURA CENTRY"
+                  },
+                  {
+                    "name": "Mercado Pago ",
+                    "value": "Mercado Pago "
+                  },
+                  {
+                    "name": "Banco de la nación",
+                    "value": "Banco de la nación"
+                  },
+                  {
+                    "name": "Invoice - 0125 - Bio English.pdf (https://dl.airtable.com/.directUrlUploadAttachment/77b08180309bf2856b832e012e5faa68/4fda16bc/Invoice-0125-BioEnglish.pdf)",
+                    "value": "Invoice - 0125 - Bio English.pdf (https://dl.airtable.com/.directUrlUploadAttachment/77b08180309bf2856b832e012e5faa68/4fda16bc/Invoice-0125-BioEnglish.pdf)"
+                  },
+                  {
+                    "name": "BBVA",
+                    "value": "BBVA"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Comprobante",
+                "displayName": "Comprobante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de Pago",
+                "displayName": "Fecha de Pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "dateTime",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de Inicio",
+                "displayName": "Fecha de Inicio",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "dateTime",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "PEN FB",
+                "displayName": "PEN FB",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Asesor Ventas",
+                "displayName": "Asesor Ventas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Retirados",
+                "displayName": "Retirados",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Vacaciones",
+                    "value": "Vacaciones"
+                  },
+                  {
+                    "name": "No conforme",
+                    "value": "No conforme"
+                  },
+                  {
+                    "name": "cambio horario",
+                    "value": "cambio horario"
+                  },
+                  {
+                    "name": "presencial",
+                    "value": "presencial"
+                  },
+                  {
+                    "name": "falta presupuesto",
+                    "value": "falta presupuesto"
+                  },
+                  {
+                    "name": "motivos personales",
+                    "value": "motivos personales"
+                  },
+                  {
+                    "name": "separó vacante ",
+                    "value": "separó vacante "
+                  },
+                  {
+                    "name": "congela hasta marzo",
+                    "value": "congela hasta marzo"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "ID",
+                "displayName": "ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Name (from Contactos)",
+                "displayName": "Name (from Contactos)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Suscripción",
+                "displayName": "Suscripción",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "0.5 meses",
+                    "value": "0.5 meses"
+                  },
+                  {
+                    "name": "1 mes",
+                    "value": "1 mes"
+                  },
+                  {
+                    "name": "2 meses",
+                    "value": "2 meses"
+                  },
+                  {
+                    "name": "3 meses",
+                    "value": "3 meses"
+                  },
+                  {
+                    "name": "1 día",
+                    "value": "1 día"
+                  },
+                  {
+                    "name": "4 clases",
+                    "value": "4 clases"
+                  },
+                  {
+                    "name": "8 clases",
+                    "value": "8 clases"
+                  },
+                  {
+                    "name": "6 meses",
+                    "value": "6 meses"
+                  },
+                  {
+                    "name": "10 meses",
+                    "value": "10 meses"
+                  },
+                  {
+                    "name": "4 meses",
+                    "value": "4 meses"
+                  },
+                  {
+                    "name": "5 meses",
+                    "value": "5 meses"
+                  },
+                  {
+                    "name": "S/. 525.00",
+                    "value": "S/. 525.00"
+                  },
+                  {
+                    "name": "ANUAL",
+                    "value": "ANUAL"
+                  },
+                  {
+                    "name": "7 clases",
+                    "value": "7 clases"
+                  },
+                  {
+                    "name": "S/. 232.50",
+                    "value": "S/. 232.50"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Grupos",
+                "displayName": "Grupos",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "#Semanas",
+                "displayName": "#Semanas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha de Fin",
+                "displayName": "Fecha de Fin",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Status",
+                "displayName": "Status",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Estado",
+                "displayName": "Estado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupos (from Grupos)",
+                "displayName": "Grupos (from Grupos)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Canal",
+                "displayName": "Canal",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Canal (from Canal)",
+                "displayName": "Canal (from Canal)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Modalidad (from Modalidad)",
+                "displayName": "Modalidad (from Modalidad)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Created",
+                "displayName": "Created",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Celular",
+                "displayName": "Celular",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "WA Link",
+                "displayName": "WA Link",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "createdTime",
+                "displayName": "createdTime",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "latestPurchaseDate",
+                "displayName": "latestPurchaseDate",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "latestPurchase",
+                "displayName": "latestPurchase",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Cel Estudiante (from Clientes) copy",
+                "displayName": "Cel Estudiante (from Clientes) copy",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Cel Estudiante (from Clientes) copy copy",
+                "displayName": "Cel Estudiante (from Clientes) copy copy",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nivel (from Grupos)",
+                "displayName": "Nivel (from Grupos)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "# Ventas (from Clientes)",
+                "displayName": "# Ventas (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Estado 2",
+                "displayName": "Estado 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Record ID",
+                "displayName": "Record ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "URL boton",
+                "displayName": "URL boton",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre del estudiante (from Clientes)",
+                "displayName": "Nombre del estudiante (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Usuario",
+                "displayName": "Usuario",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Asistencia (from Usuario)",
+                "displayName": "Asistencia (from Usuario)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Asistencia (from Usuario) 2",
+                "displayName": "Asistencia (from Usuario) 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo actual (from Clientes) (from Usuario)",
+                "displayName": "Grupo actual (from Clientes) (from Usuario)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo mes (from Portal) (from Usuario)",
+                "displayName": "Grupo mes (from Portal) (from Usuario)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Celular Unico (from Clientes)",
+                "displayName": "Celular Unico (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Pais Celular (from Clientes)",
+                "displayName": "Pais Celular (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Boletas de venta",
+                "displayName": "Boletas de venta",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular Unico (from Clientes) 2",
+                "displayName": "Celular Unico (from Clientes) 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Pasados a pixel",
+                "displayName": "Pasados a pixel",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "ISO (de Clientes)",
+                "displayName": "ISO (de Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Kommo Link WA (from Clientes)",
+                "displayName": "Kommo Link WA (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Cantidad DV (from Clientes)",
+                "displayName": "Cantidad DV (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Tipo Recompra",
+                "displayName": "Tipo Recompra",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Tipo Grupo (from Grupos)",
+                "displayName": "Tipo Grupo (from Grupos)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Flujo de Caja",
+                "displayName": "Flujo de Caja",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha min (from Clientes)",
+                "displayName": "Fecha min (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Usuarios (from Clientes)",
+                "displayName": "Usuarios (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Magic link (from Usuarios) (from Clientes)",
+                "displayName": "Magic link (from Usuarios) (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Enviar correo",
+                "displayName": "Enviar correo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "#Meses",
+                "displayName": "#Meses",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fin suscripción v2",
+                "displayName": "Fin suscripción v2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fin suscripción - 7 dias antes",
+                "displayName": "Fin suscripción - 7 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Renovado",
+                "displayName": "Renovado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "DOL",
+                "displayName": "DOL",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "No renovo",
+                "displayName": "No renovo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fin suscripción - 3 dias antes",
+                "displayName": "Fin suscripción - 3 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fin suscripción - 1 dias antes",
+                "displayName": "Fin suscripción - 1 dias antes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fin suscripción - 5 dias despues",
+                "displayName": "Fin suscripción - 5 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fin suscripción - 30 dias despues",
+                "displayName": "Fin suscripción - 30 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fin suscripción - 60 dias despues",
+                "displayName": "Fin suscripción - 60 dias despues",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Preventa",
+                "displayName": "Preventa",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Fecha de inicio real",
+                "displayName": "Fecha de inicio real",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Created time - unix time",
+                "displayName": "Created time - unix time",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Record ID Rollup (from Clientes)",
+                "displayName": "Record ID Rollup (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Calculation",
+                "displayName": "Calculation",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          1568,
+          -816
+        ],
+        "id": "3d8b827c-53dc-4058-a6c1-37e919b355f6",
+        "name": "Detalles venta - colocar renovado",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "mf1zt2lexmn446a",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_escenario_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "id_automatizacion_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_detalles_venta_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+              },
+              {
+                "fieldName": "id_cliente_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
+              },
+              {
+                "fieldName": "id_grupo_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          1776,
+          -816
+        ],
+        "id": "42c508dd-3782-4a0e-b807-721f8502ea84",
+        "name": "Create a row2",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "b5c3e69b-a402-4c2f-a641-8b28afc04aef",
+                "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                "rightValue": "5_dias_despues",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "3e7acab4-6b37-4066-afa4-e96edace9577",
+                "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                "rightValue": "30_dias_despues",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              },
+              {
+                "id": "32a7f959-5a6f-48ac-9a58-1d973e701238",
+                "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+                "rightValue": "60_dias_despues",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          816,
+          -528
+        ],
+        "id": "2693bd30-4064-4ad0-b2b2-78ace4aec396",
+        "name": "es tipo seguimiento?"
       }
     ],
     "connections": {
@@ -2549,7 +3789,7 @@
         "main": [
           [
             {
-              "node": "Clientes",
+              "node": "es tipo seguimiento?",
               "type": "main",
               "index": 0
             }
@@ -3168,14 +4408,77 @@
             }
           ]
         ]
+      },
+      "Variables_0": {
+        "main": [
+          []
+        ]
+      },
+      "Buscar Detalles venta nuevo": {
+        "main": [
+          [
+            {
+              "node": "existe?1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "existe?1": {
+        "main": [
+          [
+            {
+              "node": "Detalles venta - colocar renovado",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Clientes",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Detalles venta - colocar renovado": {
+        "main": [
+          [
+            {
+              "node": "Create a row2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "es tipo seguimiento?": {
+        "main": [
+          [
+            {
+              "node": "Buscar Detalles venta nuevo",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Clientes",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version b5c28f14",
+    "name": "Version 11dfeef9",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "b5c28f14-fafd-44b7-ba11-ec8f2d96d4fa",
+  "activeVersionId": "11dfeef9-e9df-4201-9862-c023883b76e3",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -3203,7 +4506,7 @@
       "main": [
         [
           {
-            "node": "Clientes",
+            "node": "es tipo seguimiento?",
             "type": "main",
             "index": 0
           }
@@ -3822,6 +5125,69 @@
           }
         ]
       ]
+    },
+    "Variables_0": {
+      "main": [
+        []
+      ]
+    },
+    "Buscar Detalles venta nuevo": {
+      "main": [
+        [
+          {
+            "node": "existe?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe?1": {
+      "main": [
+        [
+          {
+            "node": "Detalles venta - colocar renovado",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Detalles venta - colocar renovado": {
+      "main": [
+        [
+          {
+            "node": "Create a row2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "es tipo seguimiento?": {
+      "main": [
+        [
+          {
+            "node": "Buscar Detalles venta nuevo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-20T17:06:23.257Z",
@@ -3855,8 +5221,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1056,
-        -512
+        384,
+        -528
       ],
       "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
       "name": "Detalles venta",
@@ -3893,7 +5259,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1504,
+        1712,
         -512
       ],
       "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
@@ -3928,7 +5294,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1728,
+        1936,
         -512
       ],
       "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
@@ -3967,6 +5333,12 @@
               "name": "id_registro_grupo",
               "value": "={{ $('Detalles venta').item.json.Grupos[0] }}",
               "type": "string"
+            },
+            {
+              "id": "01379d2c-c9e0-4d61-93c1-e49c56aee154",
+              "name": "created_time",
+              "value": "={{ $('Detalles venta').item.json.createdTime }}",
+              "type": "string"
             }
           ]
         },
@@ -3975,8 +5347,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1280,
-        -512
+        592,
+        -528
       ],
       "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
       "name": "Variables_1"
@@ -4088,7 +5460,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2400,
+        2608,
         -32
       ],
       "id": "9ec0bb18-6870-408b-84cb-c8aac21ee542",
@@ -4136,7 +5508,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5648,
+        5856,
         -928
       ],
       "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -4475,7 +5847,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2832,
+        3040,
         -32
       ],
       "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
@@ -4495,7 +5867,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5424,
+        5632,
         -928
       ],
       "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -4558,7 +5930,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        4400,
+        4608,
         -240
       ],
       "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
@@ -4575,7 +5947,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4624,
+        4832,
         -240
       ],
       "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
@@ -4742,7 +6114,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        4848,
+        5056,
         -304
       ],
       "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
@@ -4790,7 +6162,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5648,
+        5856,
         -1120
       ],
       "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
@@ -4810,7 +6182,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5424,
+        5632,
         -1120
       ],
       "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
@@ -4845,7 +6217,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        5872,
+        6080,
         -1120
       ],
       "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
@@ -4886,7 +6258,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3504,
+        3712,
         -144
       ],
       "id": "937effc5-d55b-4e41-bb82-647f9266837d",
@@ -4927,7 +6299,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3744,
+        3952,
         -32
       ],
       "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -4950,7 +6322,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4176,
+        4384,
         -144
       ],
       "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
@@ -5037,7 +6409,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3984,
+        4192,
         -144
       ],
       "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
@@ -5085,7 +6457,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4400,
+        4608,
         -48
       ],
       "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
@@ -5160,7 +6532,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5200,
+        5408,
         -1024
       ],
       "id": "2c710983-a029-4447-872b-b00631d26014",
@@ -5208,7 +6580,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5648,
+        5856,
         -544
       ],
       "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
@@ -5228,7 +6600,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5424,
+        5632,
         -544
       ],
       "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
@@ -5282,7 +6654,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5648,
+        5856,
         -736
       ],
       "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
@@ -5302,7 +6674,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5424,
+        5632,
         -736
       ],
       "id": "0db36230-0d0d-49bb-943a-dc011650676e",
@@ -5337,7 +6709,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        5872,
+        6080,
         -736
       ],
       "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
@@ -5413,7 +6785,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5200,
+        5408,
         -640
       ],
       "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
@@ -5461,7 +6833,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5648,
+        5856,
         -160
       ],
       "id": "fb04a892-10f5-4269-b116-17194a984389",
@@ -5481,7 +6853,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5424,
+        5632,
         -160
       ],
       "id": "82504058-e135-4182-8768-a13266255ada",
@@ -5535,7 +6907,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5648,
+        5856,
         -352
       ],
       "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
@@ -5555,7 +6927,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5424,
+        5632,
         -352
       ],
       "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
@@ -5590,7 +6962,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        5872,
+        6080,
         -352
       ],
       "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
@@ -5666,7 +7038,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5200,
+        5408,
         -256
       ],
       "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
@@ -5707,7 +7079,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3744,
+        3952,
         -272
       ],
       "id": "791557b6-5113-41aa-b134-8ae81864350b",
@@ -5734,8 +7106,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        832,
-        -512
+        144,
+        -528
       ],
       "id": "8d9574ec-975e-4724-a561-0e4d57603596",
       "name": "Webhook",
@@ -5758,7 +7130,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        3024,
+        3232,
         -32
       ],
       "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
@@ -5794,7 +7166,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2176,
+        2384,
         -512
       ],
       "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
@@ -5824,7 +7196,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1952,
+        2160,
         -512
       ],
       "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
@@ -5848,7 +7220,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1104,
+        1312,
         -112
       ],
       "id": "eded776a-4999-4cf5-8a75-21cef8d9d006",
@@ -5882,7 +7254,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        880,
+        1088,
         -112
       ],
       "id": "023db1c4-7a67-4833-81af-407461e9fe80",
@@ -5915,7 +7287,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        1328,
+        1536,
         -112
       ],
       "id": "b63a8355-67c0-4e5b-89c6-6c9442e6e1e4",
@@ -5926,7 +7298,7 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        1552,
+        1760,
         -112
       ],
       "id": "fbca6dbb-58ce-453c-95b2-5769a23587b2",
@@ -5959,7 +7331,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1776,
+        1984,
         -112
       ],
       "id": "d03fb4e8-add6-4f83-ac82-2d16d2787efd",
@@ -6012,7 +7384,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2144,
+        2352,
         160
       ],
       "id": "5e78f3b8-3154-40ef-84da-a000d79be981",
@@ -6065,7 +7437,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2144,
+        2352,
         -224
       ],
       "id": "b54ae000-1a58-4b98-a283-1f3489ee7ce0",
@@ -6118,7 +7490,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2144,
+        2352,
         -32
       ],
       "id": "4571803b-4ece-4e49-acb1-60f78184297c",
@@ -6138,7 +7510,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5200,
+        5408,
         -64
       ],
       "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
@@ -6164,7 +7536,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5200,
+        5408,
         128
       ],
       "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
@@ -6190,7 +7562,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5200,
+        5408,
         320
       ],
       "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
@@ -6236,7 +7608,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3472,
+        3680,
         64
       ],
       "id": "cd74891b-2961-4751-a371-640f3faed8ea",
@@ -6275,7 +7647,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3248,
+        3456,
         -32
       ],
       "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
@@ -6341,11 +7713,1245 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        2624,
+        2832,
         -32
       ],
       "name": "Call Definir ID contacto y lead en Kommo",
       "id": "3560a129-930a-4c67-9721-ce4e06ebacc2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "98b5ba04-6ef6-4bf2-bc1b-ff9750eac831",
+              "name": "id_detalles_venta",
+              "value": "={{ $('Webhook').item.json.body.recordId }}",
+              "type": "string"
+            },
+            {
+              "id": "9a3677ac-ce76-447d-a79d-a4b07b732af4",
+              "name": "tipo_recordatorio_pago",
+              "value": "={{ $('Webhook').item.json.body.Tipo }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -64,
+        -1008
+      ],
+      "id": "d1bb2b8f-53e0-471c-b9ad-44925249c3f5",
+      "name": "Variables_0"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblr6JOWFdK3kOAfo",
+          "mode": "list",
+          "cachedResultName": "DetalleVentas",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblr6JOWFdK3kOAfo"
+        },
+        "filterByFormula": "=AND({Record ID Rollup (from Clientes)}=\"{{ $('Variables_1').item.json.id_registro_clientes }}\",{Record ID} != \"{{ $('Variables_1').item.json.id_detalles_venta }}\", {Created time - unix time} > {{ DateTime.fromFormat($('Variables_1').item.json.created_time, 'yyyy-mm-dd', { zone: 'utc' }).toSeconds() }} )",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1136,
+        -688
+      ],
+      "id": "380ad9a5-f3cb-41be-b723-8471e13518fe",
+      "name": "Buscar Detalles venta nuevo",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "0d16b210-c422-4803-8886-3e23a620eaef",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1328,
+        -688
+      ],
+      "id": "c5837ea6-0b1e-4c24-a5a3-1a5aa921d6e8",
+      "name": "existe?1"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblr6JOWFdK3kOAfo",
+          "mode": "list",
+          "cachedResultName": "DetalleVentas",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblr6JOWFdK3kOAfo"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Pasados a pixel": false,
+            "Enviar correo": false,
+            "Renovado": true,
+            "PEN": 0,
+            "DOL": 0,
+            "id": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Detalle",
+              "displayName": "Detalle",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Clientes",
+              "displayName": "Clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email del estudiante (from Clientes)",
+              "displayName": "Email del estudiante (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Cel Estudiante (from Clientes)",
+              "displayName": "Cel Estudiante (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "PEN",
+              "displayName": "PEN",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cuenta",
+              "displayName": "Cuenta",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Interbank",
+                  "value": "Interbank"
+                },
+                {
+                  "name": "BCP",
+                  "value": "BCP"
+                },
+                {
+                  "name": "Efectivo",
+                  "value": "Efectivo"
+                },
+                {
+                  "name": "Cuenta Chilena",
+                  "value": "Cuenta Chilena"
+                },
+                {
+                  "name": "Gadiel y Gareth Abril.jpeg (https://dl.airtable.com/.attachments/0f22ad1b240c2b8348a8a712805f154f/06cd9617/GadielyGarethAbril.jpeg)",
+                  "value": "Gadiel y Gareth Abril.jpeg (https://dl.airtable.com/.attachments/0f22ad1b240c2b8348a8a712805f154f/06cd9617/GadielyGarethAbril.jpeg)"
+                },
+                {
+                  "name": "Paypal",
+                  "value": "Paypal"
+                },
+                {
+                  "name": "Screenshot_20230526-173709_Yape.jpg (https://dl.airtable.com/.attachments/7f3692a23cb446871c28baba55b9d78a/dc5d42ff/Screenshot_20230526-173709_Yape.jpg)",
+                  "value": "Screenshot_20230526-173709_Yape.jpg (https://dl.airtable.com/.attachments/7f3692a23cb446871c28baba55b9d78a/dc5d42ff/Screenshot_20230526-173709_Yape.jpg)"
+                },
+                {
+                  "name": "IMG-20230708-WA0008.jpg (https://dl.airtable.com/.attachments/5e105354562fa4ce7a5b1616c1cb8d8f/0f042eaf/IMG-20230708-WA0008.jpg)",
+                  "value": "IMG-20230708-WA0008.jpg (https://dl.airtable.com/.attachments/5e105354562fa4ce7a5b1616c1cb8d8f/0f042eaf/IMG-20230708-WA0008.jpg)"
+                },
+                {
+                  "name": "Western Union",
+                  "value": "Western Union"
+                },
+                {
+                  "name": "FACTURA CENTRY",
+                  "value": "FACTURA CENTRY"
+                },
+                {
+                  "name": "Mercado Pago ",
+                  "value": "Mercado Pago "
+                },
+                {
+                  "name": "Banco de la nación",
+                  "value": "Banco de la nación"
+                },
+                {
+                  "name": "Invoice - 0125 - Bio English.pdf (https://dl.airtable.com/.directUrlUploadAttachment/77b08180309bf2856b832e012e5faa68/4fda16bc/Invoice-0125-BioEnglish.pdf)",
+                  "value": "Invoice - 0125 - Bio English.pdf (https://dl.airtable.com/.directUrlUploadAttachment/77b08180309bf2856b832e012e5faa68/4fda16bc/Invoice-0125-BioEnglish.pdf)"
+                },
+                {
+                  "name": "BBVA",
+                  "value": "BBVA"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Comprobante",
+              "displayName": "Comprobante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Pago",
+              "displayName": "Fecha de Pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de Inicio",
+              "displayName": "Fecha de Inicio",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "PEN FB",
+              "displayName": "PEN FB",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Asesor Ventas",
+              "displayName": "Asesor Ventas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Retirados",
+              "displayName": "Retirados",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Vacaciones",
+                  "value": "Vacaciones"
+                },
+                {
+                  "name": "No conforme",
+                  "value": "No conforme"
+                },
+                {
+                  "name": "cambio horario",
+                  "value": "cambio horario"
+                },
+                {
+                  "name": "presencial",
+                  "value": "presencial"
+                },
+                {
+                  "name": "falta presupuesto",
+                  "value": "falta presupuesto"
+                },
+                {
+                  "name": "motivos personales",
+                  "value": "motivos personales"
+                },
+                {
+                  "name": "separó vacante ",
+                  "value": "separó vacante "
+                },
+                {
+                  "name": "congela hasta marzo",
+                  "value": "congela hasta marzo"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Name (from Contactos)",
+              "displayName": "Name (from Contactos)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Suscripción",
+              "displayName": "Suscripción",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "0.5 meses",
+                  "value": "0.5 meses"
+                },
+                {
+                  "name": "1 mes",
+                  "value": "1 mes"
+                },
+                {
+                  "name": "2 meses",
+                  "value": "2 meses"
+                },
+                {
+                  "name": "3 meses",
+                  "value": "3 meses"
+                },
+                {
+                  "name": "1 día",
+                  "value": "1 día"
+                },
+                {
+                  "name": "4 clases",
+                  "value": "4 clases"
+                },
+                {
+                  "name": "8 clases",
+                  "value": "8 clases"
+                },
+                {
+                  "name": "6 meses",
+                  "value": "6 meses"
+                },
+                {
+                  "name": "10 meses",
+                  "value": "10 meses"
+                },
+                {
+                  "name": "4 meses",
+                  "value": "4 meses"
+                },
+                {
+                  "name": "5 meses",
+                  "value": "5 meses"
+                },
+                {
+                  "name": "S/. 525.00",
+                  "value": "S/. 525.00"
+                },
+                {
+                  "name": "ANUAL",
+                  "value": "ANUAL"
+                },
+                {
+                  "name": "7 clases",
+                  "value": "7 clases"
+                },
+                {
+                  "name": "S/. 232.50",
+                  "value": "S/. 232.50"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Grupos",
+              "displayName": "Grupos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "#Semanas",
+              "displayName": "#Semanas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha de Fin",
+              "displayName": "Fecha de Fin",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupos (from Grupos)",
+              "displayName": "Grupos (from Grupos)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Canal",
+              "displayName": "Canal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Canal (from Canal)",
+              "displayName": "Canal (from Canal)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Modalidad (from Modalidad)",
+              "displayName": "Modalidad (from Modalidad)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Celular",
+              "displayName": "Celular",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "WA Link",
+              "displayName": "WA Link",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "createdTime",
+              "displayName": "createdTime",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "latestPurchaseDate",
+              "displayName": "latestPurchaseDate",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "latestPurchase",
+              "displayName": "latestPurchase",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Cel Estudiante (from Clientes) copy",
+              "displayName": "Cel Estudiante (from Clientes) copy",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Cel Estudiante (from Clientes) copy copy",
+              "displayName": "Cel Estudiante (from Clientes) copy copy",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nivel (from Grupos)",
+              "displayName": "Nivel (from Grupos)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "# Ventas (from Clientes)",
+              "displayName": "# Ventas (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Estado 2",
+              "displayName": "Estado 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record ID",
+              "displayName": "Record ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "URL boton",
+              "displayName": "URL boton",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre del estudiante (from Clientes)",
+              "displayName": "Nombre del estudiante (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Usuario",
+              "displayName": "Usuario",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Asistencia (from Usuario)",
+              "displayName": "Asistencia (from Usuario)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Asistencia (from Usuario) 2",
+              "displayName": "Asistencia (from Usuario) 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo actual (from Clientes) (from Usuario)",
+              "displayName": "Grupo actual (from Clientes) (from Usuario)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo mes (from Portal) (from Usuario)",
+              "displayName": "Grupo mes (from Portal) (from Usuario)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Celular Unico (from Clientes)",
+              "displayName": "Celular Unico (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Pais Celular (from Clientes)",
+              "displayName": "Pais Celular (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Boletas de venta",
+              "displayName": "Boletas de venta",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular Unico (from Clientes) 2",
+              "displayName": "Celular Unico (from Clientes) 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Pasados a pixel",
+              "displayName": "Pasados a pixel",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ISO (de Clientes)",
+              "displayName": "ISO (de Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Kommo Link WA (from Clientes)",
+              "displayName": "Kommo Link WA (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Cantidad DV (from Clientes)",
+              "displayName": "Cantidad DV (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tipo Recompra",
+              "displayName": "Tipo Recompra",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tipo Grupo (from Grupos)",
+              "displayName": "Tipo Grupo (from Grupos)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Flujo de Caja",
+              "displayName": "Flujo de Caja",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha min (from Clientes)",
+              "displayName": "Fecha min (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Usuarios (from Clientes)",
+              "displayName": "Usuarios (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Magic link (from Usuarios) (from Clientes)",
+              "displayName": "Magic link (from Usuarios) (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Enviar correo",
+              "displayName": "Enviar correo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "#Meses",
+              "displayName": "#Meses",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fin suscripción v2",
+              "displayName": "Fin suscripción v2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fin suscripción - 7 dias antes",
+              "displayName": "Fin suscripción - 7 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Renovado",
+              "displayName": "Renovado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "DOL",
+              "displayName": "DOL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "No renovo",
+              "displayName": "No renovo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fin suscripción - 3 dias antes",
+              "displayName": "Fin suscripción - 3 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fin suscripción - 1 dias antes",
+              "displayName": "Fin suscripción - 1 dias antes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fin suscripción - 5 dias despues",
+              "displayName": "Fin suscripción - 5 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fin suscripción - 30 dias despues",
+              "displayName": "Fin suscripción - 30 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fin suscripción - 60 dias despues",
+              "displayName": "Fin suscripción - 60 dias despues",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Preventa",
+              "displayName": "Preventa",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Fecha de inicio real",
+              "displayName": "Fecha de inicio real",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Created time - unix time",
+              "displayName": "Created time - unix time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record ID Rollup (from Clientes)",
+              "displayName": "Record ID Rollup (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Calculation",
+              "displayName": "Calculation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1568,
+        -816
+      ],
+      "id": "3d8b827c-53dc-4058-a6c1-37e919b355f6",
+      "name": "Detalles venta - colocar renovado",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "prkc7a6zgmy2biw",
+        "table": "mf1zt2lexmn446a",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "id_escenario_n8n",
+              "fieldValue": "={{ $execution.id }}"
+            },
+            {
+              "fieldName": "id_automatizacion_n8n",
+              "fieldValue": "={{ $workflow.id }}"
+            },
+            {
+              "fieldName": "id_detalles_venta_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+            },
+            {
+              "fieldName": "id_cliente_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
+            },
+            {
+              "fieldName": "id_grupo_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        1776,
+        -816
+      ],
+      "id": "42c508dd-3782-4a0e-b807-721f8502ea84",
+      "name": "Create a row2",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b5c3e69b-a402-4c2f-a641-8b28afc04aef",
+              "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+              "rightValue": "5_dias_despues",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "3e7acab4-6b37-4066-afa4-e96edace9577",
+              "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+              "rightValue": "30_dias_despues",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "32a7f959-5a6f-48ac-9a58-1d973e701238",
+              "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
+              "rightValue": "60_dias_despues",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        816,
+        -528
+      ],
+      "id": "2693bd30-4064-4ad0-b2b2-78ace4aec396",
+      "name": "es tipo seguimiento?"
     }
   ],
   "pinData": {
@@ -6429,14 +9035,11 @@
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "reccZ2lTETMSxZTBw",
+            "recordId": "recgC77Nz1TS27kpW",
             "Tipo": "3_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
-        },
-        "pairedItem": {
-          "item": 0
         }
       }
     ]
@@ -6463,6 +9066,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-14T15:36:18.566Z",
-  "versionId": "b5c28f14-fafd-44b7-ba11-ec8f2d96d4fa"
+  "updatedAt": "2026-02-06T00:34:46.522Z",
+  "versionId": "11dfeef9-e9df-4201-9862-c023883b76e3"
 }
