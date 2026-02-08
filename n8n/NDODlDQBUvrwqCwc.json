@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-03T03:27:02.784Z",
-    "createdAt": "2026-02-03T03:27:00.433Z",
-    "versionId": "050f0833-546a-495a-96fe-5c400aed5298",
+    "updatedAt": "2026-02-07T17:25:03.158Z",
+    "createdAt": "2026-02-07T17:25:01.212Z",
+    "versionId": "f77f1dcd-9bea-4434-b434-c1966a9d4fec",
     "workflowId": "NDODlDQBUvrwqCwc",
     "nodes": [
       {
@@ -274,12 +274,11 @@
             "conditions": [
               {
                 "id": "5971b180-0067-4d7c-bcc0-ce0b0c955459",
-                "leftValue": "={{ $json.numero_completo_apoderado }}",
-                "rightValue": "",
+                "leftValue": "={{ $('When Executed by Another Workflow').item.json.tipo_estudiante }}",
+                "rightValue": "Para mí",
                 "operator": {
                   "type": "string",
-                  "operation": "notEmpty",
-                  "singleValue": true
+                  "operation": "notEquals"
                 }
               }
             ],
@@ -9067,6 +9066,14 @@
                   {
                     "name": "English Flyers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:30 pm",
                     "value": "English Flyers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:30 pm"
+                  },
+                  {
+                    "name": "English Pre Starters Kinder (4 - 5 años)_Ma y Ju de 4:30 a 5:30 pm",
+                    "value": "English Pre Starters Kinder (4 - 5 años)_Ma y Ju de 4:30 a 5:30 pm"
+                  },
+                  {
+                    "name": "English Movers (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm",
+                    "value": "English Movers (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm"
                   }
                 ],
                 "readOnly": false,
@@ -9111,6 +9118,10 @@
                   {
                     "name": "Avanzado",
                     "value": "Avanzado"
+                  },
+                  {
+                    "name": "",
+                    "value": ""
                   }
                 ],
                 "readOnly": false,
@@ -9323,6 +9334,39 @@
                 "display": true,
                 "type": "number",
                 "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Cel Estudiante (from Clientes)",
+                "displayName": "Cel Estudiante (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Cel Apoderado (from Clientes)",
+                "displayName": "Cel Apoderado (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "url_revision_n8n",
+                "displayName": "url_revision_n8n",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
                 "removed": false
               }
             ],
@@ -14723,11 +14767,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 050f0833",
+    "name": "Version f77f1dcd",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "050f0833-546a-495a-96fe-5c400aed5298",
+  "activeVersionId": "f77f1dcd-9bea-4434-b434-c1966a9d4fec",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -15943,12 +15987,11 @@
           "conditions": [
             {
               "id": "5971b180-0067-4d7c-bcc0-ce0b0c955459",
-              "leftValue": "={{ $json.numero_completo_apoderado }}",
-              "rightValue": "",
+              "leftValue": "={{ $('When Executed by Another Workflow').item.json.tipo_estudiante }}",
+              "rightValue": "Para mí",
               "operator": {
                 "type": "string",
-                "operation": "notEmpty",
-                "singleValue": true
+                "operation": "notEquals"
               }
             }
           ],
@@ -24736,6 +24779,14 @@
                 {
                   "name": "English Flyers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:30 pm",
                   "value": "English Flyers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:30 pm"
+                },
+                {
+                  "name": "English Pre Starters Kinder (4 - 5 años)_Ma y Ju de 4:30 a 5:30 pm",
+                  "value": "English Pre Starters Kinder (4 - 5 años)_Ma y Ju de 4:30 a 5:30 pm"
+                },
+                {
+                  "name": "English Movers (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm",
+                  "value": "English Movers (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm"
                 }
               ],
               "readOnly": false,
@@ -24780,6 +24831,10 @@
                 {
                   "name": "Avanzado",
                   "value": "Avanzado"
+                },
+                {
+                  "name": "",
+                  "value": ""
                 }
               ],
               "readOnly": false,
@@ -24992,6 +25047,39 @@
               "display": true,
               "type": "number",
               "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cel Estudiante (from Clientes)",
+              "displayName": "Cel Estudiante (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Cel Apoderado (from Clientes)",
+              "displayName": "Cel Apoderado (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "url_revision_n8n",
+              "displayName": "url_revision_n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
               "removed": false
             }
           ],
@@ -29456,191 +29544,44 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-7:00-8:00pm )",
+          "Grupo y horario al que desea inscribirse": "ENGLISH KET_A2 ( L-M-V-8:10-9:40 pm )",
           "Comprobante de pago": [
             {
-              "filename": "IMG-20260202-WA0010.jpg",
-              "mimetype": "image/jpeg",
-              "size": 38133
+              "filename": "1000132520.png",
+              "mimetype": "image/png",
+              "size": 123587
             }
           ],
-          "submittedAt": "2026-02-02T22:12:40.166-05:00",
+          "submittedAt": "2026-02-06T13:21:15.694-05:00",
           "formMode": "production",
-          "tipo_estudiante": "Para mi hijo/hija",
-          "nombre_apoderado": "Solan Magaly De La Cruz Y.",
-          "dni_apoderado": 43783234,
-          "correo_apoderado": "solandelacruz770@gmail.com",
-          "pais_apoderado": "Perú",
-          "celular_apoderado_sin_codigo": 957134712,
-          "nivel_inglés_apoderado": "Nunca he estudiado inglés",
-          "Nombre completo del estudiante": "Angelica Quijada De La Cruz",
-          "Correo electrónico del estudiante": "angelicaquijada@gmail.com",
+          "tipo_estudiante": "Para mí",
+          "nombre_apoderado": "",
+          "dni_apoderado": 0,
+          "correo_apoderado": "",
+          "pais_apoderado": "",
+          "celular_apoderado_sin_codigo": 0,
+          "nivel_inglés_apoderado": "",
+          "Nombre completo del estudiante": "Nataly Giuliana Miranda Delgado ",
+          "Correo electrónico del estudiante": "natalymiranda@fatima.edu.pe",
           "Pais": "Perú",
-          "Celular del estudiante - colocar sin codigo de pais": "957134712",
-          "Edad del estudiante": 11
+          "Celular del estudiante - colocar sin codigo de pais": "949763515",
+          "Edad del estudiante": 30,
+          "celular_apoderado_completo": ""
         },
         "binary": {
           "Comprobante_de_pago": {
-            "mimeType": "image/jpeg",
+            "mimeType": "image/png",
             "fileType": "image",
-            "fileExtension": "jpg",
+            "fileExtension": "png",
             "data": "database",
-            "fileName": "IMG-20260202-WA0010.jpg",
-            "id": "database:b3d7e011-87e4-4c1f-a24a-ed6389038e8c",
-            "fileSize": "38.1 kB"
+            "fileName": "1000132520.png",
+            "id": "database:f74ba243-933e-43cd-b6ec-09e71cf0b913",
+            "fileSize": "124 kB"
           }
         },
         "pairedItem": {
           "item": 0
         }
-      }
-    ],
-    "buscar registro - grupos": [
-      {
-        "json": {
-          "id": "reccjiyZ19rxAWkYG",
-          "createdTime": "2025-12-23T21:52:33.000Z",
-          "Grupos": "ENGLISH STARTERS | Virtual | Fiorella | L-M-V-7:00-8:00pm",
-          "DetalleVentas": [
-            "recT34GUF1QSleCDB",
-            "recFvPvVAVPZwtlNm",
-            "recElTjMiuaToA5fb",
-            "recXKFdZtLLsvAJ2R",
-            "recFmZIMK3StA0g48",
-            "recRv691zpKKYpm6q",
-            "reczmCCgmjYhxsNzj"
-          ],
-          "Feb23": 0,
-          "Feb23 PEN": 0,
-          "Modalidad": "Virtual",
-          "Nivel": "ENGLISH STARTERS",
-          "Horario": "L-M-V-7:00-8:00pm",
-          "Mar23": 0,
-          "Mar23 PEN": 0,
-          "Docente": "Teacher Fiorela",
-          "Ene23 A": 0,
-          "Ene23 PEN": 0,
-          "Abr23": 0,
-          "Abr23 PEN": 0,
-          "Ahora": 4,
-          "Status": "Rentable",
-          "Edades": "9 a 12 años",
-          "Teachers horarios": [
-            "recnbtAvYbi8mXauL"
-          ],
-          "From Teachers (from Teachers horarios)": [
-            "recfg9XPKbOe8teyv"
-          ],
-          "May23 PEN": 0,
-          "May23": 0,
-          "Jun23 PEN": 0,
-          "Jun23": 0,
-          "Jul23 PEN": 0,
-          "Ago23 PEN": 0,
-          "Sep23 PEN": 0,
-          "Oct23 PEN": 0,
-          "Jul23": 0,
-          "Sep23": 0,
-          "Oct23": 0,
-          "Ago23": 0,
-          "Grupos mes": [
-            "recSLTUU0b8o7TLgK"
-          ],
-          "Nov23 PEN": 0,
-          "Total": 1260,
-          "Total from Mar23": 1260,
-          "Year2024": "2026",
-          "Nov23": 0,
-          "Dic23": 0,
-          "Ene24": 0,
-          "Dic23 PEN": 0,
-          "Ene24 PEN": 0,
-          "Grabaciones": [
-            "recfQTvCcykxZg0fj",
-            "recmNe6K6tzofVjZC",
-            "recXjr3hydFHC9Ukt",
-            "recM5wPvUpgtqlLc6",
-            "rechYhT1ZcZVcZ9ZZ",
-            "rec7cYc4raDFVv6Sn",
-            "rechoNDdqWqgA9pXc",
-            "recfJUvJkvoS7UKTX",
-            "recIxV6OYkEciUUcd",
-            "rec7PuODmzQ67E9z1",
-            "recgYTp40I3NCI30X",
-            "recMfJhSyRCL0kFgi",
-            "recn2fIZv9FZJnw3K"
-          ],
-          "Portal": [
-            "rec6uHAZM42f4o0eN",
-            "rectqTKmuCWZ8NQSE",
-            "recQuOFw7fmU7Uokk",
-            "rec7ySK0qONIko38H",
-            "recyVJ6cjrOWMFd6n",
-            "rec8kSW9QZOyk43MN",
-            "reckEh1OYKBen2cDO",
-            "recmHfpEAlFeheN5D",
-            "recnaX1D8qGeyEeqH"
-          ],
-          "Portal Docente": [
-            "recbrrxr11KhqmaIc"
-          ],
-          "Format": " para jovenes y adultos",
-          "WA": "https://api.whatsapp.com/send?phone=51900570149&text=Hola%20Bio%20English%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20del%20Grupo%3A%20%20para%20jovenes%20y%20adultos",
-          "Recursos": [
-            "recqsc0oXgw7AmVvn",
-            "recQ8h6yrnD88lxu1",
-            "recOcIVY63maQLoTn",
-            "recHRJ4LWt8HJsaDR",
-            "recO8uYk9nvpIs8Fx",
-            "recVqJeAzDOfum9Xp"
-          ],
-          "Apr24 PEN": 0,
-          "GRUPOS ACTIVOS": "activo",
-          "Feb24": 0,
-          "Feb24 PEN": 0,
-          "Mar24": 0,
-          "Mar24 PEN": 0,
-          "Abr24": 0,
-          "May24 PEN": 0,
-          "May24": 0,
-          "Jun24": 0,
-          "Jun24 PEN": 0,
-          "Jul24": 0,
-          "Jul24 PEN": 0,
-          "Jun 24 %": 0,
-          "Jun24 C": 0,
-          "Tipo Grupo": "Niños",
-          "Record ID": "reccjiyZ19rxAWkYG",
-          "SOLO ZOOM DE RECURSOS": [
-            "https://us02web.zoom.us/j/88454014025?pwd=4H86pdMtluAhew5ziawv2F9sbu8PfQ.1"
-          ],
-          "Nombre de grupo - mensajes renovación": "ENGLISH STARTERS",
-          "Nombre de grupo - form inscripcion": "ENGLISH STARTERS ( L-M-V-7:00-8:00pm )",
-          "test": true,
-          "Precios renovacion": [
-            "recKGdVeaGzibgSMc",
-            "recliLM6ciVo3K4Z3"
-          ],
-          "Preventa": [
-            "recKQsikxuKcabdVI",
-            "recAlD62dD7hEHGP4"
-          ],
-          "Edad minima": 9,
-          "Edad maxima": 12,
-          "Aparece en el formulario?": "🟢 Grupo aparece en formulario de inscripcion",
-          "1 mes - precio renovación (from Precios renovacion)": [
-            135,
-            155
-          ],
-          "record_id (from Grupos mes) - ultimo creado": [
-            "recSLTUU0b8o7TLgK"
-          ]
-        },
-        "pairedItem": [
-          {
-            "item": 0
-          }
-        ]
       }
     ]
   },
@@ -29666,6 +29607,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-03T03:27:00.426Z",
-  "versionId": "050f0833-546a-495a-96fe-5c400aed5298"
+  "updatedAt": "2026-02-07T17:25:01.207Z",
+  "versionId": "f77f1dcd-9bea-4434-b434-c1966a9d4fec"
 }
