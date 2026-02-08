@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-03T02:15:48.722Z",
-    "createdAt": "2026-02-03T02:15:46.583Z",
-    "versionId": "76d5e9ba-684c-4d30-9efc-02e80d279641",
+    "updatedAt": "2026-02-07T17:27:52.376Z",
+    "createdAt": "2026-02-07T17:27:50.624Z",
+    "versionId": "197b6f51-8290-4f94-a1f9-a8d93ce80729",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -14,7 +14,7 @@
         "typeVersion": 1.1,
         "position": [
           -752,
-          240
+          256
         ],
         "id": "a9356d97-c1e2-4320-9a28-37ae34240929",
         "name": "When Executed by Another Workflow"
@@ -85,7 +85,7 @@
         "typeVersion": 3.4,
         "position": [
           -544,
-          240
+          256
         ],
         "id": "41e0ece7-979b-4ca0-8c22-ea9d5a93dea5",
         "name": "variables_1"
@@ -113,7 +113,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2288,
+          2704,
           224
         ],
         "id": "562fe0b7-010a-4659-bc46-4ddc1ad20024",
@@ -160,7 +160,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2496,
+          2912,
           224
         ],
         "id": "d80e9a8c-2ecb-4677-87f8-e994b2bf1d23",
@@ -194,7 +194,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          2704,
+          3120,
           224
         ],
         "id": "4b34e1b5-3e61-4ac2-b913-05cdfe906353",
@@ -241,7 +241,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          160,
+          576,
           400
         ],
         "id": "cc2462d7-3f28-4c23-bac9-66444555fde9",
@@ -295,7 +295,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          2976,
+          3392,
           16
         ],
         "id": "5dfb79b1-0395-4d5a-b137-1d5c93b898f5",
@@ -315,7 +315,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          3728,
+          4144,
           16
         ],
         "id": "ceab8b5c-6539-49c0-9fa9-991c4273671c",
@@ -364,7 +364,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          3488,
+          3904,
           16
         ],
         "id": "82b799d0-e062-419c-a9f4-528621879d6d",
@@ -418,7 +418,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          2976,
+          3392,
           384
         ],
         "id": "f9374dfc-e668-4ffb-beb9-ec22614a7ee4",
@@ -484,7 +484,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          3216,
+          3632,
           384
         ],
         "name": "Call Definir ID contacto y lead en Kommo1",
@@ -504,7 +504,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          3728,
+          4144,
           384
         ],
         "id": "93bf402b-af28-464c-b2e0-079ee0a9052e",
@@ -549,7 +549,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          3488,
+          3904,
           384
         ],
         "id": "07bc2596-320e-467b-a7c0-1ba9782b61cb",
@@ -584,7 +584,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          3968,
+          4384,
           384
         ],
         "id": "2e25b701-0379-485e-9c9b-c8cfe9379aeb",
@@ -624,7 +624,7 @@
         "typeVersion": 2.1,
         "position": [
           -336,
-          240
+          256
         ],
         "id": "44d2f46c-7458-4e96-a8d7-c03d9f298d16",
         "name": "buscar registro - usuario",
@@ -665,7 +665,7 @@
         "typeVersion": 2.3,
         "position": [
           -128,
-          240
+          256
         ],
         "id": "5e378b41-32ac-465b-a1bf-7f2a35cf4a42",
         "name": "existe?"
@@ -687,7 +687,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          176,
+          592,
           96
         ],
         "id": "120a133c-2aed-4070-9bb9-cb4de3e0a579",
@@ -719,7 +719,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          400,
+          816,
           96
         ],
         "id": "f9f61d8a-9831-4991-bb72-6caa61feeba8",
@@ -760,7 +760,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          624,
+          1040,
           96
         ],
         "id": "73e4482a-33dc-4842-8bcb-343dcac4bcc5",
@@ -1014,7 +1014,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          896,
+          1312,
           224
         ],
         "id": "3a4bb44f-8fd1-4c7d-ae70-dd6b3bd0c383",
@@ -1043,7 +1043,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1104,
+          1520,
           224
         ],
         "id": "2601493b-f40f-403f-a30e-1137ef0b7767",
@@ -1426,7 +1426,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1312,
+          1728,
           224
         ],
         "id": "1953967a-3964-4e57-9376-858b15a5220e",
@@ -1455,7 +1455,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1520,
+          1936,
           224
         ],
         "id": "88129883-74e3-4b64-9b8e-fc40b64f45cd",
@@ -1478,7 +1478,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1520,
+          1936,
           48
         ],
         "id": "4a3c285b-ca20-4729-8079-051c463e7c24",
@@ -1501,7 +1501,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2032,
+          2448,
           224
         ],
         "id": "4738631d-f61b-4170-88d5-72ef5be9e8d7",
@@ -1514,7 +1514,7 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          368,
+          784,
           400
         ],
         "id": "309a06da-947a-4938-b438-a1f62d8a49f0",
@@ -1538,7 +1538,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          800,
+          1216,
           400
         ],
         "id": "815e94af-d626-4ab8-a9e3-bf37e017c1d4",
@@ -1570,7 +1570,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          592,
+          1008,
           400
         ],
         "id": "4f8fa4e2-c923-49f6-a381-3ee3aa3c8ffa",
@@ -1831,7 +1831,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1024,
+          1440,
           400
         ],
         "id": "c7e5e3e0-2d70-4776-8ba8-ff7f73aee976",
@@ -1860,7 +1860,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1232,
+          1648,
           400
         ],
         "id": "112a26e9-c7b7-489d-b015-3b866e5689db",
@@ -2243,7 +2243,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1440,
+          1856,
           400
         ],
         "id": "5b94287e-fd96-4057-a6de-80bcdf955b52",
@@ -2272,7 +2272,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1648,
+          2064,
           400
         ],
         "id": "5ad4d724-ca99-43d3-93cd-8dca5237aba1",
@@ -2338,11 +2338,394 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.2,
         "position": [
-          3216,
+          3632,
           16
         ],
         "name": "Call Definir ID contacto y lead en Kommo",
         "id": "130e48f4-0974-43ef-b71c-9e864def9eca"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "update",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblDjNe8g5pL5RTE2",
+            "mode": "list",
+            "cachedResultName": "Usuarios",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblDjNe8g5pL5RTE2"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "No pago": false,
+              "id": "={{ $('buscar registro - usuario').item.json.id }}",
+              "Nombre completo": "={{ $('variables_1').item.json['nombre_de_dueño_numero'] }}"
+            },
+            "matchingColumns": [
+              "id"
+            ],
+            "schema": [
+              {
+                "id": "id",
+                "displayName": "id",
+                "required": false,
+                "defaultMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "ID",
+                "displayName": "ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre completo",
+                "displayName": "Nombre completo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Magic link",
+                "displayName": "Magic link",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Email otros",
+                "displayName": "Email otros",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Grupo actual (from Clientes)",
+                "displayName": "Grupo actual (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Email estudiante",
+                "displayName": "Email estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre del estudiante (from Clientes)",
+                "displayName": "Nombre del estudiante (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Clientes",
+                "displayName": "Clientes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Tipo",
+                "displayName": "Tipo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Teacher",
+                    "value": "Teacher"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Portal",
+                "displayName": "Portal",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Grupo mes (from Portal)",
+                "displayName": "Grupo mes (from Portal)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Docente",
+                "displayName": "Docente",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Portal Docente",
+                "displayName": "Portal Docente",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Tarea Enunciado",
+                "displayName": "Tarea Enunciado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Tarea Respuesta",
+                "displayName": "Tarea Respuesta",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Asistencia",
+                "displayName": "Asistencia",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Asistencia LM",
+                "displayName": "Asistencia LM",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha (from Asistencia)",
+                "displayName": "Fecha (from Asistencia)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "DetalleVentas",
+                "displayName": "DetalleVentas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Created",
+                "displayName": "Created",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Asistencia 2",
+                "displayName": "Asistencia 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Feedback",
+                "displayName": "Feedback",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "DetalleVentas 2",
+                "displayName": "DetalleVentas 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Clientes 2",
+                "displayName": "Clientes 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "id_clientes",
+                "displayName": "id_clientes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "id_clientes_2",
+                "displayName": "id_clientes_2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "TEST",
+                "displayName": "TEST",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "No pago",
+                "displayName": "No pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "record_id",
+                "displayName": "record_id",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          336,
+          96
+        ],
+        "id": "9f5da227-ea48-4adb-8cee-a8e1292c35f5",
+        "name": "actualizar nombre - usuario",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -2500,7 +2883,7 @@
         "main": [
           [
             {
-              "node": "id_usuario",
+              "node": "actualizar nombre - usuario",
               "type": "main",
               "index": 0
             }
@@ -2707,14 +3090,25 @@
             }
           ]
         ]
+      },
+      "actualizar nombre - usuario": {
+        "main": [
+          [
+            {
+              "node": "id_usuario",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 76d5e9ba",
+    "name": "Version 197b6f51",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "76d5e9ba-684c-4d30-9efc-02e80d279641",
+  "activeVersionId": "197b6f51-8290-4f94-a1f9-a8d93ce80729",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2870,7 +3264,7 @@
       "main": [
         [
           {
-            "node": "id_usuario",
+            "node": "actualizar nombre - usuario",
             "type": "main",
             "index": 0
           }
@@ -3077,6 +3471,17 @@
           }
         ]
       ]
+    },
+    "actualizar nombre - usuario": {
+      "main": [
+        [
+          {
+            "node": "id_usuario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-04T03:45:54.729Z",
@@ -3095,7 +3500,7 @@
       "typeVersion": 1.1,
       "position": [
         -752,
-        240
+        256
       ],
       "id": "a9356d97-c1e2-4320-9a28-37ae34240929",
       "name": "When Executed by Another Workflow"
@@ -3166,7 +3571,7 @@
       "typeVersion": 3.4,
       "position": [
         -544,
-        240
+        256
       ],
       "id": "41e0ece7-979b-4ca0-8c22-ea9d5a93dea5",
       "name": "variables_1"
@@ -3194,7 +3599,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2288,
+        2704,
         224
       ],
       "id": "562fe0b7-010a-4659-bc46-4ddc1ad20024",
@@ -3241,7 +3646,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2496,
+        2912,
         224
       ],
       "id": "d80e9a8c-2ecb-4677-87f8-e994b2bf1d23",
@@ -3275,7 +3680,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        2704,
+        3120,
         224
       ],
       "id": "4b34e1b5-3e61-4ac2-b913-05cdfe906353",
@@ -3322,7 +3727,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        160,
+        576,
         400
       ],
       "id": "cc2462d7-3f28-4c23-bac9-66444555fde9",
@@ -3376,7 +3781,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        2976,
+        3392,
         16
       ],
       "id": "5dfb79b1-0395-4d5a-b137-1d5c93b898f5",
@@ -3396,7 +3801,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        3728,
+        4144,
         16
       ],
       "id": "ceab8b5c-6539-49c0-9fa9-991c4273671c",
@@ -3445,7 +3850,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        3488,
+        3904,
         16
       ],
       "id": "82b799d0-e062-419c-a9f4-528621879d6d",
@@ -3499,7 +3904,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        2976,
+        3392,
         384
       ],
       "id": "f9374dfc-e668-4ffb-beb9-ec22614a7ee4",
@@ -3565,7 +3970,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        3216,
+        3632,
         384
       ],
       "name": "Call Definir ID contacto y lead en Kommo1",
@@ -3585,7 +3990,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        3728,
+        4144,
         384
       ],
       "id": "93bf402b-af28-464c-b2e0-079ee0a9052e",
@@ -3630,7 +4035,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        3488,
+        3904,
         384
       ],
       "id": "07bc2596-320e-467b-a7c0-1ba9782b61cb",
@@ -3665,7 +4070,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        3968,
+        4384,
         384
       ],
       "id": "2e25b701-0379-485e-9c9b-c8cfe9379aeb",
@@ -3705,7 +4110,7 @@
       "typeVersion": 2.1,
       "position": [
         -336,
-        240
+        256
       ],
       "id": "44d2f46c-7458-4e96-a8d7-c03d9f298d16",
       "name": "buscar registro - usuario",
@@ -3746,7 +4151,7 @@
       "typeVersion": 2.3,
       "position": [
         -128,
-        240
+        256
       ],
       "id": "5e378b41-32ac-465b-a1bf-7f2a35cf4a42",
       "name": "existe?"
@@ -3768,7 +4173,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        176,
+        592,
         96
       ],
       "id": "120a133c-2aed-4070-9bb9-cb4de3e0a579",
@@ -3800,7 +4205,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        400,
+        816,
         96
       ],
       "id": "f9f61d8a-9831-4991-bb72-6caa61feeba8",
@@ -3841,7 +4246,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        624,
+        1040,
         96
       ],
       "id": "73e4482a-33dc-4842-8bcb-343dcac4bcc5",
@@ -4095,7 +4500,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        896,
+        1312,
         224
       ],
       "id": "3a4bb44f-8fd1-4c7d-ae70-dd6b3bd0c383",
@@ -4124,7 +4529,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1104,
+        1520,
         224
       ],
       "id": "2601493b-f40f-403f-a30e-1137ef0b7767",
@@ -4507,7 +4912,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1312,
+        1728,
         224
       ],
       "id": "1953967a-3964-4e57-9376-858b15a5220e",
@@ -4536,7 +4941,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1520,
+        1936,
         224
       ],
       "id": "88129883-74e3-4b64-9b8e-fc40b64f45cd",
@@ -4559,7 +4964,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1520,
+        1936,
         48
       ],
       "id": "4a3c285b-ca20-4729-8079-051c463e7c24",
@@ -4582,7 +4987,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2032,
+        2448,
         224
       ],
       "id": "4738631d-f61b-4170-88d5-72ef5be9e8d7",
@@ -4595,7 +5000,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        368,
+        784,
         400
       ],
       "id": "309a06da-947a-4938-b438-a1f62d8a49f0",
@@ -4619,7 +5024,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        800,
+        1216,
         400
       ],
       "id": "815e94af-d626-4ab8-a9e3-bf37e017c1d4",
@@ -4651,7 +5056,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        592,
+        1008,
         400
       ],
       "id": "4f8fa4e2-c923-49f6-a381-3ee3aa3c8ffa",
@@ -4912,7 +5317,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1024,
+        1440,
         400
       ],
       "id": "c7e5e3e0-2d70-4776-8ba8-ff7f73aee976",
@@ -4941,7 +5346,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1232,
+        1648,
         400
       ],
       "id": "112a26e9-c7b7-489d-b015-3b866e5689db",
@@ -5324,7 +5729,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1440,
+        1856,
         400
       ],
       "id": "5b94287e-fd96-4057-a6de-80bcdf955b52",
@@ -5353,7 +5758,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1648,
+        2064,
         400
       ],
       "id": "5ad4d724-ca99-43d3-93cd-8dca5237aba1",
@@ -5419,11 +5824,394 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        3216,
+        3632,
         16
       ],
       "name": "Call Definir ID contacto y lead en Kommo",
       "id": "130e48f4-0974-43ef-b71c-9e864def9eca"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblDjNe8g5pL5RTE2",
+          "mode": "list",
+          "cachedResultName": "Usuarios",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblDjNe8g5pL5RTE2"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "No pago": false,
+            "id": "={{ $('buscar registro - usuario').item.json.id }}",
+            "Nombre completo": "={{ $('variables_1').item.json['nombre_de_dueño_numero'] }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre completo",
+              "displayName": "Nombre completo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Magic link",
+              "displayName": "Magic link",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email otros",
+              "displayName": "Email otros",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Grupo actual (from Clientes)",
+              "displayName": "Grupo actual (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Email estudiante",
+              "displayName": "Email estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre del estudiante (from Clientes)",
+              "displayName": "Nombre del estudiante (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Clientes",
+              "displayName": "Clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tipo",
+              "displayName": "Tipo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Teacher",
+                  "value": "Teacher"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Portal",
+              "displayName": "Portal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Grupo mes (from Portal)",
+              "displayName": "Grupo mes (from Portal)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Docente",
+              "displayName": "Docente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Portal Docente",
+              "displayName": "Portal Docente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tarea Enunciado",
+              "displayName": "Tarea Enunciado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Tarea Respuesta",
+              "displayName": "Tarea Respuesta",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Asistencia",
+              "displayName": "Asistencia",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Asistencia LM",
+              "displayName": "Asistencia LM",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha (from Asistencia)",
+              "displayName": "Fecha (from Asistencia)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "DetalleVentas",
+              "displayName": "DetalleVentas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Asistencia 2",
+              "displayName": "Asistencia 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Feedback",
+              "displayName": "Feedback",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "DetalleVentas 2",
+              "displayName": "DetalleVentas 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Clientes 2",
+              "displayName": "Clientes 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id_clientes",
+              "displayName": "id_clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "id_clientes_2",
+              "displayName": "id_clientes_2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TEST",
+              "displayName": "TEST",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No pago",
+              "displayName": "No pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "record_id",
+              "displayName": "record_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        336,
+        96
+      ],
+      "id": "9f5da227-ea48-4adb-8cee-a8e1292c35f5",
+      "name": "actualizar nombre - usuario",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -5431,35 +6219,6 @@
       {
         "json": {
           "magich_link": "https://www.bioenglish.lat/magic-authentication?magic-token=a6488c372dea4ce5b06e14edc9b8fdf7"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "When Executed by Another Workflow": [
-      {
-        "json": {
-          "numero_completo_estudiante": "+51907654638",
-          "numero_completo_apoderado": "+51907654638",
-          "email_estudiante": "Ruthescalante0215@gmail.com",
-          "email_apoderado": "ruthescalante0215@gmail.com",
-          "nombre_estudiante": "Marco Rogelio campos escalante ",
-          "nombre_apoderado": "Ruth escalante huamanlazo ",
-          "monto_depositado": 135,
-          "tipo_de_moneda": "soles peruanos",
-          "pais_estudiante": "Perú",
-          "id_grupo": "recy200OHQdD39qRV",
-          "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 46012567,
-          "pais_apoderado": "Perú",
-          "nivel_inglés_apoderado": "Básico",
-          "id_contacto_apoderado_airtable": "recucHVhm47Z1PwKO",
-          "id_contacto_estudiante_airtable": "recucHVhm47Z1PwKO",
-          "id_cliente_airtable": "recrfJYfxPuIlls6O",
-          "id_preventa_airtable": "recX6fVjy3Vz2YdnR",
-          "id_detalles_venta_airtable": "rec7dlqcHP1pKFzP5",
-          "id_grupo_ultimo_creado": "recVrTsP9XEcmvpc8"
         },
         "pairedItem": {
           "item": 0
@@ -5474,6 +6233,35 @@
           "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=3d45badbc253425485726a8f172bbf2e",
           "updated": "2026-01-16 18:20:33",
           "created": "2026-01-16 18:20:33"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "numero_completo_estudiante": "+51949763515",
+          "numero_completo_apoderado": "+0",
+          "email_estudiante": "natalymiranda@fatima.edu.pe",
+          "email_apoderado": "",
+          "nombre_estudiante": "Nataly Giuliana Miranda Delgado ",
+          "nombre_apoderado": "",
+          "monto_depositado": 170,
+          "tipo_de_moneda": "soles peruanos",
+          "pais_estudiante": "Perú",
+          "id_grupo": "recaGtfxBEr8iQvIa",
+          "tipo_estudiante": "Para mí",
+          "dni_apoderado": 0,
+          "pais_apoderado": "",
+          "nivel_inglés_apoderado": "",
+          "id_contacto_apoderado_airtable": "rec005A58mVVEkAtq",
+          "id_contacto_estudiante_airtable": "reckeyN6dNkSDQWG9",
+          "id_cliente_airtable": "recLXGs5aml0r9Zj5",
+          "id_preventa_airtable": "reccdgISKfbJdDfUH",
+          "id_detalles_venta_airtable": "recBCZDZQwABSueZy",
+          "id_grupo_ultimo_creado": "recJJjvpEbTrhYArF"
         },
         "pairedItem": {
           "item": 0
@@ -5503,6 +6291,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-03T02:15:46.577Z",
-  "versionId": "76d5e9ba-684c-4d30-9efc-02e80d279641"
+  "updatedAt": "2026-02-07T17:38:35.458Z",
+  "versionId": "197b6f51-8290-4f94-a1f9-a8d93ce80729"
 }
