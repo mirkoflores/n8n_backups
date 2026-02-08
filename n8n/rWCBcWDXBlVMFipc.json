@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-04T14:50:23.592Z",
-    "createdAt": "2026-02-04T14:50:21.154Z",
-    "versionId": "703744bc-738a-4d5c-9e09-6cd259d3749a",
+    "updatedAt": "2026-02-07T17:42:31.183Z",
+    "createdAt": "2026-02-07T17:42:29.402Z",
+    "versionId": "8e14a223-4327-4886-9386-e4d6672bba18",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -4008,7 +4008,7 @@
             "mappingMode": "defineBelow",
             "value": {
               "PEN": "={{ $('monto final').item.json.monto_final }}",
-              "Clientes": "=recdThPXpvHsGcm6H",
+              "Clientes": "=",
               "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
               "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
               "Canal": "={{ $('variables_1').item.json.canal }}",
@@ -4227,6 +4227,14 @@
                   {
                     "name": "motivos personales",
                     "value": "motivos personales"
+                  },
+                  {
+                    "name": "separó vacante ",
+                    "value": "separó vacante "
+                  },
+                  {
+                    "name": "congela hasta marzo",
+                    "value": "congela hasta marzo"
                   }
                 ],
                 "readOnly": false,
@@ -4318,6 +4326,10 @@
                   {
                     "name": "7 clases",
                     "value": "7 clases"
+                  },
+                  {
+                    "name": "S/. 232.50",
+                    "value": "S/. 232.50"
                   }
                 ],
                 "readOnly": false,
@@ -4938,6 +4950,39 @@
                 "type": "string",
                 "readOnly": true,
                 "removed": false
+              },
+              {
+                "id": "Created time - unix time",
+                "displayName": "Created time - unix time",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Record ID Rollup (from Clientes)",
+                "displayName": "Record ID Rollup (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Calculation",
+                "displayName": "Calculation",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -5203,6 +5248,14 @@
                   {
                     "name": "motivos personales",
                     "value": "motivos personales"
+                  },
+                  {
+                    "name": "separó vacante ",
+                    "value": "separó vacante "
+                  },
+                  {
+                    "name": "congela hasta marzo",
+                    "value": "congela hasta marzo"
                   }
                 ],
                 "readOnly": false,
@@ -5911,6 +5964,39 @@
               {
                 "id": "Fecha de inicio real",
                 "displayName": "Fecha de inicio real",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Created time - unix time",
+                "displayName": "Created time - unix time",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Record ID Rollup (from Clientes)",
+                "displayName": "Record ID Rollup (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "Calculation",
+                "displayName": "Calculation",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
@@ -8011,11 +8097,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 703744bc",
+    "name": "Version 8e14a223",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "703744bc-738a-4d5c-9e09-6cd259d3749a",
+  "activeVersionId": "8e14a223-4327-4886-9386-e4d6672bba18",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -12811,7 +12897,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "PEN": "={{ $('monto final').item.json.monto_final }}",
-            "Clientes": "=recdThPXpvHsGcm6H",
+            "Clientes": "=",
             "Fecha de Pago": "={{ $now.setZone('utc').startOf('day').toFormat(\"yyyy-MM-dd'T'HH:mm:ss\") }}",
             "Suscripción": "={{ $if($('variables_1').item.json.meses_renovar == 1, \n$('variables_1').item.json.meses_renovar + \" mes\",\n$if($('variables_1').item.json.meses_renovar == 12,\"ANUAL\",\n$('variables_1').item.json.meses_renovar + \" meses\")) }}",
             "Canal": "={{ $('variables_1').item.json.canal }}",
@@ -13030,6 +13116,14 @@
                 {
                   "name": "motivos personales",
                   "value": "motivos personales"
+                },
+                {
+                  "name": "separó vacante ",
+                  "value": "separó vacante "
+                },
+                {
+                  "name": "congela hasta marzo",
+                  "value": "congela hasta marzo"
                 }
               ],
               "readOnly": false,
@@ -13121,6 +13215,10 @@
                 {
                   "name": "7 clases",
                   "value": "7 clases"
+                },
+                {
+                  "name": "S/. 232.50",
+                  "value": "S/. 232.50"
                 }
               ],
               "readOnly": false,
@@ -13741,6 +13839,39 @@
               "type": "string",
               "readOnly": true,
               "removed": false
+            },
+            {
+              "id": "Created time - unix time",
+              "displayName": "Created time - unix time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Record ID Rollup (from Clientes)",
+              "displayName": "Record ID Rollup (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Calculation",
+              "displayName": "Calculation",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -14006,6 +14137,14 @@
                 {
                   "name": "motivos personales",
                   "value": "motivos personales"
+                },
+                {
+                  "name": "separó vacante ",
+                  "value": "separó vacante "
+                },
+                {
+                  "name": "congela hasta marzo",
+                  "value": "congela hasta marzo"
                 }
               ],
               "readOnly": false,
@@ -14714,6 +14853,39 @@
             {
               "id": "Fecha de inicio real",
               "displayName": "Fecha de inicio real",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Created time - unix time",
+              "displayName": "Created time - unix time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Record ID Rollup (from Clientes)",
+              "displayName": "Record ID Rollup (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Calculation",
+              "displayName": "Calculation",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -16175,11 +16347,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "w59W2o"
+      "webhookId": "wd9qVK"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-04T14:50:21.148Z",
-  "versionId": "703744bc-738a-4d5c-9e09-6cd259d3749a"
+  "updatedAt": "2026-02-07T17:42:29.399Z",
+  "versionId": "8e14a223-4327-4886-9386-e4d6672bba18"
 }
