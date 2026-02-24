@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-06T22:54:01.910Z",
-    "createdAt": "2026-01-06T22:54:00.352Z",
-    "versionId": "54ae97b6-1dfc-404c-8986-1942647ca33d",
+    "updatedAt": "2026-02-23T14:58:04.256Z",
+    "createdAt": "2026-02-23T14:57:02.413Z",
+    "versionId": "32078192-4a4b-4db8-ba01-dfcf7c638205",
     "workflowId": "UqJsZfAhJHkWNxvT",
     "nodes": [
       {
@@ -1140,13 +1140,13 @@
               {
                 "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
                 "name": "url_acortado",
-                "value": "={{ $json.shortIoResponse.shortURL }}",
+                "value": "={{ $json.url_acortado }}",
                 "type": "string"
               },
               {
                 "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
                 "name": "id_short_io",
-                "value": "={{ $json.shortIoResponse.path }}",
+                "value": "={{ $json.id_short_io }}",
                 "type": "string"
               }
             ]
@@ -1324,7 +1324,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1680,
+          1600,
           496
         ],
         "id": "1fb22094-9ff3-4c0a-b455-3b9ec7ba1434",
@@ -2403,6 +2403,35 @@
             "name": "Bioenglish_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+                "name": "url_acortado",
+                "value": "={{ $json.shortIoResponse.shortURL }}",
+                "type": "string"
+              },
+              {
+                "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+                "name": "id_short_io",
+                "value": "={{ $json.shortIoResponse.path }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1600,
+          256
+        ],
+        "id": "9baa2ab5-103b-4817-b018-98611e3686e7",
+        "name": "url_acortado4"
       }
     ],
     "connections": {
@@ -2509,7 +2538,7 @@
         "main": [
           [
             {
-              "node": "url_acortado2",
+              "node": "url_acortado4",
               "type": "main",
               "index": 0
             }
@@ -2602,14 +2631,25 @@
             }
           ]
         ]
+      },
+      "url_acortado4": {
+        "main": [
+          [
+            {
+              "node": "url_acortado2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 54ae97b6",
+    "name": "Version 32078192",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "54ae97b6-1dfc-404c-8986-1942647ca33d",
+  "activeVersionId": "32078192-4a4b-4db8-ba01-dfcf7c638205",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2714,7 +2754,7 @@
       "main": [
         [
           {
-            "node": "url_acortado2",
+            "node": "url_acortado4",
             "type": "main",
             "index": 0
           }
@@ -2802,6 +2842,17 @@
         [
           {
             "node": "Create a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url_acortado4": {
+      "main": [
+        [
+          {
+            "node": "url_acortado2",
             "type": "main",
             "index": 0
           }
@@ -3951,13 +4002,13 @@
             {
               "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
               "name": "url_acortado",
-              "value": "={{ $json.shortIoResponse.shortURL }}",
+              "value": "={{ $json.url_acortado }}",
               "type": "string"
             },
             {
               "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
               "name": "id_short_io",
-              "value": "={{ $json.shortIoResponse.path }}",
+              "value": "={{ $json.id_short_io }}",
               "type": "string"
             }
           ]
@@ -4135,7 +4186,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1680,
+        1600,
         496
       ],
       "id": "1fb22094-9ff3-4c0a-b455-3b9ec7ba1434",
@@ -5214,17 +5265,45 @@
           "name": "Bioenglish_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2d0bbf1-351a-428d-b40b-043b388a37b3",
+              "name": "url_acortado",
+              "value": "={{ $json.shortIoResponse.shortURL }}",
+              "type": "string"
+            },
+            {
+              "id": "585f4526-f401-4e7b-a9ac-716ce2a84913",
+              "name": "id_short_io",
+              "value": "={{ $json.shortIoResponse.path }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1600,
+        256
+      ],
+      "id": "9baa2ab5-103b-4817-b018-98611e3686e7",
+      "name": "url_acortado4"
     }
   ],
   "pinData": {
     "When Executed by Another Workflow": [
       {
         "json": {
-          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=RODRIGO%20DE%20KALEP%20GUERRA%20ARAUJO&celular_estudiante=%2B51987859706&id_cliente_airtable=recisKC647gNqAaoH",
-          "id_registro_cliente": "recisKC647gNqAaoH",
+          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=Sisa%20yol%C3%A9%20Valerie%20galiano%20huasco&celular_estudiante=%2B51930552921&id_cliente_airtable=receJcK4J92PFbXkp",
+          "id_registro_cliente": "receJcK4J92PFbXkp",
           "tipo_estado": "con_link_acortado",
-          "tipo_automatizacion": "chatbot_cobranzas",
-          "id_short_io": "e2SlmM"
+          "tipo_automatizacion": "chatbot_cobranzas"
         },
         "pairedItem": {
           "item": 0
@@ -5254,6 +5333,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-10T02:20:06.546Z",
-  "versionId": "54ae97b6-1dfc-404c-8986-1942647ca33d"
+  "updatedAt": "2026-02-23T14:58:02.829Z",
+  "versionId": "32078192-4a4b-4db8-ba01-dfcf7c638205"
 }
