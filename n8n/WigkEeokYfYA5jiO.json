@@ -9021,26 +9021,35 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "56",
+            "content-length": "54",
             "accept": "*/*",
-            "accept-encoding": "gzip,deflate",
+            "accept-encoding": "gzip",
+            "backend_is_origin": "1",
+            "cdn-loop": "Fastly",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflHXaANO7eXN4QIs",
-            "x-forwarded-for": "18.207.190.130",
+            "fastly-client-ip": "13.218.170.110",
+            "fastly-ff": "scJ4iSV4UkyHDI2juJNzrcUzYk/oO1PMCyYg4bz5Utg=!IAD!cache-iad-kiad7000046-IAD",
+            "fastly-orig-accept-encoding": "gzip,deflate",
+            "fastly-ssl": "1",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
+            "x-forwarded-for": "13.218.170.110, 167.82.233.46",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
+            "x-forwarded-server": "cache-iad-kiad7000046-IAD",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "noOG9TLSRvu_XgUzg4a9AQ",
-            "x-real-ip": "18.207.190.130",
-            "x-request-start": "1770786292423"
+            "x-railway-request-id": "O9DfN-ecTV67uKAQAax-fw",
+            "x-real-ip": "167.82.233.46",
+            "x-request-start": "1771823245102",
+            "x-timer": "S1771823245.101858,VS0",
+            "x-varnish": "920459537"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recSExBSDX3miMuTw",
-            "Tipo": "5_dias_despues"
+            "recordId": "recahcPnlnobXXCPi",
+            "Tipo": "7_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -9073,6 +9082,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-11T17:30:42.285Z",
+  "updatedAt": "2026-02-23T15:01:54.576Z",
   "versionId": "38e448f7-1e34-4272-ad84-ac76cd2a99df"
 }
