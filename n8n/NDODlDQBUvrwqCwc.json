@@ -29544,39 +29544,39 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "Grupo y horario al que desea inscribirse": "ENGLISH KET_A2 ( L-M-V-8:10-9:40 pm )",
+          "Grupo y horario al que desea inscribirse": "ENGLISH STARTERS ( L-M-V-5:00-6:00pm )",
           "Comprobante de pago": [
             {
-              "filename": "1000132520.png",
-              "mimetype": "image/png",
-              "size": 123587
+              "filename": "Screenshot_20260304_190904.jpg",
+              "mimetype": "image/jpeg",
+              "size": 626780
             }
           ],
-          "submittedAt": "2026-02-06T13:21:15.694-05:00",
+          "submittedAt": "2026-03-04T19:09:28.875-05:00",
           "formMode": "production",
-          "tipo_estudiante": "Para mí",
-          "nombre_apoderado": "",
-          "dni_apoderado": 0,
-          "correo_apoderado": "",
-          "pais_apoderado": "",
-          "celular_apoderado_sin_codigo": 0,
-          "nivel_inglés_apoderado": "",
-          "Nombre completo del estudiante": "Nataly Giuliana Miranda Delgado ",
-          "Correo electrónico del estudiante": "natalymiranda@fatima.edu.pe",
+          "tipo_estudiante": "Para mi hijo/hija",
+          "nombre_apoderado": "Milagros Rodriguez",
+          "dni_apoderado": 40049248,
+          "correo_apoderado": "negli-1980@hotmail.com",
+          "pais_apoderado": "Perú",
+          "celular_apoderado_sin_codigo": 981869297,
+          "nivel_inglés_apoderado": "Básico",
+          "Nombre completo del estudiante": "German Negli",
+          "Correo electrónico del estudiante": "negli-1980@hotmail.com",
           "Pais": "Perú",
-          "Celular del estudiante - colocar sin codigo de pais": "949763515",
-          "Edad del estudiante": 30,
+          "Celular del estudiante - colocar sin codigo de pais": "981869297",
+          "Edad del estudiante": 10,
           "celular_apoderado_completo": ""
         },
         "binary": {
           "Comprobante_de_pago": {
-            "mimeType": "image/png",
+            "mimeType": "image/jpeg",
             "fileType": "image",
-            "fileExtension": "png",
+            "fileExtension": "jpg",
             "data": "database",
-            "fileName": "1000132520.png",
-            "id": "database:f74ba243-933e-43cd-b6ec-09e71cf0b913",
-            "fileSize": "124 kB"
+            "fileName": "Screenshot_20260304_190904.jpg",
+            "id": "database:f68f5c10-1f0e-4a1d-93ae-e4e7a3ce2ff4",
+            "fileSize": "627 kB"
           }
         },
         "pairedItem": {
@@ -29607,6 +29607,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-07T17:25:01.207Z",
+  "updatedAt": "2026-03-05T03:16:46.004Z",
   "versionId": "f77f1dcd-9bea-4434-b434-c1966a9d4fec"
 }
