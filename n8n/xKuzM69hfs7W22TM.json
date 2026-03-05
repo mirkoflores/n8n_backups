@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-07T17:27:52.376Z",
-    "createdAt": "2026-02-07T17:27:50.624Z",
-    "versionId": "197b6f51-8290-4f94-a1f9-a8d93ce80729",
+    "updatedAt": "2026-03-05T02:29:47.546Z",
+    "createdAt": "2026-03-05T02:29:45.641Z",
+    "versionId": "6578dc44-319b-4309-81df-e6fb87914707",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -1889,8 +1889,6 @@
             "value": {
               "No pago": false,
               "id": "={{ $('id_usuario1').item.json.id_usuario }}",
-              "Clientes": "=",
-              "Portal": "={{ $('id_portal1').item.json.id_portal }}",
               "Clientes 2": "={{ $('variables_1').item.json.id_cliente_airtable }}"
             },
             "matchingColumns": [
@@ -1927,7 +1925,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Magic link",
@@ -1938,7 +1936,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Email otros",
@@ -1949,7 +1947,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Grupo actual (from Clientes)",
@@ -1993,7 +1991,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Tipo",
@@ -2010,7 +2008,7 @@
                   }
                 ],
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Portal",
@@ -2021,7 +2019,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Grupo mes (from Portal)",
@@ -2043,7 +2041,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Portal Docente",
@@ -2054,7 +2052,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Tarea Enunciado",
@@ -2065,7 +2063,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Tarea Respuesta",
@@ -2076,7 +2074,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Asistencia",
@@ -2087,7 +2085,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Asistencia LM",
@@ -2120,7 +2118,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Created",
@@ -2142,7 +2140,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Feedback",
@@ -2153,7 +2151,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "DetalleVentas 2",
@@ -2164,7 +2162,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Clientes 2",
@@ -2726,6 +2724,652 @@
             "name": "Bioenglish_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "create",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblxwvKPmQNTlXlc2",
+            "mode": "list",
+            "cachedResultName": "Portal",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblxwvKPmQNTlXlc2"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Grupo mes": "=recS3OFuokb8s6h6P",
+              "Usuario": "=recdlzeWiUvRU5iZn",
+              "Grupo": "=recLjlYfPNPlTEIOb"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "ID",
+                "displayName": "ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo mes",
+                "displayName": "Grupo mes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Grupo (from Grupo mes)",
+                "displayName": "Grupo (from Grupo mes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo",
+                "displayName": "Grupo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Mes (from Grupo mes)",
+                "displayName": "Mes (from Grupo mes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Año",
+                "displayName": "Año",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Horario (from Grupo) (from Grupo mes)",
+                "displayName": "Horario (from Grupo) (from Grupo mes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nivel (from Grupo) (from Grupo mes)",
+                "displayName": "Nivel (from Grupo) (from Grupo mes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Usuario",
+                "displayName": "Usuario",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Feedback",
+                "displayName": "Feedback",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Nombre completo (from Usuario)",
+                "displayName": "Nombre completo (from Usuario)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha (from Asistencia)",
+                "displayName": "Fecha (from Asistencia)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupo mes f",
+                "displayName": "Grupo mes f",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "No pago Rollup (from Usuario)",
+                "displayName": "No pago Rollup (from Usuario)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Created",
+                "displayName": "Created",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "record_id (from Grupo mes)",
+                "displayName": "record_id (from Grupo mes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "record_id (from Usuario)",
+                "displayName": "record_id (from Usuario)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Record ID (from Grupo)",
+                "displayName": "Record ID (from Grupo)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "record_id",
+                "displayName": "record_id",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {
+            "typecast": true
+          }
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          1360,
+          720
+        ],
+        "id": "41eba7f9-582e-45c5-8105-90e84c9d4a6f",
+        "name": "crear registro - portal2",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "update",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblDjNe8g5pL5RTE2",
+            "mode": "list",
+            "cachedResultName": "Usuarios",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblDjNe8g5pL5RTE2"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "No pago": false,
+              "id": "=recdlzeWiUvRU5iZn",
+              "Portal": "=recrNqySKhKcOK3yP"
+            },
+            "matchingColumns": [
+              "id"
+            ],
+            "schema": [
+              {
+                "id": "id",
+                "displayName": "id",
+                "required": false,
+                "defaultMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "ID",
+                "displayName": "ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre completo",
+                "displayName": "Nombre completo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Magic link",
+                "displayName": "Magic link",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Email otros",
+                "displayName": "Email otros",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Grupo actual (from Clientes)",
+                "displayName": "Grupo actual (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Email estudiante",
+                "displayName": "Email estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nombre del estudiante (from Clientes)",
+                "displayName": "Nombre del estudiante (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Clientes",
+                "displayName": "Clientes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Tipo",
+                "displayName": "Tipo",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Teacher",
+                    "value": "Teacher"
+                  }
+                ],
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Portal",
+                "displayName": "Portal",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Grupo mes (from Portal)",
+                "displayName": "Grupo mes (from Portal)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Docente",
+                "displayName": "Docente",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Portal Docente",
+                "displayName": "Portal Docente",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Tarea Enunciado",
+                "displayName": "Tarea Enunciado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Tarea Respuesta",
+                "displayName": "Tarea Respuesta",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Asistencia",
+                "displayName": "Asistencia",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Asistencia LM",
+                "displayName": "Asistencia LM",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Fecha (from Asistencia)",
+                "displayName": "Fecha (from Asistencia)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "DetalleVentas",
+                "displayName": "DetalleVentas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Created",
+                "displayName": "Created",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Asistencia 2",
+                "displayName": "Asistencia 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Feedback",
+                "displayName": "Feedback",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "DetalleVentas 2",
+                "displayName": "DetalleVentas 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Clientes 2",
+                "displayName": "Clientes 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "id_clientes",
+                "displayName": "id_clientes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "id_clientes_2",
+                "displayName": "id_clientes_2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "TEST",
+                "displayName": "TEST",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "No pago",
+                "displayName": "No pago",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "record_id",
+                "displayName": "record_id",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {
+            "typecast": true
+          }
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          1648,
+          688
+        ],
+        "id": "c51faa85-ff96-4a87-a18b-c8c2d229e9fc",
+        "name": "update registro - usuario2",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -3104,11 +3748,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 197b6f51",
+    "name": "Version 6578dc44",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "197b6f51-8290-4f94-a1f9-a8d93ce80729",
+  "activeVersionId": "6578dc44-319b-4309-81df-e6fb87914707",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -5375,8 +6019,6 @@
           "value": {
             "No pago": false,
             "id": "={{ $('id_usuario1').item.json.id_usuario }}",
-            "Clientes": "=",
-            "Portal": "={{ $('id_portal1').item.json.id_portal }}",
             "Clientes 2": "={{ $('variables_1').item.json.id_cliente_airtable }}"
           },
           "matchingColumns": [
@@ -5413,7 +6055,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Magic link",
@@ -5424,7 +6066,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Email otros",
@@ -5435,7 +6077,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Grupo actual (from Clientes)",
@@ -5479,7 +6121,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Tipo",
@@ -5496,7 +6138,7 @@
                 }
               ],
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Portal",
@@ -5507,7 +6149,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Grupo mes (from Portal)",
@@ -5529,7 +6171,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Portal Docente",
@@ -5540,7 +6182,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Tarea Enunciado",
@@ -5551,7 +6193,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Tarea Respuesta",
@@ -5562,7 +6204,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Asistencia",
@@ -5573,7 +6215,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Asistencia LM",
@@ -5606,7 +6248,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Created",
@@ -5628,7 +6270,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Feedback",
@@ -5639,7 +6281,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "DetalleVentas 2",
@@ -5650,7 +6292,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Clientes 2",
@@ -6212,6 +6854,652 @@
           "name": "Bioenglish_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblxwvKPmQNTlXlc2",
+          "mode": "list",
+          "cachedResultName": "Portal",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblxwvKPmQNTlXlc2"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Grupo mes": "=recS3OFuokb8s6h6P",
+            "Usuario": "=recdlzeWiUvRU5iZn",
+            "Grupo": "=recLjlYfPNPlTEIOb"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo mes",
+              "displayName": "Grupo mes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Grupo (from Grupo mes)",
+              "displayName": "Grupo (from Grupo mes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo",
+              "displayName": "Grupo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Mes (from Grupo mes)",
+              "displayName": "Mes (from Grupo mes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Año",
+              "displayName": "Año",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Horario (from Grupo) (from Grupo mes)",
+              "displayName": "Horario (from Grupo) (from Grupo mes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nivel (from Grupo) (from Grupo mes)",
+              "displayName": "Nivel (from Grupo) (from Grupo mes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Usuario",
+              "displayName": "Usuario",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Feedback",
+              "displayName": "Feedback",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nombre completo (from Usuario)",
+              "displayName": "Nombre completo (from Usuario)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha (from Asistencia)",
+              "displayName": "Fecha (from Asistencia)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupo mes f",
+              "displayName": "Grupo mes f",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No pago Rollup (from Usuario)",
+              "displayName": "No pago Rollup (from Usuario)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "record_id (from Grupo mes)",
+              "displayName": "record_id (from Grupo mes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "record_id (from Usuario)",
+              "displayName": "record_id (from Usuario)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Record ID (from Grupo)",
+              "displayName": "Record ID (from Grupo)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "record_id",
+              "displayName": "record_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1360,
+        720
+      ],
+      "id": "41eba7f9-582e-45c5-8105-90e84c9d4a6f",
+      "name": "crear registro - portal2",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblDjNe8g5pL5RTE2",
+          "mode": "list",
+          "cachedResultName": "Usuarios",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblDjNe8g5pL5RTE2"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "No pago": false,
+            "id": "=recdlzeWiUvRU5iZn",
+            "Portal": "=recrNqySKhKcOK3yP"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre completo",
+              "displayName": "Nombre completo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Magic link",
+              "displayName": "Magic link",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email otros",
+              "displayName": "Email otros",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Grupo actual (from Clientes)",
+              "displayName": "Grupo actual (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Email estudiante",
+              "displayName": "Email estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nombre del estudiante (from Clientes)",
+              "displayName": "Nombre del estudiante (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Clientes",
+              "displayName": "Clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Tipo",
+              "displayName": "Tipo",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Teacher",
+                  "value": "Teacher"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Portal",
+              "displayName": "Portal",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Grupo mes (from Portal)",
+              "displayName": "Grupo mes (from Portal)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Docente",
+              "displayName": "Docente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Portal Docente",
+              "displayName": "Portal Docente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Tarea Enunciado",
+              "displayName": "Tarea Enunciado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Tarea Respuesta",
+              "displayName": "Tarea Respuesta",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Asistencia",
+              "displayName": "Asistencia",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Asistencia LM",
+              "displayName": "Asistencia LM",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Fecha (from Asistencia)",
+              "displayName": "Fecha (from Asistencia)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "DetalleVentas",
+              "displayName": "DetalleVentas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Asistencia 2",
+              "displayName": "Asistencia 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Feedback",
+              "displayName": "Feedback",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "DetalleVentas 2",
+              "displayName": "DetalleVentas 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Clientes 2",
+              "displayName": "Clientes 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "id_clientes",
+              "displayName": "id_clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "id_clientes_2",
+              "displayName": "id_clientes_2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TEST",
+              "displayName": "TEST",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "No pago",
+              "displayName": "No pago",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "record_id",
+              "displayName": "record_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1648,
+        688
+      ],
+      "id": "c51faa85-ff96-4a87-a18b-c8c2d229e9fc",
+      "name": "update registro - usuario2",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -6225,43 +7513,29 @@
         }
       }
     ],
-    "Crear usuario_2": [
-      {
-        "json": {
-          "full_name": "Marco Rogelio campos escalante",
-          "email": "ruthescalante0215@gmail.com",
-          "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=3d45badbc253425485726a8f172bbf2e",
-          "updated": "2026-01-16 18:20:33",
-          "created": "2026-01-16 18:20:33"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "When Executed by Another Workflow": [
       {
         "json": {
-          "numero_completo_estudiante": "+51949763515",
-          "numero_completo_apoderado": "+0",
-          "email_estudiante": "natalymiranda@fatima.edu.pe",
-          "email_apoderado": "",
-          "nombre_estudiante": "Nataly Giuliana Miranda Delgado ",
-          "nombre_apoderado": "",
-          "monto_depositado": 170,
+          "numero_completo_estudiante": "+51964107774",
+          "numero_completo_apoderado": "+51964107774",
+          "email_estudiante": "cinthiaquintanilla_h@hotmail.com",
+          "email_apoderado": "cinthiaquintanilla_h@hotmail.com",
+          "nombre_estudiante": "Alice Caroline Barba Quintanilla",
+          "nombre_apoderado": "Cinthia Carolina Quintanilla Huaman ",
+          "monto_depositado": 155,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
-          "id_grupo": "recaGtfxBEr8iQvIa",
-          "tipo_estudiante": "Para mí",
-          "dni_apoderado": 0,
-          "pais_apoderado": "",
-          "nivel_inglés_apoderado": "",
-          "id_contacto_apoderado_airtable": "rec005A58mVVEkAtq",
-          "id_contacto_estudiante_airtable": "reckeyN6dNkSDQWG9",
-          "id_cliente_airtable": "recLXGs5aml0r9Zj5",
-          "id_preventa_airtable": "reccdgISKfbJdDfUH",
-          "id_detalles_venta_airtable": "recBCZDZQwABSueZy",
-          "id_grupo_ultimo_creado": "recJJjvpEbTrhYArF"
+          "id_grupo": "recLjlYfPNPlTEIOb",
+          "tipo_estudiante": "Para mi hijo/hija",
+          "dni_apoderado": 45563746,
+          "pais_apoderado": "Perú",
+          "nivel_inglés_apoderado": "Básico",
+          "id_contacto_apoderado_airtable": "recAggVemaVFWwmFk",
+          "id_contacto_estudiante_airtable": "recAggVemaVFWwmFk",
+          "id_cliente_airtable": "recbYGmCVTgXurcte",
+          "id_preventa_airtable": "rechXbbcWpdtRgm1x",
+          "id_detalles_venta_airtable": "recFQzzyvt1GEqkiY",
+          "id_grupo_ultimo_creado": "recS3OFuokb8s6h6P"
         },
         "pairedItem": {
           "item": 0
@@ -6291,6 +7565,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-07T17:38:35.458Z",
-  "versionId": "197b6f51-8290-4f94-a1f9-a8d93ce80729"
+  "updatedAt": "2026-03-05T02:29:45.638Z",
+  "versionId": "6578dc44-319b-4309-81df-e6fb87914707"
 }
