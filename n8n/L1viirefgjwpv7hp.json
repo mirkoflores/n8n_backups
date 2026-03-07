@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-31T15:37:33.130Z",
-    "createdAt": "2025-12-31T15:31:58.549Z",
-    "versionId": "d0599aa9-50a7-4969-a3b5-16689773a57f",
+    "updatedAt": "2026-03-07T01:10:39.805Z",
+    "createdAt": "2026-03-07T01:10:38.057Z",
+    "versionId": "8e1be707-37b7-444d-98e1-8ac5e75a762c",
     "workflowId": "L1viirefgjwpv7hp",
     "nodes": [
       {
@@ -59,7 +59,7 @@
           "limit": 1,
           "options": {
             "fields": [],
-            "where": "where=(nombre,eq,bio_perfil)"
+            "where": "where=(nombre,eq,bio_perfil_v2)"
           }
         },
         "type": "n8n-nodes-base.nocoDb",
@@ -114,11 +114,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version d0599aa9",
+    "name": "Version 8e1be707",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "d0599aa9-50a7-4969-a3b5-16689773a57f",
+  "activeVersionId": "8e1be707-37b7-444d-98e1-8ac5e75a762c",
   "connections": {
     "Webhook": {
       "main": [
@@ -213,7 +213,7 @@
         "limit": 1,
         "options": {
           "fields": [],
-          "where": "where=(nombre,eq,bio_perfil)"
+          "where": "where=(nombre,eq,bio_perfil_v2)"
         }
       },
       "type": "n8n-nodes-base.nocoDb",
@@ -289,6 +289,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-31T15:37:05.231Z",
-  "versionId": "d0599aa9-50a7-4969-a3b5-16689773a57f"
+  "updatedAt": "2026-03-07T01:10:38.054Z",
+  "versionId": "8e1be707-37b7-444d-98e1-8ac5e75a762c"
 }
