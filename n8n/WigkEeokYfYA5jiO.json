@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-21T14:28:22.825Z",
-    "createdAt": "2026-02-11T17:28:25.489Z",
-    "versionId": "38e448f7-1e34-4272-ad84-ac76cd2a99df",
+    "updatedAt": "2026-03-13T02:59:40.395Z",
+    "createdAt": "2026-03-13T02:59:38.098Z",
+    "versionId": "7de36761-1c02-4b89-bc77-54c1d214d37e",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -2430,39 +2430,6 @@
       },
       {
         "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 3
-            },
-            "conditions": [
-              {
-                "id": "d04257d5-740a-4c36-8711-6dd69fc55020",
-                "leftValue": "={{ $json._embedded.leads[0].status_id }}",
-                "rightValue": 143,
-                "operator": {
-                  "type": "number",
-                  "operation": "notEquals"
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.3,
-        "position": [
-          3456,
-          -32
-        ],
-        "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
-        "name": "no esta en etapa perdida"
-      },
-      {
-        "parameters": {
           "workflowId": {
             "__rl": true,
             "value": "FUqVaG3kGGb2Eqpm",
@@ -3762,6 +3729,48 @@
         ],
         "id": "2693bd30-4064-4ad0-b2b2-78ace4aec396",
         "name": "es tipo seguimiento?"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "d04257d5-740a-4c36-8711-6dd69fc55020",
+                "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+                "rightValue": 143,
+                "operator": {
+                  "type": "number",
+                  "operation": "notEquals"
+                }
+              },
+              {
+                "id": "41ba6c87-3921-4ff0-8b19-3e3a7ffd83d7",
+                "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+                "rightValue": 102805787,
+                "operator": {
+                  "type": "number",
+                  "operation": "notEquals"
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          3456,
+          -32
+        ],
+        "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
+        "name": "no esta en etapa perdida o retirado"
       }
     ],
     "connections": {
@@ -4251,7 +4260,7 @@
         "main": [
           [
             {
-              "node": "no esta en etapa perdida",
+              "node": "no esta en etapa perdida o retirado",
               "type": "main",
               "index": 0
             }
@@ -4382,24 +4391,6 @@
           ]
         ]
       },
-      "no esta en etapa perdida": {
-        "main": [
-          [
-            {
-              "node": "Url de renovacion corto vacio?",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Create a row1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Call Definir ID contacto y lead en Kommo": {
         "main": [
           [
@@ -4473,14 +4464,32 @@
             }
           ]
         ]
+      },
+      "no esta en etapa perdida o retirado": {
+        "main": [
+          [
+            {
+              "node": "Url de renovacion corto vacio?",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Create a row1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 38e448f7",
+    "name": "Version 7de36761",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "38e448f7-1e34-4272-ad84-ac76cd2a99df",
+  "activeVersionId": "7de36761-1c02-4b89-bc77-54c1d214d37e",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -4968,7 +4977,7 @@
       "main": [
         [
           {
-            "node": "no esta en etapa perdida",
+            "node": "no esta en etapa perdida o retirado",
             "type": "main",
             "index": 0
           }
@@ -5099,24 +5108,6 @@
         ]
       ]
     },
-    "no esta en etapa perdida": {
-      "main": [
-        [
-          {
-            "node": "Url de renovacion corto vacio?",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Create a row1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Call Definir ID contacto y lead en Kommo": {
       "main": [
         [
@@ -5185,6 +5176,24 @@
         [
           {
             "node": "Clientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "no esta en etapa perdida o retirado": {
+      "main": [
+        [
+          {
+            "node": "Url de renovacion corto vacio?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create a row1",
             "type": "main",
             "index": 0
           }
@@ -7624,39 +7633,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "d04257d5-740a-4c36-8711-6dd69fc55020",
-              "leftValue": "={{ $json._embedded.leads[0].status_id }}",
-              "rightValue": 143,
-              "operator": {
-                "type": "number",
-                "operation": "notEquals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        3456,
-        -32
-      ],
-      "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
-      "name": "no esta en etapa perdida"
-    },
-    {
-      "parameters": {
         "workflowId": {
           "__rl": true,
           "value": "FUqVaG3kGGb2Eqpm",
@@ -8956,6 +8932,48 @@
       ],
       "id": "2693bd30-4064-4ad0-b2b2-78ace4aec396",
       "name": "es tipo seguimiento?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d04257d5-740a-4c36-8711-6dd69fc55020",
+              "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+              "rightValue": 143,
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "41ba6c87-3921-4ff0-8b19-3e3a7ffd83d7",
+              "leftValue": "={{ $json._embedded.leads[0].status_id }}",
+              "rightValue": 102805787,
+              "operator": {
+                "type": "number",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3456,
+        -32
+      ],
+      "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
+      "name": "no esta en etapa perdida o retirado"
     }
   ],
   "pinData": {
@@ -9082,6 +9100,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-23T15:01:54.576Z",
-  "versionId": "38e448f7-1e34-4272-ad84-ac76cd2a99df"
+  "updatedAt": "2026-03-13T02:59:38.094Z",
+  "versionId": "7de36761-1c02-4b89-bc77-54c1d214d37e"
 }
