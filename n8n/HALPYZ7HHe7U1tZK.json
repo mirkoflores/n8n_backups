@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-25T19:13:21.069Z",
-    "createdAt": "2026-01-25T19:12:36.346Z",
-    "versionId": "e655e9c0-f8e5-461a-9cd2-09f602be6c0e",
+    "updatedAt": "2026-03-16T01:23:39.928Z",
+    "createdAt": "2026-03-16T01:23:37.381Z",
+    "versionId": "b1f8b755-9e20-4cba-a946-39b6f3a0ccc5",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -587,7 +587,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1264,
+          832,
           736
         ],
         "id": "6d061b8a-de09-49ab-bea0-3faa8c6a2948",
@@ -1836,7 +1836,7 @@
             "conditions": [
               {
                 "id": "89b632b8-196e-4a3f-b3a2-e9fcb6dd3e87",
-                "leftValue": "={{ $json.PEN }}",
+                "leftValue": "={{ $('obtener registro - detalles venta').item.PEN }}",
                 "rightValue": 0,
                 "operator": {
                   "type": "number",
@@ -1852,7 +1852,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          800,
+          1104,
           736
         ],
         "id": "dc9152c9-40c0-4e6e-8c58-1d3a922aecdf",
@@ -1920,8 +1920,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          1024,
-          864
+          1376,
+          928
         ],
         "id": "0a8e751c-662b-4f27-8285-3d942fb16ae9",
         "name": "Create a row5",
@@ -2447,7 +2447,7 @@
         "main": [
           [
             {
-              "node": "son soles?",
+              "node": "variables_2",
               "type": "main",
               "index": 0
             }
@@ -2458,7 +2458,7 @@
         "main": [
           [
             {
-              "node": "pago que hizo es de 1 año?",
+              "node": "son soles?",
               "type": "main",
               "index": 0
             }
@@ -2734,7 +2734,7 @@
         "main": [
           [
             {
-              "node": "variables_2",
+              "node": "pago que hizo es de 1 año?",
               "type": "main",
               "index": 0
             }
@@ -2917,11 +2917,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version e655e9c0",
+    "name": "Version b1f8b755",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "e655e9c0-f8e5-461a-9cd2-09f602be6c0e",
+  "activeVersionId": "b1f8b755-9e20-4cba-a946-39b6f3a0ccc5",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -3033,7 +3033,7 @@
       "main": [
         [
           {
-            "node": "son soles?",
+            "node": "variables_2",
             "type": "main",
             "index": 0
           }
@@ -3044,7 +3044,7 @@
       "main": [
         [
           {
-            "node": "pago que hizo es de 1 año?",
+            "node": "son soles?",
             "type": "main",
             "index": 0
           }
@@ -3320,7 +3320,7 @@
       "main": [
         [
           {
-            "node": "variables_2",
+            "node": "pago que hizo es de 1 año?",
             "type": "main",
             "index": 0
           }
@@ -4091,7 +4091,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1264,
+        832,
         736
       ],
       "id": "6d061b8a-de09-49ab-bea0-3faa8c6a2948",
@@ -5340,7 +5340,7 @@
           "conditions": [
             {
               "id": "89b632b8-196e-4a3f-b3a2-e9fcb6dd3e87",
-              "leftValue": "={{ $json.PEN }}",
+              "leftValue": "={{ $('obtener registro - detalles venta').item.PEN }}",
               "rightValue": 0,
               "operator": {
                 "type": "number",
@@ -5356,7 +5356,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        800,
+        1104,
         736
       ],
       "id": "dc9152c9-40c0-4e6e-8c58-1d3a922aecdf",
@@ -5424,8 +5424,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        1024,
-        864
+        1376,
+        928
       ],
       "id": "0a8e751c-662b-4f27-8285-3d942fb16ae9",
       "name": "Create a row5",
@@ -5849,23 +5849,32 @@
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
             "content-length": "57",
             "accept": "*/*",
-            "accept-encoding": "gzip,deflate",
+            "accept-encoding": "gzip",
+            "backend_is_origin": "1",
+            "cdn-loop": "Fastly",
             "content-type": "application/json",
+            "fastly-client-ip": "54.227.125.103",
+            "fastly-orig-accept-encoding": "gzip,deflate",
+            "fastly-ssl": "1",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wflF0v8TmvsCxuuSu",
-            "x-forwarded-for": "3.218.247.254",
+            "x-edge-region": "US-East",
+            "x-forwarded-for": "54.227.125.103, 167.82.233.43",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
+            "x-forwarded-server": "cache-iad-kiad7000043-IAD",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "PYLoSVkHQl2cVulOwoOzXw",
-            "x-real-ip": "3.218.247.254",
-            "x-request-start": "1769231775197"
+            "x-railway-request-id": "D_3rDaY_SMqVZg0P8u2xcg",
+            "x-real-ip": "167.82.233.43",
+            "x-request-start": "1773550931419",
+            "x-timer": "S1773550931.418210,VS0",
+            "x-varnish": "524402900"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_upselling"
           },
           "body": {
-            "recordId": "recowTqtqItjLRnBH",
+            "recordId": "recrfJYfxPuIlls6O",
             "Tipo": "13_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
@@ -5899,6 +5908,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-25T19:12:36.342Z",
-  "versionId": "e655e9c0-f8e5-461a-9cd2-09f602be6c0e"
+  "updatedAt": "2026-03-16T01:23:37.379Z",
+  "versionId": "b1f8b755-9e20-4cba-a946-39b6f3a0ccc5"
 }
