@@ -7516,30 +7516,165 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "numero_completo_estudiante": "+51964107774",
-          "numero_completo_apoderado": "+51964107774",
-          "email_estudiante": "cinthiaquintanilla_h@hotmail.com",
-          "email_apoderado": "cinthiaquintanilla_h@hotmail.com",
-          "nombre_estudiante": "Alice Caroline Barba Quintanilla",
-          "nombre_apoderado": "Cinthia Carolina Quintanilla Huaman ",
-          "monto_depositado": 155,
+          "numero_completo_estudiante": "+51992271329 ",
+          "numero_completo_apoderado": "+51992271329",
+          "email_estudiante": "jannetbnh@gmail.com",
+          "email_apoderado": "jannetbnh@gmail.com",
+          "nombre_estudiante": "Fernanda valentina contreras quispe ",
+          "nombre_apoderado": "Jannet Quispe Aguirre ",
+          "monto_depositado": 750,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
           "id_grupo": "recLjlYfPNPlTEIOb",
           "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 45563746,
+          "dni_apoderado": 43732522,
           "pais_apoderado": "Perú",
           "nivel_inglés_apoderado": "Básico",
-          "id_contacto_apoderado_airtable": "recAggVemaVFWwmFk",
-          "id_contacto_estudiante_airtable": "recAggVemaVFWwmFk",
-          "id_cliente_airtable": "recbYGmCVTgXurcte",
-          "id_preventa_airtable": "rechXbbcWpdtRgm1x",
-          "id_detalles_venta_airtable": "recFQzzyvt1GEqkiY",
+          "id_contacto_apoderado_airtable": "recApxeaZDbD0Flac",
+          "id_contacto_estudiante_airtable": "recVNeZV7iHk5FEHj",
+          "id_cliente_airtable": "rec95WDSpwF3QWuyy",
+          "id_preventa_airtable": "recWaiezdj4LvcbAo",
+          "id_detalles_venta_airtable": "rectj6wPrmzO3T53Q",
           "id_grupo_ultimo_creado": "recS3OFuokb8s6h6P"
         },
         "pairedItem": {
           "item": 0
         }
+      }
+    ],
+    "Crear usuario_2": [
+      {
+        "json": {
+          "full_name": "Fernanda valentina contreras quispe",
+          "email": "jannetbnh@gmail.com",
+          "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=51b06ef4d81d43359d64f00dfcb2d252",
+          "updated": "2026-04-01 20:26:27",
+          "created": "2026-04-01 20:26:27"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Wait": [
+      {
+        "json": {
+          "full_name": "Fernanda valentina contreras quispe",
+          "email": "jannetbnh@gmail.com",
+          "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=51b06ef4d81d43359d64f00dfcb2d252",
+          "updated": "2026-04-01 20:26:27",
+          "created": "2026-04-01 20:26:27"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "id_usuario1": [
+      {
+        "json": {
+          "id_usuario": "recmGv86eOkFdjBu3"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "buscar registro - usuario1": [
+      {
+        "json": {
+          "id": "recmGv86eOkFdjBu3",
+          "createdTime": "2026-04-01T20:26:28.000Z",
+          "ID": "jannetbnh@gmail.com",
+          "Nombre completo": "Fernanda valentina contreras quispe",
+          "Email otros": "jannetbnh@gmail.com",
+          "Created": "2026-04-01T20:26:28.000Z",
+          "Magic link": "https://www.bioenglish.lat/magic-authentication?magic-token=51b06ef4d81d43359d64f00dfcb2d252",
+          "id_clientes": [],
+          "id_clientes_2": [],
+          "TEST": 8,
+          "record_id": "recmGv86eOkFdjBu3"
+        },
+        "pairedItem": [
+          {
+            "item": 0
+          }
+        ]
+      }
+    ],
+    "crear registro - portal1": [
+      {
+        "json": {
+          "id": "recqn5NGpGPJGIxAd",
+          "createdTime": "2026-04-01T20:26:36.000Z",
+          "fields": {
+            "ID": "ENGLISH PRE STARTERS KIDS | Virtual | Fiorella | M-J-5:00-6:00pm-S-11:00-12:00pm | Oct25 - jannetbnh@gmail.com",
+            "Usuario": [
+              "recmGv86eOkFdjBu3"
+            ],
+            "Grupo mes": [
+              "recS3OFuokb8s6h6P"
+            ],
+            "Nivel (from Grupo) (from Grupo mes)": [
+              "ENGLISH PRE STARTERS KIDS"
+            ],
+            "Horario (from Grupo) (from Grupo mes)": [
+              "M-J-5:00-6:00pm-S-11:00-12:00pm"
+            ],
+            "Mes (from Grupo mes)": [
+              "Oct25"
+            ],
+            "Nombre completo (from Usuario)": [
+              "Fernanda valentina contreras quispe"
+            ],
+            "Grupo mes f": "ENGLISH%20PRE%20STARTERS%20KIDS%20%7C%20Virtual%20%7C%20Fiorella%20%7C%20M-J-5%3A00-6%3A00pm-S-11%3A00-12%3A00pm%20%7C%20Oct25",
+            "Grupo": [
+              "recLjlYfPNPlTEIOb"
+            ],
+            "Grupo (from Grupo mes)": [
+              "recLjlYfPNPlTEIOb"
+            ],
+            "No pago Rollup (from Usuario)": 0,
+            "Año": [
+              "2026"
+            ],
+            "Created": "2026-04-01T20:26:36.000Z",
+            "record_id (from Grupo mes)": [
+              "recS3OFuokb8s6h6P"
+            ],
+            "record_id (from Usuario)": [
+              "recmGv86eOkFdjBu3"
+            ],
+            "Record ID (from Grupo)": [
+              "recLjlYfPNPlTEIOb"
+            ],
+            "record_id": "recqn5NGpGPJGIxAd"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "id_portal1": [
+      {
+        "json": {
+          "id_portal": "recqn5NGpGPJGIxAd"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "buscar registro - usuario": [
+      {
+        "json": {},
+        "pairedItem": [
+          {
+            "item": 0,
+            "input": 0
+          }
+        ]
       }
     ]
   },
@@ -7565,6 +7700,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-03-05T02:29:45.638Z",
+  "updatedAt": "2026-04-06T22:41:02.502Z",
   "versionId": "6578dc44-319b-4309-81df-e6fb87914707"
 }
