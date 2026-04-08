@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-03-13T02:59:40.395Z",
-    "createdAt": "2026-03-13T02:59:38.098Z",
-    "versionId": "7de36761-1c02-4b89-bc77-54c1d214d37e",
+    "updatedAt": "2026-04-08T01:37:41.110Z",
+    "createdAt": "2026-04-08T01:37:38.607Z",
+    "versionId": "8169d835-9ab3-4aaf-9a6d-3ed03ae072a3",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -3759,7 +3759,7 @@
                 }
               }
             ],
-            "combinator": "or"
+            "combinator": "and"
           },
           "options": {}
         },
@@ -4485,11 +4485,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 7de36761",
+    "name": "Version 8169d835",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "7de36761-1c02-4b89-bc77-54c1d214d37e",
+  "activeVersionId": "8169d835-9ab3-4aaf-9a6d-3ed03ae072a3",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -8962,7 +8962,7 @@
               }
             }
           ],
-          "combinator": "or"
+          "combinator": "and"
         },
         "options": {}
       },
@@ -9039,35 +9039,26 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "54",
+            "content-length": "57",
             "accept": "*/*",
-            "accept-encoding": "gzip",
-            "backend_is_origin": "1",
-            "cdn-loop": "Fastly",
+            "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "fastly-client-ip": "13.218.170.110",
-            "fastly-ff": "scJ4iSV4UkyHDI2juJNzrcUzYk/oO1PMCyYg4bz5Utg=!IAD!cache-iad-kiad7000046-IAD",
-            "fastly-orig-accept-encoding": "gzip,deflate",
-            "fastly-ssl": "1",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
-            "x-forwarded-for": "13.218.170.110, 167.82.233.46",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflkRJCaeRjKKjp63",
+            "x-forwarded-for": "32.192.255.227, 167.82.233.20",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
-            "x-forwarded-server": "cache-iad-kiad7000046-IAD",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "O9DfN-ecTV67uKAQAax-fw",
-            "x-real-ip": "167.82.233.46",
-            "x-request-start": "1771823245102",
-            "x-timer": "S1771823245.101858,VS0",
-            "x-varnish": "920459537"
+            "x-railway-request-id": "CyJfU9urTVKZvaFkwoOzXw",
+            "x-real-ip": "32.192.255.227",
+            "x-request-start": "1775451683478"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recahcPnlnobXXCPi",
-            "Tipo": "7_dias_antes"
+            "recordId": "recRv691zpKKYpm6q",
+            "Tipo": "30_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -9100,6 +9091,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-03-13T02:59:38.094Z",
-  "versionId": "7de36761-1c02-4b89-bc77-54c1d214d37e"
+  "updatedAt": "2026-04-08T01:54:47.196Z",
+  "versionId": "8169d835-9ab3-4aaf-9a6d-3ed03ae072a3"
 }
