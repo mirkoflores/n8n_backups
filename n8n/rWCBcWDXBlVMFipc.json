@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-06T21:46:11.753Z",
-    "createdAt": "2026-04-06T21:46:09.212Z",
-    "versionId": "30ce9525-69cf-4beb-a4a2-8a7f67bd71f6",
+    "updatedAt": "2026-04-12T03:26:21.044Z",
+    "createdAt": "2026-04-12T03:26:17.990Z",
+    "versionId": "36e17836-15c0-40dd-a3c5-b32b10bcb9f0",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -154,6 +154,12 @@
                 "name": "email_cliente",
                 "value": "={{ $json.email_cliente }}",
                 "type": "string"
+              },
+              {
+                "id": "4dd78642-c7af-4b26-bc99-dd0015b66ae9",
+                "name": "id_usuario_airtable",
+                "value": "={{ $('buscar registro - cliente').item.json.Usuarios[0] }}",
+                "type": "string"
               }
             ]
           },
@@ -231,7 +237,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2432,
+          2256,
           -176
         ],
         "id": "56ff2ee0-1854-4b12-ab6f-bb57c84c9e10",
@@ -1257,7 +1263,7 @@
               {
                 "id": "ae5e5ed3-bf8f-4a39-8849-9ec5ce9eaf3d",
                 "name": "id_usuario_airtable",
-                "value": "={{ $('buscar registro - usuario').item.json.id }}",
+                "value": "={{$('variables_2').item.json.id_usuario_airtable}}",
                 "type": "string"
               }
             ]
@@ -6040,8 +6046,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2208,
-          -176
+          2272,
+          -560
         ],
         "id": "0b2974f6-7583-4133-a898-c4a5e42a770f",
         "name": "buscar registro - usuario",
@@ -7174,7 +7180,7 @@
         "main": [
           [
             {
-              "node": "buscar registro - usuario",
+              "node": "buscar registro - detalles venta",
               "type": "main",
               "index": 0
             }
@@ -7572,13 +7578,7 @@
       },
       "buscar registro - usuario": {
         "main": [
-          [
-            {
-              "node": "buscar registro - detalles venta",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "Update record - usuarios": {
@@ -7842,11 +7842,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 30ce9525",
+    "name": "Version 36e17836",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "30ce9525-69cf-4beb-a4a2-8a7f67bd71f6",
+  "activeVersionId": "36e17836-15c0-40dd-a3c5-b32b10bcb9f0",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -7885,7 +7885,7 @@
       "main": [
         [
           {
-            "node": "buscar registro - usuario",
+            "node": "buscar registro - detalles venta",
             "type": "main",
             "index": 0
           }
@@ -8283,13 +8283,7 @@
     },
     "buscar registro - usuario": {
       "main": [
-        [
-          {
-            "node": "buscar registro - detalles venta",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Update record - usuarios": {
@@ -8708,6 +8702,12 @@
               "name": "email_cliente",
               "value": "={{ $json.email_cliente }}",
               "type": "string"
+            },
+            {
+              "id": "4dd78642-c7af-4b26-bc99-dd0015b66ae9",
+              "name": "id_usuario_airtable",
+              "value": "={{ $('buscar registro - cliente').item.json.Usuarios[0] }}",
+              "type": "string"
             }
           ]
         },
@@ -8785,7 +8785,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2432,
+        2256,
         -176
       ],
       "id": "56ff2ee0-1854-4b12-ab6f-bb57c84c9e10",
@@ -9811,7 +9811,7 @@
             {
               "id": "ae5e5ed3-bf8f-4a39-8849-9ec5ce9eaf3d",
               "name": "id_usuario_airtable",
-              "value": "={{ $('buscar registro - usuario').item.json.id }}",
+              "value": "={{$('variables_2').item.json.id_usuario_airtable}}",
               "type": "string"
             }
           ]
@@ -14594,8 +14594,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2208,
-        -176
+        2272,
+        -560
       ],
       "id": "0b2974f6-7583-4133-a898-c4a5e42a770f",
       "name": "buscar registro - usuario",
@@ -15744,14 +15744,14 @@
     "Tally Trigger": [
       {
         "json": {
-          "id": "laDWyLB",
+          "id": "WJ2217e",
           "formId": "A7K61k",
           "formName": "Bioenglish - renovacion",
-          "respondentId": "ODYXbY8",
-          "createdAt": "2026-03-18T14:04:56.000Z",
+          "respondentId": "ja9DVJ4",
+          "createdAt": "2026-04-08T15:54:39.000Z",
           "question_zqjAMq": {
             "label": "Nombre del estudiante\n",
-            "value": "Sebastián saavedra ",
+            "value": "Juan Diego Cubas Gómez ",
             "type": "INPUT_TEXT"
           },
           "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
@@ -15761,7 +15761,7 @@
           },
           "question_d6Eo0A": {
             "label": "Celular del estudiante\n",
-            "value": "+51995742534",
+            "value": "+51952903537",
             "type": "INPUT_PHONE_NUMBER"
           },
           "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
@@ -15781,12 +15781,12 @@
           },
           "question_5zbY9d": {
             "label": "Edad del estudiante (indica sólo el número)",
-            "value": 13,
+            "value": 11,
             "type": "INPUT_NUMBER"
           },
           "question_pKrE8Z": {
             "label": "Meses a renovar",
-            "value": "1",
+            "value": "2",
             "type": "DROPDOWN"
           },
           "question_oyB6x5_752c0b80-1d47-40f4-b1df-b20854ca1a65": {
@@ -15806,7 +15806,7 @@
           },
           "question_YQPbGd": {
             "label": "Comprobante de pago\n",
-            "value": "https://storage.tally.so/private/3e785035-2ec2-4b59-bf83-a14dd719a5f1.jpeg?id=PkPqqB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBrUHFxQiIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3Mzg0MjY5Nn0.Fq67tTIpsZbQtvUPQDyJr6Pb8oScJu3NFJ8sz6xpJ1s&signature=e70766740c9d145082ead1373f576a5963874c035f2acd6a14426f34df3615e1",
+            "value": "https://storage.tally.so/private/376f7224-588a-4b44-b4d6-3f7b2f829ae0.jpeg?id=azre7W&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF6cmU3VyIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3NTY2MzY3OX0.tfXl-WfZmm5LsRj2UTX_uLsyX-SUl0prlXbXzwFJIwU&signature=e09ca607d1ff9598812b46cace846aa2d282718f7d8309350d5fb91f824b329f",
             "type": "FILE_UPLOAD"
           }
         },
@@ -15837,11 +15837,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "woGBre"
+      "webhookId": "wadZjE"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-04-06T21:46:09.207Z",
-  "versionId": "30ce9525-69cf-4beb-a4a2-8a7f67bd71f6"
+  "updatedAt": "2026-04-12T03:26:17.985Z",
+  "versionId": "36e17836-15c0-40dd-a3c5-b32b10bcb9f0"
 }
