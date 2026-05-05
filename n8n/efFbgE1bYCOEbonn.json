@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-03T03:19:50.396Z",
-    "createdAt": "2026-02-03T03:19:48.743Z",
-    "versionId": "499bf879-dfa1-49c1-835f-e907db09e8ed",
+    "updatedAt": "2026-05-04T22:26:05.754Z",
+    "createdAt": "2026-05-04T22:26:04.238Z",
+    "versionId": "d670ed05-6e03-4421-8d92-31c356e87fee",
     "workflowId": "efFbgE1bYCOEbonn",
     "nodes": [
       {
@@ -200,7 +200,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2496,
+          2864,
           -112
         ],
         "id": "b2dc214b-41ea-4e98-8492-20fa5e8f1e4c",
@@ -215,7 +215,7 @@
         "type": "n8n-nodes-base.aggregate",
         "typeVersion": 1,
         "position": [
-          2704,
+          3072,
           -112
         ],
         "id": "0d91e0f9-5b94-4b2a-9ce6-e117d8133138",
@@ -231,7 +231,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          3424,
+          3792,
           -112
         ],
         "id": "c7f67cbf-e8b0-417b-a177-22f96b460bc6",
@@ -245,8 +245,8 @@
         "type": "n8n-nodes-base.stopAndError",
         "typeVersion": 1,
         "position": [
-          4240,
-          64
+          4384,
+          48
         ],
         "id": "bd6e34ea-1f1f-434e-b478-5aade2964fbb",
         "name": "Stop and Error"
@@ -275,7 +275,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          3696,
+          4064,
           -112
         ],
         "id": "26ae9d6a-e166-4d16-bd2e-89baf660a695",
@@ -447,7 +447,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3216,
+          3584,
           -112
         ],
         "id": "5c40ccea-43af-4cd9-9849-7b2e1068623e",
@@ -475,7 +475,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          4032,
+          4400,
           -240
         ],
         "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
@@ -525,8 +525,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4032,
-          64
+          4224,
+          256
         ],
         "id": "138fe642-fddd-4c29-bd33-1a0f13691026",
         "name": "Create a row",
@@ -579,7 +579,7 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4304,
+          4688,
           -352
         ],
         "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
@@ -602,7 +602,7 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.4,
         "position": [
-          2944,
+          3312,
           -112
         ],
         "id": "3da085c8-dda6-4441-b1e9-521ad257fd2f",
@@ -1261,6 +1261,27 @@
         ],
         "id": "354083d5-e53d-42cb-8c3a-da5fe965091d",
         "name": "info_estudiante_final"
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          2544,
+          -112
+        ],
+        "id": "9631950f-fa76-41b9-a105-fad57ba87da1",
+        "name": "Redis",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -1297,7 +1318,7 @@
         "main": [
           [
             {
-              "node": "formato",
+              "node": "Redis",
               "type": "main",
               "index": 0
             }
@@ -1364,7 +1385,7 @@
           ],
           [
             {
-              "node": "Create a row",
+              "node": "Stop and Error",
               "type": "main",
               "index": 0
             }
@@ -1411,25 +1432,13 @@
       },
       "Call 'Enviar accesos a nuevo usuario'": {
         "main": [
-          [
-            {
-              "node": "Create a row1",
-              "type": "main",
-              "index": 0
-            }
-          ],
+          [],
           []
         ]
       },
       "Create a row": {
         "main": [
-          [
-            {
-              "node": "Stop and Error",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "comprobantes y grupo": {
@@ -1637,14 +1646,25 @@
             }
           ]
         ]
+      },
+      "Redis": {
+        "main": [
+          [
+            {
+              "node": "formato",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 499bf879",
+    "name": "Version d670ed05",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "499bf879-dfa1-49c1-835f-e907db09e8ed",
+  "activeVersionId": "d670ed05-6e03-4421-8d92-31c356e87fee",
   "connections": {
     "On form submission": {
       "main": [
@@ -1679,7 +1699,7 @@
       "main": [
         [
           {
-            "node": "formato",
+            "node": "Redis",
             "type": "main",
             "index": 0
           }
@@ -1746,7 +1766,7 @@
         ],
         [
           {
-            "node": "Create a row",
+            "node": "Stop and Error",
             "type": "main",
             "index": 0
           }
@@ -1793,25 +1813,13 @@
     },
     "Call 'Enviar accesos a nuevo usuario'": {
       "main": [
-        [
-          {
-            "node": "Create a row1",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         []
       ]
     },
     "Create a row": {
       "main": [
-        [
-          {
-            "node": "Stop and Error",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "comprobantes y grupo": {
@@ -2014,6 +2022,17 @@
         [
           {
             "node": "Search records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "formato",
             "type": "main",
             "index": 0
           }
@@ -2223,7 +2242,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2496,
+        2864,
         -112
       ],
       "id": "b2dc214b-41ea-4e98-8492-20fa5e8f1e4c",
@@ -2238,7 +2257,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2704,
+        3072,
         -112
       ],
       "id": "0d91e0f9-5b94-4b2a-9ce6-e117d8133138",
@@ -2254,7 +2273,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        3424,
+        3792,
         -112
       ],
       "id": "c7f67cbf-e8b0-417b-a177-22f96b460bc6",
@@ -2268,8 +2287,8 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        4240,
-        64
+        4384,
+        48
       ],
       "id": "bd6e34ea-1f1f-434e-b478-5aade2964fbb",
       "name": "Stop and Error"
@@ -2298,7 +2317,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        3696,
+        4064,
         -112
       ],
       "id": "26ae9d6a-e166-4d16-bd2e-89baf660a695",
@@ -2470,7 +2489,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3216,
+        3584,
         -112
       ],
       "id": "5c40ccea-43af-4cd9-9849-7b2e1068623e",
@@ -2498,7 +2517,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        4032,
+        4400,
         -240
       ],
       "id": "6f1dc726-9a84-477d-ab9a-74ff9ca7debc",
@@ -2548,8 +2567,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4032,
-        64
+        4224,
+        256
       ],
       "id": "138fe642-fddd-4c29-bd33-1a0f13691026",
       "name": "Create a row",
@@ -2602,7 +2621,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4304,
+        4688,
         -352
       ],
       "id": "ef51b04d-8529-4717-82db-a1b93988ab4f",
@@ -2625,7 +2644,7 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.4,
       "position": [
-        2944,
+        3312,
         -112
       ],
       "id": "3da085c8-dda6-4441-b1e9-521ad257fd2f",
@@ -3284,6 +3303,27 @@
       ],
       "id": "354083d5-e53d-42cb-8c3a-da5fe965091d",
       "name": "info_estudiante_final"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2544,
+        -112
+      ],
+      "id": "9631950f-fa76-41b9-a105-fad57ba87da1",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -3337,6 +3377,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-07T17:19:58.745Z",
-  "versionId": "499bf879-dfa1-49c1-835f-e907db09e8ed"
+  "updatedAt": "2026-05-04T22:26:04.235Z",
+  "versionId": "d670ed05-6e03-4421-8d92-31c356e87fee"
 }
