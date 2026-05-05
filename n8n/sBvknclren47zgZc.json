@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-03T02:50:44.717Z",
-    "createdAt": "2026-02-03T02:50:42.744Z",
-    "versionId": "a34150e2-df51-4bea-9b58-0769fac690ca",
+    "updatedAt": "2026-05-04T22:29:25.923Z",
+    "createdAt": "2026-05-04T22:29:24.669Z",
+    "versionId": "685e63ba-c991-484e-9e5c-585d51b55363",
     "workflowId": "sBvknclren47zgZc",
     "nodes": [
       {
@@ -21,7 +21,7 @@
         "name": "verificar si existe apoderado",
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "position": [
-          272,
+          -16,
           352
         ]
       },
@@ -51,7 +51,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          480,
+          192,
           352
         ],
         "id": "00ccc632-85fa-4ddf-9823-32dbb825eb67",
@@ -92,7 +92,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          688,
+          464,
           352
         ],
         "id": "5325d716-8684-4633-86b1-ca9516074b51",
@@ -273,6 +273,48 @@
             "name": "Bioenglish_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          688,
+          224
+        ],
+        "id": "329290da-a0a7-49e5-ad4a-ddf51d94c688",
+        "name": "Redis",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1424,
+          224
+        ],
+        "id": "2a4d101a-2ca5-411a-a32d-e72d7324bb08",
+        "name": "Redis1",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -302,7 +344,7 @@
         "main": [
           [
             {
-              "node": "buscar contacto apoderado",
+              "node": "Redis",
               "type": "main",
               "index": 0
             }
@@ -331,7 +373,7 @@
         "main": [
           [
             {
-              "node": "info_apoderado_final",
+              "node": "Redis1",
               "type": "main",
               "index": 0
             }
@@ -348,14 +390,36 @@
             }
           ]
         ]
+      },
+      "Redis": {
+        "main": [
+          [
+            {
+              "node": "buscar contacto apoderado",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis1": {
+        "main": [
+          [
+            {
+              "node": "info_apoderado_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version a34150e2",
+    "name": "Version 685e63ba",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "a34150e2-df51-4bea-9b58-0769fac690ca",
+  "activeVersionId": "685e63ba-c991-484e-9e5c-585d51b55363",
   "connections": {
     "verificar si existe apoderado": {
       "main": [
@@ -383,7 +447,7 @@
       "main": [
         [
           {
-            "node": "buscar contacto apoderado",
+            "node": "Redis",
             "type": "main",
             "index": 0
           }
@@ -412,7 +476,7 @@
       "main": [
         [
           {
-            "node": "info_apoderado_final",
+            "node": "Redis1",
             "type": "main",
             "index": 0
           }
@@ -424,6 +488,28 @@
         [
           {
             "node": "info_apoderado1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "buscar contacto apoderado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis1": {
+      "main": [
+        [
+          {
+            "node": "info_apoderado_final",
             "type": "main",
             "index": 0
           }
@@ -454,7 +540,7 @@
       "name": "verificar si existe apoderado",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "position": [
-        272,
+        -16,
         352
       ]
     },
@@ -484,7 +570,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        480,
+        192,
         352
       ],
       "id": "00ccc632-85fa-4ddf-9823-32dbb825eb67",
@@ -525,7 +611,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        688,
+        464,
         352
       ],
       "id": "5325d716-8684-4633-86b1-ca9516074b51",
@@ -706,13 +792,58 @@
           "name": "Bioenglish_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        688,
+        224
+      ],
+      "id": "329290da-a0a7-49e5-ad4a-ddf51d94c688",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1424,
+        224
+      ],
+      "id": "2a4d101a-2ca5-411a-a32d-e72d7324bb08",
+      "name": "Redis1",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
     }
   ],
   "pinData": {
     "verificar si existe apoderado": [
       {
         "json": {
-          "correo": "bmorocharavaldez@gmail.com"
+          "correo": "carmenaju907@gmail.com"
+        },
+        "pairedItem": {
+          "item": 0
         }
       }
     ]
@@ -736,6 +867,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-03T02:50:42.740Z",
-  "versionId": "a34150e2-df51-4bea-9b58-0769fac690ca"
+  "updatedAt": "2026-05-04T22:29:24.667Z",
+  "versionId": "685e63ba-c991-484e-9e5c-585d51b55363"
 }
