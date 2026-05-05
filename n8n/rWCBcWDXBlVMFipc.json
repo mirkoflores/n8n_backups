@@ -8251,11 +8251,6 @@
             "node": "Split Out2",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Create a row",
-            "type": "main",
-            "index": 0
           }
         ]
       ]
@@ -8319,7 +8314,7 @@
         ],
         [
           {
-            "node": "Switch1",
+            "node": "buscar registro - cliente1",
             "type": "main",
             "index": 0
           }
@@ -8544,6 +8539,57 @@
           }
         ]
       ]
+    },
+    "buscar registro - cliente1": {
+      "main": [
+        [
+          {
+            "node": "encontro?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontro?": {
+      "main": [
+        [
+          {
+            "node": "info_cliente",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar registro - cliente2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "info_cliente": {
+      "main": [
+        [
+          {
+            "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar registro - cliente2": {
+      "main": [
+        [
+          {
+            "node": "encontro?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-21T17:27:18.859Z",
@@ -8656,8 +8702,8 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        2944,
-        496
+        1184,
+        800
       ],
       "id": "4fde67ee-e9b2-438b-8081-b89dc31e540c",
       "name": "Send a message",
@@ -8716,8 +8762,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2016,
-        -176
+        3376,
+        -560
       ],
       "id": "3509b8f6-092a-4cc9-896c-6b1b42235b00",
       "name": "variables_2"
@@ -8785,8 +8831,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2256,
-        -176
+        3616,
+        -560
       ],
       "id": "56ff2ee0-1854-4b12-ab6f-bb57c84c9e10",
       "name": "buscar registro - detalles venta",
@@ -9774,8 +9820,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2880,
-        -176
+        4240,
+        -560
       ],
       "id": "0aa261e6-9c82-4e33-a293-ddab4c5cd327",
       "name": "actualizar registro - detalles ventas",
@@ -9821,8 +9867,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2640,
-        -176
+        4000,
+        -560
       ],
       "id": "f957ed39-c642-4e2c-ad59-0fca37f50952",
       "name": "variables_3"
@@ -10043,8 +10089,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        3088,
-        -176
+        4448,
+        -560
       ],
       "id": "9a0d6192-d9b5-4c71-9f62-98658f16c143",
       "name": "Switch"
@@ -10063,8 +10109,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5408,
-        -64
+        6768,
+        -448
       ],
       "id": "dd42eb41-6ad3-42b3-8cdf-26e1feb01bb0",
       "name": "Agregar imagenes",
@@ -10087,8 +10133,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        4272,
-        -224
+        5632,
+        -608
       ],
       "id": "c165c671-69df-4751-9ec0-af5c2c7dcb00",
       "name": "Split Out1"
@@ -10122,8 +10168,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4480,
-        -224
+        5840,
+        -608
       ],
       "id": "7eace16a-e868-468d-b233-dcb89095ce4a",
       "name": "Edit Fields"
@@ -10157,8 +10203,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3632,
-        -224
+        4992,
+        -608
       ],
       "id": "12d1f10c-6108-4143-8557-be59f96e1bbe",
       "name": "variables_4"
@@ -10170,8 +10216,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        4688,
-        -224
+        6048,
+        -608
       ],
       "id": "87c0153e-7184-44a4-a511-31b1e7f197dc",
       "name": "Loop Over Items1"
@@ -10426,6 +10472,14 @@
                 {
                   "name": "congela hasta marzo",
                   "value": "congela hasta marzo"
+                },
+                {
+                  "name": "retoma para A2",
+                  "value": "retoma para A2"
+                },
+                {
+                  "name": "Devolución",
+                  "value": "Devolución"
                 }
               ],
               "readOnly": false,
@@ -11174,6 +11228,50 @@
               "type": "string",
               "readOnly": true,
               "removed": false
+            },
+            {
+              "id": "n8n",
+              "displayName": "n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "ejecucion n8n",
+              "displayName": "ejecucion n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "escenario n8n",
+              "displayName": "escenario n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -11186,8 +11284,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3392,
-        -384
+        4752,
+        -768
       ],
       "id": "63e3ae6e-9a2a-471e-aedc-73bf4e0b67e2",
       "name": "crear registro - detalles venta",
@@ -12167,8 +12265,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        3392,
-        -48
+        4752,
+        -432
       ],
       "id": "0027c254-149a-4483-8156-c77294ff957b",
       "name": "crear registro - detalles venta1",
@@ -12187,8 +12285,8 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        5168,
-        -64
+        6528,
+        -448
       ],
       "id": "5da01d2d-06ca-4072-914c-898c9cbc8f30",
       "name": "Extract from File"
@@ -12201,8 +12299,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        4960,
-        -64
+        6320,
+        -448
       ],
       "id": "43cab175-004c-426c-a24b-52d8c28cae6c",
       "name": "obtener_imagen"
@@ -12267,8 +12365,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        1888,
-        304
+        3104,
+        928
       ],
       "id": "777b42e2-3aed-4593-b4f1-120a88ae814f",
       "name": "Switch1"
@@ -12287,8 +12385,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        3952,
-        416
+        4960,
+        1040
       ],
       "id": "24028a85-da62-4213-abbb-f539806c5384",
       "name": "Agregar imagenes1",
@@ -12311,8 +12409,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2640,
-        256
+        3840,
+        880
       ],
       "id": "e19510f7-d3c5-421a-8296-babbdeeb0e14",
       "name": "Split Out2"
@@ -12346,8 +12444,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2848,
-        256
+        4016,
+        880
       ],
       "id": "80ace516-5ebf-4bce-9791-c35e531e20ce",
       "name": "Edit Fields1"
@@ -12359,8 +12457,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        3232,
-        256
+        4240,
+        880
       ],
       "id": "69cb08d5-ee05-4f72-8baf-bf9d30dffa5d",
       "name": "Loop Over Items2"
@@ -12614,6 +12712,14 @@
                 {
                   "name": "congela hasta marzo",
                   "value": "congela hasta marzo"
+                },
+                {
+                  "name": "retoma para A2",
+                  "value": "retoma para A2"
+                },
+                {
+                  "name": "Devolución",
+                  "value": "Devolución"
                 }
               ],
               "readOnly": false,
@@ -13362,6 +13468,50 @@
               "type": "string",
               "readOnly": true,
               "removed": false
+            },
+            {
+              "id": "n8n",
+              "displayName": "n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ejecucion n8n",
+              "displayName": "ejecucion n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Last Modified",
+              "displayName": "Last Modified",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "escenario n8n",
+              "displayName": "escenario n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -13374,8 +13524,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2192,
-        96
+        3424,
+        752
       ],
       "id": "257666fa-5ba1-41d7-a8f7-2e56dd6c79b7",
       "name": "crear registro - detalles venta2",
@@ -14395,8 +14545,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2192,
-        432
+        3408,
+        1056
       ],
       "id": "ba8f94b2-f98d-4bad-acfb-9a762d5fcce8",
       "name": "crear registro - detalles venta3",
@@ -14415,8 +14565,8 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
       "position": [
-        3712,
-        416
+        4720,
+        1040
       ],
       "id": "eec00e36-90ba-477e-aa4b-d22fea05adad",
       "name": "Extract from File1"
@@ -14429,8 +14579,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        3504,
-        416
+        4512,
+        1040
       ],
       "id": "4df5bd1a-4b8d-4bab-8f74-19293a9378c8",
       "name": "obtener_imagen1"
@@ -14464,8 +14614,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2432,
-        256
+        3648,
+        880
       ],
       "id": "8c6b2d4f-a873-477e-b2f4-7e053fb577bc",
       "name": "variables_5"
@@ -14506,8 +14656,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        2736,
-        496
+        976,
+        800
       ],
       "id": "43142dad-6cba-414f-a647-91037fd87256",
       "name": "Create a row",
@@ -14556,8 +14706,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4272,
-        -528
+        5632,
+        -912
       ],
       "id": "4cae58a7-ff87-4ee0-a6c9-de88eeef9c71",
       "name": "Create a row1",
@@ -14594,8 +14744,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2272,
-        -560
+        1872,
+        -1296
       ],
       "id": "0b2974f6-7583-4133-a898-c4a5e42a770f",
       "name": "buscar registro - usuario",
@@ -14968,8 +15118,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        4032,
-        -528
+        5392,
+        -912
       ],
       "id": "37a20305-aa98-40e9-bb12-77fbbc82b4d7",
       "name": "Update record - usuarios",
@@ -15006,7 +15156,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1104,
+        1088,
         -112
       ],
       "id": "a7522bf8-d81f-45e5-8317-a19f2ad0a6ef",
@@ -15047,7 +15197,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1328,
+        1344,
         -112
       ],
       "id": "2fc28de8-d000-4d2a-9100-150297a9863e",
@@ -15082,8 +15232,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1760,
-        -384
+        3120,
+        -768
       ],
       "id": "ba5e3aa6-697c-4f53-aa24-5bc77b8c36a3",
       "name": "info_cliente2"
@@ -15126,8 +15276,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        4560,
-        272
+        5920,
+        -112
       ],
       "id": "76069d10-6ce8-4a24-825c-d119ec3169e3",
       "name": "Enviar email"
@@ -15192,8 +15342,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        4304,
-        368
+        5664,
+        -16
       ],
       "id": "997043c4-1298-449f-925c-66090490ed14",
       "name": "Switch2"
@@ -15236,8 +15386,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        4560,
-        448
+        5920,
+        64
       ],
       "id": "badd326d-8efe-4ed0-82f6-7976faaf2c11",
       "name": "Enviar email1"
@@ -15256,8 +15406,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        7792,
-        288
+        9152,
+        -96
       ],
       "id": "35357314-0a64-433e-b731-ee0066c0dd2e",
       "name": "Enviar mensaje",
@@ -15284,8 +15434,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        4800,
-        368
+        6160,
+        -16
       ],
       "id": "6e3e0038-a3b6-4211-a453-188099ca40a5",
       "name": "Get list of contacts",
@@ -15324,8 +15474,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5008,
-        368
+        6368,
+        -16
       ],
       "id": "45f6237e-f977-48a5-abe0-1a104a5c21ce",
       "name": "existe contacto?"
@@ -15358,8 +15508,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5824,
-        288
+        7184,
+        -96
       ],
       "id": "ab21f045-adae-4687-a1a3-5a22a2132a5d",
       "name": "tiene leads?"
@@ -15387,8 +15537,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        5280,
-        576
+        6640,
+        192
       ],
       "id": "665fa8d4-5bd8-46f1-ae8e-f35e39a06fe3",
       "name": "Create new contacts",
@@ -15429,8 +15579,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        6848,
-        432
+        8208,
+        48
       ],
       "id": "53f1e2b7-1110-4ff7-b910-3e3d230b3cd4",
       "name": "Create new leads",
@@ -15458,8 +15608,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6272,
-        384
+        7632,
+        0
       ],
       "id": "60de4aa5-62ff-4575-9286-96789a6c246d",
       "name": "id_contact"
@@ -15481,8 +15631,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6064,
-        576
+        7424,
+        192
       ],
       "id": "4c00f515-9fa1-478e-8bb5-2cc9ba8ba26e",
       "name": "id_contact1"
@@ -15510,8 +15660,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        5472,
-        288
+        6832,
+        -96
       ],
       "id": "5fcf9919-d46b-4772-b6ff-1d2973392e86",
       "name": "Update contacts",
@@ -15545,8 +15695,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        7296,
-        160
+        8656,
+        -224
       ],
       "id": "9dc557cb-7838-40ce-8e2d-fbb05ec16278",
       "name": "contact_lead"
@@ -15574,8 +15724,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        7088,
-        432
+        8448,
+        48
       ],
       "id": "52ba2f07-8af0-4d3c-9f70-608bfc13d3d1",
       "name": "contact_lead1"
@@ -15597,8 +15747,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6592,
-        432
+        7952,
+        48
       ],
       "id": "f32c16de-3602-4301-b89d-491c24d9bf2f",
       "name": "id_contact2"
@@ -15626,8 +15776,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        7552,
-        288
+        8912,
+        -96
       ],
       "id": "6dd04422-f0af-47ad-97f1-b598bd83eed2",
       "name": "Variables_3"
@@ -15644,8 +15794,8 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        6256,
-        160
+        7616,
+        -224
       ],
       "id": "638be66b-cc6b-4c09-b621-39bdc7ad24de",
       "name": "Obtener info de lead",
@@ -15683,11 +15833,192 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        6608,
-        160
+        7968,
+        -224
       ],
       "id": "d9ff8e79-9e79-4b89-967f-6e15ecc0b85d",
       "name": "no esta en etapa perdida"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "filterByFormula": "=OR(\n\nAND(\n{Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\",\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK())\n),\n\nAND(\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK())\n),\n\nAND(\n{Nombre del estudiante}=\"{{ $('variables_1').item.json.nombre_estudiante }}\",\nNOT({Usuarios}=BLANK())\n)\n\n)",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1632,
+        112
+      ],
+      "id": "4998a03b-5211-406e-af52-0a85e67267a2",
+      "name": "buscar registro - cliente1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "364f501a-2f17-4163-b345-5df32927e678",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1872,
+        112
+      ],
+      "id": "8be9bea0-3314-41ba-9574-17ebd57cfdc4",
+      "name": "encontro?"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cdf6b9f2-69bd-4cd6-9507-74da7cd65f6e",
+              "name": "id_cliente_airtable",
+              "value": "={{ $('buscar registro - cliente1').item.json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "f7aa61fc-29da-40ef-9015-d0fab5935234",
+              "name": "nombre_registro_cliente",
+              "value": "={{ $('buscar registro - cliente1').item.json.Estudiante }}",
+              "type": "string"
+            },
+            {
+              "id": "d7d280d7-979e-4336-8d1c-89e51e7f44fa",
+              "name": "email_cliente",
+              "value": "={{ $('buscar registro - cliente1').item.json['Email F'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3120,
+        -560
+      ],
+      "id": "455cbe65-6e43-48fc-b35e-fa7d721cf90f",
+      "name": "info_cliente"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkpm3CwBi8WctOZ",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
+        },
+        "filterByFormula": "=OR(\n\nAND(\n{Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\",\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\"\n),\n\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\"\n,\n\n\n{Nombre del estudiante}=\"{{ $('variables_1').item.json.nombre_estudiante }}\"\n\n)",
+        "returnAll": false,
+        "limit": 1,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2208,
+        240
+      ],
+      "id": "54b62cb6-e33a-48f7-b393-b807b7829e1b",
+      "name": "buscar registro - cliente2",
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "364f501a-2f17-4163-b345-5df32927e678",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2432,
+        240
+      ],
+      "id": "5ea1eebe-af2b-4b2d-bef4-812f38fb6f35",
+      "name": "encontro?1"
     }
   ],
   "pinData": {
@@ -15744,14 +16075,14 @@
     "Tally Trigger": [
       {
         "json": {
-          "id": "WJ2217e",
+          "id": "2jA9jvM",
           "formId": "A7K61k",
           "formName": "Bioenglish - renovacion",
-          "respondentId": "ja9DVJ4",
-          "createdAt": "2026-04-08T15:54:39.000Z",
+          "respondentId": "QK0GlWp",
+          "createdAt": "2026-04-27T20:28:49.000Z",
           "question_zqjAMq": {
             "label": "Nombre del estudiante\n",
-            "value": "Juan Diego Cubas Gómez ",
+            "value": "Jamill Lopez",
             "type": "INPUT_TEXT"
           },
           "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
@@ -15761,7 +16092,7 @@
           },
           "question_d6Eo0A": {
             "label": "Celular del estudiante\n",
-            "value": "+51952903537",
+            "value": "+51954786298",
             "type": "INPUT_PHONE_NUMBER"
           },
           "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
@@ -15781,12 +16112,12 @@
           },
           "question_5zbY9d": {
             "label": "Edad del estudiante (indica sólo el número)",
-            "value": 11,
+            "value": 23,
             "type": "INPUT_NUMBER"
           },
           "question_pKrE8Z": {
             "label": "Meses a renovar",
-            "value": "2",
+            "value": "1",
             "type": "DROPDOWN"
           },
           "question_oyB6x5_752c0b80-1d47-40f4-b1df-b20854ca1a65": {
@@ -15806,7 +16137,7 @@
           },
           "question_YQPbGd": {
             "label": "Comprobante de pago\n",
-            "value": "https://storage.tally.so/private/376f7224-588a-4b44-b4d6-3f7b2f829ae0.jpeg?id=azre7W&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImF6cmU3VyIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3NTY2MzY3OX0.tfXl-WfZmm5LsRj2UTX_uLsyX-SUl0prlXbXzwFJIwU&signature=e09ca607d1ff9598812b46cace846aa2d282718f7d8309350d5fb91f824b329f",
+            "value": "https://storage.tally.so/private/Screenshot_2026-04-27-15-28-25-42_0c5586e5351f32d12227bf33fa12a59b.jpg?id=8EPLPP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhFUExQUCIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3NzMyMTczMH0.MI-wPA-s8vBwCWiemt7EKxbBteqpV0_wOju_Qz-jHnI&signature=aeff08a0466e8da00a221e13f87b685a9832f536430dfb42b85badd8f6ee9c0b",
             "type": "FILE_UPLOAD"
           }
         },
@@ -15842,6 +16173,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-04-12T03:26:17.985Z",
-  "versionId": "36e17836-15c0-40dd-a3c5-b32b10bcb9f0"
+  "updatedAt": "2026-05-04T21:35:33.973Z",
+  "versionId": "5405c87f-3d98-419f-bf22-ace7faf85256"
 }
