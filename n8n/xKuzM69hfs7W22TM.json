@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-12T03:10:28.073Z",
-    "createdAt": "2026-04-12T03:10:26.479Z",
-    "versionId": "4f3a4073-94ae-4907-a683-7ce59ad4ab34",
+    "updatedAt": "2026-05-04T22:20:01.373Z",
+    "createdAt": "2026-05-04T22:19:59.998Z",
+    "versionId": "ce00c6af-5672-45d4-a9b7-c8f6020a62c6",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -13,7 +13,7 @@
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "typeVersion": 1.1,
         "position": [
-          -752,
+          -736,
           256
         ],
         "id": "a9356d97-c1e2-4320-9a28-37ae34240929",
@@ -84,7 +84,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          -544,
+          -528,
           256
         ],
         "id": "41e0ece7-979b-4ca0-8c22-ea9d5a93dea5",
@@ -113,7 +113,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2704,
+          2672,
           224
         ],
         "id": "562fe0b7-010a-4659-bc46-4ddc1ad20024",
@@ -160,7 +160,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2912,
+          3008,
           224
         ],
         "id": "d80e9a8c-2ecb-4677-87f8-e994b2bf1d23",
@@ -194,7 +194,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3120,
+          3152,
           224
         ],
         "id": "4b34e1b5-3e61-4ac2-b913-05cdfe906353",
@@ -241,7 +241,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          576,
+          320,
           400
         ],
         "id": "cc2462d7-3f28-4c23-bac9-66444555fde9",
@@ -623,7 +623,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          -336,
+          -320,
           256
         ],
         "id": "44d2f46c-7458-4e96-a8d7-c03d9f298d16",
@@ -687,7 +687,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          592,
+          480,
           96
         ],
         "id": "120a133c-2aed-4070-9bb9-cb4de3e0a579",
@@ -719,7 +719,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          816,
+          704,
           96
         ],
         "id": "f9f61d8a-9831-4991-bb72-6caa61feeba8",
@@ -760,7 +760,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1040,
+          1072,
           96
         ],
         "id": "73e4482a-33dc-4842-8bcb-343dcac4bcc5",
@@ -1077,7 +1077,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1520,
+          1776,
           224
         ],
         "id": "2601493b-f40f-403f-a30e-1137ef0b7767",
@@ -1460,7 +1460,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1728,
+          1984,
           224
         ],
         "id": "1953967a-3964-4e57-9376-858b15a5220e",
@@ -1489,7 +1489,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1936,
+          2192,
           224
         ],
         "id": "88129883-74e3-4b64-9b8e-fc40b64f45cd",
@@ -1535,7 +1535,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2448,
+          2480,
           224
         ],
         "id": "4738631d-f61b-4170-88d5-72ef5be9e8d7",
@@ -1548,7 +1548,7 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          784,
+          528,
           400
         ],
         "id": "309a06da-947a-4938-b438-a1f62d8a49f0",
@@ -1572,7 +1572,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1216,
+          1168,
           400
         ],
         "id": "815e94af-d626-4ab8-a9e3-bf37e017c1d4",
@@ -1604,7 +1604,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1008,
+          752,
           400
         ],
         "id": "4f8fa4e2-c923-49f6-a381-3ee3aa3c8ffa",
@@ -1899,7 +1899,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1440,
+          1392,
           400
         ],
         "id": "c7e5e3e0-2d70-4776-8ba8-ff7f73aee976",
@@ -1928,7 +1928,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1648,
+          1760,
           400
         ],
         "id": "112a26e9-c7b7-489d-b015-3b866e5689db",
@@ -2309,7 +2309,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1856,
+          1952,
           400
         ],
         "id": "5b94287e-fd96-4057-a6de-80bcdf955b52",
@@ -2338,7 +2338,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2064,
+          2272,
           400
         ],
         "id": "5ad4d724-ca99-43d3-93cd-8dca5237aba1",
@@ -2781,7 +2781,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          336,
+          304,
           96
         ],
         "id": "9f5da227-ea48-4adb-8cee-a8e1292c35f5",
@@ -3438,6 +3438,153 @@
             "name": "Bioenglish_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          112,
+          96
+        ],
+        "id": "04f1b862-e993-4983-b2a3-87123b074cab",
+        "name": "Redis",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          880,
+          96
+        ],
+        "id": "48ba1167-2c0a-4ad6-a992-a21c0bc77198",
+        "name": "Redis1",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1552,
+          224
+        ],
+        "id": "b374a4d3-0a9d-4ba7-ad1a-61a474d81069",
+        "name": "Redis2",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          960,
+          400
+        ],
+        "id": "e3790034-3527-4358-8927-28cd7da2736c",
+        "name": "Redis3",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1584,
+          400
+        ],
+        "id": "9ead062d-8bde-4070-bba1-f6938b259cc0",
+        "name": "Redis4",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          2128,
+          400
+        ],
+        "id": "2edb4dc5-ee89-46bb-8672-cbdd957bd594",
+        "name": "Redis5",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          2832,
+          224
+        ],
+        "id": "8bde477b-aee5-45b6-bf18-0d7f5c1d888f",
+        "name": "Redis6",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -3467,7 +3614,7 @@
         "main": [
           [
             {
-              "node": "variables_2",
+              "node": "Redis6",
               "type": "main",
               "index": 0
             }
@@ -3595,7 +3742,7 @@
         "main": [
           [
             {
-              "node": "actualizar nombre - usuario",
+              "node": "Redis",
               "type": "main",
               "index": 0
             }
@@ -3624,7 +3771,7 @@
         "main": [
           [
             {
-              "node": "existe?1",
+              "node": "Redis1",
               "type": "main",
               "index": 0
             }
@@ -3653,7 +3800,7 @@
         "main": [
           [
             {
-              "node": "id_portal",
+              "node": "Redis2",
               "type": "main",
               "index": 0
             }
@@ -3719,7 +3866,7 @@
         "main": [
           [
             {
-              "node": "id_usuario1",
+              "node": "Redis3",
               "type": "main",
               "index": 0
             }
@@ -3741,7 +3888,7 @@
         "main": [
           [
             {
-              "node": "id_portal1",
+              "node": "Redis4",
               "type": "main",
               "index": 0
             }
@@ -3763,7 +3910,7 @@
         "main": [
           [
             {
-              "node": "magich_link2",
+              "node": "Redis5",
               "type": "main",
               "index": 0
             }
@@ -3813,14 +3960,91 @@
             }
           ]
         ]
+      },
+      "Redis": {
+        "main": [
+          [
+            {
+              "node": "actualizar nombre - usuario",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis1": {
+        "main": [
+          [
+            {
+              "node": "existe?1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis2": {
+        "main": [
+          [
+            {
+              "node": "id_portal",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis3": {
+        "main": [
+          [
+            {
+              "node": "id_usuario1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis4": {
+        "main": [
+          [
+            {
+              "node": "id_portal1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis5": {
+        "main": [
+          [
+            {
+              "node": "magich_link2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis6": {
+        "main": [
+          [
+            {
+              "node": "variables_2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 4f3a4073",
+    "name": "Version ce00c6af",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "4f3a4073-94ae-4907-a683-7ce59ad4ab34",
+  "activeVersionId": "ce00c6af-5672-45d4-a9b7-c8f6020a62c6",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -3848,7 +4072,7 @@
       "main": [
         [
           {
-            "node": "variables_2",
+            "node": "Redis6",
             "type": "main",
             "index": 0
           }
@@ -3976,7 +4200,7 @@
       "main": [
         [
           {
-            "node": "actualizar nombre - usuario",
+            "node": "Redis",
             "type": "main",
             "index": 0
           }
@@ -4005,7 +4229,7 @@
       "main": [
         [
           {
-            "node": "existe?1",
+            "node": "Redis1",
             "type": "main",
             "index": 0
           }
@@ -4034,7 +4258,7 @@
       "main": [
         [
           {
-            "node": "id_portal",
+            "node": "Redis2",
             "type": "main",
             "index": 0
           }
@@ -4100,7 +4324,7 @@
       "main": [
         [
           {
-            "node": "id_usuario1",
+            "node": "Redis3",
             "type": "main",
             "index": 0
           }
@@ -4122,7 +4346,7 @@
       "main": [
         [
           {
-            "node": "id_portal1",
+            "node": "Redis4",
             "type": "main",
             "index": 0
           }
@@ -4144,7 +4368,7 @@
       "main": [
         [
           {
-            "node": "magich_link2",
+            "node": "Redis5",
             "type": "main",
             "index": 0
           }
@@ -4194,6 +4418,83 @@
           }
         ]
       ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "actualizar nombre - usuario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis1": {
+      "main": [
+        [
+          {
+            "node": "existe?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis2": {
+      "main": [
+        [
+          {
+            "node": "id_portal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis3": {
+      "main": [
+        [
+          {
+            "node": "id_usuario1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis4": {
+      "main": [
+        [
+          {
+            "node": "id_portal1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis5": {
+      "main": [
+        [
+          {
+            "node": "magich_link2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis6": {
+      "main": [
+        [
+          {
+            "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-04T03:45:54.729Z",
@@ -4211,7 +4512,7 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        -752,
+        -736,
         256
       ],
       "id": "a9356d97-c1e2-4320-9a28-37ae34240929",
@@ -4282,7 +4583,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -544,
+        -528,
         256
       ],
       "id": "41e0ece7-979b-4ca0-8c22-ea9d5a93dea5",
@@ -4311,7 +4612,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2704,
+        2672,
         224
       ],
       "id": "562fe0b7-010a-4659-bc46-4ddc1ad20024",
@@ -4358,7 +4659,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2912,
+        3008,
         224
       ],
       "id": "d80e9a8c-2ecb-4677-87f8-e994b2bf1d23",
@@ -4392,7 +4693,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3120,
+        3152,
         224
       ],
       "id": "4b34e1b5-3e61-4ac2-b913-05cdfe906353",
@@ -4439,7 +4740,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        576,
+        320,
         400
       ],
       "id": "cc2462d7-3f28-4c23-bac9-66444555fde9",
@@ -4821,7 +5122,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        -336,
+        -320,
         256
       ],
       "id": "44d2f46c-7458-4e96-a8d7-c03d9f298d16",
@@ -4885,7 +5186,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        592,
+        480,
         96
       ],
       "id": "120a133c-2aed-4070-9bb9-cb4de3e0a579",
@@ -4917,7 +5218,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        816,
+        704,
         96
       ],
       "id": "f9f61d8a-9831-4991-bb72-6caa61feeba8",
@@ -4958,7 +5259,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1040,
+        1072,
         96
       ],
       "id": "73e4482a-33dc-4842-8bcb-343dcac4bcc5",
@@ -5275,7 +5576,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1520,
+        1776,
         224
       ],
       "id": "2601493b-f40f-403f-a30e-1137ef0b7767",
@@ -5658,7 +5959,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1728,
+        1984,
         224
       ],
       "id": "1953967a-3964-4e57-9376-858b15a5220e",
@@ -5687,7 +5988,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1936,
+        2192,
         224
       ],
       "id": "88129883-74e3-4b64-9b8e-fc40b64f45cd",
@@ -5733,7 +6034,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2448,
+        2480,
         224
       ],
       "id": "4738631d-f61b-4170-88d5-72ef5be9e8d7",
@@ -5746,7 +6047,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        784,
+        528,
         400
       ],
       "id": "309a06da-947a-4938-b438-a1f62d8a49f0",
@@ -5770,7 +6071,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1216,
+        1168,
         400
       ],
       "id": "815e94af-d626-4ab8-a9e3-bf37e017c1d4",
@@ -5802,7 +6103,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1008,
+        752,
         400
       ],
       "id": "4f8fa4e2-c923-49f6-a381-3ee3aa3c8ffa",
@@ -6097,7 +6398,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1440,
+        1392,
         400
       ],
       "id": "c7e5e3e0-2d70-4776-8ba8-ff7f73aee976",
@@ -6126,7 +6427,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1648,
+        1760,
         400
       ],
       "id": "112a26e9-c7b7-489d-b015-3b866e5689db",
@@ -6507,7 +6808,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1856,
+        1952,
         400
       ],
       "id": "5b94287e-fd96-4057-a6de-80bcdf955b52",
@@ -6536,7 +6837,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2064,
+        2272,
         400
       ],
       "id": "5ad4d724-ca99-43d3-93cd-8dca5237aba1",
@@ -6979,7 +7280,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        336,
+        304,
         96
       ],
       "id": "9f5da227-ea48-4adb-8cee-a8e1292c35f5",
@@ -7636,6 +7937,153 @@
           "name": "Bioenglish_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        112,
+        96
+      ],
+      "id": "04f1b862-e993-4983-b2a3-87123b074cab",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        880,
+        96
+      ],
+      "id": "48ba1167-2c0a-4ad6-a992-a21c0bc77198",
+      "name": "Redis1",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        224
+      ],
+      "id": "b374a4d3-0a9d-4ba7-ad1a-61a474d81069",
+      "name": "Redis2",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        960,
+        400
+      ],
+      "id": "e3790034-3527-4358-8927-28cd7da2736c",
+      "name": "Redis3",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1584,
+        400
+      ],
+      "id": "9ead062d-8bde-4070-bba1-f6938b259cc0",
+      "name": "Redis4",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2128,
+        400
+      ],
+      "id": "2edb4dc5-ee89-46bb-8672-cbdd957bd594",
+      "name": "Redis5",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2832,
+        224
+      ],
+      "id": "8bde477b-aee5-45b6-bf18-0d7f5c1d888f",
+      "name": "Redis6",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -7836,6 +8284,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-04-12T03:10:26.474Z",
-  "versionId": "4f3a4073-94ae-4907-a683-7ce59ad4ab34"
+  "updatedAt": "2026-05-04T22:19:59.995Z",
+  "versionId": "ce00c6af-5672-45d4-a9b7-c8f6020a62c6"
 }
