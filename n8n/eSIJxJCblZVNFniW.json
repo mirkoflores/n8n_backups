@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-03T03:28:39.751Z",
-    "createdAt": "2026-02-03T03:28:38.280Z",
-    "versionId": "b84a8ed2-bffa-4989-82a2-d25ffd80cc56",
+    "updatedAt": "2026-05-04T22:29:37.306Z",
+    "createdAt": "2026-05-04T22:29:36.104Z",
+    "versionId": "20e19f1b-79e3-49ee-9297-7dd1442aafdf",
     "workflowId": "eSIJxJCblZVNFniW",
     "nodes": [
       {
@@ -82,7 +82,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          896,
+          1104,
           448
         ],
         "id": "eea9c3ad-5f07-45be-8787-6dd28cda4874",
@@ -111,7 +111,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          896,
+          1104,
           224
         ],
         "id": "20f8130d-8ee1-410c-82a0-4415141d1494",
@@ -140,7 +140,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1152,
+          1360,
           352
         ],
         "id": "edcc877a-cc3c-4560-a1fc-66b253f627db",
@@ -184,6 +184,27 @@
             "name": "Bioenglish_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          880,
+          224
+        ],
+        "id": "c1b544ff-2bc6-485e-ab24-80b7f40078d9",
+        "name": "Redis",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -191,7 +212,7 @@
         "main": [
           [
             {
-              "node": "info_estudiante1",
+              "node": "Redis",
               "type": "main",
               "index": 0
             }
@@ -248,20 +269,31 @@
             }
           ]
         ]
+      },
+      "Redis": {
+        "main": [
+          [
+            {
+              "node": "info_estudiante1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version b84a8ed2",
+    "name": "Version 20e19f1b",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "b84a8ed2-bffa-4989-82a2-d25ffd80cc56",
+  "activeVersionId": "20e19f1b-79e3-49ee-9297-7dd1442aafdf",
   "connections": {
     "encontro?3": {
       "main": [
         [
           {
-            "node": "info_estudiante1",
+            "node": "Redis",
             "type": "main",
             "index": 0
           }
@@ -313,6 +345,17 @@
         [
           {
             "node": "encontro?3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "info_estudiante1",
             "type": "main",
             "index": 0
           }
@@ -404,7 +447,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        896,
+        1104,
         448
       ],
       "id": "eea9c3ad-5f07-45be-8787-6dd28cda4874",
@@ -433,7 +476,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        896,
+        1104,
         224
       ],
       "id": "20f8130d-8ee1-410c-82a0-4415141d1494",
@@ -462,7 +505,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1152,
+        1360,
         352
       ],
       "id": "edcc877a-cc3c-4560-a1fc-66b253f627db",
@@ -506,6 +549,27 @@
           "name": "Bioenglish_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        880,
+        224
+      ],
+      "id": "c1b544ff-2bc6-485e-ab24-80b7f40078d9",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -539,6 +603,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-07T17:38:32.395Z",
-  "versionId": "b84a8ed2-bffa-4989-82a2-d25ffd80cc56"
+  "updatedAt": "2026-05-04T22:29:36.102Z",
+  "versionId": "20e19f1b-79e3-49ee-9297-7dd1442aafdf"
 }
