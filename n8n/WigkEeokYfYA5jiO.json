@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-04-12T03:51:58.289Z",
-    "createdAt": "2026-04-12T03:51:55.750Z",
-    "versionId": "2a90c4c9-1be6-4baf-bfa0-d95086f79125",
+    "updatedAt": "2026-05-04T22:26:13.967Z",
+    "createdAt": "2026-05-04T22:24:38.781Z",
+    "versionId": "379b2d33-89b6-4db2-8449-5242b1fa7fdd",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -102,7 +102,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1936,
+          2160,
           -512
         ],
         "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
@@ -1974,7 +1974,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2384,
+          2816,
           -512
         ],
         "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
@@ -2004,7 +2004,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2160,
+          2592,
           -512
         ],
         "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
@@ -2217,7 +2217,7 @@
               {
                 "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
                 "name": "Precio_2_meses",
-                "value": "={{\n\n$if(\n\n($('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item?.json['2 meses - precio renovación']*2+\" soles~ s/.\" + $('Limit').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}",
+                "value": "={{\n\n$if(\n\n($('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item?.json['1 mes - precio renovación']*2+\" soles~ s/.\" + $('Limit').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}",
                 "type": "string"
               },
               {
@@ -3658,8 +3658,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1568,
-          -816
+          1712,
+          -800
         ],
         "id": "3d8b827c-53dc-4058-a6c1-37e919b355f6",
         "name": "Detalles venta - colocar renovado",
@@ -3667,52 +3667,6 @@
           "airtableOAuth2Api": {
             "id": "mylJqD7auLJ9sN2T",
             "name": "Bioenglish_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "authentication": "nocoDbApiToken",
-          "operation": "create",
-          "projectId": "prkc7a6zgmy2biw",
-          "table": "mf1zt2lexmn446a",
-          "fieldsUi": {
-            "fieldValues": [
-              {
-                "fieldName": "id_ejecucion_n8n",
-                "fieldValue": "={{ $execution.id }}"
-              },
-              {
-                "fieldName": "id_automatizacion_n8n",
-                "fieldValue": "={{ $workflow.id }}"
-              },
-              {
-                "fieldName": "id_detalles_venta_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
-              },
-              {
-                "fieldName": "id_cliente_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
-              },
-              {
-                "fieldName": "id_grupo_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-base.nocoDb",
-        "typeVersion": 3,
-        "position": [
-          1776,
-          -816
-        ],
-        "id": "42c508dd-3782-4a0e-b807-721f8502ea84",
-        "name": "Create a row2",
-        "credentials": {
-          "nocoDbApiToken": {
-            "id": "Sybr1jbACFyMMWFf",
-            "name": "bio_1"
           }
         }
       },
@@ -3810,6 +3764,136 @@
         ],
         "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
         "name": "no esta en etapa perdida o retirado"
+      },
+      {
+        "parameters": {
+          "authentication": "nocoDbApiToken",
+          "operation": "create",
+          "projectId": "prkc7a6zgmy2biw",
+          "table": "mf1zt2lexmn446a",
+          "fieldsUi": {
+            "fieldValues": [
+              {
+                "fieldName": "id_ejecucion_n8n",
+                "fieldValue": "={{ $execution.id }}"
+              },
+              {
+                "fieldName": "id_automatizacion_n8n",
+                "fieldValue": "={{ $workflow.id }}"
+              },
+              {
+                "fieldName": "id_detalles_venta_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+              },
+              {
+                "fieldName": "id_cliente_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
+              },
+              {
+                "fieldName": "id_grupo_airtable",
+                "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.nocoDb",
+        "typeVersion": 3,
+        "position": [
+          1744,
+          -1120
+        ],
+        "id": "42c508dd-3782-4a0e-b807-721f8502ea84",
+        "name": "Create a row2",
+        "credentials": {
+          "nocoDbApiToken": {
+            "id": "Sybr1jbACFyMMWFf",
+            "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1920,
+          -800
+        ],
+        "id": "68e1ce36-f08f-45d4-a14d-1d775528e464",
+        "name": "Redis1",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1936,
+          -512
+        ],
+        "id": "2ad7743d-6402-4aa2-a74b-e2b350997d09",
+        "name": "Redis",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          2368,
+          -512
+        ],
+        "id": "3cb4c53e-ede3-4d74-ad19-206274f697ad",
+        "name": "Redis2",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          3024,
+          -512
+        ],
+        "id": "25691a76-e5f0-4405-8062-2b73ec98ffcf",
+        "name": "Redis3",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -3828,7 +3912,7 @@
         "main": [
           [
             {
-              "node": "Grupo",
+              "node": "Redis",
               "type": "main",
               "index": 0
             }
@@ -3850,7 +3934,7 @@
         "main": [
           [
             {
-              "node": "fecha_creacion_cliente",
+              "node": "Redis2",
               "type": "main",
               "index": 0
             }
@@ -4310,7 +4394,7 @@
         "main": [
           [
             {
-              "node": "existe?",
+              "node": "Redis3",
               "type": "main",
               "index": 0
             }
@@ -4479,7 +4563,7 @@
         "main": [
           [
             {
-              "node": "Create a row2",
+              "node": "Redis1",
               "type": "main",
               "index": 0
             }
@@ -4521,14 +4605,47 @@
             }
           ]
         ]
+      },
+      "Redis": {
+        "main": [
+          [
+            {
+              "node": "Grupo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis2": {
+        "main": [
+          [
+            {
+              "node": "fecha_creacion_cliente",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis3": {
+        "main": [
+          [
+            {
+              "node": "existe?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 2a90c4c9",
+    "name": "Version 379b2d33",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "2a90c4c9-1be6-4baf-bfa0-d95086f79125",
+  "activeVersionId": "379b2d33-89b6-4db2-8449-5242b1fa7fdd",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -4545,7 +4662,7 @@
       "main": [
         [
           {
-            "node": "Grupo",
+            "node": "Redis",
             "type": "main",
             "index": 0
           }
@@ -4567,7 +4684,7 @@
       "main": [
         [
           {
-            "node": "fecha_creacion_cliente",
+            "node": "Redis2",
             "type": "main",
             "index": 0
           }
@@ -5027,7 +5144,7 @@
       "main": [
         [
           {
-            "node": "existe?",
+            "node": "Redis3",
             "type": "main",
             "index": 0
           }
@@ -5196,7 +5313,7 @@
       "main": [
         [
           {
-            "node": "Create a row2",
+            "node": "Redis1",
             "type": "main",
             "index": 0
           }
@@ -5233,6 +5350,39 @@
         [
           {
             "node": "Create a row1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Grupo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis2": {
+      "main": [
+        [
+          {
+            "node": "fecha_creacion_cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis3": {
+      "main": [
+        [
+          {
+            "node": "existe?",
             "type": "main",
             "index": 0
           }
@@ -5344,7 +5494,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1936,
+        2160,
         -512
       ],
       "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
@@ -7216,7 +7366,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2384,
+        2816,
         -512
       ],
       "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
@@ -7246,7 +7396,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2160,
+        2592,
         -512
       ],
       "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
@@ -7459,7 +7609,7 @@
             {
               "id": "2e63f9c0-d519-42ee-970f-104b3a7ae2a7",
               "name": "Precio_2_meses",
-              "value": "={{\n\n$if(\n\n($('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item?.json['2 meses - precio renovación']*2+\" soles~ s/.\" + $('Limit').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}",
+              "value": "={{\n\n$if(\n\n($('Limit').item?.json['2 meses - precio renovación'] ?? \"No disponible\") === \"No disponible\",\n\n\"No disponible*\",\n\n\"~s/.\" + $('Limit').item?.json['1 mes - precio renovación']*2+\" soles~ s/.\" + $('Limit').item?.json['2 meses - precio renovación'] + \"*\"\n\n)\n}}",
               "type": "string"
             },
             {
@@ -8900,8 +9050,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1568,
-        -816
+        1712,
+        -800
       ],
       "id": "3d8b827c-53dc-4058-a6c1-37e919b355f6",
       "name": "Detalles venta - colocar renovado",
@@ -8909,52 +9059,6 @@
         "airtableOAuth2Api": {
           "id": "mylJqD7auLJ9sN2T",
           "name": "Bioenglish_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "create",
-        "projectId": "prkc7a6zgmy2biw",
-        "table": "mf1zt2lexmn446a",
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldName": "id_ejecucion_n8n",
-              "fieldValue": "={{ $execution.id }}"
-            },
-            {
-              "fieldName": "id_automatizacion_n8n",
-              "fieldValue": "={{ $workflow.id }}"
-            },
-            {
-              "fieldName": "id_detalles_venta_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
-            },
-            {
-              "fieldName": "id_cliente_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
-            },
-            {
-              "fieldName": "id_grupo_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 3,
-      "position": [
-        1776,
-        -816
-      ],
-      "id": "42c508dd-3782-4a0e-b807-721f8502ea84",
-      "name": "Create a row2",
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "Sybr1jbACFyMMWFf",
-          "name": "bio_1"
         }
       }
     },
@@ -9052,6 +9156,136 @@
       ],
       "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
       "name": "no esta en etapa perdida o retirado"
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "prkc7a6zgmy2biw",
+        "table": "mf1zt2lexmn446a",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "id_ejecucion_n8n",
+              "fieldValue": "={{ $execution.id }}"
+            },
+            {
+              "fieldName": "id_automatizacion_n8n",
+              "fieldValue": "={{ $workflow.id }}"
+            },
+            {
+              "fieldName": "id_detalles_venta_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
+            },
+            {
+              "fieldName": "id_cliente_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
+            },
+            {
+              "fieldName": "id_grupo_airtable",
+              "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        1744,
+        -1120
+      ],
+      "id": "42c508dd-3782-4a0e-b807-721f8502ea84",
+      "name": "Create a row2",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "Sybr1jbACFyMMWFf",
+          "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        -800
+      ],
+      "id": "68e1ce36-f08f-45d4-a14d-1d775528e464",
+      "name": "Redis1",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1936,
+        -512
+      ],
+      "id": "2ad7743d-6402-4aa2-a74b-e2b350997d09",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2368,
+        -512
+      ],
+      "id": "3cb4c53e-ede3-4d74-ad19-206274f697ad",
+      "name": "Redis2",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        3024,
+        -512
+      ],
+      "id": "25691a76-e5f0-4405-8062-2b73ec98ffcf",
+      "name": "Redis3",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -9121,22 +9355,22 @@
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflkRJCaeRjKKjp63",
-            "x-forwarded-for": "32.192.255.227, 167.82.233.20",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflsIuIJDgA6Dt8zW",
+            "x-forwarded-for": "32.193.1.218, 167.82.233.44",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "CyJfU9urTVKZvaFkwoOzXw",
-            "x-real-ip": "32.192.255.227",
-            "x-request-start": "1775451683478"
+            "x-railway-request-id": "Fwkjc2hxRCCgix6mPvyhXg",
+            "x-real-ip": "32.193.1.218",
+            "x-request-start": "1777871025179"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recRv691zpKKYpm6q",
-            "Tipo": "30_dias_despues"
+            "recordId": "recTkN37FEf8OcpOL",
+            "Tipo": "60_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -9169,6 +9403,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-04-12T03:51:55.746Z",
-  "versionId": "2a90c4c9-1be6-4baf-bfa0-d95086f79125"
+  "updatedAt": "2026-05-04T22:24:38.779Z",
+  "versionId": "379b2d33-89b6-4db2-8449-5242b1fa7fdd"
 }
