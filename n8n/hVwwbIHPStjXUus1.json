@@ -1,0 +1,3119 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-05-05T21:26:34.974Z",
+    "createdAt": "2026-05-05T21:26:33.788Z",
+    "versionId": "fb47a310-28ab-446b-b6b1-9692f3fafa44",
+    "workflowId": "hVwwbIHPStjXUus1",
+    "nodes": [
+      {
+        "parameters": {
+          "inputSource": "passthrough"
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "3e3134b8-aeae-47f2-96b7-495b2ca9b1e8",
+        "name": "When Executed by Another Workflow"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          208,
+          0
+        ],
+        "id": "747f7a5c-9d7f-4542-8974-d72e6269de7a",
+        "name": "Wait",
+        "webhookId": "dc15078c-25ea-45a2-b72b-1c5522d3d400"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "create",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblHGopKretH30fVL",
+            "mode": "list",
+            "cachedResultName": "Preventa",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblHGopKretH30fVL"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "Tally formulario": true,
+              "DetalleVentas": "={{ $json.propertyName.join() }}",
+              "Nombre del estudiante 1": "={{ $('When Executed by Another Workflow').item.json.nombre_estudiante }}",
+              "Celular 1": "={{ $('When Executed by Another Workflow').item.json.cel_estudiante }}",
+              "Edad estudiante": "={{ $('When Executed by Another Workflow').item.json.edad_estudiante }}",
+              "Meses a renovar": "={{ $('When Executed by Another Workflow').item.json.meses_renovar }}",
+              "id_ejecucion_n8n": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}",
+              "id_escenario_n8n": "={{ $('When Executed by Another Workflow').item.json.id_workflow }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "ID",
+                "displayName": "ID",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Tipo de inscripción",
+                "displayName": "Tipo de inscripción",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Primera inscripción",
+                    "value": "Primera inscripción"
+                  },
+                  {
+                    "name": "Ya soy alumno de Bio English",
+                    "value": "Ya soy alumno de Bio English"
+                  }
+                ],
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "¿Para quien son las clases de ingés?",
+                "displayName": "¿Para quien son las clases de ingés?",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Para mí",
+                    "value": "Para mí"
+                  },
+                  {
+                    "name": "Para mi hijo/hija",
+                    "value": "Para mi hijo/hija"
+                  },
+                  {
+                    "name": "Para un familiar o amig@",
+                    "value": "Para un familiar o amig@"
+                  }
+                ],
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Email 1",
+                "displayName": "Email 1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Nombre del estudiante 1",
+                "displayName": "Nombre del estudiante 1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Celular 1",
+                "displayName": "Celular 1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Nombre del estudiante 2",
+                "displayName": "Nombre del estudiante 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Celular 2",
+                "displayName": "Celular 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Nombre del apoderado",
+                "displayName": "Nombre del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "DNI del apoderado",
+                "displayName": "DNI del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Celular del apoderado",
+                "displayName": "Celular del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Email del apoderado",
+                "displayName": "Email del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Nivel de inglés del estudiante",
+                "displayName": "Nivel de inglés del estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Intermedio",
+                    "value": "Intermedio"
+                  },
+                  {
+                    "name": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am",
+                    "value": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am"
+                  },
+                  {
+                    "name": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm",
+                    "value": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm"
+                  },
+                  {
+                    "name": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm",
+                    "value": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm"
+                  },
+                  {
+                    "name": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm",
+                    "value": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                    "value": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                  },
+                  {
+                    "name": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm",
+                    "value": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm"
+                  },
+                  {
+                    "name": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm",
+                    "value": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm"
+                  },
+                  {
+                    "name": "Grupos presenciales (Tacna)",
+                    "value": "Grupos presenciales (Tacna)"
+                  },
+                  {
+                    "name": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm",
+                    "value": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm"
+                  },
+                  {
+                    "name": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm",
+                    "value": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm"
+                  },
+                  {
+                    "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 5:15 - 6:15 pm",
+                    "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 5:15 - 6:15 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Ma, Ju, Sa de 5:45 - 7:15 pm",
+                    "value": "English Starters (8 a 11 años)_Ma, Ju, Sa de 5:45 - 7:15 pm"
+                  },
+                  {
+                    "name": "English Starters/Movers (11 a 14 años)_Lu, Mi, Vi de 6:30 - 8:00 pm",
+                    "value": "English Starters/Movers (11 a 14 años)_Lu, Mi, Vi de 6:30 - 8:00 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:15 a 9:45 pm",
+                    "value": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:15 a 9:45 pm"
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm",
+                    "value": "English FCE/B2 (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                    "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                  },
+                  {
+                    "name": "English PET/B1 (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm",
+                    "value": "English PET/B1 (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop (Taller de Conversación en Inglés)",
+                    "value": "Speaking Workshop (Taller de Conversación en Inglés)"
+                  },
+                  {
+                    "name": "Speaking Workshop 1 - Sábados de 4:00 a 5:30 pm",
+                    "value": "Speaking Workshop 1 - Sábados de 4:00 a 5:30 pm"
+                  },
+                  {
+                    "name": "English Movers (10 a 14 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am",
+                    "value": "English Movers (10 a 14 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am"
+                  },
+                  {
+                    "name": "Speaking Workshop 2 - Lunes, Miércoles y Viernes de 7:00 a 8:30 pm",
+                    "value": "Speaking Workshop 2 - Lunes, Miércoles y Viernes de 7:00 a 8:30 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am",
+                    "value": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am"
+                  },
+                  {
+                    "name": "English KET/A2 (jóvenes adultos)_Mar, Ju, Sa de 6:30 a 8:00 pm",
+                    "value": "English KET/A2 (jóvenes adultos)_Mar, Ju, Sa de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 5:30- 6:30 pm",
+                    "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 5:30- 6:30 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop 1 (B1 - B2) Sábados de 4:00 a 5:30 pm",
+                    "value": "Speaking Workshop 1 (B1 - B2) Sábados de 4:00 a 5:30 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop 3 Basic (A1 - A2) Martes, Jueves y Sábados de 6:30 a 8:00 pm",
+                    "value": "Speaking Workshop 3 Basic (A1 - A2) Martes, Jueves y Sábados de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop 2  (B1 - B2)  Lunes, Miércoles y Viernes de 7:00 a 8:30 pm",
+                    "value": "Speaking Workshop 2  (B1 - B2)  Lunes, Miércoles y Viernes de 7:00 a 8:30 pm"
+                  },
+                  {
+                    "name": "English A1/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:15 a 9:45 pm",
+                    "value": "English A1/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:15 a 9:45 pm"
+                  },
+                  {
+                    "name": "English Flyers/KET (10 a 14 años)_Lu, Mi, Vi de 5:45 - 7:15 pm",
+                    "value": "English Flyers/KET (10 a 14 años)_Lu, Mi, Vi de 5:45 - 7:15 pm"
+                  },
+                  {
+                    "name": "English PET/B1 (jóvenes adultos)_Ma,Ju,Sa de 8:10 - 9:40 pm",
+                    "value": "English PET/B1 (jóvenes adultos)_Ma,Ju,Sa de 8:10 - 9:40 pm"
+                  },
+                  {
+                    "name": "NUEVO GRUPO: English Basic A1 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                    "value": "NUEVO GRUPO: English Basic A1 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                  },
+                  {
+                    "name": "Reading Workshop Niños (Taller de Lectura en Inglés)",
+                    "value": "Reading Workshop Niños (Taller de Lectura en Inglés)"
+                  },
+                  {
+                    "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:30- 5:30 pm",
+                    "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:30- 5:30 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop Básico (A1 - A2) Ma,Ju de 6:30 a 8:00 pm y Sá de 4:30 a 6:00 pm",
+                    "value": "Speaking Workshop Básico (A1 - A2) Ma,Ju de 6:30 a 8:00 pm y Sá de 4:30 a 6:00 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop Intermedio (B1 - B2) Sábados de 5:00 a 6:30 pm",
+                    "value": "Speaking Workshop Intermedio (B1 - B2) Sábados de 5:00 a 6:30 pm"
+                  },
+                  {
+                    "name": "English A1 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                    "value": "English A1 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 8:30 - 9:30 am",
+                    "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 8:30 - 9:30 am"
+                  },
+                  {
+                    "name": "English Movers (9 a 11 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am",
+                    "value": "English Movers (9 a 11 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am"
+                  },
+                  {
+                    "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:00 a 5:00 pm ",
+                    "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:00 a 5:00 pm "
+                  },
+                  {
+                    "name": "Speaking Workshop Básico (A1 - A2) Ma,Ju, Sa de 6:30 a 8:00 pm ",
+                    "value": "Speaking Workshop Básico (A1 - A2) Ma,Ju, Sa de 6:30 a 8:00 pm "
+                  },
+                  {
+                    "name": "English Kinder (4 a 5 años)_Lu, Mi, Vi de 9:40 - 10:40 am",
+                    "value": "English Kinder (4 a 5 años)_Lu, Mi, Vi de 9:40 - 10:40 am"
+                  },
+                  {
+                    "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 10:50- 11:50 am",
+                    "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 10:50- 11:50 am"
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes adultos)_Ma, Ju de 7:30 - 9:00 pm y Sá de 5:00 a 6:30 pm",
+                    "value": "English FCE/B2 (jóvenes adultos)_Ma, Ju de 7:30 - 9:00 pm y Sá de 5:00 a 6:30 pm"
+                  },
+                  {
+                    "name": "English Movers (11 a 14 años)_Lu, Mi, Vi de 7:00 - 8:30 pm",
+                    "value": "English Movers (11 a 14 años)_Lu, Mi, Vi de 7:00 - 8:30 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 6:30 a 8:00 pm",
+                    "value": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes adultos)_Lu, Ma, Ju de 8:40 a 10:10 pm",
+                    "value": "English FCE/B2 (jóvenes adultos)_Lu, Ma, Ju de 8:40 a 10:10 pm"
+                  },
+                  {
+                    "name": "Private lessons",
+                    "value": "Private lessons"
+                  },
+                  {
+                    "name": "Reading Workshop Niños (Taller de Lectura en Inglés) Sábado de 10:00 a 11:30 am ",
+                    "value": "Reading Workshop Niños (Taller de Lectura en Inglés) Sábado de 10:00 a 11:30 am "
+                  },
+                  {
+                    "name": "English Movers (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:45 pm ",
+                    "value": "English Movers (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:45 pm "
+                  },
+                  {
+                    "name": "English Flyers (10 a 14 años)_Lu, Mi, Vi de 5:40 - 7:10 pm",
+                    "value": "English Flyers (10 a 14 años)_Lu, Mi, Vi de 5:40 - 7:10 pm"
+                  },
+                  {
+                    "name": "English Starters (9 a 12 años)_Lu, Mi, Vi de 7:30 a 8:30 pm",
+                    "value": "English Starters (9 a 12 años)_Lu, Mi, Vi de 7:30 a 8:30 pm"
+                  },
+                  {
+                    "name": "English Movers (8 a 10 años)_Lu, Mi, Vi de 5:45 a 7:15 pm ",
+                    "value": "English Movers (8 a 10 años)_Lu, Mi, Vi de 5:45 a 7:15 pm "
+                  },
+                  {
+                    "name": "English Kinder (4 a 5 años)_Ma y Ju de 4:30 - 5:30 pm y Sá de 11:00 a 12:00 pm ",
+                    "value": "English Kinder (4 a 5 años)_Ma y Ju de 4:30 - 5:30 pm y Sá de 11:00 a 12:00 pm "
+                  },
+                  {
+                    "name": "English A1 (jóvenes adultos)_Ma, Ju, Sa de 6:30 a 8:00 pm",
+                    "value": "English A1 (jóvenes adultos)_Ma, Ju, Sa de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes adultos)_Ma, Ju de 6:30 - 8:00 pm y Sá de 3:00 a 4:30 pm",
+                    "value": "English FCE/B2 (jóvenes adultos)_Ma, Ju de 6:30 - 8:00 pm y Sá de 3:00 a 4:30 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 6:35 a 8:05 pm",
+                    "value": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 6:35 a 8:05 pm"
+                  },
+                  {
+                    "name": "English PET/B1 (jóvenes adultos)_Ma,Ju y Sá de 8:10 - 9:40 pm ",
+                    "value": "English PET/B1 (jóvenes adultos)_Ma,Ju y Sá de 8:10 - 9:40 pm "
+                  },
+                  {
+                    "name": "English Flyers (11 a 14 años)_Lu, Mi, Vi de 5:40 - 7:10 pm",
+                    "value": "English Flyers (11 a 14 años)_Lu, Mi, Vi de 5:40 - 7:10 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm",
+                    "value": "English KET/A2 (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (Adolescentes)_Lu, Mi, Vi de 7:20 a 8:50 pm",
+                    "value": "English KET/A2 (Adolescentes)_Lu, Mi, Vi de 7:20 a 8:50 pm"
+                  },
+                  {
+                    "name": "English PET/B1 (jóvenes adultos)_Ma, Ju de 7:00 - 8:30 am y Sá 3:00 - 4:30 pm",
+                    "value": "English PET/B1 (jóvenes adultos)_Ma, Ju de 7:00 - 8:30 am y Sá 3:00 - 4:30 pm"
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am",
+                    "value": "English Movers (9 a 12 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am"
+                  },
+                  {
+                    "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:30 - 6:30 pm",
+                    "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:30 - 6:30 pm"
+                  },
+                  {
+                    "name": "English YLE/A1 (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm",
+                    "value": "English YLE/A1 (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm"
+                  },
+                  {
+                    "name": "English YLE/A1 (14 a más)_Ma, Ju, Sa de 6:30 a 8:00 pm",
+                    "value": "English YLE/A1 (14 a más)_Ma, Ju, Sa de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English YLE/A2 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                    "value": "English YLE/A2 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                  },
+                  {
+                    "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:30 - 5:30 pm ",
+                    "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:30 - 5:30 pm "
+                  },
+                  {
+                    "name": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 7:00 a 8:30 pm",
+                    "value": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 7:00 a 8:30 pm"
+                  },
+                  {
+                    "name": "English PET/B1 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm ",
+                    "value": "English PET/B1 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm "
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes adultos)_Lu,Vi y Sá de 8:10 a 9:40 pm",
+                    "value": "English FCE/B2 (jóvenes adultos)_Lu,Vi y Sá de 8:10 a 9:40 pm"
+                  },
+                  {
+                    "name": "English YLE/A1+ (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm",
+                    "value": "English YLE/A1+ (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm"
+                  },
+                  {
+                    "name": "English PET/B1 (jóvenes adultos)_Lu, Vi y Sáb de 6:30 a 8:00 pm",
+                    "value": "English PET/B1 (jóvenes adultos)_Lu, Vi y Sáb de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English YLE/A2 (jóvenes adultos)_Ma y Ju de 6:30 a 8:00 pm, Sáb de 8:30 a 10:00 am",
+                    "value": "English YLE/A2 (jóvenes adultos)_Ma y Ju de 6:30 a 8:00 pm, Sáb de 8:30 a 10:00 am"
+                  },
+                  {
+                    "name": "Reading Book Club (Jóvenes adultos)",
+                    "value": "Reading Book Club (Jóvenes adultos)"
+                  },
+                  {
+                    "name": "Taller de Herramientas Digitales",
+                    "value": "Taller de Herramientas Digitales"
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Lu, Mi, Vi de 7:30 a 8:30 pm",
+                    "value": "English Movers (9 a 12 años)_Lu, Mi, Vi de 7:30 a 8:30 pm"
+                  },
+                  {
+                    "name": "English Pre Starters (5 - 7 años)_Lu, Mi y Vi de 4:30 a 5:30 pm",
+                    "value": "English Pre Starters (5 - 7 años)_Lu, Mi y Vi de 4:30 a 5:30 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                    "value": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop Intermedio (B1 - B2) Sábados de 4:00 a 5:30 pm",
+                    "value": "Speaking Workshop Intermedio (B1 - B2) Sábados de 4:00 a 5:30 pm"
+                  },
+                  {
+                    "name": "Reading Workshop Niños (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm",
+                    "value": "Reading Workshop Niños (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm"
+                  },
+                  {
+                    "name": "English Flyers (9 a 12 años)_Lu, Mi, Vi de 5:45 a 7:15 pm ",
+                    "value": "English Flyers (9 a 12 años)_Lu, Mi, Vi de 5:45 a 7:15 pm "
+                  },
+                  {
+                    "name": "English KET/A2 (Adolescentes)_Lu, Mi, Vi de 6:35 a 8:05 pm",
+                    "value": "English KET/A2 (Adolescentes)_Lu, Mi, Vi de 6:35 a 8:05 pm"
+                  },
+                  {
+                    "name": "English Starters (7 a 9 años)_Ma y Ju de 5:20 - 6:20 pm y Sa de 12 a 1:00 pm",
+                    "value": "English Starters (7 a 9 años)_Ma y Ju de 5:20 - 6:20 pm y Sa de 12 a 1:00 pm"
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm ",
+                    "value": "English FCE/B2 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm "
+                  },
+                  {
+                    "name": "Speaking Workshop Intermedio (B1 - B2) Lu, Mi y Vi de 7:15 a 8:45pm",
+                    "value": "Speaking Workshop Intermedio (B1 - B2) Lu, Mi y Vi de 7:15 a 8:45pm"
+                  },
+                  {
+                    "name": "Reading Workshop Starters y Movers A1 (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm",
+                    "value": "Reading Workshop Starters y Movers A1 (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (jóvenes)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                    "value": "English KET/A2 (jóvenes)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                  },
+                  {
+                    "name": "English PET/B1 (jóvenes)_Lu, Mi, Vi de 6:30 a 8:00 pm",
+                    "value": "English PET/B1 (jóvenes)_Lu, Mi, Vi de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Lu, Mi y Vi 5:20 a 6:20 pm",
+                    "value": "English Movers (9 a 12 años)_Lu, Mi y Vi 5:20 a 6:20 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:45 a 6:45 pm",
+                    "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:45 a 6:45 pm"
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 8:10 - 9:40 pm ",
+                    "value": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 8:10 - 9:40 pm "
+                  },
+                  {
+                    "name": "Reading Workshop Starters y Movers A1 (Taller de Lectura en Inglés) Sábado de 11:30 a 12:30 pm",
+                    "value": "Reading Workshop Starters y Movers A1 (Taller de Lectura en Inglés) Sábado de 11:30 a 12:30 pm"
+                  },
+                  {
+                    "name": "English Flyers (9 a 12 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am",
+                    "value": "English Flyers (9 a 12 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am"
+                  },
+                  {
+                    "name": "English KET/A2 (Adolescentes )_Lu, Mi, Vi de 6:30 a 8:00 pm",
+                    "value": "English KET/A2 (Adolescentes )_Lu, Mi, Vi de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "Basic English Kids Ma, Mi, y Ju de 9 a 10 am_ Presencial",
+                    "value": "Basic English Kids Ma, Mi, y Ju de 9 a 10 am_ Presencial"
+                  },
+                  {
+                    "name": "English A1 básico (Jóvenes)_Lu, Mi, Vi de 8:10 a 9:40 pm",
+                    "value": "English A1 básico (Jóvenes)_Lu, Mi, Vi de 8:10 a 9:40 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 9:45 a 10:45 am",
+                    "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 9:45 a 10:45 am"
+                  },
+                  {
+                    "name": "English FCE/B1 (jóvenes adultos)_Ma, Ju de 6:30 - 8:00 pm y Sá de 4:00 a 5:30 pm",
+                    "value": "English FCE/B1 (jóvenes adultos)_Ma, Ju de 6:30 - 8:00 pm y Sá de 4:00 a 5:30 pm"
+                  },
+                  {
+                    "name": "English Movers (11 a 14 años)_Lu, Mi, Vi de 7:30 - 8:30 pm",
+                    "value": "English Movers (11 a 14 años)_Lu, Mi, Vi de 7:30 - 8:30 pm"
+                  },
+                  {
+                    "name": "English Flyers (11 a 14 años)_Lu, Mi, Vi de 5:20 - 6:50 pm",
+                    "value": "English Flyers (11 a 14 años)_Lu, Mi, Vi de 5:20 - 6:50 pm"
+                  },
+                  {
+                    "name": "English Starters (7 a 9 años)_Ma y Ju de 5:20 a 6:20 pm y sábados de 12 a 1:00 pm ",
+                    "value": "English Starters (7 a 9 años)_Ma y Ju de 5:20 a 6:20 pm y sábados de 12 a 1:00 pm "
+                  },
+                  {
+                    "name": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm",
+                    "value": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop Básico (A1 - A2) Ma, Ju, Sa de 7:00 a 8:30 pm ",
+                    "value": "Speaking Workshop Básico (A1 - A2) Ma, Ju, Sa de 7:00 a 8:30 pm "
+                  },
+                  {
+                    "name": "Reading Workshop Flyers A2 (Taller de Lectura en Inglés) Sábado de 10:00 a 11:30 am ",
+                    "value": "Reading Workshop Flyers A2 (Taller de Lectura en Inglés) Sábado de 10:00 a 11:30 am "
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Lu, Mi, Vi de 8:30 a 9:30 am",
+                    "value": "English Movers (9 a 12 años)_Lu, Mi, Vi de 8:30 a 9:30 am"
+                  },
+                  {
+                    "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:15 pm",
+                    "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:15 pm"
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Ma y Ju de 5:45 a 6:45 pm y Sábados de 12 a 1:00 pm",
+                    "value": "English Movers (9 a 12 años)_Ma y Ju de 5:45 a 6:45 pm y Sábados de 12 a 1:00 pm"
+                  },
+                  {
+                    "name": "Speaking Workshop Intermedio (B1 - B2) Lu, Mi y Vi de 7:15 a 8:45 pm",
+                    "value": "Speaking Workshop Intermedio (B1 - B2) Lu, Mi y Vi de 7:15 a 8:45 pm"
+                  },
+                  {
+                    "name": "Reading Workshop Pre y Starters A1 (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm",
+                    "value": "Reading Workshop Pre y Starters A1 (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm"
+                  },
+                  {
+                    "name": "English Pre Starters (5 - 7 años)_Lu, Mi y Vi de 4:30 a 5:30 pm ",
+                    "value": "English Pre Starters (5 - 7 años)_Lu, Mi y Vi de 4:30 a 5:30 pm "
+                  },
+                  {
+                    "name": "English Movers (7 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                    "value": "English Movers (7 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                  },
+                  {
+                    "name": "Taller de Speaking niños (A1-A2) Ma y Ju de 6:30 a 8:00 pm",
+                    "value": "Taller de Speaking niños (A1-A2) Ma y Ju de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Ma y Ju de 7:00 a 8:00 pm y Sab de 10:30 a 11:30 am",
+                    "value": "English Starters (8 a 11 años)_Ma y Ju de 7:00 a 8:00 pm y Sab de 10:30 a 11:30 am"
+                  },
+                  {
+                    "name": "English PET/B1 (jóvenes)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                    "value": "English PET/B1 (jóvenes)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (Jóvenes)_Lu, Mi, Vi de 8:10 a 9:40 pm",
+                    "value": "English KET/A2 (Jóvenes)_Lu, Mi, Vi de 8:10 a 9:40 pm"
+                  },
+                  {
+                    "name": "Taller de Speaking jóvenes (B1 - B2) Lu y Mi de 8:10 a 9:40 pm",
+                    "value": "Taller de Speaking jóvenes (B1 - B2) Lu y Mi de 8:10 a 9:40 pm"
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Ma y Ju de 5:45 a 6:45 pm y Sáb de 12-1:00 pm",
+                    "value": "English Movers (9 a 12 años)_Ma y Ju de 5:45 a 6:45 pm y Sáb de 12-1:00 pm"
+                  },
+                  {
+                    "name": "English Pre Starters (5 - 7 años)_Lu,Mi y Vi de 4:30 a 5:30 pm",
+                    "value": "English Pre Starters (5 - 7 años)_Lu,Mi y Vi de 4:30 a 5:30 pm"
+                  },
+                  {
+                    "name": "English Pre Starters Kinder (4-5 años)_Lu, Mi y Vi de 4:30 a 5:30 pm ",
+                    "value": "English Pre Starters Kinder (4-5 años)_Lu, Mi y Vi de 4:30 a 5:30 pm "
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:00 pm",
+                    "value": "English Movers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:00 pm"
+                  },
+                  {
+                    "name": "English Starters (9 a 12 años)_Ma y Ju de 5:30 a 6:30 pm y Sab de 9:00 a 10:00 am",
+                    "value": "English Starters (9 a 12 años)_Ma y Ju de 5:30 a 6:30 pm y Sab de 9:00 a 10:00 am"
+                  },
+                  {
+                    "name": "English Starters (9 a 12 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am",
+                    "value": "English Starters (9 a 12 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am"
+                  },
+                  {
+                    "name": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb  10:00 a 11:30 am",
+                    "value": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb  10:00 a 11:30 am"
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 6:30 a 8:00 pm",
+                    "value": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English Flyers (10 a 14 años)_Lu, Mi, Vi de 5:45 a 7:15 pm ",
+                    "value": "English Flyers (10 a 14 años)_Lu, Mi, Vi de 5:45 a 7:15 pm "
+                  },
+                  {
+                    "name": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am",
+                    "value": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am"
+                  },
+                  {
+                    "name": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 7:30 a 9:00 pm",
+                    "value": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 7:30 a 9:00 pm"
+                  },
+                  {
+                    "name": "English PET/B1 (Adolescentes)_Lu, Mi, Vi de 6:30 a 8:00 pm",
+                    "value": "English PET/B1 (Adolescentes)_Lu, Mi, Vi de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:45 a 6:45 pm (Prep Exámen Starters)",
+                    "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:45 a 6:45 pm (Prep Exámen Starters)"
+                  },
+                  {
+                    "name": "Clases privadas ",
+                    "value": "Clases privadas "
+                  },
+                  {
+                    "name": "English Pre Starters (5 - 7 años)_Lu,Mi y Vi de 5:45 a 6:45 pm",
+                    "value": "English Pre Starters (5 - 7 años)_Lu,Mi y Vi de 5:45 a 6:45 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am",
+                    "value": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am"
+                  },
+                  {
+                    "name": "CAE Advanced C1 (jóvenes)_Ma, Ju de 7:30 a 9:00 pm y Sá de 7:30 a 9:00 am ",
+                    "value": "CAE Advanced C1 (jóvenes)_Ma, Ju de 7:30 a 9:00 pm y Sá de 7:30 a 9:00 am "
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Lu, Mi, Vi de 7:00 a 8:00 pm ",
+                    "value": "English Starters (8 a 11 años)_Lu, Mi, Vi de 7:00 a 8:00 pm "
+                  },
+                  {
+                    "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:15 pm (Prep Exámen Starters)",
+                    "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:15 pm (Prep Exámen Starters)"
+                  },
+                  {
+                    "name": "English Pre Starters (5 - 7 años)_Ma- Ju de 5:45 a 6:45 pm y Sáb de 10:30 a 11:30 am (nuevo)",
+                    "value": "English Pre Starters (5 - 7 años)_Ma- Ju de 5:45 a 6:45 pm y Sáb de 10:30 a 11:30 am (nuevo)"
+                  },
+                  {
+                    "name": "Taller de Speaking Intermedio_(A2->B1)_Sábados de 10:00 a 11:30 am",
+                    "value": "Taller de Speaking Intermedio_(A2->B1)_Sábados de 10:00 a 11:30 am"
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Ma y Ju de 5:45 a 6:45 pm y Sab de 10:30 a 11:30 am (Nuevo)",
+                    "value": "English Starters (8 a 11 años)_Ma y Ju de 5:45 a 6:45 pm y Sab de 10:30 a 11:30 am (Nuevo)"
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm (Nuevo)",
+                    "value": "English Starters (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm (Nuevo)"
+                  },
+                  {
+                    "name": "Taller de Speaking niños (A1->A2)_Ma y Ju de 6:30 a 8:00 pm",
+                    "value": "Taller de Speaking niños (A1->A2)_Ma y Ju de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English A2 (10 a 14 años)_Ma y Ju de 4:45-6:15 pm y Sáb de 10-11:30 am",
+                    "value": "English A2 (10 a 14 años)_Ma y Ju de 4:45-6:15 pm y Sáb de 10-11:30 am"
+                  },
+                  {
+                    "name": "English Pre Starters (5 - 7 años)_Ma- Ju de 5:45 a 6:45 pm y Sáb de 10:30 a 11:30 am",
+                    "value": "English Pre Starters (5 - 7 años)_Ma- Ju de 5:45 a 6:45 pm y Sáb de 10:30 a 11:30 am"
+                  },
+                  {
+                    "name": "English Básico A1 (12 años a +)_Ma y Ju de 7:00-8:30 pm y Sáb 12:00 pm a 1:30 pm",
+                    "value": "English Básico A1 (12 años a +)_Ma y Ju de 7:00-8:30 pm y Sáb 12:00 pm a 1:30 pm"
+                  },
+                  {
+                    "name": "English Starters (8 a 11 años)_Ma y Ju de 7:00 a 8:00 pm y Sab de 11:45 a 12:45 pm ",
+                    "value": "English Starters (8 a 11 años)_Ma y Ju de 7:00 a 8:00 pm y Sab de 11:45 a 12:45 pm "
+                  },
+                  {
+                    "name": "English Starters (6 - 7 años)_Lu,Mi y Vi de 5:45 a 6:45 pm ",
+                    "value": "English Starters (6 - 7 años)_Lu,Mi y Vi de 5:45 a 6:45 pm "
+                  },
+                  {
+                    "name": "English Starters (9 - 12 años)_Lu,Mi y Vi de 8:00 a 9:00 am VERANO ENERO - FEBRERO",
+                    "value": "English Starters (9 - 12 años)_Lu,Mi y Vi de 8:00 a 9:00 am VERANO ENERO - FEBRERO"
+                  },
+                  {
+                    "name": "English Flyers (9 a 12 años)_Lu, Mi y Vi 5:00 a 6:30 pm",
+                    "value": "English Flyers (9 a 12 años)_Lu, Mi y Vi 5:00 a 6:30 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (11 a 14 años)_Lu, Mi, Vi de 6:15 a 7:45 pm",
+                    "value": "English KET/A2 (11 a 14 años)_Lu, Mi, Vi de 6:15 a 7:45 pm"
+                  },
+                  {
+                    "name": "English KET/A2 (14+ años)_Lu, Mi, Vi de 8:10 a 9:40 pm (Nuevo)",
+                    "value": "English KET/A2 (14+ años)_Lu, Mi, Vi de 8:10 a 9:40 pm (Nuevo)"
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Lu, Mi y Vi de 6:45 a 7:45 pm",
+                    "value": "English Movers (9 a 12 años)_Lu, Mi y Vi de 6:45 a 7:45 pm"
+                  },
+                  {
+                    "name": "English Básico A1 (jóvenes)_Lu, Mi, Vi de 8:00 a 9:30 pm",
+                    "value": "English Básico A1 (jóvenes)_Lu, Mi, Vi de 8:00 a 9:30 pm"
+                  },
+                  {
+                    "name": "English Starters (9 a 12 años)_Lu, Mi, Vi de 5:00 a 6:00 pm",
+                    "value": "English Starters (9 a 12 años)_Lu, Mi, Vi de 5:00 a 6:00 pm"
+                  },
+                  {
+                    "name": "English Movers (9 a 12 años)_Ma y Ju de 6:30 a 7:30 pm y Sáb de 11:45 a 12:45 pm",
+                    "value": "English Movers (9 a 12 años)_Ma y Ju de 6:30 a 7:30 pm y Sáb de 11:45 a 12:45 pm"
+                  },
+                  {
+                    "name": "English Starters (9 a 12 años)_Lu, Mi, Vi de 7:00 a 8:00 pm  ",
+                    "value": "English Starters (9 a 12 años)_Lu, Mi, Vi de 7:00 a 8:00 pm  "
+                  },
+                  {
+                    "name": "Taller de Speaking 14+ años (B1/B2)_Ma y Ju de 6:30 a 8:00 pm",
+                    "value": "Taller de Speaking 14+ años (B1/B2)_Ma y Ju de 6:30 a 8:00 pm"
+                  },
+                  {
+                    "name": "English Pre Starters (6 - 8 años)_Lu,Mi y Vi de 9:15 a 10:15 am VERANO ENERO - FEBRERO",
+                    "value": "English Pre Starters (6 - 8 años)_Lu,Mi y Vi de 9:15 a 10:15 am VERANO ENERO - FEBRERO"
+                  },
+                  {
+                    "name": "English FCE/B2 (14+ años)_Lu, Mi, Vi de 7:30 a 9:00 pm",
+                    "value": "English FCE/B2 (14+ años)_Lu, Mi, Vi de 7:30 a 9:00 pm"
+                  },
+                  {
+                    "name": "English Pre Starters (6 - 8 años)_Ma- Ju de 5:00 a 6:00 pm y Sáb de 10:00 a 11:00 am",
+                    "value": "English Pre Starters (6 - 8 años)_Ma- Ju de 5:00 a 6:00 pm y Sáb de 10:00 a 11:00 am"
+                  },
+                  {
+                    "name": "English PET/B1 (14+ años)_Lu, Mi, Vi de 8:00 a 9:30 pm (Nuevo)",
+                    "value": "English PET/B1 (14+ años)_Lu, Mi, Vi de 8:00 a 9:30 pm (Nuevo)"
+                  },
+                  {
+                    "name": "Taller de Speaking 14+ años (B1/B2)_Ma y Ju de 7:50 a 9:20 pm",
+                    "value": "Taller de Speaking 14+ años (B1/B2)_Ma y Ju de 7:50 a 9:20 pm"
+                  },
+                  {
+                    "name": "English Starters (9 a 12 años)_Lu, Mi, Vi de 5:45 a 6:45 pm ",
+                    "value": "English Starters (9 a 12 años)_Lu, Mi, Vi de 5:45 a 6:45 pm "
+                  },
+                  {
+                    "name": "English Flyers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:30 pm",
+                    "value": "English Flyers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:30 pm"
+                  },
+                  {
+                    "name": "English Pre Starters Kinder (4 - 5 años)_Ma y Ju de 4:30 a 5:30 pm",
+                    "value": "English Pre Starters Kinder (4 - 5 años)_Ma y Ju de 4:30 a 5:30 pm"
+                  },
+                  {
+                    "name": "English Movers (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm",
+                    "value": "English Movers (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm"
+                  }
+                ],
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Ciudad",
+                "displayName": "Ciudad",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Nivel de Ingles del apoderado",
+                "displayName": "Nivel de Ingles del apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Básico",
+                    "value": "Básico"
+                  },
+                  {
+                    "name": "No se mi nivel de inglés",
+                    "value": "No se mi nivel de inglés"
+                  },
+                  {
+                    "name": "Intermedio",
+                    "value": "Intermedio"
+                  },
+                  {
+                    "name": "Nunca he estudiado inglés",
+                    "value": "Nunca he estudiado inglés"
+                  },
+                  {
+                    "name": "Avanzado",
+                    "value": "Avanzado"
+                  },
+                  {
+                    "name": "",
+                    "value": ""
+                  }
+                ],
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "CP1",
+                "displayName": "CP1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "CP2",
+                "displayName": "CP2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "PEN",
+                "displayName": "PEN",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Created",
+                "displayName": "Created",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nuevo cliente aprobado",
+                "displayName": "Nuevo cliente aprobado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Clientes",
+                "displayName": "Clientes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "n8n formulario",
+                "displayName": "n8n formulario",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "ID 2",
+                "displayName": "ID 2",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Nueva venta aprobado",
+                "displayName": "Nueva venta aprobado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Pais estudiante",
+                "displayName": "Pais estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "record_id",
+                "displayName": "record_id",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Grupos",
+                "displayName": "Grupos",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "USD",
+                "displayName": "USD",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "DetalleVentas",
+                "displayName": "DetalleVentas",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "id_escenario_n8n",
+                "displayName": "id_escenario_n8n",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "id_ejecucion_n8n",
+                "displayName": "id_ejecucion_n8n",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Pais apoderado",
+                "displayName": "Pais apoderado",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "cel_final",
+                "displayName": "cel_final",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Edad estudiante",
+                "displayName": "Edad estudiante",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Cel Estudiante (from Clientes)",
+                "displayName": "Cel Estudiante (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Cel Apoderado (from Clientes)",
+                "displayName": "Cel Apoderado (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "url_revision_n8n",
+                "displayName": "url_revision_n8n",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Usuarios (from Clientes)",
+                "displayName": "Usuarios (from Clientes)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Tally formulario",
+                "displayName": "Tally formulario",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "boolean",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Meses a renovar",
+                "displayName": "Meses a renovar",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "number",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {
+            "typecast": true
+          }
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          1152,
+          -176
+        ],
+        "id": "5c149e9c-2531-433a-af62-7ad44a7d7b3f",
+        "name": "crear registro - preventa",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "select",
+          "schema": {
+            "__rl": true,
+            "value": "public",
+            "mode": "list",
+            "cachedResultName": "public"
+          },
+          "table": {
+            "__rl": true,
+            "value": "execution_entity",
+            "mode": "name"
+          },
+          "limit": 1,
+          "where": {
+            "values": [
+              {
+                "column": "id",
+                "value": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          432,
+          0
+        ],
+        "id": "a31e8529-3513-4b25-ba5d-c92287b751f7",
+        "name": "Select rows from a table2",
+        "credentials": {
+          "postgres": {
+            "id": "03h99CCgQN0WXTMc",
+            "name": "Postgres_n8n"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "71dd00b2-2e80-4741-9c4c-45c8d7dca32b",
+                "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+                "rightValue": "Error",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              },
+              {
+                "id": "b848ecbd-d50f-4ab8-b9e0-4764da502a44",
+                "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+                "rightValue": "Canceled",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              },
+              {
+                "id": "e67689a0-0e1c-4112-870e-811d75276c45",
+                "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+                "rightValue": "Success",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              },
+              {
+                "id": "84d163c1-dfd0-4cc9-adb3-5b3936be99a9",
+                "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+                "rightValue": "Queued",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          640,
+          0
+        ],
+        "id": "15bb8fe3-f5bc-4cfd-b9bd-3c6e6ac36532",
+        "name": "termino ejecucion?"
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "key": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}_tally_a_preventa_detalles_venta",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          912,
+          -176
+        ],
+        "id": "62f5efaa-b806-4f13-959e-30b71befcae6",
+        "name": "Detalles_venta",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "=13015_tally_a_preventa_detalles_venta",
+          "messageData": "reczZqdZmDOU9uiqs"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          288,
+          -592
+        ],
+        "id": "43ffe12d-11b2-4e98-bd2a-dc53303d0e97",
+        "name": "Detalles_venta1",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "delete",
+          "key": "13015_tally_a_preventa_detalles_venta"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          560,
+          -576
+        ],
+        "id": "525c436f-6e06-4e1e-8039-9a7bcd556d4b",
+        "name": "Detalles_venta2",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1600,
+          -176
+        ],
+        "id": "87aae5d5-86bc-4f55-9cb4-adf69d86700c",
+        "name": "Redis2",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "delete",
+          "key": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}_tally_a_preventa_detalles_venta"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1376,
+          -176
+        ],
+        "id": "508922d8-6419-4bfe-b4af-b4e4f2c6d8ca",
+        "name": "Detalles_venta3",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "node": "Wait",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait": {
+        "main": [
+          [
+            {
+              "node": "Select rows from a table2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Select rows from a table2": {
+        "main": [
+          [
+            {
+              "node": "termino ejecucion?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "termino ejecucion?": {
+        "main": [
+          [
+            {
+              "node": "Detalles_venta",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Wait",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Detalles_venta": {
+        "main": [
+          [
+            {
+              "node": "crear registro - preventa",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "crear registro - preventa": {
+        "main": [
+          [
+            {
+              "node": "Detalles_venta3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Detalles_venta3": {
+        "main": [
+          [
+            {
+              "node": "Redis2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version fb47a310",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "fb47a310-28ab-446b-b6b1-9692f3fafa44",
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table2": {
+      "main": [
+        [
+          {
+            "node": "termino ejecucion?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "termino ejecucion?": {
+      "main": [
+        [
+          {
+            "node": "Detalles_venta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Detalles_venta": {
+      "main": [
+        [
+          {
+            "node": "crear registro - preventa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear registro - preventa": {
+      "main": [
+        [
+          {
+            "node": "Detalles_venta3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Detalles_venta3": {
+      "main": [
+        [
+          {
+            "node": "Redis2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-05-05T17:29:40.646Z",
+  "id": "hVwwbIHPStjXUus1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Form Tally a preventa",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "3e3134b8-aeae-47f2-96b7-495b2ca9b1e8",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "747f7a5c-9d7f-4542-8974-d72e6269de7a",
+      "name": "Wait",
+      "webhookId": "dc15078c-25ea-45a2-b72b-1c5522d3d400"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblHGopKretH30fVL",
+          "mode": "list",
+          "cachedResultName": "Preventa",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblHGopKretH30fVL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tally formulario": true,
+            "DetalleVentas": "={{ $json.propertyName.join() }}",
+            "Nombre del estudiante 1": "={{ $('When Executed by Another Workflow').item.json.nombre_estudiante }}",
+            "Celular 1": "={{ $('When Executed by Another Workflow').item.json.cel_estudiante }}",
+            "Edad estudiante": "={{ $('When Executed by Another Workflow').item.json.edad_estudiante }}",
+            "Meses a renovar": "={{ $('When Executed by Another Workflow').item.json.meses_renovar }}",
+            "id_ejecucion_n8n": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}",
+            "id_escenario_n8n": "={{ $('When Executed by Another Workflow').item.json.id_workflow }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tipo de inscripción",
+              "displayName": "Tipo de inscripción",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Primera inscripción",
+                  "value": "Primera inscripción"
+                },
+                {
+                  "name": "Ya soy alumno de Bio English",
+                  "value": "Ya soy alumno de Bio English"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "¿Para quien son las clases de ingés?",
+              "displayName": "¿Para quien son las clases de ingés?",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Para mí",
+                  "value": "Para mí"
+                },
+                {
+                  "name": "Para mi hijo/hija",
+                  "value": "Para mi hijo/hija"
+                },
+                {
+                  "name": "Para un familiar o amig@",
+                  "value": "Para un familiar o amig@"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email 1",
+              "displayName": "Email 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nombre del estudiante 1",
+              "displayName": "Nombre del estudiante 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Celular 1",
+              "displayName": "Celular 1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Nombre del estudiante 2",
+              "displayName": "Nombre del estudiante 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Celular 2",
+              "displayName": "Celular 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nombre del apoderado",
+              "displayName": "Nombre del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "DNI del apoderado",
+              "displayName": "DNI del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Celular del apoderado",
+              "displayName": "Celular del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email del apoderado",
+              "displayName": "Email del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nivel de inglés del estudiante",
+              "displayName": "Nivel de inglés del estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Intermedio",
+                  "value": "Intermedio"
+                },
+                {
+                  "name": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am",
+                  "value": "English YLE/A1 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am"
+                },
+                {
+                  "name": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm",
+                  "value": "English PET/FCE (jóvenes adultos)_Ma,Ju,Sa de 9:10 -  10:40 pm"
+                },
+                {
+                  "name": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm",
+                  "value": "English KET/PET (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm"
+                },
+                {
+                  "name": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm",
+                  "value": "English Starters/Movers (10 a 13 años)_Lu y Ju de 6:30 - 8:00 pm, Sa de 3:00 - 4:30 pm"
+                },
+                {
+                  "name": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                  "value": "English Starters (8 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                },
+                {
+                  "name": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm",
+                  "value": "English PET/FCE (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm"
+                },
+                {
+                  "name": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm",
+                  "value": "English Kids (4 a 5 años)_Lu, Mi, Vi de 4:00 - 5:00 pm"
+                },
+                {
+                  "name": "Grupos presenciales (Tacna)",
+                  "value": "Grupos presenciales (Tacna)"
+                },
+                {
+                  "name": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm",
+                  "value": "English Starters/Movers (10 a 13 años)_Lu, Mi, Vi de 6:30 - 8:00 pm"
+                },
+                {
+                  "name": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm",
+                  "value": "English Flyers/KET (10 a 13 años)_Lu, Mi, Vi de 5:45 - 7:15 pm"
+                },
+                {
+                  "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 5:15 - 6:15 pm",
+                  "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 5:15 - 6:15 pm"
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Ma, Ju, Sa de 5:45 - 7:15 pm",
+                  "value": "English Starters (8 a 11 años)_Ma, Ju, Sa de 5:45 - 7:15 pm"
+                },
+                {
+                  "name": "English Starters/Movers (11 a 14 años)_Lu, Mi, Vi de 6:30 - 8:00 pm",
+                  "value": "English Starters/Movers (11 a 14 años)_Lu, Mi, Vi de 6:30 - 8:00 pm"
+                },
+                {
+                  "name": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:15 a 9:45 pm",
+                  "value": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:15 a 9:45 pm"
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm",
+                  "value": "English FCE/B2 (jóvenes adultos)_Lu, Mi, Vi de 7:30 - 9:00 pm"
+                },
+                {
+                  "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                  "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                },
+                {
+                  "name": "English PET/B1 (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm",
+                  "value": "English PET/B1 (jóvenes adultos)_Ma,Ju,Sa de 7:30 - 9:00 pm"
+                },
+                {
+                  "name": "Speaking Workshop (Taller de Conversación en Inglés)",
+                  "value": "Speaking Workshop (Taller de Conversación en Inglés)"
+                },
+                {
+                  "name": "Speaking Workshop 1 - Sábados de 4:00 a 5:30 pm",
+                  "value": "Speaking Workshop 1 - Sábados de 4:00 a 5:30 pm"
+                },
+                {
+                  "name": "English Movers (10 a 14 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am",
+                  "value": "English Movers (10 a 14 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am"
+                },
+                {
+                  "name": "Speaking Workshop 2 - Lunes, Miércoles y Viernes de 7:00 a 8:30 pm",
+                  "value": "Speaking Workshop 2 - Lunes, Miércoles y Viernes de 7:00 a 8:30 pm"
+                },
+                {
+                  "name": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am",
+                  "value": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 7:00 - 8:30 am"
+                },
+                {
+                  "name": "English KET/A2 (jóvenes adultos)_Mar, Ju, Sa de 6:30 a 8:00 pm",
+                  "value": "English KET/A2 (jóvenes adultos)_Mar, Ju, Sa de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 5:30- 6:30 pm",
+                  "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 5:30- 6:30 pm"
+                },
+                {
+                  "name": "Speaking Workshop 1 (B1 - B2) Sábados de 4:00 a 5:30 pm",
+                  "value": "Speaking Workshop 1 (B1 - B2) Sábados de 4:00 a 5:30 pm"
+                },
+                {
+                  "name": "Speaking Workshop 3 Basic (A1 - A2) Martes, Jueves y Sábados de 6:30 a 8:00 pm",
+                  "value": "Speaking Workshop 3 Basic (A1 - A2) Martes, Jueves y Sábados de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "Speaking Workshop 2  (B1 - B2)  Lunes, Miércoles y Viernes de 7:00 a 8:30 pm",
+                  "value": "Speaking Workshop 2  (B1 - B2)  Lunes, Miércoles y Viernes de 7:00 a 8:30 pm"
+                },
+                {
+                  "name": "English A1/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:15 a 9:45 pm",
+                  "value": "English A1/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:15 a 9:45 pm"
+                },
+                {
+                  "name": "English Flyers/KET (10 a 14 años)_Lu, Mi, Vi de 5:45 - 7:15 pm",
+                  "value": "English Flyers/KET (10 a 14 años)_Lu, Mi, Vi de 5:45 - 7:15 pm"
+                },
+                {
+                  "name": "English PET/B1 (jóvenes adultos)_Ma,Ju,Sa de 8:10 - 9:40 pm",
+                  "value": "English PET/B1 (jóvenes adultos)_Ma,Ju,Sa de 8:10 - 9:40 pm"
+                },
+                {
+                  "name": "NUEVO GRUPO: English Basic A1 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                  "value": "NUEVO GRUPO: English Basic A1 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                },
+                {
+                  "name": "Reading Workshop Niños (Taller de Lectura en Inglés)",
+                  "value": "Reading Workshop Niños (Taller de Lectura en Inglés)"
+                },
+                {
+                  "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:30- 5:30 pm",
+                  "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:30- 5:30 pm"
+                },
+                {
+                  "name": "Speaking Workshop Básico (A1 - A2) Ma,Ju de 6:30 a 8:00 pm y Sá de 4:30 a 6:00 pm",
+                  "value": "Speaking Workshop Básico (A1 - A2) Ma,Ju de 6:30 a 8:00 pm y Sá de 4:30 a 6:00 pm"
+                },
+                {
+                  "name": "Speaking Workshop Intermedio (B1 - B2) Sábados de 5:00 a 6:30 pm",
+                  "value": "Speaking Workshop Intermedio (B1 - B2) Sábados de 5:00 a 6:30 pm"
+                },
+                {
+                  "name": "English A1 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                  "value": "English A1 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                },
+                {
+                  "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 8:30 - 9:30 am",
+                  "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 8:30 - 9:30 am"
+                },
+                {
+                  "name": "English Movers (9 a 11 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am",
+                  "value": "English Movers (9 a 11 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am"
+                },
+                {
+                  "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:00 a 5:00 pm ",
+                  "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:00 a 5:00 pm "
+                },
+                {
+                  "name": "Speaking Workshop Básico (A1 - A2) Ma,Ju, Sa de 6:30 a 8:00 pm ",
+                  "value": "Speaking Workshop Básico (A1 - A2) Ma,Ju, Sa de 6:30 a 8:00 pm "
+                },
+                {
+                  "name": "English Kinder (4 a 5 años)_Lu, Mi, Vi de 9:40 - 10:40 am",
+                  "value": "English Kinder (4 a 5 años)_Lu, Mi, Vi de 9:40 - 10:40 am"
+                },
+                {
+                  "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 10:50- 11:50 am",
+                  "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 10:50- 11:50 am"
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes adultos)_Ma, Ju de 7:30 - 9:00 pm y Sá de 5:00 a 6:30 pm",
+                  "value": "English FCE/B2 (jóvenes adultos)_Ma, Ju de 7:30 - 9:00 pm y Sá de 5:00 a 6:30 pm"
+                },
+                {
+                  "name": "English Movers (11 a 14 años)_Lu, Mi, Vi de 7:00 - 8:30 pm",
+                  "value": "English Movers (11 a 14 años)_Lu, Mi, Vi de 7:00 - 8:30 pm"
+                },
+                {
+                  "name": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 6:30 a 8:00 pm",
+                  "value": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes adultos)_Lu, Ma, Ju de 8:40 a 10:10 pm",
+                  "value": "English FCE/B2 (jóvenes adultos)_Lu, Ma, Ju de 8:40 a 10:10 pm"
+                },
+                {
+                  "name": "Private lessons",
+                  "value": "Private lessons"
+                },
+                {
+                  "name": "Reading Workshop Niños (Taller de Lectura en Inglés) Sábado de 10:00 a 11:30 am ",
+                  "value": "Reading Workshop Niños (Taller de Lectura en Inglés) Sábado de 10:00 a 11:30 am "
+                },
+                {
+                  "name": "English Movers (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:45 pm ",
+                  "value": "English Movers (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:45 pm "
+                },
+                {
+                  "name": "English Flyers (10 a 14 años)_Lu, Mi, Vi de 5:40 - 7:10 pm",
+                  "value": "English Flyers (10 a 14 años)_Lu, Mi, Vi de 5:40 - 7:10 pm"
+                },
+                {
+                  "name": "English Starters (9 a 12 años)_Lu, Mi, Vi de 7:30 a 8:30 pm",
+                  "value": "English Starters (9 a 12 años)_Lu, Mi, Vi de 7:30 a 8:30 pm"
+                },
+                {
+                  "name": "English Movers (8 a 10 años)_Lu, Mi, Vi de 5:45 a 7:15 pm ",
+                  "value": "English Movers (8 a 10 años)_Lu, Mi, Vi de 5:45 a 7:15 pm "
+                },
+                {
+                  "name": "English Kinder (4 a 5 años)_Ma y Ju de 4:30 - 5:30 pm y Sá de 11:00 a 12:00 pm ",
+                  "value": "English Kinder (4 a 5 años)_Ma y Ju de 4:30 - 5:30 pm y Sá de 11:00 a 12:00 pm "
+                },
+                {
+                  "name": "English A1 (jóvenes adultos)_Ma, Ju, Sa de 6:30 a 8:00 pm",
+                  "value": "English A1 (jóvenes adultos)_Ma, Ju, Sa de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes adultos)_Ma, Ju de 6:30 - 8:00 pm y Sá de 3:00 a 4:30 pm",
+                  "value": "English FCE/B2 (jóvenes adultos)_Ma, Ju de 6:30 - 8:00 pm y Sá de 3:00 a 4:30 pm"
+                },
+                {
+                  "name": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 6:35 a 8:05 pm",
+                  "value": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 6:35 a 8:05 pm"
+                },
+                {
+                  "name": "English PET/B1 (jóvenes adultos)_Ma,Ju y Sá de 8:10 - 9:40 pm ",
+                  "value": "English PET/B1 (jóvenes adultos)_Ma,Ju y Sá de 8:10 - 9:40 pm "
+                },
+                {
+                  "name": "English Flyers (11 a 14 años)_Lu, Mi, Vi de 5:40 - 7:10 pm",
+                  "value": "English Flyers (11 a 14 años)_Lu, Mi, Vi de 5:40 - 7:10 pm"
+                },
+                {
+                  "name": "English KET/A2 (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm",
+                  "value": "English KET/A2 (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm"
+                },
+                {
+                  "name": "English KET/A2 (Adolescentes)_Lu, Mi, Vi de 7:20 a 8:50 pm",
+                  "value": "English KET/A2 (Adolescentes)_Lu, Mi, Vi de 7:20 a 8:50 pm"
+                },
+                {
+                  "name": "English PET/B1 (jóvenes adultos)_Ma, Ju de 7:00 - 8:30 am y Sá 3:00 - 4:30 pm",
+                  "value": "English PET/B1 (jóvenes adultos)_Ma, Ju de 7:00 - 8:30 am y Sá 3:00 - 4:30 pm"
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am",
+                  "value": "English Movers (9 a 12 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am"
+                },
+                {
+                  "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:30 - 6:30 pm",
+                  "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:30 - 6:30 pm"
+                },
+                {
+                  "name": "English YLE/A1 (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm",
+                  "value": "English YLE/A1 (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm"
+                },
+                {
+                  "name": "English YLE/A1 (14 a más)_Ma, Ju, Sa de 6:30 a 8:00 pm",
+                  "value": "English YLE/A1 (14 a más)_Ma, Ju, Sa de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English YLE/A2 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                  "value": "English YLE/A2 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                },
+                {
+                  "name": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:30 - 5:30 pm ",
+                  "value": "English Starters (6 a 7 años)_Lu, Mi, Vi de 4:30 - 5:30 pm "
+                },
+                {
+                  "name": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 7:00 a 8:30 pm",
+                  "value": "Speaking Workshop intermedio (B1-B2) Lu, Mi, Vi de 7:00 a 8:30 pm"
+                },
+                {
+                  "name": "English PET/B1 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm ",
+                  "value": "English PET/B1 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm "
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes adultos)_Lu,Vi y Sá de 8:10 a 9:40 pm",
+                  "value": "English FCE/B2 (jóvenes adultos)_Lu,Vi y Sá de 8:10 a 9:40 pm"
+                },
+                {
+                  "name": "English YLE/A1+ (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm",
+                  "value": "English YLE/A1+ (jóvenes adultos)_Ma, Ju, Sá de 8:10 a 9:40 pm"
+                },
+                {
+                  "name": "English PET/B1 (jóvenes adultos)_Lu, Vi y Sáb de 6:30 a 8:00 pm",
+                  "value": "English PET/B1 (jóvenes adultos)_Lu, Vi y Sáb de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English YLE/A2 (jóvenes adultos)_Ma y Ju de 6:30 a 8:00 pm, Sáb de 8:30 a 10:00 am",
+                  "value": "English YLE/A2 (jóvenes adultos)_Ma y Ju de 6:30 a 8:00 pm, Sáb de 8:30 a 10:00 am"
+                },
+                {
+                  "name": "Reading Book Club (Jóvenes adultos)",
+                  "value": "Reading Book Club (Jóvenes adultos)"
+                },
+                {
+                  "name": "Taller de Herramientas Digitales",
+                  "value": "Taller de Herramientas Digitales"
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Lu, Mi, Vi de 7:30 a 8:30 pm",
+                  "value": "English Movers (9 a 12 años)_Lu, Mi, Vi de 7:30 a 8:30 pm"
+                },
+                {
+                  "name": "English Pre Starters (5 - 7 años)_Lu, Mi y Vi de 4:30 a 5:30 pm",
+                  "value": "English Pre Starters (5 - 7 años)_Lu, Mi y Vi de 4:30 a 5:30 pm"
+                },
+                {
+                  "name": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                  "value": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                },
+                {
+                  "name": "Speaking Workshop Intermedio (B1 - B2) Sábados de 4:00 a 5:30 pm",
+                  "value": "Speaking Workshop Intermedio (B1 - B2) Sábados de 4:00 a 5:30 pm"
+                },
+                {
+                  "name": "Reading Workshop Niños (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm",
+                  "value": "Reading Workshop Niños (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm"
+                },
+                {
+                  "name": "English Flyers (9 a 12 años)_Lu, Mi, Vi de 5:45 a 7:15 pm ",
+                  "value": "English Flyers (9 a 12 años)_Lu, Mi, Vi de 5:45 a 7:15 pm "
+                },
+                {
+                  "name": "English KET/A2 (Adolescentes)_Lu, Mi, Vi de 6:35 a 8:05 pm",
+                  "value": "English KET/A2 (Adolescentes)_Lu, Mi, Vi de 6:35 a 8:05 pm"
+                },
+                {
+                  "name": "English Starters (7 a 9 años)_Ma y Ju de 5:20 - 6:20 pm y Sa de 12 a 1:00 pm",
+                  "value": "English Starters (7 a 9 años)_Ma y Ju de 5:20 - 6:20 pm y Sa de 12 a 1:00 pm"
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm ",
+                  "value": "English FCE/B2 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm "
+                },
+                {
+                  "name": "Speaking Workshop Intermedio (B1 - B2) Lu, Mi y Vi de 7:15 a 8:45pm",
+                  "value": "Speaking Workshop Intermedio (B1 - B2) Lu, Mi y Vi de 7:15 a 8:45pm"
+                },
+                {
+                  "name": "Reading Workshop Starters y Movers A1 (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm",
+                  "value": "Reading Workshop Starters y Movers A1 (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm"
+                },
+                {
+                  "name": "English KET/A2 (jóvenes)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                  "value": "English KET/A2 (jóvenes)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                },
+                {
+                  "name": "English PET/B1 (jóvenes)_Lu, Mi, Vi de 6:30 a 8:00 pm",
+                  "value": "English PET/B1 (jóvenes)_Lu, Mi, Vi de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Lu, Mi y Vi 5:20 a 6:20 pm",
+                  "value": "English Movers (9 a 12 años)_Lu, Mi y Vi 5:20 a 6:20 pm"
+                },
+                {
+                  "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:45 a 6:45 pm",
+                  "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:45 a 6:45 pm"
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 8:10 - 9:40 pm ",
+                  "value": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 8:10 - 9:40 pm "
+                },
+                {
+                  "name": "Reading Workshop Starters y Movers A1 (Taller de Lectura en Inglés) Sábado de 11:30 a 12:30 pm",
+                  "value": "Reading Workshop Starters y Movers A1 (Taller de Lectura en Inglés) Sábado de 11:30 a 12:30 pm"
+                },
+                {
+                  "name": "English Flyers (9 a 12 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am",
+                  "value": "English Flyers (9 a 12 años)_Ma y Ju de 4:45 a 6:15 pm y Sa de 10 a 11:30 am"
+                },
+                {
+                  "name": "English KET/A2 (Adolescentes )_Lu, Mi, Vi de 6:30 a 8:00 pm",
+                  "value": "English KET/A2 (Adolescentes )_Lu, Mi, Vi de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "Basic English Kids Ma, Mi, y Ju de 9 a 10 am_ Presencial",
+                  "value": "Basic English Kids Ma, Mi, y Ju de 9 a 10 am_ Presencial"
+                },
+                {
+                  "name": "English A1 básico (Jóvenes)_Lu, Mi, Vi de 8:10 a 9:40 pm",
+                  "value": "English A1 básico (Jóvenes)_Lu, Mi, Vi de 8:10 a 9:40 pm"
+                },
+                {
+                  "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 9:45 a 10:45 am",
+                  "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 9:45 a 10:45 am"
+                },
+                {
+                  "name": "English FCE/B1 (jóvenes adultos)_Ma, Ju de 6:30 - 8:00 pm y Sá de 4:00 a 5:30 pm",
+                  "value": "English FCE/B1 (jóvenes adultos)_Ma, Ju de 6:30 - 8:00 pm y Sá de 4:00 a 5:30 pm"
+                },
+                {
+                  "name": "English Movers (11 a 14 años)_Lu, Mi, Vi de 7:30 - 8:30 pm",
+                  "value": "English Movers (11 a 14 años)_Lu, Mi, Vi de 7:30 - 8:30 pm"
+                },
+                {
+                  "name": "English Flyers (11 a 14 años)_Lu, Mi, Vi de 5:20 - 6:50 pm",
+                  "value": "English Flyers (11 a 14 años)_Lu, Mi, Vi de 5:20 - 6:50 pm"
+                },
+                {
+                  "name": "English Starters (7 a 9 años)_Ma y Ju de 5:20 a 6:20 pm y sábados de 12 a 1:00 pm ",
+                  "value": "English Starters (7 a 9 años)_Ma y Ju de 5:20 a 6:20 pm y sábados de 12 a 1:00 pm "
+                },
+                {
+                  "name": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm",
+                  "value": "English KET/A2 (jóvenes adultos)_Lu, Mi, Vi de 8:10 - 9:40 pm"
+                },
+                {
+                  "name": "Speaking Workshop Básico (A1 - A2) Ma, Ju, Sa de 7:00 a 8:30 pm ",
+                  "value": "Speaking Workshop Básico (A1 - A2) Ma, Ju, Sa de 7:00 a 8:30 pm "
+                },
+                {
+                  "name": "Reading Workshop Flyers A2 (Taller de Lectura en Inglés) Sábado de 10:00 a 11:30 am ",
+                  "value": "Reading Workshop Flyers A2 (Taller de Lectura en Inglés) Sábado de 10:00 a 11:30 am "
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Lu, Mi, Vi de 8:30 a 9:30 am",
+                  "value": "English Movers (9 a 12 años)_Lu, Mi, Vi de 8:30 a 9:30 am"
+                },
+                {
+                  "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:15 pm",
+                  "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:15 pm"
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Ma y Ju de 5:45 a 6:45 pm y Sábados de 12 a 1:00 pm",
+                  "value": "English Movers (9 a 12 años)_Ma y Ju de 5:45 a 6:45 pm y Sábados de 12 a 1:00 pm"
+                },
+                {
+                  "name": "Speaking Workshop Intermedio (B1 - B2) Lu, Mi y Vi de 7:15 a 8:45 pm",
+                  "value": "Speaking Workshop Intermedio (B1 - B2) Lu, Mi y Vi de 7:15 a 8:45 pm"
+                },
+                {
+                  "name": "Reading Workshop Pre y Starters A1 (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm",
+                  "value": "Reading Workshop Pre y Starters A1 (Taller de Lectura en Inglés) Sábado de 12:00 a 1:00 pm"
+                },
+                {
+                  "name": "English Pre Starters (5 - 7 años)_Lu, Mi y Vi de 4:30 a 5:30 pm ",
+                  "value": "English Pre Starters (5 - 7 años)_Lu, Mi y Vi de 4:30 a 5:30 pm "
+                },
+                {
+                  "name": "English Movers (7 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm",
+                  "value": "English Movers (7 a 9 años)_Lu, Mi, Vi de 4:30 - 5:30 pm"
+                },
+                {
+                  "name": "Taller de Speaking niños (A1-A2) Ma y Ju de 6:30 a 8:00 pm",
+                  "value": "Taller de Speaking niños (A1-A2) Ma y Ju de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Ma y Ju de 7:00 a 8:00 pm y Sab de 10:30 a 11:30 am",
+                  "value": "English Starters (8 a 11 años)_Ma y Ju de 7:00 a 8:00 pm y Sab de 10:30 a 11:30 am"
+                },
+                {
+                  "name": "English PET/B1 (jóvenes)_Lu, Mi, Vi de 9:00 a 10:30 pm",
+                  "value": "English PET/B1 (jóvenes)_Lu, Mi, Vi de 9:00 a 10:30 pm"
+                },
+                {
+                  "name": "English KET/A2 (Jóvenes)_Lu, Mi, Vi de 8:10 a 9:40 pm",
+                  "value": "English KET/A2 (Jóvenes)_Lu, Mi, Vi de 8:10 a 9:40 pm"
+                },
+                {
+                  "name": "Taller de Speaking jóvenes (B1 - B2) Lu y Mi de 8:10 a 9:40 pm",
+                  "value": "Taller de Speaking jóvenes (B1 - B2) Lu y Mi de 8:10 a 9:40 pm"
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Ma y Ju de 5:45 a 6:45 pm y Sáb de 12-1:00 pm",
+                  "value": "English Movers (9 a 12 años)_Ma y Ju de 5:45 a 6:45 pm y Sáb de 12-1:00 pm"
+                },
+                {
+                  "name": "English Pre Starters (5 - 7 años)_Lu,Mi y Vi de 4:30 a 5:30 pm",
+                  "value": "English Pre Starters (5 - 7 años)_Lu,Mi y Vi de 4:30 a 5:30 pm"
+                },
+                {
+                  "name": "English Pre Starters Kinder (4-5 años)_Lu, Mi y Vi de 4:30 a 5:30 pm ",
+                  "value": "English Pre Starters Kinder (4-5 años)_Lu, Mi y Vi de 4:30 a 5:30 pm "
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:00 pm",
+                  "value": "English Movers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:00 pm"
+                },
+                {
+                  "name": "English Starters (9 a 12 años)_Ma y Ju de 5:30 a 6:30 pm y Sab de 9:00 a 10:00 am",
+                  "value": "English Starters (9 a 12 años)_Ma y Ju de 5:30 a 6:30 pm y Sab de 9:00 a 10:00 am"
+                },
+                {
+                  "name": "English Starters (9 a 12 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am",
+                  "value": "English Starters (9 a 12 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am"
+                },
+                {
+                  "name": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb  10:00 a 11:30 am",
+                  "value": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb  10:00 a 11:30 am"
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 6:30 a 8:00 pm",
+                  "value": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English Flyers (10 a 14 años)_Lu, Mi, Vi de 5:45 a 7:15 pm ",
+                  "value": "English Flyers (10 a 14 años)_Lu, Mi, Vi de 5:45 a 7:15 pm "
+                },
+                {
+                  "name": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am",
+                  "value": "English Básico A1 (12 años a +)_Ma y Ju de 6:30-8:00 pm y Sáb 8:10 a 9:40 am"
+                },
+                {
+                  "name": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 7:30 a 9:00 pm",
+                  "value": "English FCE/B2 (jóvenes)_Lu, Mi, Vi de 7:30 a 9:00 pm"
+                },
+                {
+                  "name": "English PET/B1 (Adolescentes)_Lu, Mi, Vi de 6:30 a 8:00 pm",
+                  "value": "English PET/B1 (Adolescentes)_Lu, Mi, Vi de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:45 a 6:45 pm (Prep Exámen Starters)",
+                  "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:45 a 6:45 pm (Prep Exámen Starters)"
+                },
+                {
+                  "name": "Clases privadas ",
+                  "value": "Clases privadas "
+                },
+                {
+                  "name": "English Pre Starters (5 - 7 años)_Lu,Mi y Vi de 5:45 a 6:45 pm",
+                  "value": "English Pre Starters (5 - 7 años)_Lu,Mi y Vi de 5:45 a 6:45 pm"
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am",
+                  "value": "English Starters (8 a 11 años)_Ma y Ju de 5:15 a 6:15 pm y Sab de 10:30 a 11:30 am"
+                },
+                {
+                  "name": "CAE Advanced C1 (jóvenes)_Ma, Ju de 7:30 a 9:00 pm y Sá de 7:30 a 9:00 am ",
+                  "value": "CAE Advanced C1 (jóvenes)_Ma, Ju de 7:30 a 9:00 pm y Sá de 7:30 a 9:00 am "
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Lu, Mi, Vi de 7:00 a 8:00 pm ",
+                  "value": "English Starters (8 a 11 años)_Lu, Mi, Vi de 7:00 a 8:00 pm "
+                },
+                {
+                  "name": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:15 pm (Prep Exámen Starters)",
+                  "value": "English Starters (8 a 10 años)_Lu, Mi, Vi de 5:15 a 6:15 pm (Prep Exámen Starters)"
+                },
+                {
+                  "name": "English Pre Starters (5 - 7 años)_Ma- Ju de 5:45 a 6:45 pm y Sáb de 10:30 a 11:30 am (nuevo)",
+                  "value": "English Pre Starters (5 - 7 años)_Ma- Ju de 5:45 a 6:45 pm y Sáb de 10:30 a 11:30 am (nuevo)"
+                },
+                {
+                  "name": "Taller de Speaking Intermedio_(A2->B1)_Sábados de 10:00 a 11:30 am",
+                  "value": "Taller de Speaking Intermedio_(A2->B1)_Sábados de 10:00 a 11:30 am"
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Ma y Ju de 5:45 a 6:45 pm y Sab de 10:30 a 11:30 am (Nuevo)",
+                  "value": "English Starters (8 a 11 años)_Ma y Ju de 5:45 a 6:45 pm y Sab de 10:30 a 11:30 am (Nuevo)"
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm (Nuevo)",
+                  "value": "English Starters (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm (Nuevo)"
+                },
+                {
+                  "name": "Taller de Speaking niños (A1->A2)_Ma y Ju de 6:30 a 8:00 pm",
+                  "value": "Taller de Speaking niños (A1->A2)_Ma y Ju de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English A2 (10 a 14 años)_Ma y Ju de 4:45-6:15 pm y Sáb de 10-11:30 am",
+                  "value": "English A2 (10 a 14 años)_Ma y Ju de 4:45-6:15 pm y Sáb de 10-11:30 am"
+                },
+                {
+                  "name": "English Pre Starters (5 - 7 años)_Ma- Ju de 5:45 a 6:45 pm y Sáb de 10:30 a 11:30 am",
+                  "value": "English Pre Starters (5 - 7 años)_Ma- Ju de 5:45 a 6:45 pm y Sáb de 10:30 a 11:30 am"
+                },
+                {
+                  "name": "English Básico A1 (12 años a +)_Ma y Ju de 7:00-8:30 pm y Sáb 12:00 pm a 1:30 pm",
+                  "value": "English Básico A1 (12 años a +)_Ma y Ju de 7:00-8:30 pm y Sáb 12:00 pm a 1:30 pm"
+                },
+                {
+                  "name": "English Starters (8 a 11 años)_Ma y Ju de 7:00 a 8:00 pm y Sab de 11:45 a 12:45 pm ",
+                  "value": "English Starters (8 a 11 años)_Ma y Ju de 7:00 a 8:00 pm y Sab de 11:45 a 12:45 pm "
+                },
+                {
+                  "name": "English Starters (6 - 7 años)_Lu,Mi y Vi de 5:45 a 6:45 pm ",
+                  "value": "English Starters (6 - 7 años)_Lu,Mi y Vi de 5:45 a 6:45 pm "
+                },
+                {
+                  "name": "English Starters (9 - 12 años)_Lu,Mi y Vi de 8:00 a 9:00 am VERANO ENERO - FEBRERO",
+                  "value": "English Starters (9 - 12 años)_Lu,Mi y Vi de 8:00 a 9:00 am VERANO ENERO - FEBRERO"
+                },
+                {
+                  "name": "English Flyers (9 a 12 años)_Lu, Mi y Vi 5:00 a 6:30 pm",
+                  "value": "English Flyers (9 a 12 años)_Lu, Mi y Vi 5:00 a 6:30 pm"
+                },
+                {
+                  "name": "English KET/A2 (11 a 14 años)_Lu, Mi, Vi de 6:15 a 7:45 pm",
+                  "value": "English KET/A2 (11 a 14 años)_Lu, Mi, Vi de 6:15 a 7:45 pm"
+                },
+                {
+                  "name": "English KET/A2 (14+ años)_Lu, Mi, Vi de 8:10 a 9:40 pm (Nuevo)",
+                  "value": "English KET/A2 (14+ años)_Lu, Mi, Vi de 8:10 a 9:40 pm (Nuevo)"
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Lu, Mi y Vi de 6:45 a 7:45 pm",
+                  "value": "English Movers (9 a 12 años)_Lu, Mi y Vi de 6:45 a 7:45 pm"
+                },
+                {
+                  "name": "English Básico A1 (jóvenes)_Lu, Mi, Vi de 8:00 a 9:30 pm",
+                  "value": "English Básico A1 (jóvenes)_Lu, Mi, Vi de 8:00 a 9:30 pm"
+                },
+                {
+                  "name": "English Starters (9 a 12 años)_Lu, Mi, Vi de 5:00 a 6:00 pm",
+                  "value": "English Starters (9 a 12 años)_Lu, Mi, Vi de 5:00 a 6:00 pm"
+                },
+                {
+                  "name": "English Movers (9 a 12 años)_Ma y Ju de 6:30 a 7:30 pm y Sáb de 11:45 a 12:45 pm",
+                  "value": "English Movers (9 a 12 años)_Ma y Ju de 6:30 a 7:30 pm y Sáb de 11:45 a 12:45 pm"
+                },
+                {
+                  "name": "English Starters (9 a 12 años)_Lu, Mi, Vi de 7:00 a 8:00 pm  ",
+                  "value": "English Starters (9 a 12 años)_Lu, Mi, Vi de 7:00 a 8:00 pm  "
+                },
+                {
+                  "name": "Taller de Speaking 14+ años (B1/B2)_Ma y Ju de 6:30 a 8:00 pm",
+                  "value": "Taller de Speaking 14+ años (B1/B2)_Ma y Ju de 6:30 a 8:00 pm"
+                },
+                {
+                  "name": "English Pre Starters (6 - 8 años)_Lu,Mi y Vi de 9:15 a 10:15 am VERANO ENERO - FEBRERO",
+                  "value": "English Pre Starters (6 - 8 años)_Lu,Mi y Vi de 9:15 a 10:15 am VERANO ENERO - FEBRERO"
+                },
+                {
+                  "name": "English FCE/B2 (14+ años)_Lu, Mi, Vi de 7:30 a 9:00 pm",
+                  "value": "English FCE/B2 (14+ años)_Lu, Mi, Vi de 7:30 a 9:00 pm"
+                },
+                {
+                  "name": "English Pre Starters (6 - 8 años)_Ma- Ju de 5:00 a 6:00 pm y Sáb de 10:00 a 11:00 am",
+                  "value": "English Pre Starters (6 - 8 años)_Ma- Ju de 5:00 a 6:00 pm y Sáb de 10:00 a 11:00 am"
+                },
+                {
+                  "name": "English PET/B1 (14+ años)_Lu, Mi, Vi de 8:00 a 9:30 pm (Nuevo)",
+                  "value": "English PET/B1 (14+ años)_Lu, Mi, Vi de 8:00 a 9:30 pm (Nuevo)"
+                },
+                {
+                  "name": "Taller de Speaking 14+ años (B1/B2)_Ma y Ju de 7:50 a 9:20 pm",
+                  "value": "Taller de Speaking 14+ años (B1/B2)_Ma y Ju de 7:50 a 9:20 pm"
+                },
+                {
+                  "name": "English Starters (9 a 12 años)_Lu, Mi, Vi de 5:45 a 6:45 pm ",
+                  "value": "English Starters (9 a 12 años)_Lu, Mi, Vi de 5:45 a 6:45 pm "
+                },
+                {
+                  "name": "English Flyers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:30 pm",
+                  "value": "English Flyers (9 a 12 años)_Lu, Mi y Vi de 7:00 a 8:30 pm"
+                },
+                {
+                  "name": "English Pre Starters Kinder (4 - 5 años)_Ma y Ju de 4:30 a 5:30 pm",
+                  "value": "English Pre Starters Kinder (4 - 5 años)_Ma y Ju de 4:30 a 5:30 pm"
+                },
+                {
+                  "name": "English Movers (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm",
+                  "value": "English Movers (8 a 11 años)_Lu, Mi, Vi de 5:45 a 6:45 pm"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Ciudad",
+              "displayName": "Ciudad",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Nivel de Ingles del apoderado",
+              "displayName": "Nivel de Ingles del apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Básico",
+                  "value": "Básico"
+                },
+                {
+                  "name": "No se mi nivel de inglés",
+                  "value": "No se mi nivel de inglés"
+                },
+                {
+                  "name": "Intermedio",
+                  "value": "Intermedio"
+                },
+                {
+                  "name": "Nunca he estudiado inglés",
+                  "value": "Nunca he estudiado inglés"
+                },
+                {
+                  "name": "Avanzado",
+                  "value": "Avanzado"
+                },
+                {
+                  "name": "",
+                  "value": ""
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CP1",
+              "displayName": "CP1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "CP2",
+              "displayName": "CP2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "PEN",
+              "displayName": "PEN",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Created",
+              "displayName": "Created",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nuevo cliente aprobado",
+              "displayName": "Nuevo cliente aprobado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Clientes",
+              "displayName": "Clientes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "n8n formulario",
+              "displayName": "n8n formulario",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ID 2",
+              "displayName": "ID 2",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Nueva venta aprobado",
+              "displayName": "Nueva venta aprobado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Pais estudiante",
+              "displayName": "Pais estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "record_id",
+              "displayName": "record_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Grupos",
+              "displayName": "Grupos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "USD",
+              "displayName": "USD",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "DetalleVentas",
+              "displayName": "DetalleVentas",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id_escenario_n8n",
+              "displayName": "id_escenario_n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "id_ejecucion_n8n",
+              "displayName": "id_ejecucion_n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Pais apoderado",
+              "displayName": "Pais apoderado",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "cel_final",
+              "displayName": "cel_final",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Edad estudiante",
+              "displayName": "Edad estudiante",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Cel Estudiante (from Clientes)",
+              "displayName": "Cel Estudiante (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Cel Apoderado (from Clientes)",
+              "displayName": "Cel Apoderado (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "url_revision_n8n",
+              "displayName": "url_revision_n8n",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Usuarios (from Clientes)",
+              "displayName": "Usuarios (from Clientes)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Tally formulario",
+              "displayName": "Tally formulario",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Meses a renovar",
+              "displayName": "Meses a renovar",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1152,
+        -176
+      ],
+      "id": "5c149e9c-2531-433a-af62-7ad44a7d7b3f",
+      "name": "crear registro - preventa",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "execution_entity",
+          "mode": "name"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        432,
+        0
+      ],
+      "id": "a31e8529-3513-4b25-ba5d-c92287b751f7",
+      "name": "Select rows from a table2",
+      "credentials": {
+        "postgres": {
+          "id": "03h99CCgQN0WXTMc",
+          "name": "Postgres_n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "71dd00b2-2e80-4741-9c4c-45c8d7dca32b",
+              "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+              "rightValue": "Error",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "b848ecbd-d50f-4ab8-b9e0-4764da502a44",
+              "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+              "rightValue": "Canceled",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "e67689a0-0e1c-4112-870e-811d75276c45",
+              "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+              "rightValue": "Success",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "84d163c1-dfd0-4cc9-adb3-5b3936be99a9",
+              "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+              "rightValue": "Queued",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        640,
+        0
+      ],
+      "id": "15bb8fe3-f5bc-4cfd-b9bd-3c6e6ac36532",
+      "name": "termino ejecucion?"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}_tally_a_preventa_detalles_venta",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        912,
+        -176
+      ],
+      "id": "62f5efaa-b806-4f13-959e-30b71befcae6",
+      "name": "Detalles_venta",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "=13015_tally_a_preventa_detalles_venta",
+        "messageData": "reczZqdZmDOU9uiqs"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        288,
+        -592
+      ],
+      "id": "43ffe12d-11b2-4e98-bd2a-dc53303d0e97",
+      "name": "Detalles_venta1",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "13015_tally_a_preventa_detalles_venta"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        560,
+        -576
+      ],
+      "id": "525c436f-6e06-4e1e-8039-9a7bcd556d4b",
+      "name": "Detalles_venta2",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        -176
+      ],
+      "id": "87aae5d5-86bc-4f55-9cb4-adf69d86700c",
+      "name": "Redis2",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}_tally_a_preventa_detalles_venta"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1376,
+        -176
+      ],
+      "id": "508922d8-6419-4bfe-b4af-b4e4f2c6d8ca",
+      "name": "Detalles_venta3",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "nombre_estudiante": "Jamill Lopez",
+          "cel_estudiante": "+51954786298",
+          "edad_estudiante": 23,
+          "meses_renovar": 1,
+          "url_comprobantes": [
+            "https://storage.tally.so/private/Screenshot_2026-04-27-15-28-25-42_0c5586e5351f32d12227bf33fa12a59b.jpg?id=8EPLPP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhFUExQUCIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3NzMyMTczMH0.MI-wPA-s8vBwCWiemt7EKxbBteqpV0_wOju_Qz-jHnI&signature=aeff08a0466e8da00a221e13f87b685a9832f536430dfb42b85badd8f6ee9c0b"
+          ],
+          "id_cliente_airtable": "",
+          "canal": "recg6U1VDaLmltbmF",
+          "id_ejecucion": "13015",
+          "id_workflow": "rWCBcWDXBlVMFipc"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-05-05T17:29:40.646Z",
+      "createdAt": "2026-05-05T17:29:40.646Z",
+      "role": "workflow:owner",
+      "workflowId": "hVwwbIHPStjXUus1",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-05-05T21:26:33.785Z",
+  "versionId": "fb47a310-28ab-446b-b6b1-9692f3fafa44"
+}
