@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-04T22:29:25.923Z",
-    "createdAt": "2026-05-04T22:29:24.669Z",
-    "versionId": "685e63ba-c991-484e-9e5c-585d51b55363",
+    "updatedAt": "2026-05-05T14:38:19.152Z",
+    "createdAt": "2026-05-05T14:38:14.572Z",
+    "versionId": "f2f022fc-1b12-4861-94cf-9aebfe25cd91",
     "workflowId": "sBvknclren47zgZc",
     "nodes": [
       {
@@ -186,7 +186,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          1168,
+          1376,
           224
         ],
         "id": "4946e018-e6aa-468c-b603-86e72bdd0ab0",
@@ -304,7 +304,7 @@
         "type": "n8n-nodes-base.redis",
         "typeVersion": 1,
         "position": [
-          1424,
+          1168,
           224
         ],
         "id": "2a4d101a-2ca5-411a-a32d-e72d7324bb08",
@@ -373,7 +373,7 @@
         "main": [
           [
             {
-              "node": "Redis1",
+              "node": "info_apoderado_final",
               "type": "main",
               "index": 0
             }
@@ -384,7 +384,7 @@
         "main": [
           [
             {
-              "node": "info_apoderado1",
+              "node": "Redis1",
               "type": "main",
               "index": 0
             }
@@ -406,7 +406,7 @@
         "main": [
           [
             {
-              "node": "info_apoderado_final",
+              "node": "info_apoderado1",
               "type": "main",
               "index": 0
             }
@@ -415,11 +415,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 685e63ba",
+    "name": "Version f2f022fc",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "685e63ba-c991-484e-9e5c-585d51b55363",
+  "activeVersionId": "f2f022fc-1b12-4861-94cf-9aebfe25cd91",
   "connections": {
     "verificar si existe apoderado": {
       "main": [
@@ -476,7 +476,7 @@
       "main": [
         [
           {
-            "node": "Redis1",
+            "node": "info_apoderado_final",
             "type": "main",
             "index": 0
           }
@@ -487,7 +487,7 @@
       "main": [
         [
           {
-            "node": "info_apoderado1",
+            "node": "Redis1",
             "type": "main",
             "index": 0
           }
@@ -509,7 +509,7 @@
       "main": [
         [
           {
-            "node": "info_apoderado_final",
+            "node": "info_apoderado1",
             "type": "main",
             "index": 0
           }
@@ -705,7 +705,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1168,
+        1376,
         224
       ],
       "id": "4946e018-e6aa-468c-b603-86e72bdd0ab0",
@@ -823,7 +823,7 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        1424,
+        1168,
         224
       ],
       "id": "2a4d101a-2ca5-411a-a32d-e72d7324bb08",
@@ -840,7 +840,7 @@
     "verificar si existe apoderado": [
       {
         "json": {
-          "correo": "carmenaju907@gmail.com"
+          "correo": "steff.garcia125@gmail.com"
         },
         "pairedItem": {
           "item": 0
@@ -867,6 +867,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-05-04T22:29:24.667Z",
-  "versionId": "685e63ba-c991-484e-9e5c-585d51b55363"
+  "updatedAt": "2026-05-05T14:38:14.569Z",
+  "versionId": "f2f022fc-1b12-4861-94cf-9aebfe25cd91"
 }
