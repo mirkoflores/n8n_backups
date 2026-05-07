@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-05T21:26:34.974Z",
-    "createdAt": "2026-05-05T21:26:33.788Z",
-    "versionId": "fb47a310-28ab-446b-b6b1-9692f3fafa44",
+    "updatedAt": "2026-05-06T14:14:30.421Z",
+    "createdAt": "2026-05-06T14:14:29.076Z",
+    "versionId": "c3073b61-c5f4-4133-aceb-435a08401bb7",
     "workflowId": "hVwwbIHPStjXUus1",
     "nodes": [
       {
@@ -20,7 +20,9 @@
         "name": "When Executed by Another Workflow"
       },
       {
-        "parameters": {},
+        "parameters": {
+          "amount": 18
+        },
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
@@ -1226,8 +1228,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1152,
-          -176
+          1376,
+          -224
         ],
         "id": "5c149e9c-2531-433a-af62-7ad44a7d7b3f",
         "name": "crear registro - preventa",
@@ -1291,7 +1293,7 @@
               {
                 "id": "71dd00b2-2e80-4741-9c4c-45c8d7dca32b",
                 "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
-                "rightValue": "Error",
+                "rightValue": "error",
                 "operator": {
                   "type": "string",
                   "operation": "equals"
@@ -1300,7 +1302,7 @@
               {
                 "id": "b848ecbd-d50f-4ab8-b9e0-4764da502a44",
                 "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
-                "rightValue": "Canceled",
+                "rightValue": "canceled",
                 "operator": {
                   "type": "string",
                   "operation": "equals",
@@ -1310,7 +1312,7 @@
               {
                 "id": "e67689a0-0e1c-4112-870e-811d75276c45",
                 "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
-                "rightValue": "Success",
+                "rightValue": "success",
                 "operator": {
                   "type": "string",
                   "operation": "equals",
@@ -1320,7 +1322,7 @@
               {
                 "id": "84d163c1-dfd0-4cc9-adb3-5b3936be99a9",
                 "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
-                "rightValue": "Queued",
+                "rightValue": "queued",
                 "operator": {
                   "type": "string",
                   "operation": "equals",
@@ -1350,8 +1352,8 @@
         "type": "n8n-nodes-base.redis",
         "typeVersion": 1,
         "position": [
-          912,
-          -176
+          1136,
+          -224
         ],
         "id": "62f5efaa-b806-4f13-959e-30b71befcae6",
         "name": "Detalles_venta",
@@ -1405,18 +1407,17 @@
       },
       {
         "parameters": {
-          "operation": "push",
-          "list": "={{ $execution.id }}_id_airtable",
-          "messageData": "={{ $json.id }}"
+          "operation": "delete",
+          "key": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}_tally_a_preventa_detalles_venta"
         },
         "type": "n8n-nodes-base.redis",
         "typeVersion": 1,
         "position": [
           1600,
-          -176
+          -224
         ],
-        "id": "87aae5d5-86bc-4f55-9cb4-adf69d86700c",
-        "name": "Redis2",
+        "id": "508922d8-6419-4bfe-b4af-b4e4f2c6d8ca",
+        "name": "Detalles_venta3",
         "credentials": {
           "redis": {
             "id": "B8dgg7MNeg3CEDZR",
@@ -1426,17 +1427,72 @@
       },
       {
         "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "b0bab204-5556-4061-ac1b-64e4f0a4f707",
+                "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+                "rightValue": "success",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals",
+                  "name": "filter.operator.equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          880,
+          -128
+        ],
+        "id": "889c27fc-5a9a-4e28-b0b8-2c9db62a8790",
+        "name": "solo debe ser succes1"
+      },
+      {
+        "parameters": {
           "operation": "delete",
           "key": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}_tally_a_preventa_detalles_venta"
         },
         "type": "n8n-nodes-base.redis",
         "typeVersion": 1,
         "position": [
-          1376,
-          -176
+          1136,
+          -16
         ],
-        "id": "508922d8-6419-4bfe-b4af-b4e4f2c6d8ca",
-        "name": "Detalles_venta3",
+        "id": "c7adf4da-e58b-4e2a-b238-94c7018d9e9b",
+        "name": "Detalles_venta4",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1824,
+          -224
+        ],
+        "id": "87aae5d5-86bc-4f55-9cb4-adf69d86700c",
+        "name": "airtable_seguimiento",
         "credentials": {
           "redis": {
             "id": "B8dgg7MNeg3CEDZR",
@@ -1483,7 +1539,7 @@
         "main": [
           [
             {
-              "node": "Detalles_venta",
+              "node": "solo debe ser succes1",
               "type": "main",
               "index": 0
             }
@@ -1523,20 +1579,43 @@
         "main": [
           [
             {
-              "node": "Redis2",
+              "node": "airtable_seguimiento",
               "type": "main",
               "index": 0
             }
           ]
         ]
+      },
+      "solo debe ser succes1": {
+        "main": [
+          [
+            {
+              "node": "Detalles_venta",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Detalles_venta4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Detalles_venta4": {
+        "main": [
+          []
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version fb47a310",
+    "name": "Version c3073b61",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "fb47a310-28ab-446b-b6b1-9692f3fafa44",
+  "activeVersionId": "c3073b61-c5f4-4133-aceb-435a08401bb7",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -1575,7 +1654,7 @@
       "main": [
         [
           {
-            "node": "Detalles_venta",
+            "node": "solo debe ser succes1",
             "type": "main",
             "index": 0
           }
@@ -1615,11 +1694,34 @@
       "main": [
         [
           {
-            "node": "Redis2",
+            "node": "airtable_seguimiento",
             "type": "main",
             "index": 0
           }
         ]
+      ]
+    },
+    "solo debe ser succes1": {
+      "main": [
+        [
+          {
+            "node": "Detalles_venta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Detalles_venta4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Detalles_venta4": {
+      "main": [
+        []
       ]
     }
   },
@@ -1645,7 +1747,9 @@
       "name": "When Executed by Another Workflow"
     },
     {
-      "parameters": {},
+      "parameters": {
+        "amount": 18
+      },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
@@ -2851,8 +2955,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1152,
-        -176
+        1376,
+        -224
       ],
       "id": "5c149e9c-2531-433a-af62-7ad44a7d7b3f",
       "name": "crear registro - preventa",
@@ -2916,7 +3020,7 @@
             {
               "id": "71dd00b2-2e80-4741-9c4c-45c8d7dca32b",
               "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
-              "rightValue": "Error",
+              "rightValue": "error",
               "operator": {
                 "type": "string",
                 "operation": "equals"
@@ -2925,7 +3029,7 @@
             {
               "id": "b848ecbd-d50f-4ab8-b9e0-4764da502a44",
               "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
-              "rightValue": "Canceled",
+              "rightValue": "canceled",
               "operator": {
                 "type": "string",
                 "operation": "equals",
@@ -2935,7 +3039,7 @@
             {
               "id": "e67689a0-0e1c-4112-870e-811d75276c45",
               "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
-              "rightValue": "Success",
+              "rightValue": "success",
               "operator": {
                 "type": "string",
                 "operation": "equals",
@@ -2945,7 +3049,7 @@
             {
               "id": "84d163c1-dfd0-4cc9-adb3-5b3936be99a9",
               "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
-              "rightValue": "Queued",
+              "rightValue": "queued",
               "operator": {
                 "type": "string",
                 "operation": "equals",
@@ -2975,8 +3079,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        912,
-        -176
+        1136,
+        -224
       ],
       "id": "62f5efaa-b806-4f13-959e-30b71befcae6",
       "name": "Detalles_venta",
@@ -3030,18 +3134,17 @@
     },
     {
       "parameters": {
-        "operation": "push",
-        "list": "={{ $execution.id }}_id_airtable",
-        "messageData": "={{ $json.id }}"
+        "operation": "delete",
+        "key": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}_tally_a_preventa_detalles_venta"
       },
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
         1600,
-        -176
+        -224
       ],
-      "id": "87aae5d5-86bc-4f55-9cb4-adf69d86700c",
-      "name": "Redis2",
+      "id": "508922d8-6419-4bfe-b4af-b4e4f2c6d8ca",
+      "name": "Detalles_venta3",
       "credentials": {
         "redis": {
           "id": "B8dgg7MNeg3CEDZR",
@@ -3051,17 +3154,72 @@
     },
     {
       "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b0bab204-5556-4061-ac1b-64e4f0a4f707",
+              "leftValue": "={{ $('Select rows from a table2').item.json.status }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        880,
+        -128
+      ],
+      "id": "889c27fc-5a9a-4e28-b0b8-2c9db62a8790",
+      "name": "solo debe ser succes1"
+    },
+    {
+      "parameters": {
         "operation": "delete",
         "key": "={{ $('When Executed by Another Workflow').item.json.id_ejecucion }}_tally_a_preventa_detalles_venta"
       },
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        1376,
-        -176
+        1136,
+        -16
       ],
-      "id": "508922d8-6419-4bfe-b4af-b4e4f2c6d8ca",
-      "name": "Detalles_venta3",
+      "id": "c7adf4da-e58b-4e2a-b238-94c7018d9e9b",
+      "name": "Detalles_venta4",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1824,
+        -224
+      ],
+      "id": "87aae5d5-86bc-4f55-9cb4-adf69d86700c",
+      "name": "airtable_seguimiento",
       "credentials": {
         "redis": {
           "id": "B8dgg7MNeg3CEDZR",
@@ -3074,16 +3232,16 @@
     "When Executed by Another Workflow": [
       {
         "json": {
-          "nombre_estudiante": "Jamill Lopez",
-          "cel_estudiante": "+51954786298",
-          "edad_estudiante": 23,
+          "nombre_estudiante": "Luciano Valentino Ugarte Quinto ",
+          "cel_estudiante": "+51946592959",
+          "edad_estudiante": 9,
           "meses_renovar": 1,
           "url_comprobantes": [
-            "https://storage.tally.so/private/Screenshot_2026-04-27-15-28-25-42_0c5586e5351f32d12227bf33fa12a59b.jpg?id=8EPLPP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhFUExQUCIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3NzMyMTczMH0.MI-wPA-s8vBwCWiemt7EKxbBteqpV0_wOju_Qz-jHnI&signature=aeff08a0466e8da00a221e13f87b685a9832f536430dfb42b85badd8f6ee9c0b"
+            "https://storage.tally.so/private/IMG-20260505-WA0030.jpg?id=B9qrpY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkI5cXJwWSIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3ODAyMzU5OX0.OVx6PvVlYm2FBGqleBd19ELlJo7zZDp0JR7SMwSE8jo&signature=2422a7edb2da23c0066e3bb19da8cbe4ec6847e7d65fe7295008f16da457a56b"
           ],
-          "id_cliente_airtable": "",
+          "id_cliente_airtable": "reclMOAqDQUxrpQRa",
           "canal": "recg6U1VDaLmltbmF",
-          "id_ejecucion": "13015",
+          "id_ejecucion": "13286",
           "id_workflow": "rWCBcWDXBlVMFipc"
         },
         "pairedItem": {
@@ -3114,6 +3272,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-05-05T21:26:33.785Z",
-  "versionId": "fb47a310-28ab-446b-b6b1-9692f3fafa44"
+  "updatedAt": "2026-05-06T14:14:29.073Z",
+  "versionId": "c3073b61-c5f4-4133-aceb-435a08401bb7"
 }
