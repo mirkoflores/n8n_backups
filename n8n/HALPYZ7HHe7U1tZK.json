@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-05T14:50:57.895Z",
-    "createdAt": "2026-05-05T14:50:45.643Z",
-    "versionId": "18fab350-6aff-4a52-960c-c4ab8e43be31",
+    "updatedAt": "2026-05-11T04:03:02.074Z",
+    "createdAt": "2026-05-11T04:02:59.776Z",
+    "versionId": "8842bc34-e0ba-4d41-87f5-8b166fa8d05d",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -755,7 +755,7 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          2032,
+          2160,
           1040
         ],
         "id": "fe95589e-5f05-41ee-bcae-cdb1a17b477a",
@@ -1002,44 +1002,6 @@
         ],
         "id": "bd4d6312-edc8-4f15-9a43-6d178d82a788",
         "name": "obtener registro - precios renovacion",
-        "executeOnce": false,
-        "alwaysOutputData": true,
-        "credentials": {
-          "airtableOAuth2Api": {
-            "id": "mylJqD7auLJ9sN2T",
-            "name": "Bioenglish_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "authentication": "airtableOAuth2Api",
-          "operation": "search",
-          "base": {
-            "__rl": true,
-            "value": "appBCL3CWLhCwIjnP",
-            "mode": "list",
-            "cachedResultName": "BioEnglish",
-            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
-          },
-          "table": {
-            "__rl": true,
-            "value": "tblNCKsSLcjBVDVID",
-            "mode": "list",
-            "cachedResultName": "Precios renovacion",
-            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblNCKsSLcjBVDVID"
-          },
-          "filterByFormula": "=AND(\n{Record ID (from Grupos)}=\"{{ $('variables_2').item.json.id_grupo }}\",\nDATETIME_PARSE(\"{{ $('variables_2').item.json.fecha_creacion_cliente }}\")<={Fecha disponible},{3 meses - precio renovación}!=BLANK()\n)",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.airtable",
-        "typeVersion": 2.1,
-        "position": [
-          2912,
-          864
-        ],
-        "id": "3ce310e2-42cc-4d61-8a27-33937d6685d1",
-        "name": "obtener registro - precios renovacion1",
         "executeOnce": false,
         "alwaysOutputData": true,
         "credentials": {
@@ -2013,27 +1975,6 @@
       },
       {
         "parameters": {
-          "operation": "push",
-          "list": "={{ $execution.id }}_id_airtable",
-          "messageData": "={{ $json.id }}"
-        },
-        "type": "n8n-nodes-base.redis",
-        "typeVersion": 1,
-        "position": [
-          1888,
-          1120
-        ],
-        "id": "06f940d7-221c-4340-a6f7-6ed966f2346c",
-        "name": "Redis4",
-        "credentials": {
-          "redis": {
-            "id": "B8dgg7MNeg3CEDZR",
-            "name": "Redis_1"
-          }
-        }
-      },
-      {
-        "parameters": {
           "errorMessage": "no son soles (revision)"
         },
         "type": "n8n-nodes-base.stopAndError",
@@ -2112,6 +2053,44 @@
         ],
         "id": "ce0b5ecd-4ae6-40ba-a039-858430ab790f",
         "name": "Stop and Error2"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appBCL3CWLhCwIjnP",
+            "mode": "list",
+            "cachedResultName": "BioEnglish",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblNCKsSLcjBVDVID",
+            "mode": "list",
+            "cachedResultName": "Precios renovacion",
+            "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblNCKsSLcjBVDVID"
+          },
+          "filterByFormula": "=AND(\n{Record ID (from Grupos)}=\"{{ $('variables_2').item.json.id_grupo }}\",\nDATETIME_PARSE(\"{{ $('variables_2').item.json.fecha_creacion_cliente }}\")<={Fecha disponible},{3 meses - precio renovación}!=BLANK()\n)",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.1,
+        "position": [
+          2912,
+          864
+        ],
+        "id": "3ce310e2-42cc-4d61-8a27-33937d6685d1",
+        "name": "obtener registro - precios renovacion1",
+        "executeOnce": false,
+        "alwaysOutputData": true,
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "mylJqD7auLJ9sN2T",
+            "name": "Bioenglish_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -2362,17 +2341,6 @@
           ]
         ]
       },
-      "obtener registro - precios renovacion1": {
-        "main": [
-          [
-            {
-              "node": "3 _meses",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "obtener registro - precios renovacion2": {
         "main": [
           [
@@ -2557,7 +2525,7 @@
         "main": [
           [
             {
-              "node": "Redis4",
+              "node": "dependiendo de meses",
               "type": "main",
               "index": 0
             }
@@ -2713,17 +2681,6 @@
           ]
         ]
       },
-      "Redis4": {
-        "main": [
-          [
-            {
-              "node": "dependiendo de meses",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Redis5": {
         "main": [
           [
@@ -2745,14 +2702,25 @@
             }
           ]
         ]
+      },
+      "obtener registro - precios renovacion1": {
+        "main": [
+          [
+            {
+              "node": "3 _meses",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 18fab350",
+    "name": "Version 8842bc34",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "18fab350-6aff-4a52-960c-c4ab8e43be31",
+  "activeVersionId": "8842bc34-e0ba-4d41-87f5-8b166fa8d05d",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -3001,17 +2969,6 @@
         ]
       ]
     },
-    "obtener registro - precios renovacion1": {
-      "main": [
-        [
-          {
-            "node": "3 _meses",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "obtener registro - precios renovacion2": {
       "main": [
         [
@@ -3196,7 +3153,7 @@
       "main": [
         [
           {
-            "node": "Redis4",
+            "node": "dependiendo de meses",
             "type": "main",
             "index": 0
           }
@@ -3352,17 +3309,6 @@
         ]
       ]
     },
-    "Redis4": {
-      "main": [
-        [
-          {
-            "node": "dependiendo de meses",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Redis5": {
       "main": [
         [
@@ -3379,6 +3325,17 @@
         [
           {
             "node": "Url de renovacion corto vacio?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener registro - precios renovacion1": {
+      "main": [
+        [
+          {
+            "node": "3 _meses",
             "type": "main",
             "index": 0
           }
@@ -4143,7 +4100,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        2032,
+        2160,
         1040
       ],
       "id": "fe95589e-5f05-41ee-bcae-cdb1a17b477a",
@@ -4390,44 +4347,6 @@
       ],
       "id": "bd4d6312-edc8-4f15-9a43-6d178d82a788",
       "name": "obtener registro - precios renovacion",
-      "executeOnce": false,
-      "alwaysOutputData": true,
-      "credentials": {
-        "airtableOAuth2Api": {
-          "id": "mylJqD7auLJ9sN2T",
-          "name": "Bioenglish_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "airtableOAuth2Api",
-        "operation": "search",
-        "base": {
-          "__rl": true,
-          "value": "appBCL3CWLhCwIjnP",
-          "mode": "list",
-          "cachedResultName": "BioEnglish",
-          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblNCKsSLcjBVDVID",
-          "mode": "list",
-          "cachedResultName": "Precios renovacion",
-          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblNCKsSLcjBVDVID"
-        },
-        "filterByFormula": "=AND(\n{Record ID (from Grupos)}=\"{{ $('variables_2').item.json.id_grupo }}\",\nDATETIME_PARSE(\"{{ $('variables_2').item.json.fecha_creacion_cliente }}\")<={Fecha disponible},{3 meses - precio renovación}!=BLANK()\n)",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.1,
-      "position": [
-        2912,
-        864
-      ],
-      "id": "3ce310e2-42cc-4d61-8a27-33937d6685d1",
-      "name": "obtener registro - precios renovacion1",
       "executeOnce": false,
       "alwaysOutputData": true,
       "credentials": {
@@ -5401,27 +5320,6 @@
     },
     {
       "parameters": {
-        "operation": "push",
-        "list": "={{ $execution.id }}_id_airtable",
-        "messageData": "={{ $json.id }}"
-      },
-      "type": "n8n-nodes-base.redis",
-      "typeVersion": 1,
-      "position": [
-        1888,
-        1120
-      ],
-      "id": "06f940d7-221c-4340-a6f7-6ed966f2346c",
-      "name": "Redis4",
-      "credentials": {
-        "redis": {
-          "id": "B8dgg7MNeg3CEDZR",
-          "name": "Redis_1"
-        }
-      }
-    },
-    {
-      "parameters": {
         "errorMessage": "no son soles (revision)"
       },
       "type": "n8n-nodes-base.stopAndError",
@@ -5500,6 +5398,44 @@
       ],
       "id": "ce0b5ecd-4ae6-40ba-a039-858430ab790f",
       "name": "Stop and Error2"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appBCL3CWLhCwIjnP",
+          "mode": "list",
+          "cachedResultName": "BioEnglish",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblNCKsSLcjBVDVID",
+          "mode": "list",
+          "cachedResultName": "Precios renovacion",
+          "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblNCKsSLcjBVDVID"
+        },
+        "filterByFormula": "=AND(\n{Record ID (from Grupos)}=\"{{ $('variables_2').item.json.id_grupo }}\",\nDATETIME_PARSE(\"{{ $('variables_2').item.json.fecha_creacion_cliente }}\")<={Fecha disponible},{3 meses - precio renovación}!=BLANK()\n)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2912,
+        864
+      ],
+      "id": "3ce310e2-42cc-4d61-8a27-33937d6685d1",
+      "name": "obtener registro - precios renovacion1",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "mylJqD7auLJ9sN2T",
+          "name": "Bioenglish_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -5514,20 +5450,20 @@
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wflF0v8TmvsCxuuSu",
-            "x-forwarded-for": "34.229.78.99",
+            "x-forwarded-for": "3.214.217.141",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "apsC8qMEQ-6xzq3pBhdwDg",
-            "x-real-ip": "34.229.78.99",
-            "x-request-start": "1773723671120"
+            "x-railway-request-id": "kbuYmhp4SKSgVyN0Hn5Ytg",
+            "x-real-ip": "3.214.217.141",
+            "x-request-start": "1778389234484"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_upselling"
           },
           "body": {
-            "recordId": "reclsHuB15YTuzIrm",
+            "recordId": "rechVFXbGs0vHDwk1",
             "Tipo": "13_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
@@ -5561,6 +5497,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-05-05T14:50:45.641Z",
-  "versionId": "18fab350-6aff-4a52-960c-c4ab8e43be31"
+  "updatedAt": "2026-05-11T04:02:59.773Z",
+  "versionId": "8842bc34-e0ba-4d41-87f5-8b166fa8d05d"
 }
