@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-04T22:20:01.373Z",
-    "createdAt": "2026-05-04T22:19:59.998Z",
-    "versionId": "ce00c6af-5672-45d4-a9b7-c8f6020a62c6",
+    "updatedAt": "2026-05-19T17:24:53.199Z",
+    "createdAt": "2026-05-19T17:24:51.938Z",
+    "versionId": "a936aba9-40b0-46ee-a1b6-b63d73aa2389",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -2429,7 +2429,6 @@
           "columns": {
             "mappingMode": "defineBelow",
             "value": {
-              "No pago": false,
               "id": "={{ $('buscar registro - usuario').item.json.id }}",
               "Nombre completo": "={{ $('variables_1').item.json['nombre_de_dueño_numero'] }}"
             },
@@ -2478,7 +2477,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Email otros",
@@ -2489,7 +2488,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Grupo actual (from Clientes)",
@@ -2533,7 +2532,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Tipo",
@@ -2550,7 +2549,7 @@
                   }
                 ],
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Portal",
@@ -2561,7 +2560,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Grupo mes (from Portal)",
@@ -2583,7 +2582,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Portal Docente",
@@ -2594,7 +2593,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Tarea Enunciado",
@@ -2605,7 +2604,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Tarea Respuesta",
@@ -2616,7 +2615,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Asistencia",
@@ -2627,7 +2626,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Asistencia LM",
@@ -2660,7 +2659,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Created",
@@ -2682,7 +2681,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Feedback",
@@ -2693,7 +2692,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "DetalleVentas 2",
@@ -2704,7 +2703,7 @@
                 "display": true,
                 "type": "string",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "Clientes 2",
@@ -2715,7 +2714,7 @@
                 "display": true,
                 "type": "array",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "id_clientes",
@@ -2759,11 +2758,55 @@
                 "display": true,
                 "type": "boolean",
                 "readOnly": false,
-                "removed": false
+                "removed": true
               },
               {
                 "id": "record_id",
                 "displayName": "record_id",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Reportes",
+                "displayName": "Reportes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": true
+              },
+              {
+                "id": "Grupo mes (from Portal) Actual",
+                "displayName": "Grupo mes (from Portal) Actual",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Mes (from Grupo mes) (from Portal)",
+                "displayName": "Mes (from Grupo mes) (from Portal)",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Status suscripción (from Clientes 2)",
+                "displayName": "Status suscripción (from Clientes 2)",
                 "required": false,
                 "defaultMatch": false,
                 "canBeUsedToMatch": true,
@@ -3469,8 +3512,8 @@
         "type": "n8n-nodes-base.redis",
         "typeVersion": 1,
         "position": [
-          880,
-          96
+          1520,
+          48
         ],
         "id": "48ba1167-2c0a-4ad6-a992-a21c0bc77198",
         "name": "Redis1",
@@ -3771,7 +3814,7 @@
         "main": [
           [
             {
-              "node": "Redis1",
+              "node": "existe?1",
               "type": "main",
               "index": 0
             }
@@ -3782,7 +3825,7 @@
         "main": [
           [
             {
-              "node": "magich_link1",
+              "node": "Redis1",
               "type": "main",
               "index": 0
             }
@@ -3976,7 +4019,7 @@
         "main": [
           [
             {
-              "node": "existe?1",
+              "node": "magich_link1",
               "type": "main",
               "index": 0
             }
@@ -4040,11 +4083,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version ce00c6af",
+    "name": "Version a936aba9",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "ce00c6af-5672-45d4-a9b7-c8f6020a62c6",
+  "activeVersionId": "a936aba9-40b0-46ee-a1b6-b63d73aa2389",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -4229,7 +4272,7 @@
       "main": [
         [
           {
-            "node": "Redis1",
+            "node": "existe?1",
             "type": "main",
             "index": 0
           }
@@ -4240,7 +4283,7 @@
       "main": [
         [
           {
-            "node": "magich_link1",
+            "node": "Redis1",
             "type": "main",
             "index": 0
           }
@@ -4434,7 +4477,7 @@
       "main": [
         [
           {
-            "node": "existe?1",
+            "node": "magich_link1",
             "type": "main",
             "index": 0
           }
@@ -6928,7 +6971,6 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "No pago": false,
             "id": "={{ $('buscar registro - usuario').item.json.id }}",
             "Nombre completo": "={{ $('variables_1').item.json['nombre_de_dueño_numero'] }}"
           },
@@ -6977,7 +7019,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Email otros",
@@ -6988,7 +7030,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Grupo actual (from Clientes)",
@@ -7032,7 +7074,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Tipo",
@@ -7049,7 +7091,7 @@
                 }
               ],
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Portal",
@@ -7060,7 +7102,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Grupo mes (from Portal)",
@@ -7082,7 +7124,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Portal Docente",
@@ -7093,7 +7135,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Tarea Enunciado",
@@ -7104,7 +7146,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Tarea Respuesta",
@@ -7115,7 +7157,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Asistencia",
@@ -7126,7 +7168,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Asistencia LM",
@@ -7159,7 +7201,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Created",
@@ -7181,7 +7223,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Feedback",
@@ -7192,7 +7234,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "DetalleVentas 2",
@@ -7203,7 +7245,7 @@
               "display": true,
               "type": "string",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Clientes 2",
@@ -7214,7 +7256,7 @@
               "display": true,
               "type": "array",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "id_clientes",
@@ -7258,11 +7300,55 @@
               "display": true,
               "type": "boolean",
               "readOnly": false,
-              "removed": false
+              "removed": true
             },
             {
               "id": "record_id",
               "displayName": "record_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Reportes",
+              "displayName": "Reportes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Grupo mes (from Portal) Actual",
+              "displayName": "Grupo mes (from Portal) Actual",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Mes (from Grupo mes) (from Portal)",
+              "displayName": "Mes (from Grupo mes) (from Portal)",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Status suscripción (from Clientes 2)",
+              "displayName": "Status suscripción (from Clientes 2)",
               "required": false,
               "defaultMatch": false,
               "canBeUsedToMatch": true,
@@ -7968,8 +8054,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        880,
-        96
+        1520,
+        48
       ],
       "id": "48ba1167-2c0a-4ad6-a992-a21c0bc77198",
       "name": "Redis1",
@@ -8091,35 +8177,6 @@
       {
         "json": {
           "magich_link": "https://www.bioenglish.lat/magic-authentication?magic-token=a6488c372dea4ce5b06e14edc9b8fdf7"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "When Executed by Another Workflow": [
-      {
-        "json": {
-          "numero_completo_estudiante": "+51992271329 ",
-          "numero_completo_apoderado": "+51992271329",
-          "email_estudiante": "jannetbnh@gmail.com",
-          "email_apoderado": "jannetbnh@gmail.com",
-          "nombre_estudiante": "Fernanda valentina contreras quispe ",
-          "nombre_apoderado": "Jannet Quispe Aguirre ",
-          "monto_depositado": 750,
-          "tipo_de_moneda": "soles peruanos",
-          "pais_estudiante": "Perú",
-          "id_grupo": "recLjlYfPNPlTEIOb",
-          "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 43732522,
-          "pais_apoderado": "Perú",
-          "nivel_inglés_apoderado": "Básico",
-          "id_contacto_apoderado_airtable": "recApxeaZDbD0Flac",
-          "id_contacto_estudiante_airtable": "recVNeZV7iHk5FEHj",
-          "id_cliente_airtable": "rec95WDSpwF3QWuyy",
-          "id_preventa_airtable": "recWaiezdj4LvcbAo",
-          "id_detalles_venta_airtable": "rectj6wPrmzO3T53Q",
-          "id_grupo_ultimo_creado": "recS3OFuokb8s6h6P"
         },
         "pairedItem": {
           "item": 0
@@ -8250,15 +8307,33 @@
         }
       }
     ],
-    "buscar registro - usuario": [
+    "When Executed by Another Workflow": [
       {
-        "json": {},
-        "pairedItem": [
-          {
-            "item": 0,
-            "input": 0
-          }
-        ]
+        "json": {
+          "numero_completo_estudiante": "+51928241761",
+          "numero_completo_apoderado": "+51901526386",
+          "email_estudiante": "evhy_1617@hotmail.com",
+          "email_apoderado": "evhy_1617@hotmail.com",
+          "nombre_estudiante": "Fernando del Piero Sánchez Valdez ",
+          "nombre_apoderado": "Evelyn Valdez Rios ",
+          "monto_depositado": 155,
+          "tipo_de_moneda": "soles peruanos",
+          "pais_estudiante": "Perú",
+          "id_grupo": "reccjiyZ19rxAWkYG",
+          "tipo_estudiante": "Para mi hijo/hija",
+          "dni_apoderado": 45808145,
+          "pais_apoderado": "",
+          "nivel_inglés_apoderado": "Básico",
+          "id_contacto_apoderado_airtable": "rec9g7cz2DSMit8qh",
+          "id_contacto_estudiante_airtable": "recWD9Tx4MWvtU1SM",
+          "id_cliente_airtable": "recAios3h2ojyw9xG",
+          "id_preventa_airtable": "recO5OxHVYlLGorNO",
+          "id_detalles_venta_airtable": "recC5zsum5kRPAgEE",
+          "id_grupo_ultimo_creado": "recSLTUU0b8o7TLgK"
+        },
+        "pairedItem": {
+          "item": 0
+        }
       }
     ]
   },
@@ -8284,6 +8359,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-05-04T22:19:59.995Z",
-  "versionId": "ce00c6af-5672-45d4-a9b7-c8f6020a62c6"
+  "updatedAt": "2026-05-19T17:24:51.934Z",
+  "versionId": "a936aba9-40b0-46ee-a1b6-b63d73aa2389"
 }
