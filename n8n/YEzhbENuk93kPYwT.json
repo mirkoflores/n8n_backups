@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-05T21:24:24.024Z",
-    "createdAt": "2026-05-05T21:24:21.325Z",
-    "versionId": "73d93f8a-692e-4fc1-9bcf-64cff097cc36",
+    "updatedAt": "2026-05-19T17:21:06.427Z",
+    "createdAt": "2026-05-19T17:21:04.754Z",
+    "versionId": "3ec4a68f-d4d5-4f7d-af9e-791254607e9b",
     "workflowId": "YEzhbENuk93kPYwT",
     "nodes": [
       {
@@ -70,6 +70,10 @@
         ],
         "id": "c8c036c7-418e-4bec-9836-1a5c5bae7895",
         "name": "Execute a SQL query",
+        "retryOnFail": true,
+        "executeOnce": false,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
         "credentials": {
           "postgres": {
             "id": "03h99CCgQN0WXTMc",
@@ -743,11 +747,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 73d93f8a",
+    "name": "Version 3ec4a68f",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "73d93f8a-692e-4fc1-9bcf-64cff097cc36",
+  "activeVersionId": "3ec4a68f-d4d5-4f7d-af9e-791254607e9b",
   "connections": {
     "When clicking ‘Execute workflow’": {
       "main": [
@@ -943,6 +947,10 @@
       ],
       "id": "c8c036c7-418e-4bec-9836-1a5c5bae7895",
       "name": "Execute a SQL query",
+      "retryOnFail": true,
+      "executeOnce": false,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "credentials": {
         "postgres": {
           "id": "03h99CCgQN0WXTMc",
@@ -1496,16 +1504,16 @@
     "Schedule Trigger": [
       {
         "json": {
-          "timestamp": "2026-05-05T12:16:31.154-04:00",
-          "Readable date": "May 5th 2026, 12:16:31 pm",
-          "Readable time": "12:16:31 pm",
+          "timestamp": "2026-05-19T04:00:00.013-04:00",
+          "Readable date": "May 19th 2026, 4:00:00 am",
+          "Readable time": "4:00:00 am",
           "Day of week": "Tuesday",
           "Year": "2026",
           "Month": "May",
-          "Day of month": "05",
-          "Hour": "12",
-          "Minute": "16",
-          "Second": "31",
+          "Day of month": "19",
+          "Hour": "04",
+          "Minute": "00",
+          "Second": "00",
           "Timezone": "America/New_York (UTC-04:00)"
         },
         "pairedItem": {
@@ -1540,6 +1548,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-05-05T21:24:21.323Z",
-  "versionId": "73d93f8a-692e-4fc1-9bcf-64cff097cc36"
+  "updatedAt": "2026-05-19T17:21:04.751Z",
+  "versionId": "3ec4a68f-d4d5-4f7d-af9e-791254607e9b"
 }
