@@ -1,0 +1,129 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-05-23T19:28:11.531Z",
+    "createdAt": "2026-05-23T19:28:09.641Z",
+    "versionId": "6194b51c-a711-4767-81e5-256762d14503",
+    "workflowId": "zck6MynM4jvcTMPv",
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "79ee4432-7f82-4f4a-8735-269a8c3ac8dc",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "587d9bb0-1af1-4689-97d0-fc2662c6bbd1",
+        "name": "Webhook",
+        "webhookId": "79ee4432-7f82-4f4a-8735-269a8c3ac8dc"
+      },
+      {
+        "parameters": {
+          "errorMessage": "mensaje no enviado"
+        },
+        "type": "n8n-nodes-base.stopAndError",
+        "typeVersion": 1,
+        "position": [
+          208,
+          0
+        ],
+        "id": "f28a64a0-bdb8-4045-899b-aefe1bd0c281",
+        "name": "Stop and Error"
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "Stop and Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version 6194b51c",
+    "description": "",
+    "autosaved": false
+  },
+  "activeVersionId": "6194b51c-a711-4767-81e5-256762d14503",
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-05-23T19:23:39.233Z",
+  "id": "zck6MynM4jvcTMPv",
+  "isArchived": false,
+  "meta": null,
+  "name": "Aviso de errores - envio de mensajes",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "79ee4432-7f82-4f4a-8735-269a8c3ac8dc",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "587d9bb0-1af1-4689-97d0-fc2662c6bbd1",
+      "name": "Webhook",
+      "webhookId": "79ee4432-7f82-4f4a-8735-269a8c3ac8dc"
+    },
+    {
+      "parameters": {
+        "errorMessage": "mensaje no enviado"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "f28a64a0-bdb8-4045-899b-aefe1bd0c281",
+      "name": "Stop and Error"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-05-23T19:23:39.233Z",
+      "createdAt": "2026-05-23T19:23:39.233Z",
+      "role": "workflow:owner",
+      "workflowId": "zck6MynM4jvcTMPv",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-05-23T19:28:09.638Z",
+  "versionId": "6194b51c-a711-4767-81e5-256762d14503"
+}
