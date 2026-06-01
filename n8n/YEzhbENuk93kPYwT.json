@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-19T17:21:06.427Z",
-    "createdAt": "2026-05-19T17:21:04.754Z",
-    "versionId": "3ec4a68f-d4d5-4f7d-af9e-791254607e9b",
+    "updatedAt": "2026-06-01T03:06:01.313Z",
+    "createdAt": "2026-06-01T03:03:57.742Z",
+    "versionId": "cb0e224f-6b90-4ea3-8e0f-b2fa7a362fa5",
     "workflowId": "YEzhbENuk93kPYwT",
     "nodes": [
       {
@@ -149,27 +149,6 @@
         ],
         "id": "b0d630d2-d9b6-4bd1-80b7-16aa20501286",
         "name": "Loop Over Items"
-      },
-      {
-        "parameters": {
-          "operation": "get",
-          "key": "={{ $json.id }}_id_airtable",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.redis",
-        "typeVersion": 1,
-        "position": [
-          768,
-          -64
-        ],
-        "id": "c58a489b-27de-4cf8-b18d-c016f40b2103",
-        "name": "Redis",
-        "credentials": {
-          "redis": {
-            "id": "B8dgg7MNeg3CEDZR",
-            "name": "Redis_1"
-          }
-        }
       },
       {
         "parameters": {
@@ -621,6 +600,27 @@
             "name": "Postgres_n8n"
           }
         }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "key": "={{ $json.id }}_id_airtable",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          768,
+          -64
+        ],
+        "id": "c58a489b-27de-4cf8-b18d-c016f40b2103",
+        "name": "airtable",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -656,18 +656,7 @@
           [],
           [
             {
-              "node": "Redis",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Redis": {
-        "main": [
-          [
-            {
-              "node": "Update rows in a table",
+              "node": "airtable",
               "type": "main",
               "index": 0
             }
@@ -744,14 +733,25 @@
         "main": [
           []
         ]
+      },
+      "airtable": {
+        "main": [
+          [
+            {
+              "node": "Update rows in a table",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 3ec4a68f",
+    "name": "Version cb0e224f",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "3ec4a68f-d4d5-4f7d-af9e-791254607e9b",
+  "activeVersionId": "cb0e224f-6b90-4ea3-8e0f-b2fa7a362fa5",
   "connections": {
     "When clicking ‘Execute workflow’": {
       "main": [
@@ -785,18 +785,7 @@
         [],
         [
           {
-            "node": "Redis",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Redis": {
-      "main": [
-        [
-          {
-            "node": "Update rows in a table",
+            "node": "airtable",
             "type": "main",
             "index": 0
           }
@@ -872,6 +861,17 @@
     "Filter": {
       "main": [
         []
+      ]
+    },
+    "airtable": {
+      "main": [
+        [
+          {
+            "node": "Update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -1026,27 +1026,6 @@
       ],
       "id": "b0d630d2-d9b6-4bd1-80b7-16aa20501286",
       "name": "Loop Over Items"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "key": "={{ $json.id }}_id_airtable",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.redis",
-      "typeVersion": 1,
-      "position": [
-        768,
-        -64
-      ],
-      "id": "c58a489b-27de-4cf8-b18d-c016f40b2103",
-      "name": "Redis",
-      "credentials": {
-        "redis": {
-          "id": "B8dgg7MNeg3CEDZR",
-          "name": "Redis_1"
-        }
-      }
     },
     {
       "parameters": {
@@ -1498,22 +1477,43 @@
           "name": "Postgres_n8n"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "={{ $json.id }}_id_airtable",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        768,
+        -64
+      ],
+      "id": "c58a489b-27de-4cf8-b18d-c016f40b2103",
+      "name": "airtable",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
     }
   ],
   "pinData": {
     "Schedule Trigger": [
       {
         "json": {
-          "timestamp": "2026-05-19T04:00:00.013-04:00",
-          "Readable date": "May 19th 2026, 4:00:00 am",
-          "Readable time": "4:00:00 am",
-          "Day of week": "Tuesday",
+          "timestamp": "2026-05-31T22:50:46.002-04:00",
+          "Readable date": "May 31st 2026, 10:50:46 pm",
+          "Readable time": "10:50:46 pm",
+          "Day of week": "Sunday",
           "Year": "2026",
           "Month": "May",
-          "Day of month": "19",
-          "Hour": "04",
-          "Minute": "00",
-          "Second": "00",
+          "Day of month": "31",
+          "Hour": "22",
+          "Minute": "50",
+          "Second": "46",
           "Timezone": "America/New_York (UTC-04:00)"
         },
         "pairedItem": {
@@ -1530,7 +1530,8 @@
     "availableInMCP": false,
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -1548,6 +1549,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-05-19T17:21:04.751Z",
-  "versionId": "3ec4a68f-d4d5-4f7d-af9e-791254607e9b"
+  "updatedAt": "2026-06-01T03:05:17.438Z",
+  "versionId": "cb0e224f-6b90-4ea3-8e0f-b2fa7a362fa5"
 }
