@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-01-12T03:06:52.351Z",
-    "createdAt": "2026-01-12T03:06:50.948Z",
-    "versionId": "937b022c-3a27-4e1b-b6b9-8d218419f87a",
+    "updatedAt": "2026-06-01T03:06:34.770Z",
+    "createdAt": "2026-06-01T03:06:24.838Z",
+    "versionId": "05252714-aafd-40f7-8023-913b9c1c1b7a",
     "workflowId": "JvCG2KO7rHITJv4a",
     "nodes": [
       {
@@ -15,7 +15,7 @@
         "type": "n8n-nodes-base.webhook",
         "typeVersion": 2.1,
         "position": [
-          0,
+          -272,
           0
         ],
         "id": "4e7c60c2-5d96-4635-8859-ab99615de676",
@@ -39,7 +39,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          208,
+          -64,
           0
         ],
         "id": "88baef14-acb9-46c9-80a6-59742a30ae46",
@@ -68,7 +68,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          432,
+          160,
           0
         ],
         "id": "a718475d-a80c-4254-b3d0-7ec53c46d151",
@@ -509,7 +509,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1616,
+          1600,
           -112
         ],
         "id": "a7080e7c-4a20-4438-abf8-d23445871d3a",
@@ -660,8 +660,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          1856,
-          -112
+          1808,
+          -416
         ],
         "id": "1f7d8065-6171-4d34-9a8f-d9b3cb66f68d",
         "name": "Create a row1",
@@ -669,6 +669,48 @@
           "nocoDbApiToken": {
             "id": "Sybr1jbACFyMMWFf",
             "name": "bio_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          416,
+          0
+        ],
+        "id": "72335daf-ef08-4f63-96d8-8eb18a61ee99",
+        "name": "airtable",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $json.id }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1840,
+          -112
+        ],
+        "id": "87c198b8-f382-45f8-92a1-8f43f5b9882f",
+        "name": "airtable1",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
           }
         }
       }
@@ -689,7 +731,7 @@
         "main": [
           [
             {
-              "node": "variables_2",
+              "node": "airtable",
               "type": "main",
               "index": 0
             }
@@ -749,20 +791,25 @@
               "index": 0
             }
           ],
-          [
-            {
-              "node": "Create a row",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "Update record": {
         "main": [
           [
             {
-              "node": "Create a row1",
+              "node": "airtable1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "airtable": {
+        "main": [
+          [
+            {
+              "node": "variables_2",
               "type": "main",
               "index": 0
             }
@@ -771,11 +818,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 937b022c",
+    "name": "Version 05252714",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "937b022c-3a27-4e1b-b6b9-8d218419f87a",
+  "activeVersionId": "05252714-aafd-40f7-8023-913b9c1c1b7a",
   "connections": {
     "Webhook": {
       "main": [
@@ -792,7 +839,7 @@
       "main": [
         [
           {
-            "node": "variables_2",
+            "node": "airtable",
             "type": "main",
             "index": 0
           }
@@ -852,20 +899,25 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "Create a row",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Update record": {
       "main": [
         [
           {
-            "node": "Create a row1",
+            "node": "airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "airtable": {
+      "main": [
+        [
+          {
+            "node": "variables_2",
             "type": "main",
             "index": 0
           }
@@ -890,7 +942,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        0,
+        -272,
         0
       ],
       "id": "4e7c60c2-5d96-4635-8859-ab99615de676",
@@ -914,7 +966,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        208,
+        -64,
         0
       ],
       "id": "88baef14-acb9-46c9-80a6-59742a30ae46",
@@ -943,7 +995,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        432,
+        160,
         0
       ],
       "id": "a718475d-a80c-4254-b3d0-7ec53c46d151",
@@ -1384,7 +1436,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1616,
+        1600,
         -112
       ],
       "id": "a7080e7c-4a20-4438-abf8-d23445871d3a",
@@ -1535,8 +1587,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        1856,
-        -112
+        1808,
+        -416
       ],
       "id": "1f7d8065-6171-4d34-9a8f-d9b3cb66f68d",
       "name": "Create a row1",
@@ -1544,6 +1596,48 @@
         "nocoDbApiToken": {
           "id": "Sybr1jbACFyMMWFf",
           "name": "bio_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "72335daf-ef08-4f63-96d8-8eb18a61ee99",
+      "name": "airtable",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        -112
+      ],
+      "id": "87c198b8-f382-45f8-92a1-8f43f5b9882f",
+      "name": "airtable1",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
         }
       }
     }
@@ -1560,18 +1654,18 @@
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wflPceQWVpvNbelUW",
-            "x-forwarded-for": "34.224.72.71",
+            "x-forwarded-for": "100.54.66.182",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "d4PnOIU1TWGIUi5CCx5-qw",
-            "x-real-ip": "34.224.72.71",
-            "x-request-start": "1768176184043"
+            "x-railway-request-id": "VtHKckJQSM-7YeT_O8poTA",
+            "x-real-ip": "100.54.66.182",
+            "x-request-start": "1780268241431"
           },
           "params": {},
           "query": {},
           "body": {
-            "recordId": "recbsMbqgPg3UGSsH"
+            "recordId": "recVolq6hWRCM5oR9"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/fbbd7e9d-0813-40e4-bd86-559b18cea74d",
           "executionMode": "production"
@@ -1590,7 +1684,8 @@
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
     "availableInMCP": false,
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -1604,6 +1699,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-12T03:06:50.945Z",
-  "versionId": "937b022c-3a27-4e1b-b6b9-8d218419f87a"
+  "updatedAt": "2026-06-01T03:06:24.839Z",
+  "versionId": "05252714-aafd-40f7-8023-913b9c1c1b7a"
 }
