@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-02-23T14:58:04.256Z",
-    "createdAt": "2026-02-23T14:57:02.413Z",
-    "versionId": "32078192-4a4b-4db8-ba01-dfcf7c638205",
+    "updatedAt": "2026-06-01T03:37:10.576Z",
+    "createdAt": "2026-06-01T03:09:09.301Z",
+    "versionId": "2aa6e066-9e4e-4370-a8a1-ad3ce1a26771",
     "workflowId": "UqJsZfAhJHkWNxvT",
     "nodes": [
       {
@@ -1121,7 +1121,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2688,
+          2928,
           -48
         ],
         "id": "8d75a5e6-debd-4300-9ca2-d3f79b8c8207",
@@ -1200,8 +1200,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          2992,
-          144
+          3360,
+          496
         ],
         "id": "e703399c-3bd9-4133-9f2b-fb137eecf04c",
         "name": "Create a row",
@@ -1219,7 +1219,7 @@
               {
                 "id": "a5887fff-cbf4-4421-ad1b-d5529c753a2a",
                 "name": "url_acortado",
-                "value": "={{ $('variables_2').item.json.url_acortado }}",
+                "value": "={{ $('variables_2').first().json.url_acortado }}",
                 "type": "string"
               }
             ]
@@ -1229,7 +1229,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3168,
+          3232,
           144
         ],
         "id": "b2a082ff-ee03-47bf-8d70-bdb25408349d",
@@ -1456,7 +1456,7 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          2336,
+          2576,
           160
         ],
         "id": "0e324c12-a930-4e2c-b155-b9f4f70af8ab",
@@ -2392,7 +2392,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2688,
+          2928,
           288
         ],
         "id": "badfc0fc-0e70-4796-8034-6609add88f4f",
@@ -2432,6 +2432,27 @@
         ],
         "id": "9baa2ab5-103b-4817-b018-98611e3686e7",
         "name": "url_acortado4"
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $execution.id }}_id_airtable",
+          "messageData": "={{ $('variables1').item.json.id_registro_clientes }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          2336,
+          160
+        ],
+        "id": "78171234-dd7c-48a5-9d67-27f2edda9b71",
+        "name": "airtable",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -2483,7 +2504,7 @@
         "main": [
           [
             {
-              "node": "Switch",
+              "node": "airtable",
               "type": "main",
               "index": 0
             }
@@ -2516,7 +2537,7 @@
         "main": [
           [
             {
-              "node": "Create a row",
+              "node": "final",
               "type": "main",
               "index": 0
             }
@@ -2525,13 +2546,7 @@
       },
       "Create a row": {
         "main": [
-          [
-            {
-              "node": "final",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "sin errores?": {
@@ -2625,7 +2640,7 @@
         "main": [
           [
             {
-              "node": "Create a row",
+              "node": "final",
               "type": "main",
               "index": 0
             }
@@ -2642,14 +2657,25 @@
             }
           ]
         ]
+      },
+      "airtable": {
+        "main": [
+          [
+            {
+              "node": "Switch",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 32078192",
+    "name": "Version 2aa6e066",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "32078192-4a4b-4db8-ba01-dfcf7c638205",
+  "activeVersionId": "2aa6e066-9e4e-4370-a8a1-ad3ce1a26771",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -2699,7 +2725,7 @@
       "main": [
         [
           {
-            "node": "Switch",
+            "node": "airtable",
             "type": "main",
             "index": 0
           }
@@ -2732,7 +2758,7 @@
       "main": [
         [
           {
-            "node": "Create a row",
+            "node": "final",
             "type": "main",
             "index": 0
           }
@@ -2741,13 +2767,7 @@
     },
     "Create a row": {
       "main": [
-        [
-          {
-            "node": "final",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "sin errores?": {
@@ -2841,7 +2861,7 @@
       "main": [
         [
           {
-            "node": "Create a row",
+            "node": "final",
             "type": "main",
             "index": 0
           }
@@ -2853,6 +2873,17 @@
         [
           {
             "node": "url_acortado2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "airtable": {
+      "main": [
+        [
+          {
+            "node": "Switch",
             "type": "main",
             "index": 0
           }
@@ -3983,7 +4014,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2688,
+        2928,
         -48
       ],
       "id": "8d75a5e6-debd-4300-9ca2-d3f79b8c8207",
@@ -4062,8 +4093,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        2992,
-        144
+        3360,
+        496
       ],
       "id": "e703399c-3bd9-4133-9f2b-fb137eecf04c",
       "name": "Create a row",
@@ -4081,7 +4112,7 @@
             {
               "id": "a5887fff-cbf4-4421-ad1b-d5529c753a2a",
               "name": "url_acortado",
-              "value": "={{ $('variables_2').item.json.url_acortado }}",
+              "value": "={{ $('variables_2').first().json.url_acortado }}",
               "type": "string"
             }
           ]
@@ -4091,7 +4122,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3168,
+        3232,
         144
       ],
       "id": "b2a082ff-ee03-47bf-8d70-bdb25408349d",
@@ -4318,7 +4349,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        2336,
+        2576,
         160
       ],
       "id": "0e324c12-a930-4e2c-b155-b9f4f70af8ab",
@@ -5254,7 +5285,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2688,
+        2928,
         288
       ],
       "id": "badfc0fc-0e70-4796-8034-6609add88f4f",
@@ -5294,16 +5325,38 @@
       ],
       "id": "9baa2ab5-103b-4817-b018-98611e3686e7",
       "name": "url_acortado4"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $execution.id }}_id_airtable",
+        "messageData": "={{ $('variables1').item.json.id_registro_clientes }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2336,
+        160
+      ],
+      "id": "78171234-dd7c-48a5-9d67-27f2edda9b71",
+      "name": "airtable",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
     }
   ],
   "pinData": {
     "When Executed by Another Workflow": [
       {
         "json": {
-          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=Sisa%20yol%C3%A9%20Valerie%20galiano%20huasco&celular_estudiante=%2B51930552921&id_cliente_airtable=receJcK4J92PFbXkp",
-          "id_registro_cliente": "receJcK4J92PFbXkp",
+          "url_de_renovacion_largo": "https://tally.so/r/A7K61k?nombre_estudiante=Nina%20Sophia%20Huaro%20Bardales%20&celular_estudiante=%2B51987218532&id_cliente_airtable=rec8u8ACbhlZh6zNb",
+          "id_registro_cliente": "rec8u8ACbhlZh6zNb",
           "tipo_estado": "con_link_acortado",
-          "tipo_automatizacion": "chatbot_cobranzas"
+          "tipo_automatizacion": "chatbot_cobranzas",
+          "id_short_io": "kKKGMm"
         },
         "pairedItem": {
           "item": 0
@@ -5319,7 +5372,8 @@
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
     "availableInMCP": false,
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -5333,6 +5387,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-02-23T14:58:02.829Z",
-  "versionId": "32078192-4a4b-4db8-ba01-dfcf7c638205"
+  "updatedAt": "2026-06-01T03:09:09.302Z",
+  "versionId": "2aa6e066-9e4e-4370-a8a1-ad3ce1a26771"
 }
