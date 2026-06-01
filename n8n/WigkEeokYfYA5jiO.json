@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-04T22:26:13.967Z",
-    "createdAt": "2026-05-04T22:24:38.781Z",
-    "versionId": "379b2d33-89b6-4db2-8449-5242b1fa7fdd",
+    "updatedAt": "2026-06-01T03:42:15.923Z",
+    "createdAt": "2026-06-01T03:42:13.950Z",
+    "versionId": "a34d9ea4-557c-4df1-a6f2-4216af02d927",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -1265,8 +1265,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          4608,
-          -48
+          4176,
+          848
         ],
         "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
         "name": "Create a row",
@@ -2416,8 +2416,8 @@
         "type": "n8n-nodes-base.nocoDb",
         "typeVersion": 3,
         "position": [
-          3680,
-          64
+          3728,
+          896
         ],
         "id": "cd74891b-2961-4751-a371-640f3faed8ea",
         "name": "Create a row1",
@@ -4228,11 +4228,6 @@
               "node": "Update leads",
               "type": "main",
               "index": 0
-            },
-            {
-              "node": "Create a row",
-              "type": "main",
-              "index": 0
             }
           ]
         ]
@@ -4597,13 +4592,7 @@
               "index": 0
             }
           ],
-          [
-            {
-              "node": "Create a row1",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "Redis": {
@@ -4641,11 +4630,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 379b2d33",
+    "name": "Version a34d9ea4",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "379b2d33-89b6-4db2-8449-5242b1fa7fdd",
+  "activeVersionId": "a34d9ea4-557c-4df1-a6f2-4216af02d927",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -4976,11 +4965,6 @@
         [
           {
             "node": "Update leads",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Create a row",
             "type": "main",
             "index": 0
           }
@@ -5347,13 +5331,7 @@
             "index": 0
           }
         ],
-        [
-          {
-            "node": "Create a row1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Redis": {
@@ -6657,8 +6635,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        4608,
-        -48
+        4176,
+        848
       ],
       "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
       "name": "Create a row",
@@ -7808,8 +7786,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 3,
       "position": [
-        3680,
-        64
+        3728,
+        896
       ],
       "id": "cd74891b-2961-4751-a371-640f3faed8ea",
       "name": "Create a row1",
@@ -9351,26 +9329,26 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "57",
+            "content-length": "54",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflsIuIJDgA6Dt8zW",
-            "x-forwarded-for": "32.193.1.218, 167.82.233.44",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
+            "x-forwarded-for": "54.163.47.113",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "Fwkjc2hxRCCgix6mPvyhXg",
-            "x-real-ip": "32.193.1.218",
-            "x-request-start": "1777871025179"
+            "x-railway-request-id": "nSXuL-W_QFyuQpggqmzx2A",
+            "x-real-ip": "54.163.47.113",
+            "x-request-start": "1780031018492"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recTkN37FEf8OcpOL",
-            "Tipo": "60_dias_despues"
+            "recordId": "rec3vR3MWjIO1wjK0",
+            "Tipo": "7_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -9389,7 +9367,8 @@
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
     "availableInMCP": false,
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -9403,6 +9382,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-05-04T22:24:38.779Z",
-  "versionId": "379b2d33-89b6-4db2-8449-5242b1fa7fdd"
+  "updatedAt": "2026-06-01T03:47:46.928Z",
+  "versionId": "a34d9ea4-557c-4df1-a6f2-4216af02d927"
 }
