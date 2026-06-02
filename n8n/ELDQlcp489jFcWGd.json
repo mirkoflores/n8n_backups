@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-26T15:53:02.035Z",
-    "createdAt": "2025-12-26T15:50:44.061Z",
-    "versionId": "09a7ca81-bee9-4f4a-8c5f-602afa5e7a7b",
+    "updatedAt": "2026-06-01T17:14:06.683Z",
+    "createdAt": "2026-06-01T17:14:04.948Z",
+    "versionId": "a6a60e31-1d10-435f-b81b-18a5873ee1b0",
     "workflowId": "ELDQlcp489jFcWGd",
     "nodes": [
       {
@@ -393,11 +393,6 @@
               "node": "Switch",
               "type": "main",
               "index": 0
-            },
-            {
-              "node": "Create a row",
-              "type": "main",
-              "index": 0
             }
           ]
         ]
@@ -422,11 +417,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 09a7ca81",
+    "name": "Version a6a60e31",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "09a7ca81-bee9-4f4a-8c5f-602afa5e7a7b",
+  "activeVersionId": "a6a60e31-1d10-435f-b81b-18a5873ee1b0",
   "connections": {
     "Webhook": {
       "main": [
@@ -488,11 +483,6 @@
         [
           {
             "node": "Switch",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Create a row",
             "type": "main",
             "index": 0
           }
@@ -860,21 +850,21 @@
             "content-length": "192",
             "accept-encoding": "gzip",
             "content-type": "application/x-www-form-urlencoded",
-            "x-amocrm-requestid": "4da79ba8-be22-436f-956d-f3d3b0bac152",
-            "x-forwarded-for": "169.150.216.80",
+            "x-amocrm-requestid": "fd3a027b-8192-453c-a9b8-d971c5792a50",
+            "x-forwarded-for": "142.0.207.172",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "54Yd6JWqQDKO7v38ozsQ6Q",
-            "x-real-ip": "169.150.216.80",
-            "x-request-start": "1766763956960"
+            "x-railway-request-id": "wGESxcgkSdeRsxiVFFmdQQ",
+            "x-real-ip": "142.0.207.172",
+            "x-request-start": "1780325881862"
           },
           "params": {},
           "query": {
             "tipo": "con_precio"
           },
           "body": {
-            "leads[add][0][id]": "24581270",
+            "leads[add][0][id]": "24618896",
             "leads[add][0][status_id]": "68677523",
             "leads[add][0][pipeline_id]": "8756191",
             "account[id]": "32863847",
@@ -897,7 +887,8 @@
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
     "availableInMCP": false,
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -911,6 +902,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-26T15:50:44.056Z",
-  "versionId": "09a7ca81-bee9-4f4a-8c5f-602afa5e7a7b"
+  "updatedAt": "2026-06-01T17:14:04.945Z",
+  "versionId": "a6a60e31-1d10-435f-b81b-18a5873ee1b0"
 }
