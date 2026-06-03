@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-23T19:28:11.531Z",
-    "createdAt": "2026-05-23T19:28:09.641Z",
-    "versionId": "6194b51c-a711-4767-81e5-256762d14503",
+    "updatedAt": "2026-06-02T16:37:08.576Z",
+    "createdAt": "2026-06-02T16:37:07.430Z",
+    "versionId": "7c6553d7-6b40-43a1-b619-0d536f30bfa1",
     "workflowId": "zck6MynM4jvcTMPv",
     "nodes": [
       {
@@ -29,11 +29,82 @@
         "type": "n8n-nodes-base.stopAndError",
         "typeVersion": 1,
         "position": [
-          208,
-          0
+          192,
+          -208
         ],
         "id": "f28a64a0-bdb8-4045-899b-aefe1bd0c281",
         "name": "Stop and Error"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "a9badb8e-9bc9-49c0-882a-7e83a53a50e1",
+                "name": "lead_id",
+                "value": "={{ $('Webhook').item.json.body['leads[add][0][id]'] }}",
+                "type": "string"
+              },
+              {
+                "id": "66a9d96b-95a9-4eb8-9338-6703223201ac",
+                "name": "status_id",
+                "value": "={{ $('Webhook').item.json.body['leads[add][0][status_id]'] }}",
+                "type": "string"
+              },
+              {
+                "id": "28909860-d2ed-42a5-87dd-08d513fa1987",
+                "name": "pipeline_id",
+                "value": "={{ $('Webhook').item.json.body['leads[add][0][pipeline_id]'] }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          192,
+          0
+        ],
+        "id": "6792d49b-47b9-462d-89c8-825ce02464cd",
+        "name": "variables_1"
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "1244011715008532602",
+            "mode": "list",
+            "cachedResultName": "Bioenglish",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1357814199446929488",
+            "mode": "list",
+            "cachedResultName": "errores",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+          },
+          "content": "=## :warning: Un cliente no recibio el mensaje por un error en el envio, atender de manera manual en este link:\n\n\n-> https://bioenglish22.kommo.com/leads/detail/{{ $('variables_1').item.json.lead_id }}\n\n\n",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          400,
+          0
+        ],
+        "id": "a25c0a61-9bf8-42cf-afff-ec2f4c42d5ca",
+        "name": "Send a message",
+        "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+        "credentials": {
+          "discordBotApi": {
+            "id": "lrG2Z5VoQXKArDMn",
+            "name": "bio_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -41,7 +112,18 @@
         "main": [
           [
             {
-              "node": "Stop and Error",
+              "node": "variables_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "variables_1": {
+        "main": [
+          [
+            {
+              "node": "Send a message",
               "type": "main",
               "index": 0
             }
@@ -50,17 +132,28 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 6194b51c",
+    "name": "Version 7c6553d7",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "6194b51c-a711-4767-81e5-256762d14503",
+  "activeVersionId": "7c6553d7-6b40-43a1-b619-0d536f30bfa1",
   "connections": {
     "Webhook": {
       "main": [
         [
           {
-            "node": "Stop and Error",
+            "node": "variables_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables_1": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
             "type": "main",
             "index": 0
           }
@@ -97,20 +190,131 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        208,
-        0
+        192,
+        -208
       ],
       "id": "f28a64a0-bdb8-4045-899b-aefe1bd0c281",
       "name": "Stop and Error"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a9badb8e-9bc9-49c0-882a-7e83a53a50e1",
+              "name": "lead_id",
+              "value": "={{ $('Webhook').item.json.body['leads[add][0][id]'] }}",
+              "type": "string"
+            },
+            {
+              "id": "66a9d96b-95a9-4eb8-9338-6703223201ac",
+              "name": "status_id",
+              "value": "={{ $('Webhook').item.json.body['leads[add][0][status_id]'] }}",
+              "type": "string"
+            },
+            {
+              "id": "28909860-d2ed-42a5-87dd-08d513fa1987",
+              "name": "pipeline_id",
+              "value": "={{ $('Webhook').item.json.body['leads[add][0][pipeline_id]'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        192,
+        0
+      ],
+      "id": "6792d49b-47b9-462d-89c8-825ce02464cd",
+      "name": "variables_1"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "1244011715008532602",
+          "mode": "list",
+          "cachedResultName": "Bioenglish",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1357814199446929488",
+          "mode": "list",
+          "cachedResultName": "errores",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+        },
+        "content": "=## :warning: Un cliente no recibio el mensaje por un error en el envio, atender de manera manual en este link:\n\n\n-> https://bioenglish22.kommo.com/leads/detail/{{ $('variables_1').item.json.lead_id }}\n\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        400,
+        0
+      ],
+      "id": "a25c0a61-9bf8-42cf-afff-ec2f4c42d5ca",
+      "name": "Send a message",
+      "webhookId": "cf7337c4-50db-4dc5-95b6-bd0922108198",
+      "credentials": {
+        "discordBotApi": {
+          "id": "lrG2Z5VoQXKArDMn",
+          "name": "bio_1"
+        }
+      }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "primary-production-55a73.up.railway.app",
+            "user-agent": "amoCRM-Webhooks/3.0",
+            "content-length": "192",
+            "accept-encoding": "gzip",
+            "content-type": "application/x-www-form-urlencoded",
+            "x-amocrm-requestid": "6860d075-fb43-46a1-94c2-1fc2dd025fa2",
+            "x-forwarded-for": "142.0.207.172",
+            "x-forwarded-host": "primary-production-55a73.up.railway.app",
+            "x-forwarded-proto": "https",
+            "x-railway-edge": "railway/us-east4-eqdc4a",
+            "x-railway-request-id": "pqYCPgDNRCigj5uXU79b0g",
+            "x-real-ip": "142.0.207.172",
+            "x-request-start": "1780409264159"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "leads[add][0][id]": "24973318",
+            "leads[add][0][status_id]": "68677515",
+            "leads[add][0][pipeline_id]": "8756191",
+            "account[id]": "32863847",
+            "account[subdomain]": "bioenglish22"
+          },
+          "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/79ee4432-7f82-4f4a-8735-269a8c3ac8dc",
+          "executionMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
   "settings": {
     "executionOrder": "v1",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "shared": [
     {
@@ -124,6 +328,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-05-23T19:28:09.638Z",
-  "versionId": "6194b51c-a711-4767-81e5-256762d14503"
+  "updatedAt": "2026-06-02T16:37:07.428Z",
+  "versionId": "7c6553d7-6b40-43a1-b619-0d536f30bfa1"
 }
