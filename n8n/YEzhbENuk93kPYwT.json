@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-01T03:06:01.313Z",
-    "createdAt": "2026-06-01T03:03:57.742Z",
-    "versionId": "cb0e224f-6b90-4ea3-8e0f-b2fa7a362fa5",
+    "updatedAt": "2026-06-02T15:20:35.044Z",
+    "createdAt": "2026-06-02T15:19:33.443Z",
+    "versionId": "c5a8e77c-f47e-471e-bedc-c128c7ce93fe",
     "workflowId": "YEzhbENuk93kPYwT",
     "nodes": [
       {
@@ -191,8 +191,10 @@
               "finished": false,
               "ejecucion_revisada": true,
               "id": "={{ $('Loop Over Items').item.json.id }}",
-              "registros_airtable": "={{ $json.propertyName.join() }}",
-              "url_n8n": "=https://primary-production-55a73.up.railway.app/workflow/{{ $('Loop Over Items').item.json.workflowId }}/executions/{{ $('Loop Over Items').item.json.id }}"
+              "registros_airtable": "={{ $('airtable').item.json.propertyName.join() }}",
+              "url_n8n": "=https://primary-production-55a73.up.railway.app/workflow/{{ $('Loop Over Items').item.json.workflowId }}/executions/{{ $('Loop Over Items').item.json.id }}",
+              "id_lead_kommo": "={{ $('lead_kommo').item.json.propertyName.join() }}",
+              "id_contact_kommo": "={{ $('contact_kommo').item.json.propertyName.join() }}"
             },
             "matchingColumns": [
               "id"
@@ -334,6 +336,56 @@
                 "type": "string",
                 "canBeUsedToMatch": true,
                 "removed": false
+              },
+              {
+                "id": "storedAt",
+                "displayName": "storedAt",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "tracingContext",
+                "displayName": "tracingContext",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "object",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "deduplicationKey",
+                "displayName": "deduplicationKey",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": true
+              },
+              {
+                "id": "id_lead_kommo",
+                "displayName": "id_lead_kommo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
+              },
+              {
+                "id": "id_contact_kommo",
+                "displayName": "id_contact_kommo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "type": "string",
+                "canBeUsedToMatch": true,
+                "removed": false
               }
             ],
             "attemptToConvertTypes": false,
@@ -344,7 +396,7 @@
         "type": "n8n-nodes-base.postgres",
         "typeVersion": 2.6,
         "position": [
-          1008,
+          1472,
           -64
         ],
         "id": "6388f596-2615-496e-a895-c5bed393b20e",
@@ -395,26 +447,6 @@
         ],
         "id": "d1ee5568-fb24-4001-bb3a-594f1808e20d",
         "name": "Schedule Trigger"
-      },
-      {
-        "parameters": {
-          "operation": "delete",
-          "key": "={{ $('Loop Over Items').item.json.id }}_id_airtable"
-        },
-        "type": "n8n-nodes-base.redis",
-        "typeVersion": 1,
-        "position": [
-          1216,
-          -64
-        ],
-        "id": "e0f7ce42-0c7f-4bb3-abb2-e21599576b14",
-        "name": "Redis3",
-        "credentials": {
-          "redis": {
-            "id": "B8dgg7MNeg3CEDZR",
-            "name": "Redis_1"
-          }
-        }
       },
       {
         "parameters": {
@@ -621,6 +653,108 @@
             "name": "Redis_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "key": "={{ $('Loop Over Items').item.json.id }}_id_lead_kommo",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          992,
+          -64
+        ],
+        "id": "c7b25a4c-6cbc-48d6-89d6-59c698ac32da",
+        "name": "lead_kommo",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "key": "={{ $('Loop Over Items').item.json.id }}_id_contact_kommo",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1232,
+          -64
+        ],
+        "id": "9bc4a8bf-7770-44b7-97ce-6daf84a9944e",
+        "name": "contact_kommo",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "delete",
+          "key": "={{ $('Loop Over Items').item.json.id }}_id_airtable"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1728,
+          -64
+        ],
+        "id": "e0f7ce42-0c7f-4bb3-abb2-e21599576b14",
+        "name": "airtable1",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "delete",
+          "key": "={{ $('Loop Over Items').item.json.id }}_id_lead_kommo"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          1968,
+          -64
+        ],
+        "id": "fca2e954-f611-4b69-b0b1-9f36a4f08b4f",
+        "name": "lead_kommo1",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "delete",
+          "key": "={{ $('Loop Over Items').item.json.id }}_id_contact_kommo"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          2208,
+          -64
+        ],
+        "id": "9ce28e1b-5eb6-4277-9730-7355cc6a8914",
+        "name": "contact_kommo1",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -667,7 +801,7 @@
         "main": [
           [
             {
-              "node": "Redis3",
+              "node": "airtable1",
               "type": "main",
               "index": 0
             }
@@ -679,17 +813,6 @@
           [
             {
               "node": "Execute a SQL query",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Redis3": {
-        "main": [
-          [
-            {
-              "node": "Loop Over Items",
               "type": "main",
               "index": 0
             }
@@ -738,7 +861,62 @@
         "main": [
           [
             {
+              "node": "lead_kommo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "lead_kommo": {
+        "main": [
+          [
+            {
+              "node": "contact_kommo",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "contact_kommo": {
+        "main": [
+          [
+            {
               "node": "Update rows in a table",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "airtable1": {
+        "main": [
+          [
+            {
+              "node": "lead_kommo1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "lead_kommo1": {
+        "main": [
+          [
+            {
+              "node": "contact_kommo1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "contact_kommo1": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
               "type": "main",
               "index": 0
             }
@@ -747,11 +925,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version cb0e224f",
+    "name": "Version c5a8e77c",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "cb0e224f-6b90-4ea3-8e0f-b2fa7a362fa5",
+  "activeVersionId": "c5a8e77c-f47e-471e-bedc-c128c7ce93fe",
   "connections": {
     "When clicking ‘Execute workflow’": {
       "main": [
@@ -796,7 +974,7 @@
       "main": [
         [
           {
-            "node": "Redis3",
+            "node": "airtable1",
             "type": "main",
             "index": 0
           }
@@ -808,17 +986,6 @@
         [
           {
             "node": "Execute a SQL query",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Redis3": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -867,7 +1034,62 @@
       "main": [
         [
           {
+            "node": "lead_kommo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead_kommo": {
+      "main": [
+        [
+          {
+            "node": "contact_kommo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contact_kommo": {
+      "main": [
+        [
+          {
             "node": "Update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "airtable1": {
+      "main": [
+        [
+          {
+            "node": "lead_kommo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "lead_kommo1": {
+      "main": [
+        [
+          {
+            "node": "contact_kommo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "contact_kommo1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -1068,8 +1290,10 @@
             "finished": false,
             "ejecucion_revisada": true,
             "id": "={{ $('Loop Over Items').item.json.id }}",
-            "registros_airtable": "={{ $json.propertyName.join() }}",
-            "url_n8n": "=https://primary-production-55a73.up.railway.app/workflow/{{ $('Loop Over Items').item.json.workflowId }}/executions/{{ $('Loop Over Items').item.json.id }}"
+            "registros_airtable": "={{ $('airtable').item.json.propertyName.join() }}",
+            "url_n8n": "=https://primary-production-55a73.up.railway.app/workflow/{{ $('Loop Over Items').item.json.workflowId }}/executions/{{ $('Loop Over Items').item.json.id }}",
+            "id_lead_kommo": "={{ $('lead_kommo').item.json.propertyName.join() }}",
+            "id_contact_kommo": "={{ $('contact_kommo').item.json.propertyName.join() }}"
           },
           "matchingColumns": [
             "id"
@@ -1211,6 +1435,56 @@
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": false
+            },
+            {
+              "id": "storedAt",
+              "displayName": "storedAt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "tracingContext",
+              "displayName": "tracingContext",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "deduplicationKey",
+              "displayName": "deduplicationKey",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "id_lead_kommo",
+              "displayName": "id_lead_kommo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id_contact_kommo",
+              "displayName": "id_contact_kommo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -1221,7 +1495,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        1008,
+        1472,
         -64
       ],
       "id": "6388f596-2615-496e-a895-c5bed393b20e",
@@ -1272,26 +1546,6 @@
       ],
       "id": "d1ee5568-fb24-4001-bb3a-594f1808e20d",
       "name": "Schedule Trigger"
-    },
-    {
-      "parameters": {
-        "operation": "delete",
-        "key": "={{ $('Loop Over Items').item.json.id }}_id_airtable"
-      },
-      "type": "n8n-nodes-base.redis",
-      "typeVersion": 1,
-      "position": [
-        1216,
-        -64
-      ],
-      "id": "e0f7ce42-0c7f-4bb3-abb2-e21599576b14",
-      "name": "Redis3",
-      "credentials": {
-        "redis": {
-          "id": "B8dgg7MNeg3CEDZR",
-          "name": "Redis_1"
-        }
-      }
     },
     {
       "parameters": {
@@ -1498,21 +1752,123 @@
           "name": "Redis_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "={{ $('Loop Over Items').item.json.id }}_id_lead_kommo",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        992,
+        -64
+      ],
+      "id": "c7b25a4c-6cbc-48d6-89d6-59c698ac32da",
+      "name": "lead_kommo",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "={{ $('Loop Over Items').item.json.id }}_id_contact_kommo",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1232,
+        -64
+      ],
+      "id": "9bc4a8bf-7770-44b7-97ce-6daf84a9944e",
+      "name": "contact_kommo",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('Loop Over Items').item.json.id }}_id_airtable"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1728,
+        -64
+      ],
+      "id": "e0f7ce42-0c7f-4bb3-abb2-e21599576b14",
+      "name": "airtable1",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('Loop Over Items').item.json.id }}_id_lead_kommo"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        1968,
+        -64
+      ],
+      "id": "fca2e954-f611-4b69-b0b1-9f36a4f08b4f",
+      "name": "lead_kommo1",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $('Loop Over Items').item.json.id }}_id_contact_kommo"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        2208,
+        -64
+      ],
+      "id": "9ce28e1b-5eb6-4277-9730-7355cc6a8914",
+      "name": "contact_kommo1",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
     }
   ],
   "pinData": {
     "Schedule Trigger": [
       {
         "json": {
-          "timestamp": "2026-05-31T22:50:46.002-04:00",
-          "Readable date": "May 31st 2026, 10:50:46 pm",
-          "Readable time": "10:50:46 pm",
-          "Day of week": "Sunday",
+          "timestamp": "2026-06-02T10:10:46.002-04:00",
+          "Readable date": "June 2nd 2026, 10:10:46 am",
+          "Readable time": "10:10:46 am",
+          "Day of week": "Tuesday",
           "Year": "2026",
-          "Month": "May",
-          "Day of month": "31",
-          "Hour": "22",
-          "Minute": "50",
+          "Month": "June",
+          "Day of month": "02",
+          "Hour": "10",
+          "Minute": "10",
           "Second": "46",
           "Timezone": "America/New_York (UTC-04:00)"
         },
@@ -1549,6 +1905,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-06-01T03:05:17.438Z",
-  "versionId": "cb0e224f-6b90-4ea3-8e0f-b2fa7a362fa5"
+  "updatedAt": "2026-06-02T15:19:33.442Z",
+  "versionId": "c5a8e77c-f47e-471e-bedc-c128c7ce93fe"
 }
