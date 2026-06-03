@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-01T03:42:15.923Z",
-    "createdAt": "2026-06-01T03:42:13.950Z",
-    "versionId": "a34d9ea4-557c-4df1-a6f2-4216af02d927",
+    "updatedAt": "2026-06-02T17:07:55.912Z",
+    "createdAt": "2026-06-02T17:07:54.694Z",
+    "versionId": "f9b8a36b-c9aa-4ab8-8176-9bea7a587e32",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -29,8 +29,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          384,
-          -528
+          -96,
+          -560
         ],
         "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
         "name": "Detalles venta",
@@ -67,7 +67,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1712,
+          1392,
           -512
         ],
         "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
@@ -155,8 +155,8 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          592,
-          -528
+          112,
+          -560
         ],
         "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
         "name": "Variables_1"
@@ -180,7 +180,7 @@
               {
                 "id": "a8df778b-f285-41e7-94a3-83911a954723",
                 "name": "celular_a_enviar_mensaje",
-                "value": "={{ $('Clientes').item.json['Celular Unico'] }}",
+                "value": "={{ $('Clientes').item.json['Celular Unico'].split(',').pop() }}",
                 "type": "string"
               },
               {
@@ -204,7 +204,7 @@
               {
                 "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
                 "name": "Celular_a_enviar",
-                "value": "={{ $('Clientes').item.json['Celular Unico'] }}",
+                "value": "={{ $('Clientes').item.json['Celular Unico'].split(',').pop() }}",
                 "type": "string"
               },
               {
@@ -316,7 +316,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5856,
+          5920,
           -928
         ],
         "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -675,7 +675,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5632,
+          5696,
           -928
         ],
         "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -738,7 +738,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          4608,
+          4672,
           -240
         ],
         "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
@@ -755,7 +755,7 @@
         "type": "n8n-nodes-base.wait",
         "typeVersion": 1.1,
         "position": [
-          4832,
+          4896,
           -240
         ],
         "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
@@ -852,7 +852,7 @@
                     {
                       "id": "96366695-05f2-4532-864f-d1fca3ecac2d",
                       "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
-                      "rightValue": "5_dias_despues",
+                      "rightValue": "1_dia_despues",
                       "operator": {
                         "type": "string",
                         "operation": "equals",
@@ -863,7 +863,7 @@
                   "combinator": "and"
                 },
                 "renameOutput": true,
-                "outputKey": "+ 5 dias"
+                "outputKey": "+ 1 dia"
               },
               {
                 "conditions": {
@@ -877,7 +877,7 @@
                     {
                       "id": "28d7d570-9548-4248-a0c2-56fc11219e7b",
                       "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
-                      "rightValue": "30_dias_despues",
+                      "rightValue": "7_dias_despues",
                       "operator": {
                         "type": "string",
                         "operation": "equals",
@@ -888,7 +888,7 @@
                   "combinator": "and"
                 },
                 "renameOutput": true,
-                "outputKey": "+ 30 dias"
+                "outputKey": "+ 7 dias"
               },
               {
                 "conditions": {
@@ -902,7 +902,7 @@
                     {
                       "id": "96ee22e3-0a40-46a3-891f-df0ba41166fc",
                       "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
-                      "rightValue": "60_dias_despues",
+                      "rightValue": "30_dias_despues",
                       "operator": {
                         "type": "string",
                         "operation": "equals",
@@ -913,7 +913,7 @@
                   "combinator": "and"
                 },
                 "renameOutput": true,
-                "outputKey": "+ 60 dias"
+                "outputKey": "+ 30 dias"
               }
             ]
           },
@@ -922,7 +922,7 @@
         "type": "n8n-nodes-base.switch",
         "typeVersion": 3.4,
         "position": [
-          5056,
+          5120,
           -304
         ],
         "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
@@ -970,7 +970,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5856,
+          5920,
           -1120
         ],
         "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
@@ -990,7 +990,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5632,
+          5696,
           -1120
         ],
         "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
@@ -1025,7 +1025,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6080,
+          6144,
           -1120
         ],
         "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
@@ -1066,7 +1066,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3712,
+          3776,
           -144
         ],
         "id": "937effc5-d55b-4e41-bb82-647f9266837d",
@@ -1107,7 +1107,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3952,
+          4016,
           -32
         ],
         "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -1130,7 +1130,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          4384,
+          4448,
           -144
         ],
         "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
@@ -1217,7 +1217,7 @@
         "type": "n8n-nodes-base.executeWorkflow",
         "typeVersion": 1.3,
         "position": [
-          4192,
+          4256,
           -144
         ],
         "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
@@ -1340,7 +1340,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5408,
+          5472,
           -1024
         ],
         "id": "2c710983-a029-4447-872b-b00631d26014",
@@ -1388,7 +1388,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5856,
+          5920,
           -544
         ],
         "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
@@ -1408,7 +1408,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5632,
+          5696,
           -544
         ],
         "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
@@ -1462,7 +1462,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5856,
+          5920,
           -736
         ],
         "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
@@ -1482,7 +1482,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5632,
+          5696,
           -736
         ],
         "id": "0db36230-0d0d-49bb-943a-dc011650676e",
@@ -1517,7 +1517,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6080,
+          6144,
           -736
         ],
         "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
@@ -1593,7 +1593,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5408,
+          5472,
           -640
         ],
         "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
@@ -1641,7 +1641,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5856,
+          5920,
           -160
         ],
         "id": "fb04a892-10f5-4269-b116-17194a984389",
@@ -1661,7 +1661,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5632,
+          5696,
           -160
         ],
         "id": "82504058-e135-4182-8768-a13266255ada",
@@ -1715,7 +1715,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5856,
+          5920,
           -352
         ],
         "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
@@ -1735,7 +1735,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5632,
+          5696,
           -352
         ],
         "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
@@ -1770,7 +1770,7 @@
         "type": "n8n-nodes-base.discord",
         "typeVersion": 2,
         "position": [
-          6080,
+          6144,
           -352
         ],
         "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
@@ -1846,7 +1846,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          5408,
+          5472,
           -256
         ],
         "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
@@ -1887,7 +1887,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          3952,
+          4016,
           -272
         ],
         "id": "791557b6-5113-41aa-b134-8ae81864350b",
@@ -1914,8 +1914,8 @@
         "type": "n8n-nodes-base.rabbitmqTrigger",
         "typeVersion": 1,
         "position": [
-          144,
-          -528
+          -304,
+          -560
         ],
         "id": "8d9574ec-975e-4724-a561-0e4d57603596",
         "name": "Webhook",
@@ -1938,7 +1938,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          3232,
+          3296,
           -32
         ],
         "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
@@ -2312,14 +2312,14 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65754,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 69560,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5408,
-          -64
+          5472,
+          16
         ],
         "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
         "name": "Enviar mensaje6",
@@ -2338,14 +2338,14 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65756,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 69566,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5408,
-          128
+          5472,
+          224
         ],
         "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
         "name": "Enviar mensaje7",
@@ -2364,14 +2364,14 @@
           "genericAuthType": "oAuth2Api",
           "sendBody": true,
           "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65758,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+          "jsonBody": "=[\n  {\n    \"bot_id\": 69568,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
           "options": {}
         },
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          5408,
-          320
+          5472,
+          432
         ],
         "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
         "name": "Enviar mensaje8",
@@ -2549,8 +2549,8 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1136,
-          -688
+          880,
+          -752
         ],
         "id": "380ad9a5-f3cb-41be-b723-8471e13518fe",
         "name": "Buscar Detalles venta nuevo",
@@ -2594,8 +2594,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          1328,
-          -688
+          1072,
+          -752
         ],
         "id": "c5837ea6-0b1e-4c24-a5a3-1a5aa921d6e8",
         "name": "existe?1"
@@ -3658,7 +3658,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          1712,
+          1392,
           -800
         ],
         "id": "3d8b827c-53dc-4058-a6c1-37e919b355f6",
@@ -3717,8 +3717,8 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          816,
-          -528
+          592,
+          -560
         ],
         "id": "2693bd30-4064-4ad0-b2b2-78ace4aec396",
         "name": "es tipo seguimiento?"
@@ -3759,7 +3759,7 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.3,
         "position": [
-          3456,
+          3520,
           -32
         ],
         "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
@@ -3894,6 +3894,82 @@
             "name": "Redis_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "5GX535Us0MimCrPK",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/5GX535Us0MimCrPK",
+            "cachedResultName": "Agrega info clave a ejecuciones de n8n"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_airtable": "={{ $json.id_detalles_venta }}",
+              "id_lead_kommo": 0,
+              "id_contacto_kommo": 0,
+              "ejecucion_id": "={{ $workflow.id }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "id_airtable",
+                "displayName": "id_airtable",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_lead_kommo",
+                "displayName": "id_lead_kommo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "id_contacto_kommo",
+                "displayName": "id_contacto_kommo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "ejecucion_id",
+                "displayName": "ejecucion_id",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {
+            "waitForSubWorkflow": false
+          }
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.3,
+        "position": [
+          352,
+          -560
+        ],
+        "id": "49fae6bb-735c-44a4-b755-8be667c08dd8",
+        "name": "Call 'Agrega info clave a ejecuciones de n8n'"
       }
     ],
     "connections": {
@@ -3923,7 +3999,7 @@
         "main": [
           [
             {
-              "node": "es tipo seguimiento?",
+              "node": "Call 'Agrega info clave a ejecuciones de n8n'",
               "type": "main",
               "index": 0
             }
@@ -4627,14 +4703,25 @@
             }
           ]
         ]
+      },
+      "Call 'Agrega info clave a ejecuciones de n8n'": {
+        "main": [
+          [
+            {
+              "node": "es tipo seguimiento?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version a34d9ea4",
+    "name": "Version f9b8a36b",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "a34d9ea4-557c-4df1-a6f2-4216af02d927",
+  "activeVersionId": "f9b8a36b-c9aa-4ab8-8176-9bea7a587e32",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -4662,7 +4749,7 @@
       "main": [
         [
           {
-            "node": "es tipo seguimiento?",
+            "node": "Call 'Agrega info clave a ejecuciones de n8n'",
             "type": "main",
             "index": 0
           }
@@ -5366,6 +5453,17 @@
           }
         ]
       ]
+    },
+    "Call 'Agrega info clave a ejecuciones de n8n'": {
+      "main": [
+        [
+          {
+            "node": "es tipo seguimiento?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-20T17:06:23.257Z",
@@ -5399,8 +5497,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        384,
-        -528
+        -96,
+        -560
       ],
       "id": "ded6d2ef-cd36-45dd-ad33-def709b1b9d2",
       "name": "Detalles venta",
@@ -5437,7 +5535,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1712,
+        1392,
         -512
       ],
       "id": "ba23e1af-5c28-4026-a85a-9d6fceb761aa",
@@ -5525,8 +5623,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        592,
-        -528
+        112,
+        -560
       ],
       "id": "5c859342-b16e-4e17-9d22-efb60ec47077",
       "name": "Variables_1"
@@ -5550,7 +5648,7 @@
             {
               "id": "a8df778b-f285-41e7-94a3-83911a954723",
               "name": "celular_a_enviar_mensaje",
-              "value": "={{ $('Clientes').item.json['Celular Unico'] }}",
+              "value": "={{ $('Clientes').item.json['Celular Unico'].split(',').pop() }}",
               "type": "string"
             },
             {
@@ -5574,7 +5672,7 @@
             {
               "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
               "name": "Celular_a_enviar",
-              "value": "={{ $('Clientes').item.json['Celular Unico'] }}",
+              "value": "={{ $('Clientes').item.json['Celular Unico'].split(',').pop() }}",
               "type": "string"
             },
             {
@@ -5686,7 +5784,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5856,
+        5920,
         -928
       ],
       "id": "d482ab7f-c9ad-4579-8fcc-f2edfe0913e9",
@@ -6045,7 +6143,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5632,
+        5696,
         -928
       ],
       "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
@@ -6108,7 +6206,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        4608,
+        4672,
         -240
       ],
       "id": "5fb87eea-e76f-4987-bf1c-a4e0d7bbe62d",
@@ -6125,7 +6223,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4832,
+        4896,
         -240
       ],
       "id": "21cb1f7f-49cb-4bfb-abd3-4a767b1fde99",
@@ -6222,7 +6320,7 @@
                   {
                     "id": "96366695-05f2-4532-864f-d1fca3ecac2d",
                     "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
-                    "rightValue": "5_dias_despues",
+                    "rightValue": "1_dia_despues",
                     "operator": {
                       "type": "string",
                       "operation": "equals",
@@ -6233,7 +6331,7 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "+ 5 dias"
+              "outputKey": "+ 1 dia"
             },
             {
               "conditions": {
@@ -6247,7 +6345,7 @@
                   {
                     "id": "28d7d570-9548-4248-a0c2-56fc11219e7b",
                     "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
-                    "rightValue": "30_dias_despues",
+                    "rightValue": "7_dias_despues",
                     "operator": {
                       "type": "string",
                       "operation": "equals",
@@ -6258,7 +6356,7 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "+ 30 dias"
+              "outputKey": "+ 7 dias"
             },
             {
               "conditions": {
@@ -6272,7 +6370,7 @@
                   {
                     "id": "96ee22e3-0a40-46a3-891f-df0ba41166fc",
                     "leftValue": "={{ $('Variables_1').item.json.tipo_recordatorio_pago }}",
-                    "rightValue": "60_dias_despues",
+                    "rightValue": "30_dias_despues",
                     "operator": {
                       "type": "string",
                       "operation": "equals",
@@ -6283,7 +6381,7 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "+ 60 dias"
+              "outputKey": "+ 30 dias"
             }
           ]
         },
@@ -6292,7 +6390,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        5056,
+        5120,
         -304
       ],
       "id": "fe9a63c7-f37b-404e-998f-0db0e9ec142f",
@@ -6340,7 +6438,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5856,
+        5920,
         -1120
       ],
       "id": "1668a15e-2565-4ba7-934d-73b5e3762b34",
@@ -6360,7 +6458,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5632,
+        5696,
         -1120
       ],
       "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
@@ -6395,7 +6493,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6080,
+        6144,
         -1120
       ],
       "id": "0ad98751-7f8b-4ff7-8d09-cb6035ce18c1",
@@ -6436,7 +6534,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3712,
+        3776,
         -144
       ],
       "id": "937effc5-d55b-4e41-bb82-647f9266837d",
@@ -6477,7 +6575,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3952,
+        4016,
         -32
       ],
       "id": "704a5096-abfc-4bac-8121-def6018e5ad0",
@@ -6500,7 +6598,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4384,
+        4448,
         -144
       ],
       "id": "0a267b2b-9daa-4e48-8664-e9f675a6e6c7",
@@ -6587,7 +6685,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.3,
       "position": [
-        4192,
+        4256,
         -144
       ],
       "id": "e5ced7fb-3a08-4c5a-bef9-592aa6b0809b",
@@ -6710,7 +6808,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5408,
+        5472,
         -1024
       ],
       "id": "2c710983-a029-4447-872b-b00631d26014",
@@ -6758,7 +6856,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5856,
+        5920,
         -544
       ],
       "id": "b6778630-11ff-43cb-b64b-386e98c0adef",
@@ -6778,7 +6876,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5632,
+        5696,
         -544
       ],
       "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
@@ -6832,7 +6930,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5856,
+        5920,
         -736
       ],
       "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
@@ -6852,7 +6950,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5632,
+        5696,
         -736
       ],
       "id": "0db36230-0d0d-49bb-943a-dc011650676e",
@@ -6887,7 +6985,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6080,
+        6144,
         -736
       ],
       "id": "9a225705-8b4f-4fa5-8014-7cacc95a4101",
@@ -6963,7 +7061,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5408,
+        5472,
         -640
       ],
       "id": "14d604f2-54ca-4f34-bc16-1e9076978ed6",
@@ -7011,7 +7109,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5856,
+        5920,
         -160
       ],
       "id": "fb04a892-10f5-4269-b116-17194a984389",
@@ -7031,7 +7129,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5632,
+        5696,
         -160
       ],
       "id": "82504058-e135-4182-8768-a13266255ada",
@@ -7085,7 +7183,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5856,
+        5920,
         -352
       ],
       "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
@@ -7105,7 +7203,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5632,
+        5696,
         -352
       ],
       "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
@@ -7140,7 +7238,7 @@
       "type": "n8n-nodes-base.discord",
       "typeVersion": 2,
       "position": [
-        6080,
+        6144,
         -352
       ],
       "id": "16b46137-6187-4007-93c8-6e5da6f69aeb",
@@ -7216,7 +7314,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        5408,
+        5472,
         -256
       ],
       "id": "5909ea66-a90e-498a-ab8a-7ebf3e1fc9de",
@@ -7257,7 +7355,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3952,
+        4016,
         -272
       ],
       "id": "791557b6-5113-41aa-b134-8ae81864350b",
@@ -7284,8 +7382,8 @@
       "type": "n8n-nodes-base.rabbitmqTrigger",
       "typeVersion": 1,
       "position": [
-        144,
-        -528
+        -304,
+        -560
       ],
       "id": "8d9574ec-975e-4724-a561-0e4d57603596",
       "name": "Webhook",
@@ -7308,7 +7406,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        3232,
+        3296,
         -32
       ],
       "id": "b7cad8cf-4681-4a5f-96d7-801c27f1e27e",
@@ -7682,14 +7780,14 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65754,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 69560,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5408,
-        -64
+        5472,
+        16
       ],
       "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
       "name": "Enviar mensaje6",
@@ -7708,14 +7806,14 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65756,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 69566,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5408,
-        128
+        5472,
+        224
       ],
       "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
       "name": "Enviar mensaje7",
@@ -7734,14 +7832,14 @@
         "genericAuthType": "oAuth2Api",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65758,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
+        "jsonBody": "=[\n  {\n    \"bot_id\": 69568,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        5408,
-        320
+        5472,
+        432
       ],
       "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
       "name": "Enviar mensaje8",
@@ -7919,8 +8017,8 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1136,
-        -688
+        880,
+        -752
       ],
       "id": "380ad9a5-f3cb-41be-b723-8471e13518fe",
       "name": "Buscar Detalles venta nuevo",
@@ -7964,8 +8062,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1328,
-        -688
+        1072,
+        -752
       ],
       "id": "c5837ea6-0b1e-4c24-a5a3-1a5aa921d6e8",
       "name": "existe?1"
@@ -9028,7 +9126,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        1712,
+        1392,
         -800
       ],
       "id": "3d8b827c-53dc-4058-a6c1-37e919b355f6",
@@ -9087,8 +9185,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        816,
-        -528
+        592,
+        -560
       ],
       "id": "2693bd30-4064-4ad0-b2b2-78ace4aec396",
       "name": "es tipo seguimiento?"
@@ -9129,7 +9227,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        3456,
+        3520,
         -32
       ],
       "id": "fd8f94d5-9d81-45cb-bf40-70e7e7ce38e1",
@@ -9264,6 +9362,82 @@
           "name": "Redis_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "5GX535Us0MimCrPK",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/5GX535Us0MimCrPK",
+          "cachedResultName": "Agrega info clave a ejecuciones de n8n"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_airtable": "={{ $json.id_detalles_venta }}",
+            "id_lead_kommo": 0,
+            "id_contacto_kommo": 0,
+            "ejecucion_id": "={{ $workflow.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id_airtable",
+              "displayName": "id_airtable",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_lead_kommo",
+              "displayName": "id_lead_kommo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "id_contacto_kommo",
+              "displayName": "id_contacto_kommo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "ejecucion_id",
+              "displayName": "ejecucion_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.3,
+      "position": [
+        352,
+        -560
+      ],
+      "id": "49fae6bb-735c-44a4-b755-8be667c08dd8",
+      "name": "Call 'Agrega info clave a ejecuciones de n8n'"
     }
   ],
   "pinData": {
@@ -9334,20 +9508,20 @@
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
             "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
-            "x-forwarded-for": "54.163.47.113",
+            "x-forwarded-for": "54.224.79.221",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "nSXuL-W_QFyuQpggqmzx2A",
-            "x-real-ip": "54.163.47.113",
-            "x-request-start": "1780031018492"
+            "x-railway-request-id": "-7haB6y_RfqsNZk_o3UVLg",
+            "x-real-ip": "54.224.79.221",
+            "x-request-start": "1780376691234"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "rec3vR3MWjIO1wjK0",
+            "recordId": "recCE83TnoK5TEOYJ",
             "Tipo": "7_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
@@ -9382,6 +9556,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-06-01T03:47:46.928Z",
-  "versionId": "a34d9ea4-557c-4df1-a6f2-4216af02d927"
+  "updatedAt": "2026-06-02T17:07:54.692Z",
+  "versionId": "f9b8a36b-c9aa-4ab8-8176-9bea7a587e32"
 }
