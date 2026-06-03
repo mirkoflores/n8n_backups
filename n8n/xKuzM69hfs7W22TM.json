@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-19T17:24:53.199Z",
-    "createdAt": "2026-05-19T17:24:51.938Z",
-    "versionId": "a936aba9-40b0-46ee-a1b6-b63d73aa2389",
+    "updatedAt": "2026-06-02T15:52:34.730Z",
+    "createdAt": "2026-06-02T15:50:17.682Z",
+    "versionId": "49174abb-8cc0-4f7c-91e1-6999662bb6c4",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -315,7 +315,7 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          4144,
+          4432,
           16
         ],
         "id": "ceab8b5c-6539-49c0-9fa9-991c4273671c",
@@ -364,7 +364,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          3904,
+          4192,
           16
         ],
         "id": "82b799d0-e062-419c-a9f4-528621879d6d",
@@ -4083,11 +4083,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version a936aba9",
+    "name": "Version 49174abb",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "a936aba9-40b0-46ee-a1b6-b63d73aa2389",
+  "activeVersionId": "49174abb-8cc0-4f7c-91e1-6999662bb6c4",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -4857,7 +4857,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        4144,
+        4432,
         16
       ],
       "id": "ceab8b5c-6539-49c0-9fa9-991c4273671c",
@@ -4906,7 +4906,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        3904,
+        4192,
         16
       ],
       "id": "82b799d0-e062-419c-a9f4-528621879d6d",
@@ -8345,7 +8345,8 @@
     "availableInMCP": false,
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -8359,6 +8360,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-05-19T17:24:51.934Z",
-  "versionId": "a936aba9-40b0-46ee-a1b6-b63d73aa2389"
+  "updatedAt": "2026-06-02T15:50:17.680Z",
+  "versionId": "49174abb-8cc0-4f7c-91e1-6999662bb6c4"
 }
