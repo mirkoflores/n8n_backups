@@ -1,157 +1,8 @@
 {
-  "active": true,
-  "activeVersion": {
-    "updatedAt": "2026-05-05T17:22:42.115Z",
-    "createdAt": "2026-05-05T17:22:40.459Z",
-    "versionId": "83273108-49b3-4908-ae24-d7ba8d198bca",
-    "workflowId": "vLNS88NvQfWWZEQv",
-    "nodes": [
-      {
-        "parameters": {
-          "path": "db0dfba2-ac56-4313-9de8-5241841ae204",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.webhook",
-        "typeVersion": 2.1,
-        "position": [
-          0,
-          0
-        ],
-        "id": "6d7655c5-d6d0-4b7e-b812-ce287b366eb4",
-        "name": "Webhook",
-        "webhookId": "db0dfba2-ac56-4313-9de8-5241841ae204"
-      },
-      {
-        "parameters": {
-          "resume": "form",
-          "formTitle": "a",
-          "formDescription": "a",
-          "formFields": {
-            "values": [
-              {
-                "fieldLabel": "a",
-                "placeholder": "a"
-              }
-            ]
-          },
-          "responseMode": "lastNode",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "position": [
-          432,
-          -192
-        ],
-        "id": "faeb35b6-9857-4a3a-8919-7e4e18883e00",
-        "name": "Wait",
-        "webhookId": "2d554278-5fab-4205-b355-0111ef31a548"
-      },
-      {
-        "parameters": {
-          "respondWith": "redirect",
-          "redirectURL": "={{ $execution.resumeFormUrl }}",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.respondToWebhook",
-        "typeVersion": 1.5,
-        "position": [
-          208,
-          -192
-        ],
-        "id": "457c1fe5-fb36-4c23-a335-1918d6de91f1",
-        "name": "Respond to Webhook"
-      },
-      {
-        "parameters": {
-          "formFields": {
-            "values": [
-              {
-                "fieldName": "f",
-                "fieldLabel": "s"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.form",
-        "typeVersion": 2.4,
-        "position": [
-          640,
-          -192
-        ],
-        "id": "7b3fc628-a00c-4b19-841a-3deed1224c27",
-        "name": "Form",
-        "webhookId": "73e8674b-f15c-4559-87c4-d3fbef0c7dd1"
-      },
-      {
-        "parameters": {
-          "amount": 60
-        },
-        "type": "n8n-nodes-base.wait",
-        "typeVersion": 1.1,
-        "position": [
-          208,
-          0
-        ],
-        "id": "acf9d34a-fe26-48f7-8cbb-015d46eb4f31",
-        "name": "Wait1",
-        "webhookId": "2d554278-5fab-4205-b355-0111ef31a548"
-      }
-    ],
-    "connections": {
-      "Webhook": {
-        "main": [
-          [
-            {
-              "node": "Wait1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Respond to Webhook": {
-        "main": [
-          [
-            {
-              "node": "Wait",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Wait": {
-        "main": [
-          [
-            {
-              "node": "Form",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      }
-    },
-    "authors": "Bioenglish Lat",
-    "name": "Version 83273108",
-    "description": "",
-    "autosaved": false
-  },
-  "activeVersionId": "83273108-49b3-4908-ae24-d7ba8d198bca",
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
   "connections": {
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "Wait1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Respond to Webhook": {
       "main": [
         [
@@ -173,6 +24,17 @@
           }
         ]
       ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-05-05T17:02:31.114Z",
@@ -183,21 +45,6 @@
   },
   "name": "PRUEBA",
   "nodes": [
-    {
-      "parameters": {
-        "path": "db0dfba2-ac56-4313-9de8-5241841ae204",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2.1,
-      "position": [
-        0,
-        0
-      ],
-      "id": "6d7655c5-d6d0-4b7e-b812-ce287b366eb4",
-      "name": "Webhook",
-      "webhookId": "db0dfba2-ac56-4313-9de8-5241841ae204"
-    },
     {
       "parameters": {
         "resume": "form",
@@ -263,26 +110,58 @@
     },
     {
       "parameters": {
-        "amount": 60
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"aField\": \"123131,312321\"\n}"
       },
-      "type": "n8n-nodes-base.wait",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "aa488a25-c7ec-46f4-989b-b4ac3a4b2935",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "085123e9-500d-4d27-9b18-34a90b633fcf",
+              "name": "a",
+              "value": "={{ $json.aField.split(',').pop() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
       "position": [
         208,
         0
       ],
-      "id": "acf9d34a-fe26-48f7-8cbb-015d46eb4f31",
-      "name": "Wait1",
-      "webhookId": "2d554278-5fab-4205-b355-0111ef31a548"
+      "id": "e4d8d75a-c314-4ae7-a5cd-f4be16c88d96",
+      "name": "Edit Fields"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "aField": "123131"
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
   "settings": {
     "executionOrder": "v1",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -296,6 +175,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-05-05T17:22:40.457Z",
-  "versionId": "83273108-49b3-4908-ae24-d7ba8d198bca"
+  "updatedAt": "2026-06-02T15:43:17.945Z",
+  "versionId": "1dcaa58a-bbd4-4aa3-b433-09e1f653d243"
 }
