@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-11T04:03:02.074Z",
-    "createdAt": "2026-05-11T04:02:59.776Z",
-    "versionId": "8842bc34-e0ba-4d41-87f5-8b166fa8d05d",
+    "updatedAt": "2026-06-02T15:45:25.972Z",
+    "createdAt": "2026-06-02T15:44:25.115Z",
+    "versionId": "9434d5e2-cc00-4fc4-aa33-0e57c3949c0f",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -191,7 +191,7 @@
               {
                 "id": "6fb73710-17bc-4605-b616-0ad29ceddc1c",
                 "name": "celular_a_enviar_upseel",
-                "value": "={{ $('obtener registro - cliente').item.json['Celular Unico'] }}",
+                "value": "={{ $('obtener registro - cliente').item.json['Celular Unico'].split(',').pop() }}",
                 "type": "string"
               },
               {
@@ -571,7 +571,7 @@
               {
                 "id": "9390aea2-62d7-4929-bdd5-11e3ca27b046",
                 "name": "celular_a_enviar_upseel",
-                "value": "={{ $('obtener registro - cliente1').item.json['Celular Unico'] }}",
+                "value": "={{ $('obtener registro - cliente1').item.json['Celular Unico'].split(',').pop() }}",
                 "type": "string"
               },
               {
@@ -2716,11 +2716,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 8842bc34",
+    "name": "Version 9434d5e2",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "8842bc34-e0ba-4d41-87f5-8b166fa8d05d",
+  "activeVersionId": "9434d5e2-cc00-4fc4-aa33-0e57c3949c0f",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -3536,7 +3536,7 @@
             {
               "id": "6fb73710-17bc-4605-b616-0ad29ceddc1c",
               "name": "celular_a_enviar_upseel",
-              "value": "={{ $('obtener registro - cliente').item.json['Celular Unico'] }}",
+              "value": "={{ $('obtener registro - cliente').item.json['Celular Unico'].split(',').pop() }}",
               "type": "string"
             },
             {
@@ -3916,7 +3916,7 @@
             {
               "id": "9390aea2-62d7-4929-bdd5-11e3ca27b046",
               "name": "celular_a_enviar_upseel",
-              "value": "={{ $('obtener registro - cliente1').item.json['Celular Unico'] }}",
+              "value": "={{ $('obtener registro - cliente1').item.json['Celular Unico'].split(',').pop() }}",
               "type": "string"
             },
             {
@@ -5483,7 +5483,8 @@
     "availableInMCP": false,
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -5497,6 +5498,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-05-11T04:02:59.773Z",
-  "versionId": "8842bc34-e0ba-4d41-87f5-8b166fa8d05d"
+  "updatedAt": "2026-06-02T15:44:25.113Z",
+  "versionId": "9434d5e2-cc00-4fc4-aa33-0e57c3949c0f"
 }
