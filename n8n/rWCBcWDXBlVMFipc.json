@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-05-06T14:08:24.332Z",
-    "createdAt": "2026-05-06T14:08:22.009Z",
-    "versionId": "88e00a58-3f44-4b55-be56-1d97e3435c31",
+    "updatedAt": "2026-06-02T15:46:46.371Z",
+    "createdAt": "2026-06-02T15:46:29.040Z",
+    "versionId": "e909047d-1d0a-4b33-910e-5f27e5058b12",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -128,7 +128,7 @@
               {
                 "id": "4f1ce305-c89b-4233-a033-5fa8a2959b0d",
                 "name": "email_cliente",
-                "value": "={{ $json.email_cliente }}",
+                "value": "={{ $json.email_cliente.split(',').pop() }}",
                 "type": "string"
               },
               {
@@ -8246,11 +8246,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 88e00a58",
+    "name": "Version e909047d",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "88e00a58-3f44-4b55-be56-1d97e3435c31",
+  "activeVersionId": "e909047d-1d0a-4b33-910e-5f27e5058b12",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -9177,7 +9177,7 @@
             {
               "id": "4f1ce305-c89b-4233-a033-5fa8a2959b0d",
               "name": "email_cliente",
-              "value": "={{ $json.email_cliente }}",
+              "value": "={{ $json.email_cliente.split(',').pop() }}",
               "type": "string"
             },
             {
@@ -16632,7 +16632,8 @@
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
     "availableInMCP": false,
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -16645,11 +16646,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "waYQbq"
+      "webhookId": "w72zBz"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-05-06T14:10:06.221Z",
-  "versionId": "88e00a58-3f44-4b55-be56-1d97e3435c31"
+  "updatedAt": "2026-06-02T15:46:29.037Z",
+  "versionId": "e909047d-1d0a-4b33-910e-5f27e5058b12"
 }
