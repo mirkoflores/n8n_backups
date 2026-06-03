@@ -1,0 +1,563 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-06-02T15:29:36.898Z",
+    "createdAt": "2026-06-02T15:29:36.016Z",
+    "versionId": "a46c0f9b-16b4-4625-9f0f-ad122edb797e",
+    "workflowId": "5GX535Us0MimCrPK",
+    "nodes": [
+      {
+        "parameters": {
+          "inputSource": "jsonExample",
+          "jsonExample": "{\n  \"id_airtable\": \"12\",\n  \"id_lead_kommo\": 3213,\n  \"id_contacto_kommo\": 3213,\n  \"ejecucion_id\": 213\n}"
+        },
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          -208,
+          32
+        ],
+        "id": "522c30f1-d02e-4f94-bb11-1d114c731002",
+        "name": "When Executed by Another Workflow"
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('When Executed by Another Workflow').item.json.id_airtable }}",
+                      "rightValue": "={{ 0 }}",
+                      "operator": {
+                        "type": "number",
+                        "operation": "notEquals"
+                      },
+                      "id": "60f53016-51e6-472d-b0cf-7ec50743b501"
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "Airtable"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "52168a66-b30d-4e16-91fa-4d40de5ef1a6",
+                      "leftValue": "={{ $('When Executed by Another Workflow').item.json.id_lead_kommo }}",
+                      "rightValue": 0,
+                      "operator": {
+                        "type": "number",
+                        "operation": "notEquals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "ID lead Kommo"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 3
+                  },
+                  "conditions": [
+                    {
+                      "id": "5c2b098d-4c07-417d-9c69-e4508cbc4efe",
+                      "leftValue": "={{ $('When Executed by Another Workflow').item.json.id_contacto_kommo }}",
+                      "rightValue": 0,
+                      "operator": {
+                        "type": "number",
+                        "operation": "notEquals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "ID contacto Kommo"
+              }
+            ]
+          },
+          "options": {
+            "allMatchingOutputs": true
+          }
+        },
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          16,
+          16
+        ],
+        "id": "508737b9-05b3-4b9c-9e93-727afad01459",
+        "name": "Switch"
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_etapa_kommo",
+          "messageData": "={{ $('When Executed by Another Workflow').item.json.id_etapa_kommo.toString()}}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          320,
+          560
+        ],
+        "id": "23ebdbed-5790-40cc-9022-5341e7a8289d",
+        "name": "etapa_kommo"
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_contact_kommo",
+          "messageData": "={{ $('When Executed by Another Workflow').item.json.id_contacto_kommo.toString() }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          352,
+          208
+        ],
+        "id": "1c7abf98-28c5-4cbf-b61f-1fc6dc283938",
+        "name": "kommo_contacto",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_lead_kommo",
+          "messageData": "={{ $('When Executed by Another Workflow').item.json.id_lead_kommo.toString() }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          352,
+          32
+        ],
+        "id": "6d98ec10-ee64-447e-a6ad-4c6cd72efdbc",
+        "name": "kommo_lead",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_funnel_kommo",
+          "messageData": "={{ $('When Executed by Another Workflow').item.json.id_funnel_kommo.toString() }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          320,
+          752
+        ],
+        "id": "4cf01b35-56e1-4036-a312-2f36aa6dac91",
+        "name": "kommo_funnel"
+      },
+      {
+        "parameters": {
+          "operation": "push",
+          "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_airtable",
+          "messageData": "={{ $('When Executed by Another Workflow').item.json.id_airtable.toString() }}"
+        },
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          352,
+          -144
+        ],
+        "id": "197b9157-b013-438c-ab8f-3902046ba9d6",
+        "name": "airtable",
+        "credentials": {
+          "redis": {
+            "id": "B8dgg7MNeg3CEDZR",
+            "name": "Redis_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "ALTER TABLE execution_entity \nDROP COLUMN id_contact_kommo;",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          1408,
+          -208
+        ],
+        "id": "bf3fe444-cbf6-486f-852e-445c272b6b08",
+        "name": "Execute a SQL query",
+        "credentials": {
+          "postgres": {
+            "id": "03h99CCgQN0WXTMc",
+            "name": "Postgres_n8n"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "When Executed by Another Workflow": {
+        "main": [
+          [
+            {
+              "node": "Switch",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Switch": {
+        "main": [
+          [
+            {
+              "node": "airtable",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "kommo_lead",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "kommo_contacto",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version a46c0f9b",
+    "description": "",
+    "autosaved": true
+  },
+  "activeVersionId": "a46c0f9b-16b4-4625-9f0f-ad122edb797e",
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "airtable",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "kommo_lead",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "kommo_contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-06-02T15:08:56.684Z",
+  "id": "5GX535Us0MimCrPK",
+  "isArchived": false,
+  "meta": null,
+  "name": "Agrega info clave a ejecuciones de n8n",
+  "nodes": [
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"id_airtable\": \"12\",\n  \"id_lead_kommo\": 3213,\n  \"id_contacto_kommo\": 3213,\n  \"ejecucion_id\": 213\n}"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -208,
+        32
+      ],
+      "id": "522c30f1-d02e-4f94-bb11-1d114c731002",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.id_airtable }}",
+                    "rightValue": "={{ 0 }}",
+                    "operator": {
+                      "type": "number",
+                      "operation": "notEquals"
+                    },
+                    "id": "60f53016-51e6-472d-b0cf-7ec50743b501"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Airtable"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "52168a66-b30d-4e16-91fa-4d40de5ef1a6",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.id_lead_kommo }}",
+                    "rightValue": 0,
+                    "operator": {
+                      "type": "number",
+                      "operation": "notEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ID lead Kommo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "5c2b098d-4c07-417d-9c69-e4508cbc4efe",
+                    "leftValue": "={{ $('When Executed by Another Workflow').item.json.id_contacto_kommo }}",
+                    "rightValue": 0,
+                    "operator": {
+                      "type": "number",
+                      "operation": "notEquals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ID contacto Kommo"
+            }
+          ]
+        },
+        "options": {
+          "allMatchingOutputs": true
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        16,
+        16
+      ],
+      "id": "508737b9-05b3-4b9c-9e93-727afad01459",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_etapa_kommo",
+        "messageData": "={{ $('When Executed by Another Workflow').item.json.id_etapa_kommo.toString()}}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        320,
+        560
+      ],
+      "id": "23ebdbed-5790-40cc-9022-5341e7a8289d",
+      "name": "etapa_kommo"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_contact_kommo",
+        "messageData": "={{ $('When Executed by Another Workflow').item.json.id_contacto_kommo.toString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        352,
+        208
+      ],
+      "id": "1c7abf98-28c5-4cbf-b61f-1fc6dc283938",
+      "name": "kommo_contacto",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_lead_kommo",
+        "messageData": "={{ $('When Executed by Another Workflow').item.json.id_lead_kommo.toString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        352,
+        32
+      ],
+      "id": "6d98ec10-ee64-447e-a6ad-4c6cd72efdbc",
+      "name": "kommo_lead",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_funnel_kommo",
+        "messageData": "={{ $('When Executed by Another Workflow').item.json.id_funnel_kommo.toString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        320,
+        752
+      ],
+      "id": "4cf01b35-56e1-4036-a312-2f36aa6dac91",
+      "name": "kommo_funnel"
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $('When Executed by Another Workflow').item.json.ejecucion_id }}_id_airtable",
+        "messageData": "={{ $('When Executed by Another Workflow').item.json.id_airtable.toString() }}"
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        352,
+        -144
+      ],
+      "id": "197b9157-b013-438c-ab8f-3902046ba9d6",
+      "name": "airtable",
+      "credentials": {
+        "redis": {
+          "id": "B8dgg7MNeg3CEDZR",
+          "name": "Redis_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "ALTER TABLE execution_entity \nDROP COLUMN id_contact_kommo;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1408,
+        -208
+      ],
+      "id": "bf3fe444-cbf6-486f-852e-445c272b6b08",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "03h99CCgQN0WXTMc",
+          "name": "Postgres_n8n"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-06-02T15:08:56.684Z",
+      "createdAt": "2026-06-02T15:08:56.684Z",
+      "role": "workflow:owner",
+      "workflowId": "5GX535Us0MimCrPK",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-06-02T15:29:36.015Z",
+  "versionId": "a46c0f9b-16b4-4625-9f0f-ad122edb797e"
+}
