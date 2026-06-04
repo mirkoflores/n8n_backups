@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-02T15:51:46.032Z",
-    "createdAt": "2026-06-02T15:51:45.210Z",
-    "versionId": "ebe6e4bb-b6bd-4144-9acd-eca5d1a462dd",
+    "updatedAt": "2026-06-03T14:30:01.664Z",
+    "createdAt": "2026-06-03T14:29:59.562Z",
+    "versionId": "4c516bc5-889a-4e81-8ac6-8f191c495be1",
     "workflowId": "FUqVaG3kGGb2Eqpm",
     "nodes": [
       {
@@ -501,7 +501,7 @@
                 "defaultMatch": false,
                 "display": true,
                 "canBeUsedToMatch": true,
-                "type": "number",
+                "type": "string",
                 "removed": false
               }
             ],
@@ -744,11 +744,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version ebe6e4bb",
+    "name": "Version 4c516bc5",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "ebe6e4bb-b6bd-4144-9acd-eca5d1a462dd",
+  "activeVersionId": "4c516bc5-889a-4e81-8ac6-8f191c495be1",
   "connections": {
     "Get list of contacts": {
       "main": [
@@ -1442,7 +1442,7 @@
               "defaultMatch": false,
               "display": true,
               "canBeUsedToMatch": true,
-              "type": "number",
+              "type": "string",
               "removed": false
             }
           ],
@@ -1496,7 +1496,8 @@
     "Start": [
       {
         "json": {
-          "celular": "+51959359423",
+          "celular": "+51964107774",
+          "nombre": "Cinthia Carolina Quintanilla Huaman ",
           "lead_etapa": 68677523
         },
         "pairedItem": {
@@ -1525,6 +1526,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-06-02T15:51:45.208Z",
-  "versionId": "ebe6e4bb-b6bd-4144-9acd-eca5d1a462dd"
+  "updatedAt": "2026-06-03T14:29:59.558Z",
+  "versionId": "4c516bc5-889a-4e81-8ac6-8f191c495be1"
 }
