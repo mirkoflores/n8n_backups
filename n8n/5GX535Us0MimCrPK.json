@@ -1,15 +1,15 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-02T15:29:36.898Z",
-    "createdAt": "2026-06-02T15:29:36.016Z",
-    "versionId": "a46c0f9b-16b4-4625-9f0f-ad122edb797e",
+    "updatedAt": "2026-06-03T14:36:53.039Z",
+    "createdAt": "2026-06-03T14:36:43.309Z",
+    "versionId": "5ece890b-0210-4d4b-9564-e3a1990d0427",
     "workflowId": "5GX535Us0MimCrPK",
     "nodes": [
       {
         "parameters": {
           "inputSource": "jsonExample",
-          "jsonExample": "{\n  \"id_airtable\": \"12\",\n  \"id_lead_kommo\": 3213,\n  \"id_contacto_kommo\": 3213,\n  \"ejecucion_id\": 213\n}"
+          "jsonExample": "{\n  \"id_airtable\": \"12\",\n  \"id_lead_kommo\": 3213,\n  \"id_contacto_kommo\": 3213,\n  \"ejecucion_id\": \"213\"\n}"
         },
         "type": "n8n-nodes-base.executeWorkflowTrigger",
         "typeVersion": 1.1,
@@ -37,8 +37,9 @@
                       "leftValue": "={{ $('When Executed by Another Workflow').item.json.id_airtable }}",
                       "rightValue": "={{ 0 }}",
                       "operator": {
-                        "type": "number",
-                        "operation": "notEquals"
+                        "type": "string",
+                        "operation": "notEmpty",
+                        "singleValue": true
                       },
                       "id": "60f53016-51e6-472d-b0cf-7ec50743b501"
                     }
@@ -265,11 +266,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version a46c0f9b",
+    "name": "Version 5ece890b",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "a46c0f9b-16b4-4625-9f0f-ad122edb797e",
+  "activeVersionId": "5ece890b-0210-4d4b-9564-e3a1990d0427",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -317,7 +318,7 @@
     {
       "parameters": {
         "inputSource": "jsonExample",
-        "jsonExample": "{\n  \"id_airtable\": \"12\",\n  \"id_lead_kommo\": 3213,\n  \"id_contacto_kommo\": 3213,\n  \"ejecucion_id\": 213\n}"
+        "jsonExample": "{\n  \"id_airtable\": \"12\",\n  \"id_lead_kommo\": 3213,\n  \"id_contacto_kommo\": 3213,\n  \"ejecucion_id\": \"213\"\n}"
       },
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
@@ -345,8 +346,9 @@
                     "leftValue": "={{ $('When Executed by Another Workflow').item.json.id_airtable }}",
                     "rightValue": "={{ 0 }}",
                     "operator": {
-                      "type": "number",
-                      "operation": "notEquals"
+                      "type": "string",
+                      "operation": "notEmpty",
+                      "singleValue": true
                     },
                     "id": "60f53016-51e6-472d-b0cf-7ec50743b501"
                   }
@@ -534,7 +536,21 @@
       }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "id_airtable": null,
+          "id_lead_kommo": 25074734,
+          "id_contacto_kommo": 28672714,
+          "ejecucion_id": "FUqVaG3kGGb2Eqpm"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
   "repo_name": "n8n_backups",
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
@@ -558,6 +574,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-06-02T15:29:36.015Z",
-  "versionId": "a46c0f9b-16b4-4625-9f0f-ad122edb797e"
+  "updatedAt": "2026-06-03T14:36:43.305Z",
+  "versionId": "5ece890b-0210-4d4b-9564-e3a1990d0427"
 }
