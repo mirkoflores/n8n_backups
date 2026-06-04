@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-02T17:07:55.912Z",
-    "createdAt": "2026-06-02T17:07:54.694Z",
-    "versionId": "f9b8a36b-c9aa-4ab8-8176-9bea7a587e32",
+    "updatedAt": "2026-06-03T14:27:58.861Z",
+    "createdAt": "2026-06-03T14:27:54.452Z",
+    "versionId": "1fb08225-24ec-4522-9654-0629528a70c1",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -3951,7 +3951,7 @@
                 "defaultMatch": false,
                 "display": true,
                 "canBeUsedToMatch": true,
-                "type": "number",
+                "type": "string",
                 "removed": false
               }
             ],
@@ -4717,11 +4717,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version f9b8a36b",
+    "name": "Version 1fb08225",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "f9b8a36b-c9aa-4ab8-8176-9bea7a587e32",
+  "activeVersionId": "1fb08225-24ec-4522-9654-0629528a70c1",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -9419,7 +9419,7 @@
               "defaultMatch": false,
               "display": true,
               "canBeUsedToMatch": true,
-              "type": "number",
+              "type": "string",
               "removed": false
             }
           ],
@@ -9507,22 +9507,22 @@
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
-            "x-forwarded-for": "54.224.79.221",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
+            "x-forwarded-for": "44.202.31.172",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "-7haB6y_RfqsNZk_o3UVLg",
-            "x-real-ip": "54.224.79.221",
-            "x-request-start": "1780376691234"
+            "x-railway-request-id": "2qh-4PhZSky36lyvaP71AA",
+            "x-real-ip": "44.202.31.172",
+            "x-request-start": "1780463093774"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recCE83TnoK5TEOYJ",
-            "Tipo": "7_dias_antes"
+            "recordId": "recA03SU4CFBbzThS",
+            "Tipo": "3_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -9556,6 +9556,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-06-02T17:07:54.692Z",
-  "versionId": "f9b8a36b-c9aa-4ab8-8176-9bea7a587e32"
+  "updatedAt": "2026-06-03T14:29:26.771Z",
+  "versionId": "1fb08225-24ec-4522-9654-0629528a70c1"
 }
