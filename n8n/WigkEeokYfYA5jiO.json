@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-03T14:27:58.861Z",
-    "createdAt": "2026-06-03T14:27:54.452Z",
-    "versionId": "1fb08225-24ec-4522-9654-0629528a70c1",
+    "updatedAt": "2026-06-30T17:01:14.350Z",
+    "createdAt": "2026-06-30T17:00:53.090Z",
+    "versionId": "cfa2315e-515c-490b-aa2b-9e062fea0987",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -102,7 +102,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2160,
+          1840,
           -512
         ],
         "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
@@ -1974,7 +1974,7 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.1,
         "position": [
-          2816,
+          2496,
           -512
         ],
         "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
@@ -2004,7 +2004,7 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.4,
         "position": [
-          2592,
+          2272,
           -512
         ],
         "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
@@ -3841,7 +3841,7 @@
         "type": "n8n-nodes-base.redis",
         "typeVersion": 1,
         "position": [
-          1936,
+          1616,
           -512
         ],
         "id": "2ad7743d-6402-4aa2-a74b-e2b350997d09",
@@ -3862,7 +3862,7 @@
         "type": "n8n-nodes-base.redis",
         "typeVersion": 1,
         "position": [
-          2368,
+          2048,
           -512
         ],
         "id": "3cb4c53e-ede3-4d74-ad19-206274f697ad",
@@ -3883,8 +3883,8 @@
         "type": "n8n-nodes-base.redis",
         "typeVersion": 1,
         "position": [
-          3024,
-          -512
+          3008,
+          -496
         ],
         "id": "25691a76-e5f0-4405-8062-2b73ec98ffcf",
         "name": "Redis3",
@@ -3970,6 +3970,76 @@
         ],
         "id": "49fae6bb-735c-44a4-b755-8be667c08dd8",
         "name": "Call 'Agrega info clave a ejecuciones de n8n'"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "cf7b87ad-f9ec-4aa6-9ba5-48871636d7bf",
+                "leftValue": "={{ $json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          2704,
+          -512
+        ],
+        "id": "76eec9ef-f40e-432b-86db-ce4fdfd57e97",
+        "name": "esta vacio?"
+      },
+      {
+        "parameters": {
+          "resource": "message",
+          "guildId": {
+            "__rl": true,
+            "value": "1244011715008532602",
+            "mode": "list",
+            "cachedResultName": "Bioenglish",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+          },
+          "channelId": {
+            "__rl": true,
+            "value": "1357814199446929488",
+            "mode": "list",
+            "cachedResultName": "errores",
+            "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+          },
+          "content": "=# :red_circle: Este grupo no tiene precio de renovacion\n\n- Nombre: {{ $('Grupo').item.json.Grupos }}\n- Agregar precio de renovacion aqui: https://airtable.com/appBCL3CWLhCwIjnP/pagKqneRRKUvZsy1a?GYBYE={{ $('Grupo').item.json.id }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.discord",
+        "typeVersion": 2,
+        "position": [
+          2992,
+          -752
+        ],
+        "id": "2c49386d-4146-4fb3-be64-55274ed10091",
+        "name": "Send a message3",
+        "webhookId": "d064a461-f570-446e-b4fd-586dc70743ab",
+        "credentials": {
+          "discordBotApi": {
+            "id": "lrG2Z5VoQXKArDMn",
+            "name": "bio_1"
+          }
+        }
       }
     ],
     "connections": {
@@ -4465,7 +4535,7 @@
         "main": [
           [
             {
-              "node": "Redis3",
+              "node": "esta vacio?",
               "type": "main",
               "index": 0
             }
@@ -4714,14 +4784,32 @@
             }
           ]
         ]
+      },
+      "esta vacio?": {
+        "main": [
+          [
+            {
+              "node": "Send a message3",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Redis3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 1fb08225",
+    "name": "Version cfa2315e",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "1fb08225-24ec-4522-9654-0629528a70c1",
+  "activeVersionId": "cfa2315e-515c-490b-aa2b-9e062fea0987",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -5215,7 +5303,7 @@
       "main": [
         [
           {
-            "node": "Redis3",
+            "node": "esta vacio?",
             "type": "main",
             "index": 0
           }
@@ -5464,6 +5552,24 @@
           }
         ]
       ]
+    },
+    "esta vacio?": {
+      "main": [
+        [
+          {
+            "node": "Send a message3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Redis3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-20T17:06:23.257Z",
@@ -5570,7 +5676,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2160,
+        1840,
         -512
       ],
       "id": "84b61286-40bd-447e-80f5-033b7aa493c1",
@@ -7442,7 +7548,7 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.1,
       "position": [
-        2816,
+        2496,
         -512
       ],
       "id": "d223f398-e73b-42c8-b95f-e3a12a9aa329",
@@ -7472,7 +7578,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2592,
+        2272,
         -512
       ],
       "id": "f95f69f1-1d5f-4c0e-90d4-f43d92343a17",
@@ -9309,7 +9415,7 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        1936,
+        1616,
         -512
       ],
       "id": "2ad7743d-6402-4aa2-a74b-e2b350997d09",
@@ -9330,7 +9436,7 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        2368,
+        2048,
         -512
       ],
       "id": "3cb4c53e-ede3-4d74-ad19-206274f697ad",
@@ -9351,8 +9457,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        3024,
-        -512
+        3008,
+        -496
       ],
       "id": "25691a76-e5f0-4405-8062-2b73ec98ffcf",
       "name": "Redis3",
@@ -9438,6 +9544,76 @@
       ],
       "id": "49fae6bb-735c-44a4-b755-8be667c08dd8",
       "name": "Call 'Agrega info clave a ejecuciones de n8n'"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "cf7b87ad-f9ec-4aa6-9ba5-48871636d7bf",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2704,
+        -512
+      ],
+      "id": "76eec9ef-f40e-432b-86db-ce4fdfd57e97",
+      "name": "esta vacio?"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "1244011715008532602",
+          "mode": "list",
+          "cachedResultName": "Bioenglish",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "1357814199446929488",
+          "mode": "list",
+          "cachedResultName": "errores",
+          "cachedResultUrl": "https://discord.com/channels/1244011715008532602/1357814199446929488"
+        },
+        "content": "=# :red_circle: Este grupo no tiene precio de renovacion\n\n- Nombre: {{ $('Grupo').item.json.Grupos }}\n- Agregar precio de renovacion aqui: https://airtable.com/appBCL3CWLhCwIjnP/pagKqneRRKUvZsy1a?GYBYE={{ $('Grupo').item.json.id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        2992,
+        -752
+      ],
+      "id": "2c49386d-4146-4fb3-be64-55274ed10091",
+      "name": "Send a message3",
+      "webhookId": "d064a461-f570-446e-b4fd-586dc70743ab",
+      "credentials": {
+        "discordBotApi": {
+          "id": "lrG2Z5VoQXKArDMn",
+          "name": "bio_1"
+        }
+      }
     }
   ],
   "pinData": {
@@ -9507,22 +9683,22 @@
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
-            "x-forwarded-for": "44.202.31.172",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
+            "x-forwarded-for": "52.23.247.133, 152.233.47.65",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "2qh-4PhZSky36lyvaP71AA",
-            "x-real-ip": "44.202.31.172",
-            "x-request-start": "1780463093774"
+            "x-railway-edge": "jfk1",
+            "x-railway-request-id": "2k3tPU9_Tl2LyqB6BhdwDg",
+            "x-real-ip": "52.23.247.133",
+            "x-request-start": "1782709235245"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recA03SU4CFBbzThS",
-            "Tipo": "3_dias_antes"
+            "recordId": "recr5G5k7zvD08rYT",
+            "Tipo": "7_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -9556,6 +9732,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-06-03T14:29:26.771Z",
-  "versionId": "1fb08225-24ec-4522-9654-0629528a70c1"
+  "updatedAt": "2026-06-30T17:00:53.089Z",
+  "versionId": "cfa2315e-515c-490b-aa2b-9e062fea0987"
 }
