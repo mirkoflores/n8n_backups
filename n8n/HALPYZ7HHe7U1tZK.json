@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-30T18:45:03.005Z",
-    "createdAt": "2026-06-30T18:44:21.312Z",
-    "versionId": "ad6d56a5-08bb-47cb-a48d-4f144949fc6c",
+    "updatedAt": "2026-07-09T15:50:49.672Z",
+    "createdAt": "2026-07-09T15:50:43.073Z",
+    "versionId": "2b8ff48f-e76f-41d9-8f03-f0e7c55e1ea8",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -354,8 +354,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          2096,
-          -96
+          2608,
+          -304
         ],
         "id": "7fc09309-e765-45a7-9112-5411a66bb710",
         "name": "Enviar mensaje1",
@@ -1386,7 +1386,7 @@
         "typeVersion": 4.3,
         "position": [
           6928,
-          912
+          672
         ],
         "id": "76ff4cff-4bed-4ba3-9478-5635eccf18d2",
         "name": "Enviar mensaje",
@@ -2161,6 +2161,136 @@
             "name": "bio_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65786,
+              "tipo": "leads",
+              "id_entity": "={{ $('Call \\'Definir ID contacto y lead en Kommo\\'').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          2064,
+          -96
+        ],
+        "name": "Call enviar_mensaje_kommo6",
+        "id": "b7e06788-13ca-4799-a82f-ee5f65b286f0"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65860,
+              "tipo": "leads",
+              "id_entity": "={{ $('Call \\'Definir ID contacto y lead en Kommo\\'1').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          6896,
+          912
+        ],
+        "name": "Call enviar_mensaje_kommo",
+        "id": "47753c42-e13a-4424-a9b7-367e56395c1f"
       }
     ],
     "connections": {
@@ -2678,7 +2808,7 @@
         "main": [
           [
             {
-              "node": "Enviar mensaje",
+              "node": "Call enviar_mensaje_kommo",
               "type": "main",
               "index": 0
             }
@@ -2689,7 +2819,7 @@
         "main": [
           [
             {
-              "node": "Enviar mensaje1",
+              "node": "Call enviar_mensaje_kommo6",
               "type": "main",
               "index": 0
             }
@@ -2804,11 +2934,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version ad6d56a5",
+    "name": "Version 2b8ff48f",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "ad6d56a5-08bb-47cb-a48d-4f144949fc6c",
+  "activeVersionId": "2b8ff48f-e76f-41d9-8f03-f0e7c55e1ea8",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -3324,7 +3454,7 @@
       "main": [
         [
           {
-            "node": "Enviar mensaje",
+            "node": "Call enviar_mensaje_kommo",
             "type": "main",
             "index": 0
           }
@@ -3335,7 +3465,7 @@
       "main": [
         [
           {
-            "node": "Enviar mensaje1",
+            "node": "Call enviar_mensaje_kommo6",
             "type": "main",
             "index": 0
           }
@@ -3805,8 +3935,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        2096,
-        -96
+        2608,
+        -304
       ],
       "id": "7fc09309-e765-45a7-9112-5411a66bb710",
       "name": "Enviar mensaje1",
@@ -4837,7 +4967,7 @@
       "typeVersion": 4.3,
       "position": [
         6928,
-        912
+        672
       ],
       "id": "76ff4cff-4bed-4ba3-9478-5635eccf18d2",
       "name": "Enviar mensaje",
@@ -5612,6 +5742,136 @@
           "name": "bio_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65786,
+            "tipo": "leads",
+            "id_entity": "={{ $('Call \\'Definir ID contacto y lead en Kommo\\'').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2064,
+        -96
+      ],
+      "name": "Call enviar_mensaje_kommo6",
+      "id": "b7e06788-13ca-4799-a82f-ee5f65b286f0"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65860,
+            "tipo": "leads",
+            "id_entity": "={{ $('Call \\'Definir ID contacto y lead en Kommo\\'1').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        6896,
+        912
+      ],
+      "name": "Call enviar_mensaje_kommo",
+      "id": "47753c42-e13a-4424-a9b7-367e56395c1f"
     }
   ],
   "pinData": {
@@ -5674,6 +5934,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-06-30T18:44:21.310Z",
-  "versionId": "ad6d56a5-08bb-47cb-a48d-4f144949fc6c"
+  "updatedAt": "2026-07-09T15:50:43.076Z",
+  "versionId": "2b8ff48f-e76f-41d9-8f03-f0e7c55e1ea8"
 }
