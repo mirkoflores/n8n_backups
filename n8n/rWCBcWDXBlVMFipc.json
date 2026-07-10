@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-02T15:46:46.371Z",
-    "createdAt": "2026-06-02T15:46:29.040Z",
-    "versionId": "e909047d-1d0a-4b33-910e-5f27e5058b12",
+    "updatedAt": "2026-07-09T15:42:59.296Z",
+    "createdAt": "2026-07-09T15:20:40.901Z",
+    "versionId": "0df35e4c-0751-4be9-b09c-8521dd560983",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -6697,32 +6697,6 @@
       },
       {
         "parameters": {
-          "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65752,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          6176,
-          -160
-        ],
-        "id": "35357314-0a64-433e-b731-ee0066c0dd2e",
-        "name": "Enviar mensaje",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
-      },
-      {
-        "parameters": {
           "resource": "contacts",
           "filter": {
             "query": "={{ $('variables_1').item.json.cel_estudiante }}"
@@ -7447,6 +7421,110 @@
             "name": "Redis_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://bioenglish22.kommo.com/api/v4/bots/65752/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "accept",
+                "value": "application/problem+json"
+              },
+              {
+                "name": "content-type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=  {\n    \"entity_id\": 25585632,\n    \"entity_type\": \"leads\"\n  }",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          6560,
+          -208
+        ],
+        "id": "4ed7338e-40e7-4b04-88f3-3a0ce5e32b79",
+        "name": "Enviar mensaje1",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65752,
+              "tipo": "leads",
+              "id_entity": "={{$('Variables_3').item.json.id_lead}}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          6176,
+          -160
+        ],
+        "name": "Call enviar_mensaje_kommo",
+        "id": "16653f60-fccc-4fc9-b84c-e6f83df6046b"
       }
     ],
     "connections": {
@@ -8099,7 +8177,7 @@
         "main": [
           [
             {
-              "node": "Enviar mensaje",
+              "node": "Call enviar_mensaje_kommo",
               "type": "main",
               "index": 0
             }
@@ -8246,11 +8324,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version e909047d",
+    "name": "Version 0df35e4c",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "e909047d-1d0a-4b33-910e-5f27e5058b12",
+  "activeVersionId": "0df35e4c-0751-4be9-b09c-8521dd560983",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -8901,7 +8979,7 @@
       "main": [
         [
           {
-            "node": "Enviar mensaje",
+            "node": "Call enviar_mensaje_kommo",
             "type": "main",
             "index": 0
           }
@@ -15746,32 +15824,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65752,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        6176,
-        -160
-      ],
-      "id": "35357314-0a64-433e-b731-ee0066c0dd2e",
-      "name": "Enviar mensaje",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
-    },
-    {
-      "parameters": {
         "resource": "contacts",
         "filter": {
           "query": "={{ $('variables_1').item.json.cel_estudiante }}"
@@ -16496,6 +16548,110 @@
           "name": "Redis_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://bioenglish22.kommo.com/api/v4/bots/65752/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/problem+json"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=  {\n    \"entity_id\": 25585632,\n    \"entity_type\": \"leads\"\n  }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        6560,
+        -208
+      ],
+      "id": "4ed7338e-40e7-4b04-88f3-3a0ce5e32b79",
+      "name": "Enviar mensaje1",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65752,
+            "tipo": "leads",
+            "id_entity": "={{$('Variables_3').item.json.id_lead}}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        6176,
+        -160
+      ],
+      "name": "Call enviar_mensaje_kommo",
+      "id": "16653f60-fccc-4fc9-b84c-e6f83df6046b"
     }
   ],
   "pinData": {
@@ -16552,11 +16708,11 @@
     "Tally Trigger": [
       {
         "json": {
-          "id": "Dq7rP9q",
+          "id": "QoBDak1",
           "formId": "A7K61k",
           "formName": "Bioenglish - renovacion",
           "respondentId": "Gxl8WDz",
-          "createdAt": "2026-05-06T04:36:07.000Z",
+          "createdAt": "2026-07-09T14:14:08.000Z",
           "question_zqjAMq": {
             "label": "Nombre del estudiante\n",
             "value": "Malú Fernanda Garcia Morán",
@@ -16564,7 +16720,7 @@
           },
           "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
             "label": "nombre_estudiante",
-            "value": null,
+            "value": "Malú Fernanda Garcia Morán",
             "type": "HIDDEN_FIELDS"
           },
           "question_d6Eo0A": {
@@ -16574,17 +16730,17 @@
           },
           "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
             "label": "celular_estudiante",
-            "value": null,
+            "value": "+51967288773",
             "type": "HIDDEN_FIELDS"
           },
           "question_jy6Vg4": {
             "label": "id_cliente_airtable",
-            "value": "",
+            "value": "reciUM4OGByD3ec04",
             "type": "INPUT_TEXT"
           },
           "question_lyeEgv_fc65a15c-b459-43f2-8bdd-2ba80612f4fa": {
             "label": "id_cliente_airtable",
-            "value": null,
+            "value": "reciUM4OGByD3ec04",
             "type": "HIDDEN_FIELDS"
           },
           "question_5zbY9d": {
@@ -16614,7 +16770,7 @@
           },
           "question_YQPbGd": {
             "label": "Comprobante de pago\n",
-            "value": "https://storage.tally.so/private/Screenshot_20260505_193955.jpg?id=qNqd2Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFOcWQyWSIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc3ODA0MjE2N30.oKRL5nR_roRIx3kQj1XyXJBipJosjOc7zWCWa-8AY8Y&signature=8d229bd9bee75a16f63818fd4ddd2c2812f2e3f9d32165b63377117beaedcbfd",
+            "value": "https://storage.tally.so/private/Screenshot_20260708_170511.jpg?id=j21p29&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImoyMXAyOSIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc4MzYwNjQ0OH0.dbdrRbK62Qj_u73ezGFZ-bKdIII-kTTI54i3NLfnCd4&signature=124c62c29e0ae790d1d1f147b634ccff25f104be7eafb4f4ab66ed8c9a1f755e",
             "type": "FILE_UPLOAD"
           }
         },
@@ -16646,11 +16802,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "w72zBz"
+      "webhookId": "3jy2L4"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-06-02T15:46:29.037Z",
-  "versionId": "e909047d-1d0a-4b33-910e-5f27e5058b12"
+  "updatedAt": "2026-07-09T15:20:40.900Z",
+  "versionId": "0df35e4c-0751-4be9-b09c-8521dd560983"
 }
