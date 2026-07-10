@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-30T17:01:14.350Z",
-    "createdAt": "2026-06-30T17:00:53.090Z",
-    "versionId": "cfa2315e-515c-490b-aa2b-9e062fea0987",
+    "updatedAt": "2026-07-09T15:24:51.659Z",
+    "createdAt": "2026-07-09T15:24:49.950Z",
+    "versionId": "e687072c-d676-41f2-9c11-c0eafd1f68ce",
     "workflowId": "WigkEeokYfYA5jiO",
     "nodes": [
       {
@@ -324,316 +324,6 @@
       },
       {
         "parameters": {
-          "resource": "contacts",
-          "filter": {
-            "query": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
-          },
-          "options": {
-            "with": [
-              "leads"
-            ]
-          },
-          "limit": 1
-        },
-        "type": "n8n-nodes-kommo.kommo",
-        "typeVersion": 1,
-        "position": [
-          1440,
-          912
-        ],
-        "id": "0c8912d6-5610-43c2-80ab-601cf8fc29ed",
-        "name": "Get list of contacts",
-        "credentials": {
-          "kommoOAuth2Api": {
-            "id": "yjgoywi6EgfDZmcO",
-            "name": "kommo_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 3
-            },
-            "conditions": [
-              {
-                "id": "fc632a6e-e3be-4b43-8535-83bfe0fa949c",
-                "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
-                "rightValue": "",
-                "operator": {
-                  "type": "number",
-                  "operation": "exists",
-                  "singleValue": true
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.3,
-        "position": [
-          1680,
-          912
-        ],
-        "id": "b0e969fd-2ddb-428f-b481-8dc62a65b44e",
-        "name": "existe contacto?"
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 3
-            },
-            "conditions": [
-              {
-                "id": "e76c1e07-8bf3-4d90-b985-7702d222ece7",
-                "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads }}",
-                "rightValue": "",
-                "operator": {
-                  "type": "array",
-                  "operation": "notEmpty",
-                  "singleValue": true
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.3,
-        "position": [
-          2128,
-          816
-        ],
-        "id": "cf285d04-3261-4645-930d-0c1946f00da9",
-        "name": "tiene leads?"
-      },
-      {
-        "parameters": {
-          "resource": "contacts",
-          "operation": "createContacts",
-          "collection": {
-            "contact": [
-              {
-                "name": "={{ $if($('Variables_2').item.json.tipo == \"Estudiante\",\n\n$('Variables_2').item.json.nombre_estudiante, \n\n$if(\n\"$('Variables_2').item.json.nombre_apoderado\"==\"\",\n\"\",\n\"Apoderado de\" $('Variables_2').item.json.nombre_estudiante\n\n)\n\n) }}",
-                "custom_fields_values": {
-                  "custom_field": [
-                    {
-                      "data": "{\"id\":1988338,\"type\":\"select\"}",
-                      "value": "={{ $if($('Variables_2').item.json.tipo == \"Estudiante\",\"Estudiante\",\"Apoderado\") }}"
-                    },
-                    {
-                      "data": "{\"id\":1303680,\"type\":\"multitext\"}",
-                      "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-kommo.kommo",
-        "typeVersion": 1,
-        "position": [
-          2128,
-          1200
-        ],
-        "id": "9506b4c7-6a8b-4254-b280-fbba0d3d8b55",
-        "name": "Create new contacts",
-        "credentials": {
-          "kommoOAuth2Api": {
-            "id": "yjgoywi6EgfDZmcO",
-            "name": "kommo_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "resource": "leads",
-          "operation": "createLeads",
-          "collection": {
-            "lead": [
-              {
-                "name": "={{ $if($('Variables_2').item.json.tipo == \"Estudiante\",  $('Variables_2').item.json.nombre_estudiante,   $if( \"$('Variables_2').item.json.nombre_apoderado\"==\"\", \"\", \"Apoderado de\" $('Variables_2').item.json.nombre_estudiante  )  ) }}",
-                "pipeline_id": 8756191,
-                "status_id": "={{ 68677523 }}",
-                "_embedded": {
-                  "contacts": [
-                    {
-                      "id": {
-                        "contact": [
-                          {
-                            "id": "={{ $json.id_contact }}"
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-kommo.kommo",
-        "typeVersion": 1,
-        "position": [
-          2800,
-          1104
-        ],
-        "id": "37921795-ebf1-49ab-9c75-07fbc3360fd1",
-        "name": "Create new leads",
-        "credentials": {
-          "kommoOAuth2Api": {
-            "id": "yjgoywi6EgfDZmcO",
-            "name": "kommo_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
-                "name": "id_contact",
-                "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
-                "type": "number"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          2352,
-          1008
-        ],
-        "id": "7c32102d-f747-4780-a52a-89bda90b8aab",
-        "name": "id_contact"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
-                "name": "id_contact",
-                "value": "={{ $json._embedded.contacts[0].id }}",
-                "type": "number"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          2352,
-          1200
-        ],
-        "id": "32355781-7403-4f47-973e-5c81edc5a38b",
-        "name": "id_contact1"
-      },
-      {
-        "parameters": {
-          "resource": "contacts",
-          "operation": "updateContacts",
-          "collection": {
-            "contact": [
-              {
-                "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
-                "custom_fields_values": {
-                  "custom_field": [
-                    {
-                      "data": "{\"id\":1988338,\"type\":\"select\"}",
-                      "value": "={{ $if($('Variables_2').item.json.tipo == \"Estudiante\",\"Estudiante\",\"Apoderado\") }}"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-kommo.kommo",
-        "typeVersion": 1,
-        "position": [
-          1904,
-          816
-        ],
-        "id": "a7cbcda0-d49b-4ee3-8a3a-a2b4e58b8340",
-        "name": "Update contacts",
-        "credentials": {
-          "kommoOAuth2Api": {
-            "id": "yjgoywi6EgfDZmcO",
-            "name": "kommo_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
-                "name": "id_contacto",
-                "value": "={{ $('id_contact2').item.json.id_contact }}",
-                "type": "number"
-              },
-              {
-                "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
-                "name": "id_lead",
-                "value": "={{ $json._embedded.leads[0].id }}",
-                "type": "number"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          3024,
-          1104
-        ],
-        "id": "8b3a5f45-4979-4ef0-8655-9ea76573cd6a",
-        "name": "contact_lead1"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
-                "name": "id_contact",
-                "value": "={{ $json.id_contact }}",
-                "type": "number"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          2576,
-          1104
-        ],
-        "id": "d656bed3-5266-4520-9245-484bd4580f39",
-        "name": "id_contact2"
-      },
-      {
-        "parameters": {
           "assignments": {
             "assignments": [
               {
@@ -660,32 +350,6 @@
         ],
         "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
         "name": "Variables_3"
-      },
-      {
-        "parameters": {
-          "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65546,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5696,
-          -928
-        ],
-        "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
-        "name": "Enviar mensaje",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
       },
       {
         "parameters": {
@@ -978,32 +642,6 @@
       },
       {
         "parameters": {
-          "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65682,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5696,
-          -1120
-        ],
-        "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
-        "name": "Enviar mensaje1",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
-      },
-      {
-        "parameters": {
           "resource": "message",
           "guildId": {
             "__rl": true,
@@ -1225,60 +863,6 @@
       },
       {
         "parameters": {
-          "authentication": "nocoDbApiToken",
-          "operation": "create",
-          "projectId": "prkc7a6zgmy2biw",
-          "table": "mf1zt2lexmn446a",
-          "fieldsUi": {
-            "fieldValues": [
-              {
-                "fieldName": "id_ejecucion_n8n",
-                "fieldValue": "={{ $execution.id }}"
-              },
-              {
-                "fieldName": "id_automatizacion_n8n",
-                "fieldValue": "={{ $workflow.id }}"
-              },
-              {
-                "fieldName": "id_detalles_venta_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
-              },
-              {
-                "fieldName": "id_cliente_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
-              },
-              {
-                "fieldName": "id_grupo_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-              },
-              {
-                "fieldName": "id_contact_kommo",
-                "fieldValue": "={{ $('Variables_3').item.json.id_contacto }}"
-              },
-              {
-                "fieldName": "id_lead_kommo",
-                "fieldValue": "={{ $('Variables_3').item.json.id_lead }}"
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-base.nocoDb",
-        "typeVersion": 3,
-        "position": [
-          4176,
-          848
-        ],
-        "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
-        "name": "Create a row",
-        "credentials": {
-          "nocoDbApiToken": {
-            "id": "Sybr1jbACFyMMWFf",
-            "name": "bio_1"
-          }
-        }
-      },
-      {
-        "parameters": {
           "conditions": {
             "options": {
               "caseSensitive": true,
@@ -1397,32 +981,6 @@
       {
         "parameters": {
           "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65684,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5696,
-          -544
-        ],
-        "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
-        "name": "Enviar mensaje2",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "method": "POST",
           "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
           "sendBody": true,
           "bodyParameters": {
@@ -1467,32 +1025,6 @@
         ],
         "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
         "name": "Enviar email3"
-      },
-      {
-        "parameters": {
-          "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65676,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5696,
-          -736
-        ],
-        "id": "0db36230-0d0d-49bb-943a-dc011650676e",
-        "name": "Enviar mensaje3",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
       },
       {
         "parameters": {
@@ -1650,32 +1182,6 @@
       {
         "parameters": {
           "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5696,
-          -160
-        ],
-        "id": "82504058-e135-4182-8768-a13266255ada",
-        "name": "Enviar mensaje4",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "method": "POST",
           "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
           "sendBody": true,
           "bodyParameters": {
@@ -1720,32 +1226,6 @@
         ],
         "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
         "name": "Enviar email5"
-      },
-      {
-        "parameters": {
-          "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5696,
-          -352
-        ],
-        "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
-        "name": "Enviar mensaje5",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
       },
       {
         "parameters": {
@@ -2306,130 +1786,6 @@
       },
       {
         "parameters": {
-          "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 69560,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5472,
-          16
-        ],
-        "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
-        "name": "Enviar mensaje6",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 69566,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5472,
-          224
-        ],
-        "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
-        "name": "Enviar mensaje7",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "method": "POST",
-          "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-          "authentication": "genericCredentialType",
-          "genericAuthType": "oAuth2Api",
-          "sendBody": true,
-          "specifyBody": "json",
-          "jsonBody": "=[\n  {\n    \"bot_id\": 69568,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-          "options": {}
-        },
-        "type": "n8n-nodes-base.httpRequest",
-        "typeVersion": 4.3,
-        "position": [
-          5472,
-          432
-        ],
-        "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
-        "name": "Enviar mensaje8",
-        "credentials": {
-          "oAuth2Api": {
-            "id": "q6wwHvaILtzGGbjE",
-            "name": "Kommo"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "authentication": "nocoDbApiToken",
-          "operation": "create",
-          "projectId": "prkc7a6zgmy2biw",
-          "table": "mf1zt2lexmn446a",
-          "fieldsUi": {
-            "fieldValues": [
-              {
-                "fieldName": "id_ejecucion_n8n",
-                "fieldValue": "={{ $execution.id }}"
-              },
-              {
-                "fieldName": "id_automatizacion_n8n",
-                "fieldValue": "={{ $workflow.id }}"
-              },
-              {
-                "fieldName": "id_detalles_venta_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
-              },
-              {
-                "fieldName": "id_cliente_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
-              },
-              {
-                "fieldName": "id_grupo_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-base.nocoDb",
-        "typeVersion": 3,
-        "position": [
-          3728,
-          896
-        ],
-        "id": "cd74891b-2961-4751-a371-640f3faed8ea",
-        "name": "Create a row1",
-        "credentials": {
-          "nocoDbApiToken": {
-            "id": "Sybr1jbACFyMMWFf",
-            "name": "bio_1"
-          }
-        }
-      },
-      {
-        "parameters": {
           "workflowId": {
             "__rl": true,
             "value": "FUqVaG3kGGb2Eqpm",
@@ -2493,35 +1849,6 @@
         ],
         "name": "Call Definir ID contacto y lead en Kommo",
         "id": "3560a129-930a-4c67-9721-ce4e06ebacc2"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "98b5ba04-6ef6-4bf2-bc1b-ff9750eac831",
-                "name": "id_detalles_venta",
-                "value": "={{ $('Webhook').item.json.body.recordId }}",
-                "type": "string"
-              },
-              {
-                "id": "9a3677ac-ce76-447d-a79d-a4b07b732af4",
-                "name": "tipo_recordatorio_pago",
-                "value": "={{ $('Webhook').item.json.body.Tipo }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.4,
-        "position": [
-          -64,
-          -1008
-        ],
-        "id": "d1bb2b8f-53e0-471c-b9ad-44925249c3f5",
-        "name": "Variables_0"
       },
       {
         "parameters": {
@@ -3767,52 +3094,6 @@
       },
       {
         "parameters": {
-          "authentication": "nocoDbApiToken",
-          "operation": "create",
-          "projectId": "prkc7a6zgmy2biw",
-          "table": "mf1zt2lexmn446a",
-          "fieldsUi": {
-            "fieldValues": [
-              {
-                "fieldName": "id_ejecucion_n8n",
-                "fieldValue": "={{ $execution.id }}"
-              },
-              {
-                "fieldName": "id_automatizacion_n8n",
-                "fieldValue": "={{ $workflow.id }}"
-              },
-              {
-                "fieldName": "id_detalles_venta_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
-              },
-              {
-                "fieldName": "id_cliente_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
-              },
-              {
-                "fieldName": "id_grupo_airtable",
-                "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-              }
-            ]
-          }
-        },
-        "type": "n8n-nodes-base.nocoDb",
-        "typeVersion": 3,
-        "position": [
-          1744,
-          -1120
-        ],
-        "id": "42c508dd-3782-4a0e-b807-721f8502ea84",
-        "name": "Create a row2",
-        "credentials": {
-          "nocoDbApiToken": {
-            "id": "Sybr1jbACFyMMWFf",
-            "name": "bio_1"
-          }
-        }
-      },
-      {
-        "parameters": {
           "operation": "push",
           "list": "={{ $execution.id }}_id_airtable",
           "messageData": "={{ $json.id }}"
@@ -4040,6 +3321,591 @@
             "name": "bio_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65684,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5696,
+          -544
+        ],
+        "name": "Call enviar_mensaje_kommo",
+        "id": "880dc208-38f2-490d-a89a-884779169269"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65676,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5696,
+          -736
+        ],
+        "name": "Call enviar_mensaje_kommo1",
+        "id": "c657a288-ea7f-4770-be36-ddc2c01e183e"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65546,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5696,
+          -928
+        ],
+        "name": "Call enviar_mensaje_kommo2",
+        "id": "fc06890f-c82b-4c57-856e-378e500e2569"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65682,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5696,
+          -1120
+        ],
+        "name": "Call enviar_mensaje_kommo3",
+        "id": "2d3e7d78-f6a1-41bf-b0c3-31a321b696b0"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65686,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5696,
+          -352
+        ],
+        "name": "Call enviar_mensaje_kommo4",
+        "id": "f34b3daf-0ff0-4888-8ea1-1e716de225c5"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65686,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5696,
+          -160
+        ],
+        "name": "Call enviar_mensaje_kommo5",
+        "id": "34d7f04b-c107-48c9-92c3-a219a74d12fb"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 69560,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5472,
+          48
+        ],
+        "name": "Call enviar_mensaje_kommo6",
+        "id": "96600df9-25e2-41d6-a521-f35743dfce13"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 69566,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5472,
+          272
+        ],
+        "name": "Call enviar_mensaje_kommo7",
+        "id": "b69c8b77-3929-442b-bc2d-7155419cc6b4"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 69568,
+              "tipo": "leads",
+              "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          5472,
+          496
+        ],
+        "name": "Call enviar_mensaje_kommo8",
+        "id": "d89d65c9-9dae-4447-8728-3bd9b517ce91"
       }
     ],
     "connections": {
@@ -4103,118 +3969,6 @@
           []
         ]
       },
-      "Get list of contacts": {
-        "main": [
-          [
-            {
-              "node": "existe contacto?",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "existe contacto?": {
-        "main": [
-          [
-            {
-              "node": "Update contacts",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Create new contacts",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "tiene leads?": {
-        "main": [
-          [],
-          [
-            {
-              "node": "id_contact",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "id_contact": {
-        "main": [
-          [
-            {
-              "node": "id_contact2",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Create new contacts": {
-        "main": [
-          [
-            {
-              "node": "id_contact1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "id_contact1": {
-        "main": [
-          [
-            {
-              "node": "id_contact2",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Update contacts": {
-        "main": [
-          [
-            {
-              "node": "tiene leads?",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Create new leads": {
-        "main": [
-          [
-            {
-              "node": "contact_lead1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "id_contact2": {
-        "main": [
-          [
-            {
-              "node": "Create new leads",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "contact_lead1": {
-        "main": [
-          []
-        ]
-      },
       "Variables_3": {
         "main": [
           [
@@ -4273,43 +4027,21 @@
           ],
           [
             {
-              "node": "Enviar mensaje6",
+              "node": "Call enviar_mensaje_kommo6",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "Enviar mensaje7",
+              "node": "Call enviar_mensaje_kommo7",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "Enviar mensaje8",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Enviar mensaje": {
-        "main": [
-          [
-            {
-              "node": "Enviar email",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Enviar mensaje1": {
-        "main": [
-          [
-            {
-              "node": "Enviar email1",
+              "node": "Call enviar_mensaje_kommo8",
               "type": "main",
               "index": 0
             }
@@ -4382,25 +4114,14 @@
         "main": [
           [
             {
-              "node": "Enviar mensaje1",
+              "node": "Call enviar_mensaje_kommo3",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "Enviar mensaje",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Enviar mensaje2": {
-        "main": [
-          [
-            {
-              "node": "Enviar email2",
+              "node": "Call enviar_mensaje_kommo2",
               "type": "main",
               "index": 0
             }
@@ -4418,40 +4139,18 @@
           ]
         ]
       },
-      "Enviar mensaje3": {
-        "main": [
-          [
-            {
-              "node": "Enviar email3",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "No se tiene info de precio?1": {
         "main": [
           [
             {
-              "node": "Enviar mensaje3",
+              "node": "Call enviar_mensaje_kommo1",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "Enviar mensaje2",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Enviar mensaje4": {
-        "main": [
-          [
-            {
-              "node": "Enviar email4",
+              "node": "Call enviar_mensaje_kommo",
               "type": "main",
               "index": 0
             }
@@ -4469,29 +4168,18 @@
           ]
         ]
       },
-      "Enviar mensaje5": {
-        "main": [
-          [
-            {
-              "node": "Enviar email5",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "No se tiene info de precio?2": {
         "main": [
           [
             {
-              "node": "Enviar mensaje5",
+              "node": "Call enviar_mensaje_kommo4",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "Enviar mensaje4",
+              "node": "Call enviar_mensaje_kommo5",
               "type": "main",
               "index": 0
             }
@@ -4666,11 +4354,6 @@
           ]
         ]
       },
-      "Variables_0": {
-        "main": [
-          []
-        ]
-      },
       "Buscar Detalles venta nuevo": {
         "main": [
           [
@@ -4802,14 +4485,80 @@
             }
           ]
         ]
+      },
+      "Call enviar_mensaje_kommo": {
+        "main": [
+          [
+            {
+              "node": "Enviar email2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call enviar_mensaje_kommo1": {
+        "main": [
+          [
+            {
+              "node": "Enviar email3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call enviar_mensaje_kommo2": {
+        "main": [
+          [
+            {
+              "node": "Enviar email",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call enviar_mensaje_kommo3": {
+        "main": [
+          [
+            {
+              "node": "Enviar email1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call enviar_mensaje_kommo4": {
+        "main": [
+          [
+            {
+              "node": "Enviar email5",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call enviar_mensaje_kommo5": {
+        "main": [
+          [
+            {
+              "node": "Enviar email4",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version cfa2315e",
+    "name": "Version e687072c",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "cfa2315e-515c-490b-aa2b-9e062fea0987",
+  "activeVersionId": "e687072c-d676-41f2-9c11-c0eafd1f68ce",
   "connections": {
     "Detalles venta": {
       "main": [
@@ -4867,118 +4616,6 @@
       ]
     },
     "Enviar email": {
-      "main": [
-        []
-      ]
-    },
-    "Get list of contacts": {
-      "main": [
-        [
-          {
-            "node": "existe contacto?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "existe contacto?": {
-      "main": [
-        [
-          {
-            "node": "Update contacts",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Create new contacts",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "tiene leads?": {
-      "main": [
-        [],
-        [
-          {
-            "node": "id_contact",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "id_contact": {
-      "main": [
-        [
-          {
-            "node": "id_contact2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Create new contacts": {
-      "main": [
-        [
-          {
-            "node": "id_contact1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "id_contact1": {
-      "main": [
-        [
-          {
-            "node": "id_contact2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Update contacts": {
-      "main": [
-        [
-          {
-            "node": "tiene leads?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Create new leads": {
-      "main": [
-        [
-          {
-            "node": "contact_lead1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "id_contact2": {
-      "main": [
-        [
-          {
-            "node": "Create new leads",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "contact_lead1": {
       "main": [
         []
       ]
@@ -5041,43 +4678,21 @@
         ],
         [
           {
-            "node": "Enviar mensaje6",
+            "node": "Call enviar_mensaje_kommo6",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Enviar mensaje7",
+            "node": "Call enviar_mensaje_kommo7",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Enviar mensaje8",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Enviar mensaje": {
-      "main": [
-        [
-          {
-            "node": "Enviar email",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Enviar mensaje1": {
-      "main": [
-        [
-          {
-            "node": "Enviar email1",
+            "node": "Call enviar_mensaje_kommo8",
             "type": "main",
             "index": 0
           }
@@ -5150,25 +4765,14 @@
       "main": [
         [
           {
-            "node": "Enviar mensaje1",
+            "node": "Call enviar_mensaje_kommo3",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Enviar mensaje",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Enviar mensaje2": {
-      "main": [
-        [
-          {
-            "node": "Enviar email2",
+            "node": "Call enviar_mensaje_kommo2",
             "type": "main",
             "index": 0
           }
@@ -5186,40 +4790,18 @@
         ]
       ]
     },
-    "Enviar mensaje3": {
-      "main": [
-        [
-          {
-            "node": "Enviar email3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "No se tiene info de precio?1": {
       "main": [
         [
           {
-            "node": "Enviar mensaje3",
+            "node": "Call enviar_mensaje_kommo1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Enviar mensaje2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Enviar mensaje4": {
-      "main": [
-        [
-          {
-            "node": "Enviar email4",
+            "node": "Call enviar_mensaje_kommo",
             "type": "main",
             "index": 0
           }
@@ -5237,29 +4819,18 @@
         ]
       ]
     },
-    "Enviar mensaje5": {
-      "main": [
-        [
-          {
-            "node": "Enviar email5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "No se tiene info de precio?2": {
       "main": [
         [
           {
-            "node": "Enviar mensaje5",
+            "node": "Call enviar_mensaje_kommo4",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Enviar mensaje4",
+            "node": "Call enviar_mensaje_kommo5",
             "type": "main",
             "index": 0
           }
@@ -5434,11 +5005,6 @@
         ]
       ]
     },
-    "Variables_0": {
-      "main": [
-        []
-      ]
-    },
     "Buscar Detalles venta nuevo": {
       "main": [
         [
@@ -5565,6 +5131,72 @@
         [
           {
             "node": "Redis3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call enviar_mensaje_kommo": {
+      "main": [
+        [
+          {
+            "node": "Enviar email2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call enviar_mensaje_kommo1": {
+      "main": [
+        [
+          {
+            "node": "Enviar email3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call enviar_mensaje_kommo2": {
+      "main": [
+        [
+          {
+            "node": "Enviar email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call enviar_mensaje_kommo3": {
+      "main": [
+        [
+          {
+            "node": "Enviar email1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call enviar_mensaje_kommo4": {
+      "main": [
+        [
+          {
+            "node": "Enviar email5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call enviar_mensaje_kommo5": {
+      "main": [
+        [
+          {
+            "node": "Enviar email4",
             "type": "main",
             "index": 0
           }
@@ -5898,316 +5530,6 @@
     },
     {
       "parameters": {
-        "resource": "contacts",
-        "filter": {
-          "query": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
-        },
-        "options": {
-          "with": [
-            "leads"
-          ]
-        },
-        "limit": 1
-      },
-      "type": "n8n-nodes-kommo.kommo",
-      "typeVersion": 1,
-      "position": [
-        1440,
-        912
-      ],
-      "id": "0c8912d6-5610-43c2-80ab-601cf8fc29ed",
-      "name": "Get list of contacts",
-      "credentials": {
-        "kommoOAuth2Api": {
-          "id": "yjgoywi6EgfDZmcO",
-          "name": "kommo_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "fc632a6e-e3be-4b43-8535-83bfe0fa949c",
-              "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
-              "rightValue": "",
-              "operator": {
-                "type": "number",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        1680,
-        912
-      ],
-      "id": "b0e969fd-2ddb-428f-b481-8dc62a65b44e",
-      "name": "existe contacto?"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "e76c1e07-8bf3-4d90-b985-7702d222ece7",
-              "leftValue": "={{ $('Get list of contacts').item.json._embedded.contacts[0]._embedded.leads }}",
-              "rightValue": "",
-              "operator": {
-                "type": "array",
-                "operation": "notEmpty",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [
-        2128,
-        816
-      ],
-      "id": "cf285d04-3261-4645-930d-0c1946f00da9",
-      "name": "tiene leads?"
-    },
-    {
-      "parameters": {
-        "resource": "contacts",
-        "operation": "createContacts",
-        "collection": {
-          "contact": [
-            {
-              "name": "={{ $if($('Variables_2').item.json.tipo == \"Estudiante\",\n\n$('Variables_2').item.json.nombre_estudiante, \n\n$if(\n\"$('Variables_2').item.json.nombre_apoderado\"==\"\",\n\"\",\n\"Apoderado de\" $('Variables_2').item.json.nombre_estudiante\n\n)\n\n) }}",
-              "custom_fields_values": {
-                "custom_field": [
-                  {
-                    "data": "{\"id\":1988338,\"type\":\"select\"}",
-                    "value": "={{ $if($('Variables_2').item.json.tipo == \"Estudiante\",\"Estudiante\",\"Apoderado\") }}"
-                  },
-                  {
-                    "data": "{\"id\":1303680,\"type\":\"multitext\"}",
-                    "value": "={{ $('Variables_2').item.json.Celular_a_enviar }}"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-kommo.kommo",
-      "typeVersion": 1,
-      "position": [
-        2128,
-        1200
-      ],
-      "id": "9506b4c7-6a8b-4254-b280-fbba0d3d8b55",
-      "name": "Create new contacts",
-      "credentials": {
-        "kommoOAuth2Api": {
-          "id": "yjgoywi6EgfDZmcO",
-          "name": "kommo_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "leads",
-        "operation": "createLeads",
-        "collection": {
-          "lead": [
-            {
-              "name": "={{ $if($('Variables_2').item.json.tipo == \"Estudiante\",  $('Variables_2').item.json.nombre_estudiante,   $if( \"$('Variables_2').item.json.nombre_apoderado\"==\"\", \"\", \"Apoderado de\" $('Variables_2').item.json.nombre_estudiante  )  ) }}",
-              "pipeline_id": 8756191,
-              "status_id": "={{ 68677523 }}",
-              "_embedded": {
-                "contacts": [
-                  {
-                    "id": {
-                      "contact": [
-                        {
-                          "id": "={{ $json.id_contact }}"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-kommo.kommo",
-      "typeVersion": 1,
-      "position": [
-        2800,
-        1104
-      ],
-      "id": "37921795-ebf1-49ab-9c75-07fbc3360fd1",
-      "name": "Create new leads",
-      "credentials": {
-        "kommoOAuth2Api": {
-          "id": "yjgoywi6EgfDZmcO",
-          "name": "kommo_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
-              "name": "id_contact",
-              "value": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2352,
-        1008
-      ],
-      "id": "7c32102d-f747-4780-a52a-89bda90b8aab",
-      "name": "id_contact"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
-              "name": "id_contact",
-              "value": "={{ $json._embedded.contacts[0].id }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2352,
-        1200
-      ],
-      "id": "32355781-7403-4f47-973e-5c81edc5a38b",
-      "name": "id_contact1"
-    },
-    {
-      "parameters": {
-        "resource": "contacts",
-        "operation": "updateContacts",
-        "collection": {
-          "contact": [
-            {
-              "id": "={{ $('Get list of contacts').item.json._embedded.contacts[0].id }}",
-              "custom_fields_values": {
-                "custom_field": [
-                  {
-                    "data": "{\"id\":1988338,\"type\":\"select\"}",
-                    "value": "={{ $if($('Variables_2').item.json.tipo == \"Estudiante\",\"Estudiante\",\"Apoderado\") }}"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-kommo.kommo",
-      "typeVersion": 1,
-      "position": [
-        1904,
-        816
-      ],
-      "id": "a7cbcda0-d49b-4ee3-8a3a-a2b4e58b8340",
-      "name": "Update contacts",
-      "credentials": {
-        "kommoOAuth2Api": {
-          "id": "yjgoywi6EgfDZmcO",
-          "name": "kommo_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "148e0d02-a5a5-4f6c-bbd0-691fd8d16fd5",
-              "name": "id_contacto",
-              "value": "={{ $('id_contact2').item.json.id_contact }}",
-              "type": "number"
-            },
-            {
-              "id": "03bd909e-9ee9-45db-8e5b-ff889dc4082c",
-              "name": "id_lead",
-              "value": "={{ $json._embedded.leads[0].id }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        3024,
-        1104
-      ],
-      "id": "8b3a5f45-4979-4ef0-8655-9ea76573cd6a",
-      "name": "contact_lead1"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "5c188dbb-99bf-4c11-8562-14088f634cfc",
-              "name": "id_contact",
-              "value": "={{ $json.id_contact }}",
-              "type": "number"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        2576,
-        1104
-      ],
-      "id": "d656bed3-5266-4520-9245-484bd4580f39",
-      "name": "id_contact2"
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
@@ -6234,32 +5556,6 @@
       ],
       "id": "d8b37bfc-2fad-481d-a567-bfd5fdc0d2cf",
       "name": "Variables_3"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65546,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5696,
-        -928
-      ],
-      "id": "d616c23e-3e8f-4640-8283-77e1b4bbee68",
-      "name": "Enviar mensaje",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
     },
     {
       "parameters": {
@@ -6552,32 +5848,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65682,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5696,
-        -1120
-      ],
-      "id": "12407c5e-f56d-4f4d-a118-e7768aa2ce24",
-      "name": "Enviar mensaje1",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
-    },
-    {
-      "parameters": {
         "resource": "message",
         "guildId": {
           "__rl": true,
@@ -6799,60 +6069,6 @@
     },
     {
       "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "create",
-        "projectId": "prkc7a6zgmy2biw",
-        "table": "mf1zt2lexmn446a",
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldName": "id_ejecucion_n8n",
-              "fieldValue": "={{ $execution.id }}"
-            },
-            {
-              "fieldName": "id_automatizacion_n8n",
-              "fieldValue": "={{ $workflow.id }}"
-            },
-            {
-              "fieldName": "id_detalles_venta_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
-            },
-            {
-              "fieldName": "id_cliente_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
-            },
-            {
-              "fieldName": "id_grupo_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-            },
-            {
-              "fieldName": "id_contact_kommo",
-              "fieldValue": "={{ $('Variables_3').item.json.id_contacto }}"
-            },
-            {
-              "fieldName": "id_lead_kommo",
-              "fieldValue": "={{ $('Variables_3').item.json.id_lead }}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 3,
-      "position": [
-        4176,
-        848
-      ],
-      "id": "f3580440-92b0-4eab-a83c-50a9ca24c5b4",
-      "name": "Create a row",
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "Sybr1jbACFyMMWFf",
-          "name": "bio_1"
-        }
-      }
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -6971,32 +6187,6 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65684,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5696,
-        -544
-      ],
-      "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
-      "name": "Enviar mensaje2",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "method": "POST",
         "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
         "sendBody": true,
         "bodyParameters": {
@@ -7041,32 +6231,6 @@
       ],
       "id": "6a5fe050-02cf-4e23-8957-da79b5a2a616",
       "name": "Enviar email3"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65676,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5696,
-        -736
-      ],
-      "id": "0db36230-0d0d-49bb-943a-dc011650676e",
-      "name": "Enviar mensaje3",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
     },
     {
       "parameters": {
@@ -7224,32 +6388,6 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5696,
-        -160
-      ],
-      "id": "82504058-e135-4182-8768-a13266255ada",
-      "name": "Enviar mensaje4",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "method": "POST",
         "url": "https://hooks.airtable.com/workflows/v1/genericWebhook/appBCL3CWLhCwIjnP/wfl19pYKBlYcfUB8R/wtrooADDjYPSIvTKv",
         "sendBody": true,
         "bodyParameters": {
@@ -7294,32 +6432,6 @@
       ],
       "id": "5d344acf-4be4-4666-ac3d-efc8ab0578ef",
       "name": "Enviar email5"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 65686,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5696,
-        -352
-      ],
-      "id": "ab733ad3-96e7-4952-bfba-b28d5201156c",
-      "name": "Enviar mensaje5",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
     },
     {
       "parameters": {
@@ -7880,130 +6992,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 69560,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5472,
-        16
-      ],
-      "id": "7a1f576e-ab13-4460-b1a3-c9f87e2f5980",
-      "name": "Enviar mensaje6",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 69566,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5472,
-        224
-      ],
-      "id": "b7970a39-db4a-4c3c-8d92-c52e200a8e52",
-      "name": "Enviar mensaje7",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://bioenglish22.kommo.com/api/v2/salesbot/run",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "oAuth2Api",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=[\n  {\n    \"bot_id\": 69568,\n    \"entity_id\": {{$('Variables_3').item.json.id_lead}},\n    \"entity_type\": 2\n  }\n] ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.3,
-      "position": [
-        5472,
-        432
-      ],
-      "id": "644280e9-bde4-4cdd-afd4-ee22b0323131",
-      "name": "Enviar mensaje8",
-      "credentials": {
-        "oAuth2Api": {
-          "id": "q6wwHvaILtzGGbjE",
-          "name": "Kommo"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "create",
-        "projectId": "prkc7a6zgmy2biw",
-        "table": "mf1zt2lexmn446a",
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldName": "id_ejecucion_n8n",
-              "fieldValue": "={{ $execution.id }}"
-            },
-            {
-              "fieldName": "id_automatizacion_n8n",
-              "fieldValue": "={{ $workflow.id }}"
-            },
-            {
-              "fieldName": "id_detalles_venta_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
-            },
-            {
-              "fieldName": "id_cliente_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
-            },
-            {
-              "fieldName": "id_grupo_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 3,
-      "position": [
-        3728,
-        896
-      ],
-      "id": "cd74891b-2961-4751-a371-640f3faed8ea",
-      "name": "Create a row1",
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "Sybr1jbACFyMMWFf",
-          "name": "bio_1"
-        }
-      }
-    },
-    {
-      "parameters": {
         "workflowId": {
           "__rl": true,
           "value": "FUqVaG3kGGb2Eqpm",
@@ -8067,35 +7055,6 @@
       ],
       "name": "Call Definir ID contacto y lead en Kommo",
       "id": "3560a129-930a-4c67-9721-ce4e06ebacc2"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "98b5ba04-6ef6-4bf2-bc1b-ff9750eac831",
-              "name": "id_detalles_venta",
-              "value": "={{ $('Webhook').item.json.body.recordId }}",
-              "type": "string"
-            },
-            {
-              "id": "9a3677ac-ce76-447d-a79d-a4b07b732af4",
-              "name": "tipo_recordatorio_pago",
-              "value": "={{ $('Webhook').item.json.body.Tipo }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        -64,
-        -1008
-      ],
-      "id": "d1bb2b8f-53e0-471c-b9ad-44925249c3f5",
-      "name": "Variables_0"
     },
     {
       "parameters": {
@@ -9341,52 +8300,6 @@
     },
     {
       "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "create",
-        "projectId": "prkc7a6zgmy2biw",
-        "table": "mf1zt2lexmn446a",
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldName": "id_ejecucion_n8n",
-              "fieldValue": "={{ $execution.id }}"
-            },
-            {
-              "fieldName": "id_automatizacion_n8n",
-              "fieldValue": "={{ $workflow.id }}"
-            },
-            {
-              "fieldName": "id_detalles_venta_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_detalles_venta }}"
-            },
-            {
-              "fieldName": "id_cliente_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_registro_clientes }}"
-            },
-            {
-              "fieldName": "id_grupo_airtable",
-              "fieldValue": "={{ $('Variables_1').item.json.id_registro_grupo }}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 3,
-      "position": [
-        1744,
-        -1120
-      ],
-      "id": "42c508dd-3782-4a0e-b807-721f8502ea84",
-      "name": "Create a row2",
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "Sybr1jbACFyMMWFf",
-          "name": "bio_1"
-        }
-      }
-    },
-    {
-      "parameters": {
         "operation": "push",
         "list": "={{ $execution.id }}_id_airtable",
         "messageData": "={{ $json.id }}"
@@ -9614,65 +8527,594 @@
           "name": "bio_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65684,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5696,
+        -544
+      ],
+      "name": "Call enviar_mensaje_kommo",
+      "id": "880dc208-38f2-490d-a89a-884779169269"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65676,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5696,
+        -736
+      ],
+      "name": "Call enviar_mensaje_kommo1",
+      "id": "c657a288-ea7f-4770-be36-ddc2c01e183e"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65546,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5696,
+        -928
+      ],
+      "name": "Call enviar_mensaje_kommo2",
+      "id": "fc06890f-c82b-4c57-856e-378e500e2569"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65682,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5696,
+        -1120
+      ],
+      "name": "Call enviar_mensaje_kommo3",
+      "id": "2d3e7d78-f6a1-41bf-b0c3-31a321b696b0"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65686,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5696,
+        -352
+      ],
+      "name": "Call enviar_mensaje_kommo4",
+      "id": "f34b3daf-0ff0-4888-8ea1-1e716de225c5"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65686,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5696,
+        -160
+      ],
+      "name": "Call enviar_mensaje_kommo5",
+      "id": "34d7f04b-c107-48c9-92c3-a219a74d12fb"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 69560,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5472,
+        48
+      ],
+      "name": "Call enviar_mensaje_kommo6",
+      "id": "96600df9-25e2-41d6-a521-f35743dfce13"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 69566,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5472,
+        272
+      ],
+      "name": "Call enviar_mensaje_kommo7",
+      "id": "b69c8b77-3929-442b-bc2d-7155419cc6b4"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 69568,
+            "tipo": "leads",
+            "id_entity": "={{ $('Variables_3').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        5472,
+        496
+      ],
+      "name": "Call enviar_mensaje_kommo8",
+      "id": "d89d65c9-9dae-4447-8728-3bd9b517ce91"
     }
   ],
   "pinData": {
-    "Create new contacts": [
-      {
-        "json": {
-          "_links": {
-            "self": {
-              "href": "https://bioenglish22.kommo.com/api/v4/contacts"
-            }
-          },
-          "_embedded": {
-            "contacts": [
-              {
-                "id": 28116270,
-                "is_deleted": false,
-                "is_unsorted": false,
-                "request_id": "0",
-                "_links": {
-                  "self": {
-                    "href": "https://bioenglish22.kommo.com/api/v4/contacts/28116270"
-                  }
-                }
-              }
-            ]
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "Create new leads": [
-      {
-        "json": {
-          "_links": {
-            "self": {
-              "href": "https://bioenglish22.kommo.com/api/v4/leads"
-            }
-          },
-          "_embedded": {
-            "leads": [
-              {
-                "id": 24581270,
-                "request_id": "0",
-                "_links": {
-                  "self": {
-                    "href": "https://bioenglish22.kommo.com/api/v4/leads/24581270"
-                  }
-                }
-              }
-            ]
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "Webhook": [
       {
         "json": {
@@ -9683,22 +9125,22 @@
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflX6HhPCZwG0ZmbX",
-            "x-forwarded-for": "52.23.247.133, 152.233.47.65",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfl4ygSrKPrZ2i0mR",
+            "x-forwarded-for": "13.221.240.112, 152.233.47.66",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
             "x-railway-edge": "jfk1",
-            "x-railway-request-id": "2k3tPU9_Tl2LyqB6BhdwDg",
-            "x-real-ip": "52.23.247.133",
-            "x-request-start": "1782709235245"
+            "x-railway-request-id": "B0vFDXUmT5edZGSzlt7tkg",
+            "x-real-ip": "13.221.240.112",
+            "x-request-start": "1783573352235"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_cobranzas"
           },
           "body": {
-            "recordId": "recr5G5k7zvD08rYT",
-            "Tipo": "7_dias_antes"
+            "recordId": "recfF5dEEoycUbV08",
+            "Tipo": "3_dias_antes"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -9732,6 +9174,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-06-30T17:00:53.089Z",
-  "versionId": "cfa2315e-515c-490b-aa2b-9e062fea0987"
+  "updatedAt": "2026-07-09T15:24:49.952Z",
+  "versionId": "e687072c-d676-41f2-9c11-c0eafd1f68ce"
 }
