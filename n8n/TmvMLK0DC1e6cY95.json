@@ -1,0 +1,191 @@
+{
+  "active": true,
+  "activeVersion": {
+    "updatedAt": "2026-07-09T15:17:59.105Z",
+    "createdAt": "2026-07-09T15:17:55.825Z",
+    "versionId": "fbce24bd-5ab8-48f7-afd6-dda868d72a19",
+    "workflowId": "TmvMLK0DC1e6cY95",
+    "nodes": [
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "=https://bioenglish22.kommo.com/api/v4/bots/{{$('Start').item.json.id_bot}}/run",
+          "authentication": "genericCredentialType",
+          "genericAuthType": "oAuth2Api",
+          "sendHeaders": true,
+          "headerParameters": {
+            "parameters": [
+              {
+                "name": "accept",
+                "value": "application/problem+json"
+              },
+              {
+                "name": "content-type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "=  {\n    \"entity_id\": {{$('Start').item.json.id_entity}},\n    \"entity_type\": \"{{$('Start').item.json.tipo}}\"\n  }",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          5696,
+          -544
+        ],
+        "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
+        "name": "Enviar mensaje2",
+        "credentials": {
+          "oAuth2Api": {
+            "id": "q6wwHvaILtzGGbjE",
+            "name": "Kommo"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "inputSource": "jsonExample",
+          "jsonExample": "{\n  \"id_entity\": 123,\n  \"tipo\": \"a\",\n  \"id_bot\": 123\n}"
+        },
+        "id": "819816ee-ab43-4de4-9d56-412519185b0b",
+        "typeVersion": 1.1,
+        "name": "Start",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "position": [
+          5488,
+          -544
+        ]
+      }
+    ],
+    "connections": {
+      "Start": {
+        "main": [
+          [
+            {
+              "node": "Enviar mensaje2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Bioenglish Lat",
+    "name": "Version fbce24bd",
+    "description": "",
+    "autosaved": true
+  },
+  "activeVersionId": "fbce24bd-5ab8-48f7-afd6-dda868d72a19",
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-07-09T15:12:08.410Z",
+  "id": "TmvMLK0DC1e6cY95",
+  "isArchived": false,
+  "meta": null,
+  "name": "enviar_mensaje_kommo",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://bioenglish22.kommo.com/api/v4/bots/{{$('Start').item.json.id_bot}}/run",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/problem+json"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=  {\n    \"entity_id\": {{$('Start').item.json.id_entity}},\n    \"entity_type\": \"{{$('Start').item.json.tipo}}\"\n  }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        5696,
+        -544
+      ],
+      "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
+      "name": "Enviar mensaje2",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "q6wwHvaILtzGGbjE",
+          "name": "Kommo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputSource": "jsonExample",
+        "jsonExample": "{\n  \"id_entity\": 123,\n  \"tipo\": \"a\",\n  \"id_bot\": 123\n}"
+      },
+      "id": "819816ee-ab43-4de4-9d56-412519185b0b",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        5488,
+        -544
+      ]
+    }
+  ],
+  "pinData": {
+    "Start": [
+      {
+        "json": {
+          "id_entity": 123,
+          "tipo": "a",
+          "id_bot": 123
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "mirkoflores",
+  "repo_path": "n8n",
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "shared": [
+    {
+      "updatedAt": "2026-07-09T15:12:08.410Z",
+      "createdAt": "2026-07-09T15:12:08.410Z",
+      "role": "workflow:owner",
+      "workflowId": "TmvMLK0DC1e6cY95",
+      "projectId": "axO88AWqOW8lB7Vc"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-07-09T15:20:14.811Z",
+  "versionId": "fbce24bd-5ab8-48f7-afd6-dda868d72a19"
+}
