@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-06-02T15:52:34.730Z",
-    "createdAt": "2026-06-02T15:50:17.682Z",
-    "versionId": "49174abb-8cc0-4f7c-91e1-6999662bb6c4",
+    "updatedAt": "2026-07-09T15:41:52.020Z",
+    "createdAt": "2026-07-09T15:41:50.213Z",
+    "versionId": "977e75da-b565-445d-ade9-cec83025ab69",
     "workflowId": "xKuzM69hfs7W22TM",
     "nodes": [
       {
@@ -315,8 +315,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          4432,
-          16
+          4624,
+          160
         ],
         "id": "ceab8b5c-6539-49c0-9fa9-991c4273671c",
         "name": "Enviar mensaje1",
@@ -364,7 +364,7 @@
         "type": "n8n-nodes-kommo.kommo",
         "typeVersion": 1,
         "position": [
-          4192,
+          3920,
           16
         ],
         "id": "82b799d0-e062-419c-a9f4-528621879d6d",
@@ -504,8 +504,8 @@
         "type": "n8n-nodes-base.httpRequest",
         "typeVersion": 4.3,
         "position": [
-          4144,
-          384
+          4832,
+          256
         ],
         "id": "93bf402b-af28-464c-b2e0-079ee0a9052e",
         "name": "Enviar mensaje2",
@@ -3628,6 +3628,136 @@
             "name": "Redis_1"
           }
         }
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65782,
+              "tipo": "leads",
+              "id_entity": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          4176,
+          16
+        ],
+        "name": "Call enviar_mensaje_kommo",
+        "id": "4da6d44f-f029-41d2-8a8a-251e9f38d0f5"
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "TmvMLK0DC1e6cY95",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+            "cachedResultName": "enviar_mensaje_kommo"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "id_bot": 65784,
+              "tipo": "leads",
+              "id_entity": "={{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }}"
+            },
+            "matchingColumns": [
+              "id_lead"
+            ],
+            "schema": [
+              {
+                "id": "id_entity",
+                "displayName": "id_entity",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              },
+              {
+                "id": "tipo",
+                "displayName": "tipo",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              },
+              {
+                "id": "id_bot",
+                "displayName": "id_bot",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "number",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          4144,
+          384
+        ],
+        "name": "Call enviar_mensaje_kommo1",
+        "id": "8ebf99ab-89c2-42bc-88e4-a7aa8deabc1d"
       }
     ],
     "connections": {
@@ -3719,7 +3849,7 @@
         "main": [
           [
             {
-              "node": "Enviar mensaje1",
+              "node": "Call enviar_mensaje_kommo",
               "type": "main",
               "index": 0
             }
@@ -3752,7 +3882,7 @@
         "main": [
           [
             {
-              "node": "Enviar mensaje2",
+              "node": "Call enviar_mensaje_kommo1",
               "type": "main",
               "index": 0
             }
@@ -3761,13 +3891,7 @@
       },
       "Enviar mensaje2": {
         "main": [
-          [
-            {
-              "node": "Send a message2",
-              "type": "main",
-              "index": 0
-            }
-          ]
+          []
         ]
       },
       "buscar registro - usuario": {
@@ -4080,14 +4204,25 @@
             }
           ]
         ]
+      },
+      "Call enviar_mensaje_kommo1": {
+        "main": [
+          [
+            {
+              "node": "Send a message2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 49174abb",
+    "name": "Version 977e75da",
     "description": "",
-    "autosaved": true
+    "autosaved": false
   },
-  "activeVersionId": "49174abb-8cc0-4f7c-91e1-6999662bb6c4",
+  "activeVersionId": "977e75da-b565-445d-ade9-cec83025ab69",
   "connections": {
     "When Executed by Another Workflow": {
       "main": [
@@ -4177,7 +4312,7 @@
       "main": [
         [
           {
-            "node": "Enviar mensaje1",
+            "node": "Call enviar_mensaje_kommo",
             "type": "main",
             "index": 0
           }
@@ -4210,7 +4345,7 @@
       "main": [
         [
           {
-            "node": "Enviar mensaje2",
+            "node": "Call enviar_mensaje_kommo1",
             "type": "main",
             "index": 0
           }
@@ -4219,13 +4354,7 @@
     },
     "Enviar mensaje2": {
       "main": [
-        [
-          {
-            "node": "Send a message2",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "buscar registro - usuario": {
@@ -4533,6 +4662,17 @@
         [
           {
             "node": "variables_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call enviar_mensaje_kommo1": {
+      "main": [
+        [
+          {
+            "node": "Send a message2",
             "type": "main",
             "index": 0
           }
@@ -4857,8 +4997,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        4432,
-        16
+        4624,
+        160
       ],
       "id": "ceab8b5c-6539-49c0-9fa9-991c4273671c",
       "name": "Enviar mensaje1",
@@ -4906,7 +5046,7 @@
       "type": "n8n-nodes-kommo.kommo",
       "typeVersion": 1,
       "position": [
-        4192,
+        3920,
         16
       ],
       "id": "82b799d0-e062-419c-a9f4-528621879d6d",
@@ -5046,8 +5186,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        4144,
-        384
+        4832,
+        256
       ],
       "id": "93bf402b-af28-464c-b2e0-079ee0a9052e",
       "name": "Enviar mensaje2",
@@ -8170,6 +8310,136 @@
           "name": "Redis_1"
         }
       }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65782,
+            "tipo": "leads",
+            "id_entity": "={{ $('Call Definir ID contacto y lead en Kommo').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        4176,
+        16
+      ],
+      "name": "Call enviar_mensaje_kommo",
+      "id": "4da6d44f-f029-41d2-8a8a-251e9f38d0f5"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "TmvMLK0DC1e6cY95",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/TmvMLK0DC1e6cY95",
+          "cachedResultName": "enviar_mensaje_kommo"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_bot": 65784,
+            "tipo": "leads",
+            "id_entity": "={{ $('Call Definir ID contacto y lead en Kommo1').item.json.id_lead }}"
+          },
+          "matchingColumns": [
+            "id_lead"
+          ],
+          "schema": [
+            {
+              "id": "id_entity",
+              "displayName": "id_entity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            },
+            {
+              "id": "tipo",
+              "displayName": "tipo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            },
+            {
+              "id": "id_bot",
+              "displayName": "id_bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "number",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        4144,
+        384
+      ],
+      "name": "Call enviar_mensaje_kommo1",
+      "id": "8ebf99ab-89c2-42bc-88e4-a7aa8deabc1d"
     }
   ],
   "pinData": {
@@ -8183,153 +8453,29 @@
         }
       }
     ],
-    "Crear usuario_2": [
-      {
-        "json": {
-          "full_name": "Fernanda valentina contreras quispe",
-          "email": "jannetbnh@gmail.com",
-          "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=51b06ef4d81d43359d64f00dfcb2d252",
-          "updated": "2026-04-01 20:26:27",
-          "created": "2026-04-01 20:26:27"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "Wait": [
-      {
-        "json": {
-          "full_name": "Fernanda valentina contreras quispe",
-          "email": "jannetbnh@gmail.com",
-          "magic_link": "https://bioenglish.lat/magic-authentication?magic-token=51b06ef4d81d43359d64f00dfcb2d252",
-          "updated": "2026-04-01 20:26:27",
-          "created": "2026-04-01 20:26:27"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "id_usuario1": [
-      {
-        "json": {
-          "id_usuario": "recmGv86eOkFdjBu3"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "buscar registro - usuario1": [
-      {
-        "json": {
-          "id": "recmGv86eOkFdjBu3",
-          "createdTime": "2026-04-01T20:26:28.000Z",
-          "ID": "jannetbnh@gmail.com",
-          "Nombre completo": "Fernanda valentina contreras quispe",
-          "Email otros": "jannetbnh@gmail.com",
-          "Created": "2026-04-01T20:26:28.000Z",
-          "Magic link": "https://www.bioenglish.lat/magic-authentication?magic-token=51b06ef4d81d43359d64f00dfcb2d252",
-          "id_clientes": [],
-          "id_clientes_2": [],
-          "TEST": 8,
-          "record_id": "recmGv86eOkFdjBu3"
-        },
-        "pairedItem": [
-          {
-            "item": 0
-          }
-        ]
-      }
-    ],
-    "crear registro - portal1": [
-      {
-        "json": {
-          "id": "recqn5NGpGPJGIxAd",
-          "createdTime": "2026-04-01T20:26:36.000Z",
-          "fields": {
-            "ID": "ENGLISH PRE STARTERS KIDS | Virtual | Fiorella | M-J-5:00-6:00pm-S-11:00-12:00pm | Oct25 - jannetbnh@gmail.com",
-            "Usuario": [
-              "recmGv86eOkFdjBu3"
-            ],
-            "Grupo mes": [
-              "recS3OFuokb8s6h6P"
-            ],
-            "Nivel (from Grupo) (from Grupo mes)": [
-              "ENGLISH PRE STARTERS KIDS"
-            ],
-            "Horario (from Grupo) (from Grupo mes)": [
-              "M-J-5:00-6:00pm-S-11:00-12:00pm"
-            ],
-            "Mes (from Grupo mes)": [
-              "Oct25"
-            ],
-            "Nombre completo (from Usuario)": [
-              "Fernanda valentina contreras quispe"
-            ],
-            "Grupo mes f": "ENGLISH%20PRE%20STARTERS%20KIDS%20%7C%20Virtual%20%7C%20Fiorella%20%7C%20M-J-5%3A00-6%3A00pm-S-11%3A00-12%3A00pm%20%7C%20Oct25",
-            "Grupo": [
-              "recLjlYfPNPlTEIOb"
-            ],
-            "Grupo (from Grupo mes)": [
-              "recLjlYfPNPlTEIOb"
-            ],
-            "No pago Rollup (from Usuario)": 0,
-            "Año": [
-              "2026"
-            ],
-            "Created": "2026-04-01T20:26:36.000Z",
-            "record_id (from Grupo mes)": [
-              "recS3OFuokb8s6h6P"
-            ],
-            "record_id (from Usuario)": [
-              "recmGv86eOkFdjBu3"
-            ],
-            "Record ID (from Grupo)": [
-              "recLjlYfPNPlTEIOb"
-            ],
-            "record_id": "recqn5NGpGPJGIxAd"
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
-    "id_portal1": [
-      {
-        "json": {
-          "id_portal": "recqn5NGpGPJGIxAd"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ],
     "When Executed by Another Workflow": [
       {
         "json": {
-          "numero_completo_estudiante": "+51928241761",
-          "numero_completo_apoderado": "+51901526386",
-          "email_estudiante": "evhy_1617@hotmail.com",
-          "email_apoderado": "evhy_1617@hotmail.com",
-          "nombre_estudiante": "Fernando del Piero Sánchez Valdez ",
-          "nombre_apoderado": "Evelyn Valdez Rios ",
-          "monto_depositado": 155,
+          "numero_completo_estudiante": "+51987786149",
+          "numero_completo_apoderado": "+51962095372",
+          "email_estudiante": "yolandaperezmos@gmail.com",
+          "email_apoderado": "yolandaperezmos@gmail.com",
+          "nombre_estudiante": "GABRIEL JOSE SALVADOR PEREZ ",
+          "nombre_apoderado": "YOLANDA DINA PEREZ MOSCOSO ",
+          "monto_depositado": 260,
           "tipo_de_moneda": "soles peruanos",
           "pais_estudiante": "Perú",
-          "id_grupo": "reccjiyZ19rxAWkYG",
+          "id_grupo": "rec6CclsUa2EwHPA3",
           "tipo_estudiante": "Para mi hijo/hija",
-          "dni_apoderado": 45808145,
+          "dni_apoderado": 10677483,
           "pais_apoderado": "",
           "nivel_inglés_apoderado": "Básico",
-          "id_contacto_apoderado_airtable": "rec9g7cz2DSMit8qh",
-          "id_contacto_estudiante_airtable": "recWD9Tx4MWvtU1SM",
-          "id_cliente_airtable": "recAios3h2ojyw9xG",
-          "id_preventa_airtable": "recO5OxHVYlLGorNO",
-          "id_detalles_venta_airtable": "recC5zsum5kRPAgEE",
-          "id_grupo_ultimo_creado": "recSLTUU0b8o7TLgK"
+          "id_contacto_apoderado_airtable": "recIGwedQ1crOxC8U",
+          "id_contacto_estudiante_airtable": "recUpIznZPhUvMaaB",
+          "id_cliente_airtable": "recMbpYhL1mtyq40M",
+          "id_preventa_airtable": "rec5jj4ZEnsSJMuD5",
+          "id_detalles_venta_airtable": "recMTebuMbOBbeedr",
+          "id_grupo_ultimo_creado": "recC0xacKtGyuUkn7"
         },
         "pairedItem": {
           "item": 0
@@ -8360,6 +8506,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-06-02T15:50:17.680Z",
-  "versionId": "49174abb-8cc0-4f7c-91e1-6999662bb6c4"
+  "updatedAt": "2026-07-09T15:41:50.216Z",
+  "versionId": "977e75da-b565-445d-ade9-cec83025ab69"
 }
