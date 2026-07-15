@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-07-09T15:50:49.672Z",
-    "createdAt": "2026-07-09T15:50:43.073Z",
-    "versionId": "2b8ff48f-e76f-41d9-8f03-f0e7c55e1ea8",
+    "updatedAt": "2026-07-14T14:30:22.506Z",
+    "createdAt": "2026-07-14T14:30:21.039Z",
+    "versionId": "6ff9197f-bd75-4ad7-8ced-9dbd9e7aac6b",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -2107,7 +2107,7 @@
                 "leftValue": "={{ $json.precio_completo_nueva_propuesta }}",
                 "rightValue": "",
                 "operator": {
-                  "type": "string",
+                  "type": "number",
                   "operation": "empty",
                   "singleValue": true
                 }
@@ -2336,7 +2336,13 @@
       },
       "obtener registro - grupo": {
         "main": [
-          []
+          [
+            {
+              "node": "Redis1",
+              "type": "main",
+              "index": 0
+            }
+          ]
         ]
       },
       "variables_1": {
@@ -2934,11 +2940,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 2b8ff48f",
+    "name": "Version 6ff9197f",
     "description": "",
-    "autosaved": true
+    "autosaved": false
   },
-  "activeVersionId": "2b8ff48f-e76f-41d9-8f03-f0e7c55e1ea8",
+  "activeVersionId": "6ff9197f-bd75-4ad7-8ced-9dbd9e7aac6b",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -2982,7 +2988,13 @@
     },
     "obtener registro - grupo": {
       "main": [
-        []
+        [
+          {
+            "node": "Redis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "variables_1": {
@@ -5688,7 +5700,7 @@
               "leftValue": "={{ $json.precio_completo_nueva_propuesta }}",
               "rightValue": "",
               "operator": {
-                "type": "string",
+                "type": "number",
                 "operation": "empty",
                 "singleValue": true
               }
@@ -5881,26 +5893,26 @@
           "headers": {
             "host": "primary-production-55a73.up.railway.app",
             "user-agent": "Mozilla/5.0 (compatible; AirtableScripting; +https://airtable.com/developers/scripting;)",
-            "content-length": "57",
+            "content-length": "56",
             "accept": "*/*",
             "accept-encoding": "gzip,deflate",
             "content-type": "application/json",
-            "x-airtable-source": "appBCL3CWLhCwIjnP/wflF0v8TmvsCxuuSu",
-            "x-forwarded-for": "3.82.20.254, 152.233.30.101",
+            "x-airtable-source": "appBCL3CWLhCwIjnP/wfldl7yzI3ssaUmA8",
+            "x-forwarded-for": "52.90.142.108, 152.233.47.69",
             "x-forwarded-host": "primary-production-55a73.up.railway.app",
             "x-forwarded-proto": "https",
-            "x-railway-edge": "railway/us-east4-eqdc4a",
-            "x-railway-request-id": "LolCFTC9S9235-RMg4a9AQ",
-            "x-real-ip": "3.82.20.254",
-            "x-request-start": "1781413244604"
+            "x-railway-edge": "jfk1",
+            "x-railway-request-id": "zZgYWy58RBmzEDbfjq4OvQ",
+            "x-real-ip": "52.90.142.108",
+            "x-request-start": "1783832552521"
           },
           "params": {},
           "query": {
             "tipo": "chatbot_upselling"
           },
           "body": {
-            "recordId": "recUOvKkav0UJ5vE1",
-            "Tipo": "13_dias_despues"
+            "recordId": "rec9X4VqMpcGl17xY",
+            "Tipo": "3_dias_despues"
           },
           "webhookUrl": "https://primary-production-55a73.up.railway.app/webhook/9835affc-72a4-47ea-8968-aecdccf2b771",
           "executionMode": "production"
@@ -5934,6 +5946,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-07-09T15:50:43.076Z",
-  "versionId": "2b8ff48f-e76f-41d9-8f03-f0e7c55e1ea8"
+  "updatedAt": "2026-07-14T14:31:29.468Z",
+  "versionId": "6ff9197f-bd75-4ad7-8ced-9dbd9e7aac6b"
 }
