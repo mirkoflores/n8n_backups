@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-07-09T15:17:59.105Z",
-    "createdAt": "2026-07-09T15:17:55.825Z",
-    "versionId": "fbce24bd-5ab8-48f7-afd6-dda868d72a19",
+    "updatedAt": "2026-07-17T23:29:00.329Z",
+    "createdAt": "2026-07-17T23:28:59.266Z",
+    "versionId": "38657ddd-8b82-4278-b4d3-0a70f6777e5b",
     "workflowId": "TmvMLK0DC1e6cY95",
     "nodes": [
       {
@@ -38,6 +38,9 @@
         ],
         "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
         "name": "Enviar mensaje2",
+        "retryOnFail": true,
+        "maxTries": 5,
+        "waitBetweenTries": 5000,
         "credentials": {
           "oAuth2Api": {
             "id": "q6wwHvaILtzGGbjE",
@@ -74,11 +77,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version fbce24bd",
+    "name": "Version 38657ddd",
     "description": "",
-    "autosaved": true
+    "autosaved": false
   },
-  "activeVersionId": "fbce24bd-5ab8-48f7-afd6-dda868d72a19",
+  "activeVersionId": "38657ddd-8b82-4278-b4d3-0a70f6777e5b",
   "connections": {
     "Start": {
       "main": [
@@ -130,6 +133,9 @@
       ],
       "id": "09be8a55-f785-4c77-8f68-8a6d4b1073b1",
       "name": "Enviar mensaje2",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "credentials": {
         "oAuth2Api": {
           "id": "q6wwHvaILtzGGbjE",
@@ -156,9 +162,12 @@
     "Start": [
       {
         "json": {
-          "id_entity": 123,
-          "tipo": "a",
-          "id_bot": 123
+          "id_entity": 25534486,
+          "tipo": "leads",
+          "id_bot": 65684
+        },
+        "pairedItem": {
+          "item": 0
         }
       }
     ]
@@ -186,6 +195,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-07-09T15:20:14.811Z",
-  "versionId": "fbce24bd-5ab8-48f7-afd6-dda868d72a19"
+  "updatedAt": "2026-07-17T23:32:00.168Z",
+  "versionId": "38657ddd-8b82-4278-b4d3-0a70f6777e5b"
 }
