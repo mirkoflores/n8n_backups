@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-07-14T14:30:22.506Z",
-    "createdAt": "2026-07-14T14:30:21.039Z",
-    "versionId": "6ff9197f-bd75-4ad7-8ced-9dbd9e7aac6b",
+    "updatedAt": "2026-08-14T00:11:02.892Z",
+    "createdAt": "2026-08-14T00:11:00.723Z",
+    "versionId": "0dfa9f60-3fc2-44a9-be6d-c95992ada81a",
     "workflowId": "HALPYZ7HHe7U1tZK",
     "nodes": [
       {
@@ -2940,11 +2940,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 6ff9197f",
+    "name": "Version 0dfa9f60",
     "description": "",
-    "autosaved": false
+    "autosaved": true
   },
-  "activeVersionId": "6ff9197f-bd75-4ad7-8ced-9dbd9e7aac6b",
+  "activeVersionId": "0dfa9f60-3fc2-44a9-be6d-c95992ada81a",
   "connections": {
     "RabbitMQ Trigger": {
       "main": [
@@ -5946,6 +5946,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-07-14T14:31:29.468Z",
-  "versionId": "6ff9197f-bd75-4ad7-8ced-9dbd9e7aac6b"
+  "updatedAt": "2026-08-14T00:11:00.716Z",
+  "versionId": "0dfa9f60-3fc2-44a9-be6d-c95992ada81a"
 }
