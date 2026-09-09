@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2025-12-31T17:17:27.705Z",
-    "createdAt": "2025-12-31T17:17:21.545Z",
-    "versionId": "ace4d48d-9b5e-445b-a936-769e9757e60c",
+    "updatedAt": "2026-09-09T01:00:31.425Z",
+    "createdAt": "2026-09-09T01:00:30.201Z",
+    "versionId": "dfb14396-b5a1-4976-bee8-658fed391c1e",
     "workflowId": "3eeV0S5bC6x3HCMd",
     "nodes": [
       {
@@ -127,11 +127,6 @@
         "main": [
           [
             {
-              "node": "enviar error",
-              "type": "main",
-              "index": 0
-            },
-            {
               "node": "Send a message",
               "type": "main",
               "index": 0
@@ -141,11 +136,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version ace4d48d",
+    "name": "Version dfb14396",
     "description": "",
     "autosaved": false
   },
-  "activeVersionId": "ace4d48d-9b5e-445b-a936-769e9757e60c",
+  "activeVersionId": "dfb14396-b5a1-4976-bee8-658fed391c1e",
   "connections": {
     "Error Trigger": {
       "main": [
@@ -166,11 +161,6 @@
     "Filter": {
       "main": [
         [
-          {
-            "node": "enviar error",
-            "type": "main",
-            "index": 0
-          },
           {
             "node": "Send a message",
             "type": "main",
@@ -337,7 +327,8 @@
   "repo_owner": "mirkoflores",
   "repo_path": "n8n",
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -351,6 +342,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-10T00:45:06.776Z",
-  "versionId": "ace4d48d-9b5e-445b-a936-769e9757e60c"
+  "updatedAt": "2026-09-09T01:00:30.192Z",
+  "versionId": "dfb14396-b5a1-4976-bee8-658fed391c1e"
 }
