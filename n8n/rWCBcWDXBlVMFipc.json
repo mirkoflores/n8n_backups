@@ -1,9 +1,9 @@
 {
   "active": true,
   "activeVersion": {
-    "updatedAt": "2026-07-09T15:42:59.296Z",
-    "createdAt": "2026-07-09T15:20:40.901Z",
-    "versionId": "0df35e4c-0751-4be9-b09c-8521dd560983",
+    "updatedAt": "2026-10-03T07:16:16.275Z",
+    "createdAt": "2026-10-03T07:09:18.177Z",
+    "versionId": "1d39f295-a85a-4ff5-b11d-f3dd11f4791d",
     "workflowId": "rWCBcWDXBlVMFipc",
     "nodes": [
       {
@@ -6451,7 +6451,7 @@
             "cachedResultName": "Clientes",
             "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
           },
-          "filterByFormula": "=OR(\n\nAND(\n{Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\",\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK()),\nNOT({DetalleVentas}=BLANK())\n),\n\nAND(\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK()),\nNOT({DetalleVentas}=BLANK())\n),\n\nAND(\n{Nombre del estudiante}=\"{{ $('variables_1').item.json.nombre_estudiante }}\",\nNOT({Usuarios}=BLANK()),\nNOT({DetalleVentas}=BLANK())\n)\n\n)",
+          "filterByFormula": "={{ $('variables_1').item.json.id_cliente_airtable\n? `AND({Record ID}=\"${$('variables_1').item.json.id_cliente_airtable}\", NOT({Usuarios}=BLANK()), NOT({DetalleVentas}=BLANK()))`\n: `AND({Celular Unico}=\"${$('variables_1').item.json.cel_estudiante}\", NOT({Usuarios}=BLANK()), NOT({DetalleVentas}=BLANK()))` }}",
           "returnAll": false,
           "limit": 1,
           "options": {}
@@ -7134,7 +7134,7 @@
             "cachedResultName": "Clientes",
             "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
           },
-          "filterByFormula": "=OR(\n\nAND(\n{Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\",\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK())\n),\n\nAND(\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK())\n),\n\nAND(\n{Nombre del estudiante}=\"{{ $('variables_1').item.json.nombre_estudiante }}\",\nNOT({Usuarios}=BLANK())\n)\n\n)",
+          "filterByFormula": "={{ $('variables_1').item.json.id_cliente_airtable\n? `AND({Record ID}=\"${$('variables_1').item.json.id_cliente_airtable}\", NOT({Usuarios}=BLANK()), NOT({DetalleVentas}=BLANK()))`\n: `AND({Celular Unico}=\"${$('variables_1').item.json.cel_estudiante}\", NOT({Usuarios}=BLANK()), NOT({DetalleVentas}=BLANK()))` }}",
           "returnAll": false,
           "limit": 1,
           "options": {}
@@ -8324,11 +8324,11 @@
       }
     },
     "authors": "Bioenglish Lat",
-    "name": "Version 0df35e4c",
+    "name": "Version 1d39f295",
     "description": "",
     "autosaved": true
   },
-  "activeVersionId": "0df35e4c-0751-4be9-b09c-8521dd560983",
+  "activeVersionId": "1d39f295-a85a-4ff5-b11d-f3dd11f4791d",
   "connections": {
     "Tally Trigger": {
       "main": [
@@ -15578,7 +15578,7 @@
           "cachedResultName": "Clientes",
           "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
         },
-        "filterByFormula": "=OR(\n\nAND(\n{Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\",\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK()),\nNOT({DetalleVentas}=BLANK())\n),\n\nAND(\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK()),\nNOT({DetalleVentas}=BLANK())\n),\n\nAND(\n{Nombre del estudiante}=\"{{ $('variables_1').item.json.nombre_estudiante }}\",\nNOT({Usuarios}=BLANK()),\nNOT({DetalleVentas}=BLANK())\n)\n\n)",
+        "filterByFormula": "={{ $('variables_1').item.json.id_cliente_airtable\n? `AND({Record ID}=\"${$('variables_1').item.json.id_cliente_airtable}\", NOT({Usuarios}=BLANK()), NOT({DetalleVentas}=BLANK()))`\n: `AND({Celular Unico}=\"${$('variables_1').item.json.cel_estudiante}\", NOT({Usuarios}=BLANK()), NOT({DetalleVentas}=BLANK()))` }}",
         "returnAll": false,
         "limit": 1,
         "options": {}
@@ -16261,7 +16261,7 @@
           "cachedResultName": "Clientes",
           "cachedResultUrl": "https://airtable.com/appBCL3CWLhCwIjnP/tblkpm3CwBi8WctOZ"
         },
-        "filterByFormula": "=OR(\n\nAND(\n{Record ID}=\"{{$('variables_1').item.json.id_cliente_airtable}}\",\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK())\n),\n\nAND(\n{Celular Unico}=\"{{$('variables_1').item.json.cel_estudiante}}\",\nNOT({Usuarios}=BLANK())\n),\n\nAND(\n{Nombre del estudiante}=\"{{ $('variables_1').item.json.nombre_estudiante }}\",\nNOT({Usuarios}=BLANK())\n)\n\n)",
+        "filterByFormula": "={{ $('variables_1').item.json.id_cliente_airtable\n? `AND({Record ID}=\"${$('variables_1').item.json.id_cliente_airtable}\", NOT({Usuarios}=BLANK()), NOT({DetalleVentas}=BLANK()))`\n: `AND({Celular Unico}=\"${$('variables_1').item.json.cel_estudiante}\", NOT({Usuarios}=BLANK()), NOT({DetalleVentas}=BLANK()))` }}",
         "returnAll": false,
         "limit": 1,
         "options": {}
@@ -16704,80 +16704,6 @@
           }
         }
       }
-    ],
-    "Tally Trigger": [
-      {
-        "json": {
-          "id": "QoBDak1",
-          "formId": "A7K61k",
-          "formName": "Bioenglish - renovacion",
-          "respondentId": "Gxl8WDz",
-          "createdAt": "2026-07-09T14:14:08.000Z",
-          "question_zqjAMq": {
-            "label": "Nombre del estudiante\n",
-            "value": "Malú Fernanda Garcia Morán",
-            "type": "INPUT_TEXT"
-          },
-          "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
-            "label": "nombre_estudiante",
-            "value": "Malú Fernanda Garcia Morán",
-            "type": "HIDDEN_FIELDS"
-          },
-          "question_d6Eo0A": {
-            "label": "Celular del estudiante\n",
-            "value": "+51967288773",
-            "type": "INPUT_PHONE_NUMBER"
-          },
-          "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
-            "label": "celular_estudiante",
-            "value": "+51967288773",
-            "type": "HIDDEN_FIELDS"
-          },
-          "question_jy6Vg4": {
-            "label": "id_cliente_airtable",
-            "value": "reciUM4OGByD3ec04",
-            "type": "INPUT_TEXT"
-          },
-          "question_lyeEgv_fc65a15c-b459-43f2-8bdd-2ba80612f4fa": {
-            "label": "id_cliente_airtable",
-            "value": "reciUM4OGByD3ec04",
-            "type": "HIDDEN_FIELDS"
-          },
-          "question_5zbY9d": {
-            "label": "Edad del estudiante (indica sólo el número)",
-            "value": 11,
-            "type": "INPUT_NUMBER"
-          },
-          "question_pKrE8Z": {
-            "label": "Meses a renovar",
-            "value": "2",
-            "type": "DROPDOWN"
-          },
-          "question_oyB6x5_752c0b80-1d47-40f4-b1df-b20854ca1a65": {
-            "label": "meses_a_renovar",
-            "value": null,
-            "type": "HIDDEN_FIELDS"
-          },
-          "question_Gz1v7Q": {
-            "label": "tipo_de_formulario",
-            "value": "",
-            "type": "INPUT_TEXT"
-          },
-          "question_OzP1Vk_490d8b92-9402-40c7-8bc7-ae1f0fbe881f": {
-            "label": "tipo_de_formulario",
-            "value": null,
-            "type": "HIDDEN_FIELDS"
-          },
-          "question_YQPbGd": {
-            "label": "Comprobante de pago\n",
-            "value": "https://storage.tally.so/private/Screenshot_20260708_170511.jpg?id=j21p29&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImoyMXAyOSIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc4MzYwNjQ0OH0.dbdrRbK62Qj_u73ezGFZ-bKdIII-kTTI54i3NLfnCd4&signature=124c62c29e0ae790d1d1f147b634ccff25f104be7eafb4f4ab66ed8c9a1f755e",
-            "type": "FILE_UPLOAD"
-          }
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
     ]
   },
   "repo_name": "n8n_backups",
@@ -16802,11 +16728,11 @@
   ],
   "staticData": {
     "node:Tally Trigger": {
-      "webhookId": "3jy2L4"
+      "webhookId": "3lAADB"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-07-09T15:20:40.900Z",
-  "versionId": "0df35e4c-0751-4be9-b09c-8521dd560983"
+  "updatedAt": "2026-10-03T07:16:10.042Z",
+  "versionId": "1d39f295-a85a-4ff5-b11d-f3dd11f4791d"
 }
