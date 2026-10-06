@@ -9140,8 +9140,8 @@
       "type": "n8n-nodes-tallyforms.tallyTrigger",
       "typeVersion": 2,
       "position": [
-        -1280,
-        112
+        -1360,
+        128
       ],
       "id": "41b0a8b7-eb3a-4375-a09d-84312659c7f6",
       "name": "Tally Trigger",
@@ -16733,6 +16733,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-10-03T07:16:10.042Z",
-  "versionId": "1d39f295-a85a-4ff5-b11d-f3dd11f4791d"
+  "updatedAt": "2026-10-05T22:13:04.066Z",
+  "versionId": "7668e303-2f39-48d1-ac02-df3a8576febd"
 }
