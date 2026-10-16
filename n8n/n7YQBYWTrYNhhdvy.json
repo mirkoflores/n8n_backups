@@ -369,7 +369,7 @@
       "type": "n8n-nodes-base.rabbitmq",
       "typeVersion": 1.1,
       "position": [
-        480,
+        464,
         -432
       ],
       "id": "3f628568-73cc-4b0e-bac7-d37da783913e",
@@ -477,7 +477,8 @@
     "timeSavedMode": "fixed",
     "callerPolicy": "workflowsFromSameOwner",
     "availableInMCP": false,
-    "errorWorkflow": "3eeV0S5bC6x3HCMd"
+    "errorWorkflow": "3eeV0S5bC6x3HCMd",
+    "binaryMode": "separate"
   },
   "shared": [
     {
@@ -491,6 +492,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-01-10T01:30:43.046Z",
-  "versionId": "e868351f-ba8d-4f93-aa17-9c4783d67dd8"
+  "updatedAt": "2026-10-15T16:43:29.158Z",
+  "versionId": "95573be0-a9d8-4cbc-ae76-091884892482"
 }
