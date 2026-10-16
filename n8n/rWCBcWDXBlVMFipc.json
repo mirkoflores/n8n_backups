@@ -16704,6 +16704,80 @@
           }
         }
       }
+    ],
+    "Tally Trigger": [
+      {
+        "json": {
+          "id": "ArNgL4o",
+          "formId": "A7K61k",
+          "formName": "Bioenglish - renovacion",
+          "respondentId": "gDkb271",
+          "createdAt": "2026-10-14T22:33:45.000Z",
+          "question_zqjAMq": {
+            "label": "Nombre del estudiante\n",
+            "value": "Arturo salvador marcapura conislla",
+            "type": "INPUT_TEXT"
+          },
+          "question_J6qr07_6f7f3315-4952-434f-9a6f-2e16c52dc427": {
+            "label": "nombre_estudiante",
+            "value": "Arturo salvador marcapura conislla",
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_d6Eo0A": {
+            "label": "Celular del estudiante\n",
+            "value": "+51980336106",
+            "type": "INPUT_PHONE_NUMBER"
+          },
+          "question_g0aV4K_6b6779b1-2704-41e0-9f42-f0969cea2542": {
+            "label": "celular_estudiante",
+            "value": "+51980336106",
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_jy6Vg4": {
+            "label": "id_cliente_airtable",
+            "value": "rec8sKrnnksD7sKG4",
+            "type": "INPUT_TEXT"
+          },
+          "question_lyeEgv_fc65a15c-b459-43f2-8bdd-2ba80612f4fa": {
+            "label": "id_cliente_airtable",
+            "value": "rec8sKrnnksD7sKG4",
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_5zbY9d": {
+            "label": "Edad del estudiante (indica sólo el número)",
+            "value": 16,
+            "type": "INPUT_NUMBER"
+          },
+          "question_pKrE8Z": {
+            "label": "Meses a renovar",
+            "value": "2",
+            "type": "DROPDOWN"
+          },
+          "question_oyB6x5_752c0b80-1d47-40f4-b1df-b20854ca1a65": {
+            "label": "meses_a_renovar",
+            "value": null,
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_Gz1v7Q": {
+            "label": "tipo_de_formulario",
+            "value": "",
+            "type": "INPUT_TEXT"
+          },
+          "question_OzP1Vk_490d8b92-9402-40c7-8bc7-ae1f0fbe881f": {
+            "label": "tipo_de_formulario",
+            "value": null,
+            "type": "HIDDEN_FIELDS"
+          },
+          "question_YQPbGd": {
+            "label": "Comprobante de pago\n",
+            "value": "https://storage.tally.so/private/Screenshot_20261014_173304.jpg?id=RqWvEQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJxV3ZFUSIsImZvcm1JZCI6IkE3SzYxayIsImlhdCI6MTc5MjAxNzIyNX0.op2mZxpGoi1hWehr3iR9AXBrMZXv9zD1vpWQtqoPLqA&signature=3d673ddfa76954a426621ec853c4a23e2352903cb4faeeea6959fb12c9234c1a",
+            "type": "FILE_UPLOAD"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
     ]
   },
   "repo_name": "n8n_backups",
@@ -16733,6 +16807,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-10-05T22:13:04.066Z",
+  "updatedAt": "2026-10-15T16:49:05.252Z",
   "versionId": "7668e303-2f39-48d1-ac02-df3a8576febd"
 }
