@@ -5210,7 +5210,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "Chatbot de cobranzas",
+  "name": "Chatbot de cobranzas y recordatorios",
   "nodes": [
     {
       "parameters": {
@@ -9174,6 +9174,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-07-09T15:24:49.952Z",
+  "updatedAt": "2026-10-15T13:06:28.847Z",
   "versionId": "e687072c-d676-41f2-9c11-c0eafd1f68ce"
 }
